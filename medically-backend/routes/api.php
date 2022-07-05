@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JWTController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FavoriteController;
 
 Route::group(['middleware' => 'api'], function($router) {
     Route::post('/register', [JWTController::class, 'register']);
@@ -22,6 +23,12 @@ Route::group(['prefix'=>'admin'], function(){
     
 });
 
+
+Route::group(['prefix'=>'user'], function(){
+    Route::post('/add-favorite', [FavoriteController::class, 'addFavorite']);
+
+    
+});
 
 
 Route::get('/get-doctors', [DoctorController::class, 'getAllDoctors']);
