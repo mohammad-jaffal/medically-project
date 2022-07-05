@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor_detail;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
  
-    public function addDoctor(Request $request){
+    public function addDoctorDetails(Request $request){
 
         $doctor = new Doctor_detail;
 
@@ -30,15 +30,24 @@ class DoctorController extends Controller
 
     public function getAllDoctors(Request $request){
 
-        $doctors = Doctor_detail::join('users', 'users.id', '=', 'doctor_details.doctor_id')->get(['users.*', 'doctor_details.*']);
+        $doctors = Doctor_detail::join('users', 'users.id', '=', 'doctor_details.doctor_id')->get(['doctor_details.*', 'users.*']);
 
         return response()->json([
             "success" => true,
             "doctors" => $doctors
         ], 200);
     }
+    // DB::table('user')->where('email', $userEmail)->update(array('member_type' => $plan));
 
 
+    public function makeDoctor(Request $request){
+
+        \DB::table('users')->where('id', $request->user_id)->update(array('type' => 2));
+
+        return response()->json([
+            "success" => true,
+        ], 200);
+    }
 
 
 }
