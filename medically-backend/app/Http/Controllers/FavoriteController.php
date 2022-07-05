@@ -18,4 +18,15 @@ class FavoriteController extends Controller
             "success" => true,
         ], 200);
     }
+
+    // needs another look at the logic
+    public function getFavoritesByUserID(Request $request){
+        $favorites = Favorite::all()->where('user_id',$request->user_id);
+        return response()->json([
+            "success" => true,
+            "favorites" => $favorites
+        ], 200);
+    }
+
+
 }
