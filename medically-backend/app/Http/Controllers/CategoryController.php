@@ -18,4 +18,12 @@ class CategoryController extends Controller
         ], 200);
     }
 
+    public function getCategories(Request $request){
+        $categories = Category::all();
+        return response()->json([
+            "success" => true,
+            "categories" => $categories
+        ], 200);
+    }
+
 }

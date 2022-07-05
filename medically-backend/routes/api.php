@@ -25,3 +25,4 @@ Route::group(['prefix'=>'admin'], function(){
 
 
 Route::get('/get-doctors', [DoctorController::class, 'getAllDoctors']);
+Route::get('/get-categories', [CategoryController::class, 'getCategories']);
