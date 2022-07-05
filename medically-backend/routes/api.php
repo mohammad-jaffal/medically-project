@@ -16,3 +16,7 @@ Route::group(['middleware' => 'api'], function($router) {
 Route::group(['prefix'=>'admin'], function(){
     Route::post('/add-doctor', [DoctorController::class, 'addDoctor']);
 });
+
+
+
+Route::get('/get-doctors', [DoctorController::class, 'getAllDoctors']);

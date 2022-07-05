@@ -26,4 +26,19 @@ class DoctorController extends Controller
             "success" => true,
         ], 200);
     }
+
+
+    public function getAllDoctors(Request $request){
+
+        $doctors = Doctor_detail::join('users', 'users.id', '=', 'doctor_details.doctor_id')->get(['users.*', 'doctor_details.*']);
+
+        return response()->json([
+            "success" => true,
+            "doctors" => $doctors
+        ], 200);
+    }
+
+
+
+
 }
