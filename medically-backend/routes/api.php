@@ -7,6 +7,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CallController;
+use App\Http\Controllers\ReviewController;
 
 Route::group(['middleware' => 'api'], function($router) {
     Route::post('/register', [JWTController::class, 'register']);
@@ -26,8 +27,12 @@ Route::group(['prefix'=>'admin'], function(){
 Route::group(['prefix'=>'user'], function(){
     Route::post('/add-favorite', [FavoriteController::class, 'addFavorite']);
     Route::post('/get-favorites', [FavoriteController::class, 'getFavoritesByUserID']);
+
     Route::post('/add-call', [CallController::class, 'addCall']);
     Route::post('/get-calls', [CallController::class, 'getCallsByUserID']);
+
+    Route::post('/add-review', [ReviewController::class, 'addReview']);
+
 
 });
 
