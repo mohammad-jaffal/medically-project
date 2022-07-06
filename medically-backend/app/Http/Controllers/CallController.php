@@ -27,4 +27,12 @@ class CallController extends Controller
             "calls" => $calls
         ], 200);
     }
+
+    public function getCallsByDoctorID(Request $request){
+        $calls = Call::all()->where('doctor_id',$request->doctor_id);
+        return response()->json([
+            "success" => true,
+            "calls" => $calls
+        ], 200);
+    }
 }
