@@ -39,3 +39,4 @@ Route::group(['prefix'=>'user'], function(){
 
 Route::get('/get-doctors', [DoctorController::class, 'getAllDoctors']);
 Route::get('/get-domains', [DomainController::class, 'getDomains']);
+Route::post('/get-reviews', [ReviewController::class, 'getReviewsByDoctorID']);

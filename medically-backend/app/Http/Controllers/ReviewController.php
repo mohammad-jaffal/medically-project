@@ -20,4 +20,12 @@ class ReviewController extends Controller
             "success" => true,
         ], 200);
     }
+
+    public function getReviewsByDoctorID(Request $request){
+        $reviews = Review::all()->where('doctor_id',$request->doctor_id);
+        return response()->json([
+            "success" => true,
+            "reviews" => $reviews
+        ], 200);
+    }
 }
