@@ -19,16 +19,12 @@ Route::group(['prefix'=>'admin'], function(){
     Route::post('/add-doctor-details', [DoctorController::class, 'addDoctorDetails']);
     Route::post('/make-doctor', [DoctorController::class, 'makeDoctor']);
     Route::post('/add-category', [CategoryController::class, 'addCategory']);
-
-    
 });
 
 
 Route::group(['prefix'=>'user'], function(){
     Route::post('/add-favorite', [FavoriteController::class, 'addFavorite']);
     Route::post('/get-favorites', [FavoriteController::class, 'getFavoritesByUserID']);
-
-    
 });
 
 
