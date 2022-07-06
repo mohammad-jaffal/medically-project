@@ -18,7 +18,7 @@ class DoctorController extends Controller
         $doctor->channel_name = $request->channel_name;
         $doctor->channel_token = $request->channel_token;
         $doctor->bio = 'empty doctor bio';
-        $doctor->category_id = $request->category_id;
+        $doctor->domain_id = $request->domain_id;
 
         $doctor->save();
 
