@@ -19,4 +19,12 @@ class CallController extends Controller
             "success" => true,
         ], 200);
     }
+
+    public function getCallsByUserID(Request $request){
+        $calls = Call::all()->where('user_id',$request->user_id);
+        return response()->json([
+            "success" => true,
+            "calls" => $calls
+        ], 200);
+    }
 }

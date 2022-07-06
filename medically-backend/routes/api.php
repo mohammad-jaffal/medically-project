@@ -27,6 +27,7 @@ Route::group(['prefix'=>'user'], function(){
     Route::post('/add-favorite', [FavoriteController::class, 'addFavorite']);
     Route::post('/get-favorites', [FavoriteController::class, 'getFavoritesByUserID']);
     Route::post('/add-call', [CallController::class, 'addCall']);
+    Route::post('/get-calls', [CallController::class, 'getCallsByUserID']);
 
 });
 
