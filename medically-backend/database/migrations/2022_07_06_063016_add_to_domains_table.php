@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddToDoctorDetailsTable extends Migration
+class AddToDomainsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddToDoctorDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::table('doctor_details', function (Blueprint $table) {
-            $table->decimal('rating', 2, 1)->after('doctor_id');
+        Schema::table('domains', function (Blueprint $table) {
+            $table->dropColumn('category_name');
+            $table->string('domain_name', 45)->after('id');
         });
     }
 
@@ -25,7 +26,7 @@ class AddToDoctorDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::table('doctor_details', function (Blueprint $table) {
+        Schema::table('domains', function (Blueprint $table) {
             //
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JWTController;
 use App\Http\Controllers\DoctorController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DomainController;
 use App\Http\Controllers\FavoriteController;
 
 Route::group(['middleware' => 'api'], function($router) {
@@ -18,7 +18,7 @@ Route::group(['middleware' => 'api'], function($router) {
 Route::group(['prefix'=>'admin'], function(){
     Route::post('/add-doctor-details', [DoctorController::class, 'addDoctorDetails']);
     Route::post('/make-doctor', [DoctorController::class, 'makeDoctor']);
-    Route::post('/add-category', [CategoryController::class, 'addCategory']);
+    Route::post('/add-domain', [DomainController::class, 'addDomain']);
 });
 
 
@@ -29,4 +29,4 @@ Route::group(['prefix'=>'user'], function(){
 
 
 Route::get('/get-doctors', [DoctorController::class, 'getAllDoctors']);
-Route::get('/get-categories', [CategoryController::class, 'getCategories']);
+Route::get('/get-domains', [DomainController::class, 'getDomains']);
