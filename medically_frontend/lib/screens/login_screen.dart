@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/consts/theme_data.dart';
 import 'package:medically_frontend/providers/dark_theme_provider.dart';
 import 'package:medically_frontend/services/dark_theme_prefs.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +19,9 @@ class _LoginScreenState extends State<LoginScreen> {
     final themeState = Provider.of<DarkThemeProvider>(context);
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text('data'),
+      ),
       body: Center(
         child: SwitchListTile(
           title: Text("Theme"),

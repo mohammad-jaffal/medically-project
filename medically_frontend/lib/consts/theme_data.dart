@@ -5,7 +5,10 @@ class Styles {
     return ThemeData(
       scaffoldBackgroundColor:
           isDarkTheme ? const Color(0xFF00001a) : const Color(0xFFFFFFFF),
-      primaryColor: const Color(0x000500ff),
+      primaryColor: isDarkTheme
+          ? const Color(0xFF00001a)
+          : Color.fromARGB(255, 0, 4, 255),
+      // Color.fromARGB(255, 0, 4, 255),
       colorScheme: ThemeData().colorScheme.copyWith(
             secondary:
                 isDarkTheme ? const Color(0xff1a1f3c) : const Color(0xffe8fdfd),
@@ -18,6 +21,22 @@ class Styles {
           colorScheme: isDarkTheme
               ? const ColorScheme.dark()
               : const ColorScheme.light()),
+
+      // app bar theme
+      appBarTheme: AppBarTheme(
+        backgroundColor:
+            isDarkTheme ? Colors.black : Color.fromARGB(255, 0, 4, 255),
+        // This will be applied to the "back" icon
+        iconTheme: IconThemeData(color: Colors.white),
+        // This will be applied to the action icon buttons that locates on the right side
+        actionsIconTheme: IconThemeData(color: Colors.white),
+        // centerTitle: true,
+        // elevation: 15,
+        titleTextStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+        ),
+      ),
     );
   }
 }
