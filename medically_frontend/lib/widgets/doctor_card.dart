@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:medically_frontend/models/doctor.dart';
 import 'dart:convert';
 
@@ -49,14 +50,19 @@ class DoctorCard extends StatelessWidget {
                 ),
               ),
               const Expanded(child: SizedBox()),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.amber[300],
-                  borderRadius: BorderRadius.circular(50),
+              Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: RatingBarIndicator(
+                  rating: doctor.rating,
+                  itemBuilder: (context, index) => const Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                  ),
+                  itemCount: 5,
+                  itemSize: 20,
+                  direction: Axis.horizontal,
                 ),
-                height: 50,
-                width: 50,
-              )
+              ),
             ],
           ),
           // child: Text(doctor.name),
