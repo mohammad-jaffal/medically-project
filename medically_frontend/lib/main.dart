@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medically_frontend/consts/theme_data.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
 
 void main() {
@@ -14,11 +15,9 @@ class MyApp extends StatelessWidget {
     bool _isDark = false;
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        scaffoldBackgroundColor: _isDark ? Colors.grey : Colors.white,
-        primarySwatch: Colors.blue,
-      ),
+      theme: Styles.themeData(false, context),
       home: const LoginScreen(),
     );
   }
