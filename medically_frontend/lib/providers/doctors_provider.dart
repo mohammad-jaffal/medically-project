@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medically_frontend/models/doctor.dart';
 
-class MoviesProvider with ChangeNotifier {
+class DoctorsProvider with ChangeNotifier {
   final List _doctors = [
     {
       "id": 1,
@@ -53,7 +54,8 @@ class MoviesProvider with ChangeNotifier {
   ];
   int page = 1;
 
-  List get getMovies {
-    return [..._doctors];
+  List get getAllDoctors {
+    var _doctorsList = _doctors.map((e) => Doctor.fromJson(e)).toList();
+    return [..._doctorsList];
   }
 }

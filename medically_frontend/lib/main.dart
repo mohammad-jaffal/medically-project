@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medically_frontend/consts/theme_data.dart';
 import 'package:medically_frontend/providers/dark_theme_provider.dart';
+import 'package:medically_frontend/providers/doctors_provider.dart';
 import 'package:medically_frontend/screens/bottom_bar.dart';
 import 'package:medically_frontend/screens/doctor_details_screen.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
@@ -38,7 +39,8 @@ class _MyAppState extends State<MyApp> {
       providers: [
         ChangeNotifierProvider(create: (_) {
           return themeChangeProvider;
-        })
+        }),
+        ChangeNotifierProvider(create: (ctx) => DoctorsProvider()),
       ],
       child:
           Consumer<DarkThemeProvider>(builder: (context, themeProvider, child) {
