@@ -5,6 +5,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:medically_frontend/models/doctor.dart';
 import 'dart:convert';
 
+import 'package:medically_frontend/screens/doctor_details_screen.dart';
+
 class DoctorCard extends StatelessWidget {
   final Doctor doctor;
 
@@ -44,23 +46,22 @@ class DoctorCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(doctor.name),
+                    Text(
+                      doctor.name,
+                      style: const TextStyle(fontSize: 18),
+                    ),
                     Text('domain ${doctor.domainId}'),
+                    RatingBarIndicator(
+                      rating: doctor.rating,
+                      itemBuilder: (context, index) => const Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      itemCount: 5,
+                      itemSize: 20,
+                      direction: Axis.horizontal,
+                    ),
                   ],
-                ),
-              ),
-              const Expanded(child: SizedBox()),
-              Padding(
-                padding: const EdgeInsets.only(right: 10),
-                child: RatingBarIndicator(
-                  rating: doctor.rating,
-                  itemBuilder: (context, index) => const Icon(
-                    Icons.star,
-                    color: Colors.amber,
-                  ),
-                  itemCount: 5,
-                  itemSize: 20,
-                  direction: Axis.horizontal,
                 ),
               ),
             ],
@@ -68,6 +69,13 @@ class DoctorCard extends StatelessWidget {
           // child: Text(doctor.name),
         ),
       ),
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          DoctorDetailsScreen.routeName,
+          arguments: doctor.id,
+        );
+      },
     );
   }
 }

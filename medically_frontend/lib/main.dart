@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medically_frontend/consts/theme_data.dart';
 import 'package:medically_frontend/providers/dark_theme_provider.dart';
 import 'package:medically_frontend/screens/bottom_bar.dart';
+import 'package:medically_frontend/screens/doctor_details_screen.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -49,6 +50,7 @@ class _MyAppState extends State<MyApp> {
           routes: {
             LoginScreen.routeName: (ctx) => LoginScreen(),
             BottomBarScreen.routeName: (ctx) => BottomBarScreen(),
+            DoctorDetailsScreen.routeName: (ctx) => DoctorDetailsScreen(),
           },
         );
       }),
