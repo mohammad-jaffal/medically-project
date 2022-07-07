@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme: Styles.themeData(true, context),
+          theme: Styles.themeData(themeProvider.getDarkTheme, context),
           home: const LoginScreen(),
         );
       }),
