@@ -20,10 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final ScrollController controller = ScrollController();
-
     final doctorsProvider = Provider.of<DoctorsProvider>(context);
-    var doctors = doctorsProvider.getAllDoctors;
-
+    var alldoctors = doctorsProvider.getAllDoctors;
+    var _doctors = alldoctors;
+    var temp = [];
     return Scaffold(
       appBar: AppBar(
         title: customSearchBar,
@@ -34,9 +34,16 @@ class _HomeScreenState extends State<HomeScreen> {
               setState(() {
                 if (customIcon.icon == Icons.search) {
                   customIcon = const Icon(Icons.cancel);
-                  customSearchBar = const ListTile(
+                  customSearchBar = ListTile(
                     title: TextField(
-                      decoration: InputDecoration(
+                      onChanged: (value) {
+                        for (var i = 0; i < alldoctors.length; i++) {
+                          if (alldoctors[i].name.contains(value)) {
+                            print(alldoctors[i].name);
+                          }
+                        }
+                      },
+                      decoration: const InputDecoration(
                         hintText: 'Enter doctor\'s name...',
                         hintStyle: TextStyle(
                           color: Colors.white,
@@ -45,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         border: InputBorder.none,
                       ),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                       ),
                       autofocus: true,
@@ -64,8 +71,8 @@ class _HomeScreenState extends State<HomeScreen> {
       body: GridView.builder(
         controller: controller,
         padding: const EdgeInsets.all(10),
-        itemCount: doctors.length,
-        itemBuilder: (ctx, i) => DoctorCard(doctors[i]),
+        itemCount: _doctors.length,
+        itemBuilder: (ctx, i) => DoctorCard(_doctors[i]),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 1,
           childAspectRatio: 4 / 1,
