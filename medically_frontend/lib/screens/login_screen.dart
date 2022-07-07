@@ -70,12 +70,18 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 50),
                         TextFormField(
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 0, 4, 255),
+                          ),
                           key: const ValueKey('login_email'),
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(50)),
                             hintText: 'Email',
+                            hintStyle: const TextStyle(
+                              color: Colors.blueGrey,
+                            ),
                           ),
                           onSaved: (value) {
                             _loginEmail = value.toString();
@@ -83,11 +89,17 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 20),
                         TextFormField(
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 0, 4, 255),
+                          ),
                           key: const ValueKey('login_password'),
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(50)),
                             hintText: 'Password',
+                            hintStyle: const TextStyle(
+                              color: Colors.blueGrey,
+                            ),
                           ),
                           obscureText: true,
                           onSaved: (value) {
@@ -103,7 +115,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               borderRadius: BorderRadius.circular(20),
                             ),
                             textStyle: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           onPressed: _loginFunction,
                           child: const Text('Login'),
@@ -139,12 +153,18 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 50),
                         TextFormField(
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 0, 4, 255),
+                          ),
                           key: const ValueKey('signup_name'),
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(50)),
                             hintText: 'name',
+                            hintStyle: const TextStyle(
+                              color: Colors.blueGrey,
+                            ),
                           ),
                           onSaved: (value) {
                             _signupName = value.toString();
@@ -152,12 +172,18 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 20),
                         TextFormField(
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 0, 4, 255),
+                          ),
                           key: const ValueKey('signup_email'),
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(50)),
                             hintText: 'Email',
+                            hintStyle: const TextStyle(
+                              color: Colors.blueGrey,
+                            ),
                           ),
                           onSaved: (value) {
                             _signupEmail = value.toString();
@@ -165,11 +191,17 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 20),
                         TextFormField(
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 0, 4, 255),
+                          ),
                           key: const ValueKey('signup_password'),
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(50)),
                             hintText: 'Password',
+                            hintStyle: const TextStyle(
+                              color: Colors.blueGrey,
+                            ),
                           ),
                           obscureText: true,
                           onSaved: (value) {
@@ -178,11 +210,17 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 20),
                         TextFormField(
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 0, 4, 255),
+                          ),
                           key: const ValueKey('signup_confirm_password'),
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(50)),
                             hintText: 'Confirm password',
+                            hintStyle: const TextStyle(
+                              color: Colors.blueGrey,
+                            ),
                           ),
                           obscureText: true,
                           onSaved: (value) {
@@ -198,7 +236,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               borderRadius: BorderRadius.circular(20),
                             ),
                             textStyle: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           onPressed: _signupFunction,
                           child: const Text('SignUp'),
