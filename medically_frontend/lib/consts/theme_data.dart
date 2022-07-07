@@ -27,12 +27,12 @@ class Styles {
         backgroundColor:
             isDarkTheme ? Colors.black : Color.fromARGB(255, 0, 4, 255),
         // This will be applied to the "back" icon
-        iconTheme: IconThemeData(color: Colors.white),
+        // iconTheme: IconThemeData(color: Colors.white),
         // This will be applied to the action icon buttons that locates on the right side
-        actionsIconTheme: IconThemeData(color: Colors.white),
+        // actionsIconTheme: IconThemeData(color: Colors.white),
         // centerTitle: true,
         // elevation: 15,
-        titleTextStyle: TextStyle(
+        titleTextStyle: const TextStyle(
           color: Colors.white,
           fontSize: 20,
         ),
