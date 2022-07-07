@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medically_frontend/consts/theme_data.dart';
 import 'package:medically_frontend/providers/dark_theme_provider.dart';
+import 'package:medically_frontend/screens/bottom_bar.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
 import 'package:medically_frontend/screens/dummy_screen.dart';
 import 'package:provider/provider.dart';
@@ -45,7 +46,7 @@ class _MyAppState extends State<MyApp> {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: Styles.themeData(themeProvider.getDarkTheme, context),
-          home: LoginScreen(),
+          home: BottomBarScreen(),
         );
       }),
     );
