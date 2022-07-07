@@ -36,6 +36,27 @@ class DoctorCard extends StatelessWidget {
                   ),
                 ),
               ),
+              Padding(
+                // padding: const EdgeInsets.symmetric(vertical: 10),
+                padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(doctor.name),
+                    Text('domain ${doctor.domainId}'),
+                  ],
+                ),
+              ),
+              const Expanded(child: SizedBox()),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.amber[300],
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                height: 50,
+                width: 50,
+              )
             ],
           ),
           // child: Text(doctor.name),
