@@ -14,6 +14,28 @@ class _LoginScreenState extends State<LoginScreen> {
   final _signupFormKey = GlobalKey<FormState>();
   var _isLogin = true;
 
+  var _loginEmail = '';
+  var _loginPassword = '';
+
+  var _signupName = '';
+  var _signupEmail = '';
+  var _signupPassword = '';
+  var _signupConfirmPassword = '';
+
+  void _loginFunction() {
+    // _loginFormKey.currentState!.save();
+    // // print(_loginEmail);
+    // // print(_loginPassword);
+  }
+
+  void _signupFunction() {
+    // _signupFormKey.currentState!.save();
+    // // print(_signupName);
+    // // print(_signupEmail);
+    // // print(_signupPassword);
+    // // print(_signupConfirmPassword);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,14 +68,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 borderRadius: BorderRadius.circular(50)),
                             hintText: 'Email',
                           ),
-                          validator: (value) {
-                            if (value!.isEmpty || !value.contains('@')) {
-                              return 'enter email';
-                            }
-                            return null;
-                          },
                           onSaved: (value) {
-                            // _userEmail = value.toString();
+                            _loginEmail = value.toString();
                           },
                         ),
                         const SizedBox(height: 20),
@@ -65,14 +81,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             hintText: 'Password',
                           ),
                           obscureText: true,
-                          validator: (value) {
-                            if (value!.isEmpty || value.length < 6) {
-                              return 'password < 6';
-                            }
-                            return null;
-                          },
                           onSaved: (value) {
-                            // _userPassword = value.toString();
+                            _loginPassword = value.toString();
                           },
                         ),
                         const SizedBox(height: 50),
@@ -86,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             textStyle: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
-                          onPressed: () {},
+                          onPressed: _loginFunction,
                           child: const Text('Login'),
                         ),
                         const SizedBox(height: 30),
@@ -128,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             hintText: 'name',
                           ),
                           onSaved: (value) {
-                            // _userEmail = value.toString();
+                            _signupName = value.toString();
                           },
                         ),
                         const SizedBox(height: 20),
@@ -140,14 +150,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 borderRadius: BorderRadius.circular(50)),
                             hintText: 'Email',
                           ),
-                          validator: (value) {
-                            if (value!.isEmpty || !value.contains('@')) {
-                              return 'enter email';
-                            }
-                            return null;
-                          },
                           onSaved: (value) {
-                            // _userEmail = value.toString();
+                            _signupEmail = value.toString();
                           },
                         ),
                         const SizedBox(height: 20),
@@ -159,14 +163,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             hintText: 'Password',
                           ),
                           obscureText: true,
-                          validator: (value) {
-                            if (value!.isEmpty || value.length < 6) {
-                              return 'password < 6';
-                            }
-                            return null;
-                          },
                           onSaved: (value) {
-                            // _userPassword = value.toString();
+                            _signupPassword = value.toString();
                           },
                         ),
                         const SizedBox(height: 20),
@@ -178,14 +176,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             hintText: 'Confirm password',
                           ),
                           obscureText: true,
-                          validator: (value) {
-                            if (value!.isEmpty || value.length < 6) {
-                              return 'password < 6';
-                            }
-                            return null;
-                          },
                           onSaved: (value) {
-                            // _userPassword = value.toString();
+                            _signupConfirmPassword = value.toString();
                           },
                         ),
                         const SizedBox(height: 50),
@@ -199,7 +191,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             textStyle: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
-                          onPressed: () {},
+                          onPressed: _signupFunction,
                           child: const Text('SignUp'),
                         ),
                         const SizedBox(height: 30),
