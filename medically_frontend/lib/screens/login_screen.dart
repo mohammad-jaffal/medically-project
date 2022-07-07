@@ -12,7 +12,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _loginFormKey = GlobalKey<FormState>();
   final _signupFormKey = GlobalKey<FormState>();
-  final _isLogin = true;
+  var _isLogin = true;
 
   @override
   Widget build(BuildContext context) {
@@ -21,20 +21,87 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Center(
         child: SingleChildScrollView(
           child: _isLogin
-              ? Form(
-                  key: _loginFormKey,
-                  child: Column(
-                    // ignore: prefer_const_literals_to_create_immutables
-                    children: [
-                      const Text(
-                        'Login',
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 0, 4, 255),
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Form(
+                    key: _loginFormKey,
+                    child: Column(
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        const Text(
+                          'Login',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 0, 4, 255),
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 50),
+                        TextFormField(
+                          key: ValueKey('login_email'),
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50)),
+                            hintText: 'Email',
+                          ),
+                          validator: (value) {
+                            if (value!.isEmpty || !value.contains('@')) {
+                              return 'enter email';
+                            }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            // _userEmail = value.toString();
+                          },
+                        ),
+                        const SizedBox(height: 20),
+                        TextFormField(
+                          key: ValueKey('password'),
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50)),
+                            hintText: 'Password',
+                          ),
+                          obscureText: true,
+                          validator: (value) {
+                            if (value!.isEmpty || value.length < 6) {
+                              return 'password < 6';
+                            }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            // _userPassword = value.toString();
+                          },
+                        ),
+                        const SizedBox(height: 50),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: const Color.fromARGB(255, 0, 4, 255),
+                            minimumSize: const Size.fromHeight(45),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            textStyle: const TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                          onPressed: () {},
+                          child: Text(_isLogin ? 'Login' : 'SignUp'),
+                        ),
+                        const SizedBox(height: 30),
+                        TextButton(
+                          child: Text(
+                            _isLogin ? 'Signup' : 'Login',
+                            style: const TextStyle(fontSize: 18),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _isLogin = !_isLogin;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 )
               : Form(
