@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/screens/bottom_bar.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
-
+  static const routeName = '/login-screen';
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -26,6 +27,10 @@ class _LoginScreenState extends State<LoginScreen> {
     // _loginFormKey.currentState!.save();
     // // print(_loginEmail);
     // // print(_loginPassword);
+    Navigator.of(context).pushNamed(
+      BottomBarScreen.routeName,
+      arguments: {},
+    );
   }
 
   void _signupFunction() {
@@ -34,6 +39,10 @@ class _LoginScreenState extends State<LoginScreen> {
     // // print(_signupEmail);
     // // print(_signupPassword);
     // // print(_signupConfirmPassword);
+    Navigator.of(context).pushNamed(
+      BottomBarScreen.routeName,
+      arguments: {},
+    );
   }
 
   @override

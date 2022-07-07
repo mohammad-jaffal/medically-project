@@ -4,11 +4,11 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/screens/favorites_screen.dart';
 import 'package:medically_frontend/screens/home_screen.dart';
 import 'package:medically_frontend/screens/logs_screen.dart';
-import 'package:medically_frontend/screens/user_screen.dart';
+import 'package:medically_frontend/screens/user_info_screen.dart';
 
 class BottomBarScreen extends StatefulWidget {
   const BottomBarScreen({Key? key}) : super(key: key);
-
+  static const routeName = '/bottom-bar-screen';
   @override
   State<BottomBarScreen> createState() => _BottomBarScreenState();
 }
@@ -23,7 +23,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
       const HomeScreen(),
       const FavoritesScreen(),
       const LogsScreen(),
-      const UserScreen(),
+      const UserInfoScreen(),
     ];
     super.initState();
   }
