@@ -52,7 +52,6 @@ class DoctorsProvider with ChangeNotifier {
       "domain_id": 2,
     },
   ];
-  int page = 1;
 
   List get getAllDoctors {
     var _doctorsList = _doctors.map((e) => Doctor.fromJson(e)).toList();
