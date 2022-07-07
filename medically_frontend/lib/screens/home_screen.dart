@@ -80,10 +80,10 @@ class _HomeScreenState extends State<HomeScreen> {
         itemCount: _doctors.length,
         itemBuilder: (ctx, i) => DoctorCard(_doctors[i]),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 3 / 4,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 30,
+          crossAxisCount: 1,
+          childAspectRatio: 4 / 1,
+          // crossAxisSpacing: 10,
+          mainAxisSpacing: 15,
         ),
       ),
     );

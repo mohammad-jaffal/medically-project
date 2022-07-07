@@ -12,6 +12,16 @@ class DoctorCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell();
+    return InkWell(
+      child: Card(
+        child: Container(
+          decoration: BoxDecoration(
+            // color: Colors.lightBlue,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Text(doctor.name),
+        ),
+      ),
+    );
   }
 }
