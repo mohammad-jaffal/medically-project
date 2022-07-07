@@ -3,7 +3,6 @@ import 'package:medically_frontend/consts/theme_data.dart';
 import 'package:medically_frontend/providers/dark_theme_provider.dart';
 import 'package:medically_frontend/screens/bottom_bar.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
-import 'package:medically_frontend/screens/dummy_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {

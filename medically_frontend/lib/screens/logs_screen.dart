@@ -12,7 +12,10 @@ class LogsScreen extends StatefulWidget {
 class _LogsScreenState extends State<LogsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('CallLogs'),
+      ),
       body: Center(
         child: Text('Call Logs'),
       ),

@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
     // _loginFormKey.currentState!.save();
     // // print(_loginEmail);
     // // print(_loginPassword);
-    Navigator.of(context).pushNamed(
+    Navigator.of(context).pushReplacementNamed(
       BottomBarScreen.routeName,
       arguments: {},
     );
@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
     // // print(_signupEmail);
     // // print(_signupPassword);
     // // print(_signupConfirmPassword);
-    Navigator.of(context).pushNamed(
+    Navigator.of(context).pushReplacementNamed(
       BottomBarScreen.routeName,
       arguments: {},
     );
