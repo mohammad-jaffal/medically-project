@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medically_frontend/models/call.dart';
+import 'package:medically_frontend/models/review.dart';
 
 class ReviewsProvider with ChangeNotifier {
   final List _reviews = [
@@ -45,8 +46,8 @@ class ReviewsProvider with ChangeNotifier {
     },
   ];
 
-  List getReviewsByDocID(var docId) {
-    var _allReviews = _reviews.map((e) => Call.fromJson(e)).toList();
+  List getReviewsByDocID() {
+    var _allReviews = _reviews.map((e) => Review.fromJson(e)).toList();
     return [..._allReviews];
   }
 }

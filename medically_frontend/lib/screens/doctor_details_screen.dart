@@ -5,6 +5,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/providers/reviews_provider.dart';
+import 'package:medically_frontend/widgets/review_card.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/dark_theme_provider.dart';
@@ -29,6 +31,10 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
     // print(docId);
     var doctor = doctorsProvider.getDoctorByID(docId);
     var _bytesImage = Base64Decoder().convert(doctor.base64Image);
+    // get reviews
+    final reviewsProvider = Provider.of<ReviewsProvider>(context);
+    List reviews = reviewsProvider.getReviewsByDocID();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(doctor.name),
@@ -109,6 +115,15 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                       ),
                     ],
                   ),
+                ),
+              ),
+              ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: reviews.length,
+                itemBuilder: (context, index) => ReviewCard(
+                  reviews[index].rating * 1.0,
+                  reviews[index].review_text,
                 ),
               ),
             ],
