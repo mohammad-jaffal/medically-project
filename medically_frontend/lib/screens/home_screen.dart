@@ -30,6 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
     final doctorsProvider = Provider.of<DoctorsProvider>(context);
     final themeState = Provider.of<DarkThemeProvider>(context);
     var _doctors = doctorsProvider.getDoctors(searchText);
+    var _domains = doctorsProvider.getDomains;
+    // print(_domains[1]['domain_name']);
     return Scaffold(
       appBar: AppBar(
         title: ListTile(
@@ -83,62 +85,38 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 20),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text('All'),
-                          ),
+
+                  SizedBox(
+                    height: 30,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: _domains.length,
+                      itemBuilder: (context, index) => Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            print(_domains[index]['domain_name']);
+                          },
+                          child: Text(_domains[index]['domain_name']),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 20),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text('All'),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 20),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text('All'),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 20),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text('All'),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 20),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text('All'),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 20),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text('All'),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 20),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text('All'),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   )
+
+                  // SingleChildScrollView(
+                  //   scrollDirection: Axis.horizontal,
+                  //   child: Row(
+                  //     children: [
+                  //       Padding(
+                  //         padding: const EdgeInsets.only(right: 20),
+                  //         child: ElevatedButton(
+                  //           onPressed: () {},
+                  //           child: const Text('All'),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               ),
             ),

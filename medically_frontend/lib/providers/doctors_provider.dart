@@ -73,7 +73,7 @@ class DoctorsProvider with ChangeNotifier {
       "channel_name": "doc1channel",
       "channel_token": "doc1token",
       "bio": "doc1 bio is still empty",
-      "domain_id": 2,
+      "domain_id": 3,
     },
     {
       "id": 7,
@@ -97,8 +97,27 @@ class DoctorsProvider with ChangeNotifier {
       "channel_name": "doc1channel",
       "channel_token": "doc1token",
       "bio": "doc1 bio is still empty",
-      "domain_id": 2,
+      "domain_id": 4,
     },
+  ];
+
+  final List _domains = [
+    {
+      "id": 1,
+      "domain_name": "domain 1",
+    },
+    {
+      "id": 2,
+      "domain_name": "domain 2",
+    },
+    {
+      "id": 3,
+      "domain_name": "domain 3",
+    },
+    {
+      "id": 4,
+      "domain_name": "domain 4",
+    }
   ];
 
   List getDoctors(var searchtext) {
@@ -110,5 +129,9 @@ class DoctorsProvider with ChangeNotifier {
       }
     }
     return [..._doctorsList];
+  }
+
+  List get getDomains {
+    return [..._domains];
   }
 }
