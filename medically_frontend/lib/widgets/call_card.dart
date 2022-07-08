@@ -15,11 +15,19 @@ class CallCard extends StatelessWidget {
     this.call,
   );
 
+  String _printDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, "0");
+    String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
+    String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
+    return "${twoDigits(duration.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
+  }
+
   @override
   Widget build(BuildContext context) {
     final doctorsProvider = Provider.of<DoctorsProvider>(context);
     final doctor = doctorsProvider.getDoctorByID(call.doctor_id);
     var _bytesImage = Base64Decoder().convert(doctor.base64Image);
+    double width = MediaQuery.of(context).size.width;
     return InkWell(
       child: Card(
         child: Container(
@@ -28,6 +36,7 @@ class CallCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 10),
@@ -43,7 +52,7 @@ class CallCard extends StatelessWidget {
               ),
               Padding(
                 // padding: const EdgeInsets.symmetric(vertical: 10),
-                padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+                padding: EdgeInsets.fromLTRB(0, 10, width / 4, 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +61,7 @@ class CallCard extends StatelessWidget {
                       doctor.name,
                       style: const TextStyle(fontSize: 18),
                     ),
-                    Text(call.duration.toString()),
+                    Text(_printDuration(Duration(seconds: call.duration))),
                   ],
                 ),
               ),
