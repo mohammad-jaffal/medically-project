@@ -68,8 +68,21 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.all(10),
             child: Container(
-              height: 20,
-              decoration: BoxDecoration(color: Colors.red),
+              // decoration: const BoxDecoration(color: Colors.red),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text('Domains'),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: const Text('All'),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
           Flexible(
