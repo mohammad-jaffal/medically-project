@@ -6,6 +6,7 @@ import 'package:medically_frontend/models/doctor.dart';
 import 'dart:convert';
 
 import 'package:medically_frontend/providers/doctors_provider.dart';
+import 'package:medically_frontend/screens/doctor_details_screen.dart';
 import 'package:provider/provider.dart';
 
 class CallCard extends StatelessWidget {
@@ -36,7 +37,7 @@ class CallCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 10),
@@ -44,15 +45,15 @@ class CallCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(100),
                   child: Image.memory(
                     _bytesImage,
-                    width: 70,
-                    height: 70,
+                    width: 60,
+                    height: 60,
                     fit: BoxFit.fill,
                   ),
                 ),
               ),
               Padding(
                 // padding: const EdgeInsets.symmetric(vertical: 10),
-                padding: EdgeInsets.fromLTRB(0, 10, width / 4, 10),
+                padding: EdgeInsets.fromLTRB(30, 15, 0, 15),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,6 +71,13 @@ class CallCard extends StatelessWidget {
           // child: Text(doctor.name),
         ),
       ),
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          DoctorDetailsScreen.routeName,
+          arguments: doctor.id,
+        );
+      },
     );
   }
 }
