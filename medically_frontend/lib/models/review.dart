@@ -5,7 +5,7 @@ class Review {
   final int user_id;
   final int doctor_id;
   final int rating;
-  final int review_text;
+  final String review_text;
 
   Review({
     required this.id,
