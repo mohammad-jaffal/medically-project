@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medically_frontend/models/call.dart';
 
 class CallsProvider with ChangeNotifier {
   final List _calls = [
@@ -29,6 +30,7 @@ class CallsProvider with ChangeNotifier {
   ];
 
   List get getCalls {
-    return [..._calls];
+    var _allCalls = _calls.map((e) => Call.fromJson(e)).toList();
+    return [..._allCalls];
   }
 }
