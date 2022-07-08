@@ -48,7 +48,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
               label: "Home",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.list),
+              icon: Icon(Icons.favorite),
               label: "MyList",
             ),
             BottomNavigationBarItem(

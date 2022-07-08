@@ -28,6 +28,7 @@ class Styles {
       appBarTheme: AppBarTheme(
         backgroundColor:
             isDarkTheme ? Colors.black : const Color.fromARGB(255, 0, 4, 255),
+        // isDarkTheme ? Colors.black : const Color.fromARGB(255, 0, 4, 255),
         // This will be applied to the "back" icon
         iconTheme: IconThemeData(color: Colors.white),
         // This will be applied to the action icon buttons that locates on the right side

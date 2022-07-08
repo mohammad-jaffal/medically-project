@@ -125,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(height: 30),
                         TextButton(
                           child: const Text(
-                            'Signup',
+                            'Sign up',
                             style: TextStyle(fontSize: 18),
                           ),
                           onPressed: () {
@@ -241,7 +241,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           onPressed: _signupFunction,
-                          child: const Text('SignUp'),
+                          child: const Text('Sign Up'),
                         ),
                         const SizedBox(height: 30),
                         TextButton(
