@@ -28,7 +28,7 @@ class CallsProvider with ChangeNotifier {
     }
   ];
 
-  List get getcalls {
+  List get getCalls {
     return [..._calls];
   }
 }
