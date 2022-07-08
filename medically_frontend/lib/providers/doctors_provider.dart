@@ -120,14 +120,24 @@ class DoctorsProvider with ChangeNotifier {
     }
   ];
 
-  List getDoctors(var searchtext) {
+  List getDoctors(var searchText, var domainId) {
     var _allDoctors = _doctors.map((e) => Doctor.fromJson(e)).toList();
     var _doctorsList = [];
-    for (var i = 0; i < _allDoctors.length; i++) {
-      if (_allDoctors[i].name.contains(searchtext)) {
-        _doctorsList.add(_allDoctors[i]);
+    if (domainId == 0) {
+      for (var i = 0; i < _allDoctors.length; i++) {
+        if (_allDoctors[i].name.contains(searchText)) {
+          _doctorsList.add(_allDoctors[i]);
+        }
+      }
+    } else {
+      for (var i = 0; i < _allDoctors.length; i++) {
+        if (_allDoctors[i].name.contains(searchText) &&
+            _allDoctors[i].domainId == domainId) {
+          _doctorsList.add(_allDoctors[i]);
+        }
       }
     }
+
     return [..._doctorsList];
   }
 

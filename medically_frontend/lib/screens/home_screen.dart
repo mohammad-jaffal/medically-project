@@ -18,6 +18,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final searchNode = FocusNode();
   var searchText = '';
+  var domainId = 0;
   @override
   void dispose() {
     searchNode.dispose();
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final ScrollController scrollController = ScrollController();
     final doctorsProvider = Provider.of<DoctorsProvider>(context);
     final themeState = Provider.of<DarkThemeProvider>(context);
-    var _doctors = doctorsProvider.getDoctors(searchText);
+    var _doctors = doctorsProvider.getDoctors(searchText, domainId);
     var _domains = doctorsProvider.getDomains;
     // print(_domains[1]['domain_name']);
     return Scaffold(
@@ -80,7 +81,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       const Text('Domains'),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            domainId = 0;
+                          });
+                        },
                         child: const Text('All'),
                       ),
                     ],
@@ -95,7 +100,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.only(right: 20),
                         child: ElevatedButton(
                           onPressed: () {
-                            print(_domains[index]['domain_name']);
+                            setState(() {
+                              domainId = _domains[index]['id'];
+                            });
                           },
                           child: Text(_domains[index]['domain_name']),
                         ),
