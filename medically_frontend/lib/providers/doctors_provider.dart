@@ -159,4 +159,16 @@ class DoctorsProvider with ChangeNotifier {
 
     return [..._favorites];
   }
+
+  Doctor getDoctorByID(var docID) {
+    var _allDoctors = _doctors.map((e) => Doctor.fromJson(e)).toList();
+
+    var _doc;
+    for (var i = 0; i < _allDoctors.length; i++) {
+      if (_allDoctors[i].id == docID) {
+        _doc = _allDoctors[i];
+      }
+    }
+    return _doc;
+  }
 }

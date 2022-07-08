@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/models/call.dart';
 import 'package:medically_frontend/models/doctor.dart';
 import 'dart:convert';
 
+import 'package:medically_frontend/providers/doctors_provider.dart';
+import 'package:provider/provider.dart';
+
 class CallCard extends StatelessWidget {
-  final Doctor doctor;
+  final Call call;
 
   const CallCard(
-    this.doctor,
+    this.call,
   );
 
   @override
   Widget build(BuildContext context) {
+    final doctorsProvider = Provider.of<DoctorsProvider>(context);
+    final doctor = doctorsProvider.getDoctorByID(call.doctor_id);
     var _bytesImage = Base64Decoder().convert(doctor.base64Image);
     return InkWell(
       child: Card(
@@ -43,10 +49,10 @@ class CallCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'doctor.name',
+                      doctor.name,
                       style: const TextStyle(fontSize: 18),
                     ),
-                    Text('domain'),
+                    Text(call.duration.toString()),
                   ],
                 ),
               ),

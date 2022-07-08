@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/widgets/call_card.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/calls_provider.dart';
@@ -39,7 +40,7 @@ class _LogsScreenState extends State<LogsScreen> {
               controller: scrollController,
               padding: const EdgeInsets.all(10),
               itemCount: calls.length,
-              itemBuilder: (ctx, i) => Container(),
+              itemBuilder: (ctx, i) => CallCard(calls[i]),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 1,
                 childAspectRatio: 4 / 1,
