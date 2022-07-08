@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final ScrollController controller = ScrollController();
+    final ScrollController scrollController = ScrollController();
     final doctorsProvider = Provider.of<DoctorsProvider>(context);
     var _doctors = doctorsProvider.getDoctors(searchText);
     return Scaffold(
@@ -63,17 +63,30 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: GridView.builder(
-        controller: controller,
-        padding: const EdgeInsets.all(10),
-        itemCount: _doctors.length,
-        itemBuilder: (ctx, i) => DoctorCard(_doctors[i]),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 1,
-          childAspectRatio: 4 / 1,
-          // crossAxisSpacing: 10,
-          mainAxisSpacing: 15,
-        ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Container(
+              height: 20,
+              decoration: BoxDecoration(color: Colors.red),
+            ),
+          ),
+          Flexible(
+            child: GridView.builder(
+              controller: scrollController,
+              padding: const EdgeInsets.all(10),
+              itemCount: _doctors.length,
+              itemBuilder: (ctx, i) => DoctorCard(_doctors[i]),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 1,
+                childAspectRatio: 4 / 1,
+                // crossAxisSpacing: 10,
+                mainAxisSpacing: 15,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
