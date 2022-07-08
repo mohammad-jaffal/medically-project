@@ -20,10 +20,10 @@ class Styles {
           : const Color.fromARGB(255, 255, 255, 255),
       canvasColor:
           isDarkTheme ? Colors.black : const Color.fromARGB(255, 0, 4, 255),
-      // buttonTheme: Theme.of(context).buttonTheme.copyWith(
-      //     colorScheme: isDarkTheme
-      //         ? const ColorScheme.dark()
-      //         : const ColorScheme.light()),
+      buttonTheme: Theme.of(context).buttonTheme.copyWith(
+          colorScheme: isDarkTheme
+              ? const ColorScheme.dark()
+              : const ColorScheme.light()),
       // app bar theme
       appBarTheme: AppBarTheme(
         backgroundColor:
@@ -39,6 +39,12 @@ class Styles {
           fontSize: 20,
         ),
       ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+        primary: isDarkTheme
+            ? const Color(0xff0a0d2c)
+            : const Color.fromARGB(255, 0, 4, 255),
+      )),
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:medically_frontend/models/doctor.dart';
 import 'package:medically_frontend/widgets/doctor_card.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/dark_theme_provider.dart';
 import '../providers/doctors_provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final ScrollController scrollController = ScrollController();
     final doctorsProvider = Provider.of<DoctorsProvider>(context);
+    final themeState = Provider.of<DarkThemeProvider>(context);
     var _doctors = doctorsProvider.getDoctors(searchText);
     return Scaffold(
       appBar: AppBar(
