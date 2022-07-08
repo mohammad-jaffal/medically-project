@@ -79,7 +79,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('Domains'),
+                      const Text(
+                        'Domains',
+                        style: TextStyle(fontSize: 20),
+                      ),
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
@@ -90,7 +93,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-
                   SizedBox(
                     height: 30,
                     child: ListView.builder(
@@ -109,21 +111,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   )
-
-                  // SingleChildScrollView(
-                  //   scrollDirection: Axis.horizontal,
-                  //   child: Row(
-                  //     children: [
-                  //       Padding(
-                  //         padding: const EdgeInsets.only(right: 20),
-                  //         child: ElevatedButton(
-                  //           onPressed: () {},
-                  //           child: const Text('All'),
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
                 ],
               ),
             ),

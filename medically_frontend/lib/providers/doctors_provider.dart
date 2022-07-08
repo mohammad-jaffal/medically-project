@@ -144,4 +144,19 @@ class DoctorsProvider with ChangeNotifier {
   List get getDomains {
     return [..._domains];
   }
+
+  List getFavorites(var searchText) {
+    final _favoritesIDs = [5, 6];
+    var _allDoctors = _doctors.map((e) => Doctor.fromJson(e)).toList();
+    var _favorites = [];
+
+    for (var i = 0; i < _allDoctors.length; i++) {
+      if (_allDoctors[i].name.contains(searchText) &&
+          _favoritesIDs.contains(_allDoctors[i].id)) {
+        _favorites.add(_allDoctors[i]);
+      }
+    }
+
+    return [..._favorites];
+  }
 }
