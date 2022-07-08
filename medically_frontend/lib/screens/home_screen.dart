@@ -16,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final searchNode = FocusNode();
+  var searchText = '';
   @override
   void dispose() {
     searchNode.dispose();
@@ -26,20 +27,16 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final ScrollController controller = ScrollController();
     final doctorsProvider = Provider.of<DoctorsProvider>(context);
-    var alldoctors = doctorsProvider.getAllDoctors;
-    var _doctors = alldoctors;
-    var temp = [];
+    var _doctors = doctorsProvider.getDoctors(searchText);
     return Scaffold(
       appBar: AppBar(
         title: ListTile(
           title: TextField(
             focusNode: searchNode,
             onChanged: (value) {
-              for (var i = 0; i < alldoctors.length; i++) {
-                if (alldoctors[i].name.contains(value)) {
-                  print(alldoctors[i].name);
-                }
-              }
+              setState(() {
+                searchText = value;
+              });
             },
             decoration: const InputDecoration(
               hintText: 'Enter doctor\'s name...',

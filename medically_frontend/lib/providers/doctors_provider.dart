@@ -101,8 +101,14 @@ class DoctorsProvider with ChangeNotifier {
     },
   ];
 
-  List get getAllDoctors {
-    var _doctorsList = _doctors.map((e) => Doctor.fromJson(e)).toList();
+  List getDoctors(var searchtext) {
+    var _allDoctors = _doctors.map((e) => Doctor.fromJson(e)).toList();
+    var _doctorsList = [];
+    for (var i = 0; i < _allDoctors.length; i++) {
+      if (_allDoctors[i].name.contains(searchtext)) {
+        _doctorsList.add(_allDoctors[i]);
+      }
+    }
     return [..._doctorsList];
   }
 }
