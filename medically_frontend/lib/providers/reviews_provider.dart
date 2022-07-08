@@ -16,7 +16,7 @@ class ReviewsProvider with ChangeNotifier {
       "id": 1,
       "user_id": 2,
       "doctor_id": 2,
-      "rating": 4,
+      "rating": 1,
       "review_text":
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
@@ -24,7 +24,7 @@ class ReviewsProvider with ChangeNotifier {
       "id": 1,
       "user_id": 2,
       "doctor_id": 2,
-      "rating": 4,
+      "rating": 3,
       "review_text":
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
@@ -32,7 +32,7 @@ class ReviewsProvider with ChangeNotifier {
       "id": 1,
       "user_id": 2,
       "doctor_id": 2,
-      "rating": 4,
+      "rating": 5,
       "review_text":
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
@@ -40,13 +40,13 @@ class ReviewsProvider with ChangeNotifier {
       "id": 1,
       "user_id": 2,
       "doctor_id": 2,
-      "rating": 4,
+      "rating": 3,
       "review_text":
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
   ];
 
-  List getReviewsByDocID() {
+  List getReviewsByDocID(var docID) {
     var _allReviews = _reviews.map((e) => Review.fromJson(e)).toList();
     return [..._allReviews];
   }

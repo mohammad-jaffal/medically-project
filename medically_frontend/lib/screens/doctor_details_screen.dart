@@ -30,10 +30,10 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
     final doctorsProvider = Provider.of<DoctorsProvider>(context);
     // print(docId);
     var doctor = doctorsProvider.getDoctorByID(docId);
-    var _bytesImage = Base64Decoder().convert(doctor.base64Image);
+    var bytesImage = const Base64Decoder().convert(doctor.base64Image);
     // get reviews
     final reviewsProvider = Provider.of<ReviewsProvider>(context);
-    List reviews = reviewsProvider.getReviewsByDocID();
+    List reviews = reviewsProvider.getReviewsByDocID(docId);
 
     return Scaffold(
       appBar: AppBar(
@@ -54,7 +54,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
           child: Column(
             children: [
               Card(
-                child: Container(
+                child: SizedBox(
                   width: double.infinity,
                   // color: Colors.red,
                   child: Column(
@@ -63,13 +63,17 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           IconButton(
-                              onPressed: () {}, icon: Icon(Icons.more_vert)),
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.more_vert,
+                                size: 35,
+                              )),
                         ],
                       ),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(100),
                         child: Image.memory(
-                          _bytesImage,
+                          bytesImage,
                           width: 150,
                           height: 150,
                           fit: BoxFit.fill,
@@ -117,7 +121,11 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                   ),
                 ),
               ),
-              ListView.builder(
+              const SizedBox(height: 30),
+              ListView.separated(
+                separatorBuilder: (BuildContext context, int index) {
+                  return const SizedBox(height: 20);
+                },
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: reviews.length,
@@ -133,14 +141,3 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
     );
   }
 }
-
-
-// child: ClipRRect(
-//                     borderRadius: BorderRadius.circular(100),
-//                     child: Image.memory(
-//                       _bytesImage,
-//                       width: 70,
-//                       height: 70,
-//                       fit: BoxFit.fill,
-//                     ),
-//                   ),

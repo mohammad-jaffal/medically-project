@@ -23,17 +23,31 @@ class ReviewCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            RatingBarIndicator(
-              rating: rating,
-              itemBuilder: (context, index) => const Icon(
-                Icons.star,
-                color: Colors.amber,
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 15, 0, 5),
+              child: RatingBarIndicator(
+                rating: rating,
+                itemBuilder: (context, index) => const Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                itemCount: 5,
+                itemSize: 25,
+                direction: Axis.horizontal,
               ),
-              itemCount: 5,
-              itemSize: 20,
-              direction: Axis.horizontal,
             ),
-            Text(review_text),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
+              child: Text(
+                review_text,
+                style: const TextStyle(
+                  fontSize: 16,
+                  wordSpacing: 2,
+                  // letterSpacing: 1,
+                  height: 1.5,
+                ),
+              ),
+            ),
           ],
         ),
 
