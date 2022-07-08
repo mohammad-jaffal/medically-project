@@ -9,6 +9,8 @@ import 'package:medically_frontend/providers/doctors_provider.dart';
 import 'package:medically_frontend/screens/doctor_details_screen.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/dark_theme_provider.dart';
+
 class CallCard extends StatelessWidget {
   final Call call;
 
@@ -25,6 +27,7 @@ class CallCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeState = Provider.of<DarkThemeProvider>(context);
     final doctorsProvider = Provider.of<DoctorsProvider>(context);
     final doctor = doctorsProvider.getDoctorByID(call.doctor_id);
     var _bytesImage = Base64Decoder().convert(doctor.base64Image);
@@ -66,6 +69,17 @@ class CallCard extends StatelessWidget {
                   ],
                 ),
               ),
+              const Expanded(child: SizedBox()),
+              Padding(
+                padding: EdgeInsets.only(right: 11),
+                child: IconButton(
+                  icon: Icon(Icons.phone),
+                  color:
+                      themeState.getDarkTheme ? Colors.white : Colors.grey[600],
+                  iconSize: 30,
+                  onPressed: () {},
+                ),
+              )
             ],
           ),
           // child: Text(doctor.name),
