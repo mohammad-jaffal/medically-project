@@ -15,8 +15,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Icon customIcon = const Icon(Icons.search);
-  Widget customSearchBar = const Text('All Doctors');
+  final searchNode = FocusNode();
+  @override
+  void dispose() {
+    searchNode.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final ScrollController controller = ScrollController();
@@ -26,45 +31,38 @@ class _HomeScreenState extends State<HomeScreen> {
     var temp = [];
     return Scaffold(
       appBar: AppBar(
-        title: customSearchBar,
+        title: ListTile(
+          title: TextField(
+            focusNode: searchNode,
+            onChanged: (value) {
+              for (var i = 0; i < alldoctors.length; i++) {
+                if (alldoctors[i].name.contains(value)) {
+                  print(alldoctors[i].name);
+                }
+              }
+            },
+            decoration: const InputDecoration(
+              hintText: 'Enter doctor\'s name...',
+              hintStyle: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontStyle: FontStyle.italic,
+              ),
+              border: InputBorder.none,
+            ),
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+            // autofocus: true,
+          ),
+        ),
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
             onPressed: () {
-              setState(() {
-                if (customIcon.icon == Icons.search) {
-                  customIcon = const Icon(Icons.cancel);
-                  customSearchBar = ListTile(
-                    title: TextField(
-                      onChanged: (value) {
-                        for (var i = 0; i < alldoctors.length; i++) {
-                          if (alldoctors[i].name.contains(value)) {
-                            print(alldoctors[i].name);
-                          }
-                        }
-                      },
-                      decoration: const InputDecoration(
-                        hintText: 'Enter doctor\'s name...',
-                        hintStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontStyle: FontStyle.italic,
-                        ),
-                        border: InputBorder.none,
-                      ),
-                      style: const TextStyle(
-                        color: Colors.white,
-                      ),
-                      autofocus: true,
-                    ),
-                  );
-                } else {
-                  customIcon = const Icon(Icons.search);
-                  customSearchBar = const Text('All Doctors');
-                }
-              });
+              searchNode.requestFocus();
             },
-            icon: customIcon,
+            icon: Icon(Icons.search),
           ),
         ],
       ),
