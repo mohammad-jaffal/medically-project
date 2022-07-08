@@ -80,6 +80,62 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: const Text('All'),
                       ),
                     ],
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: const Text('All'),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: const Text('All'),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: const Text('All'),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: const Text('All'),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: const Text('All'),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: const Text('All'),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: const Text('All'),
+                          ),
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),
