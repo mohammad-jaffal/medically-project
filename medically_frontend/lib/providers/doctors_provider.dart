@@ -12,7 +12,8 @@ class DoctorsProvider with ChangeNotifier {
       "rating": 5.2,
       "channel_name": "doc1channel",
       "channel_token": "doc1token",
-      "bio": "doc1 bio is still empty",
+      "bio":
+          "doc1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "domain_id": 1,
     },
     {
@@ -24,7 +25,8 @@ class DoctorsProvider with ChangeNotifier {
       "rating": 2.2,
       "channel_name": "doc1channel",
       "channel_token": "doc1token",
-      "bio": "doc1 bio is still empty",
+      "bio":
+          "doc2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "domain_id": 1,
     },
     {
@@ -36,7 +38,8 @@ class DoctorsProvider with ChangeNotifier {
       "rating": 4.5,
       "channel_name": "doc1channel",
       "channel_token": "doc1token",
-      "bio": "doc1 bio is still empty",
+      "bio":
+          "doc3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "domain_id": 3,
     },
     {
@@ -48,7 +51,8 @@ class DoctorsProvider with ChangeNotifier {
       "rating": 1.1,
       "channel_name": "doc1channel",
       "channel_token": "doc1token",
-      "bio": "doc1 bio is still empty",
+      "bio":
+          "doc4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "domain_id": 2,
     },
     {
@@ -60,7 +64,8 @@ class DoctorsProvider with ChangeNotifier {
       "rating": 2.5,
       "channel_name": "doc1channel",
       "channel_token": "doc1token",
-      "bio": "doc1 bio is still empty",
+      "bio":
+          "doc5 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "domain_id": 2,
     },
     {
@@ -72,7 +77,8 @@ class DoctorsProvider with ChangeNotifier {
       "rating": 2.1,
       "channel_name": "doc1channel",
       "channel_token": "doc1token",
-      "bio": "doc1 bio is still empty",
+      "bio":
+          "doc6 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "domain_id": 3,
     },
     {
@@ -84,7 +90,8 @@ class DoctorsProvider with ChangeNotifier {
       "rating": 4.1,
       "channel_name": "doc1channel",
       "channel_token": "doc1token",
-      "bio": "doc1 bio is still empty",
+      "bio":
+          "doc7 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "domain_id": 2,
     },
     {
@@ -96,7 +103,8 @@ class DoctorsProvider with ChangeNotifier {
       "rating": 3.1,
       "channel_name": "doc1channel",
       "channel_token": "doc1token",
-      "bio": "doc1 bio is still empty",
+      "bio":
+          "doc8 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "domain_id": 4,
     },
   ];
