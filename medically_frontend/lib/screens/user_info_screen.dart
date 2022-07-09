@@ -54,6 +54,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   ),
                 ),
               ),
+              // email item
               Card(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
@@ -78,6 +79,43 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   ),
                 ),
               ),
+              // ballance item
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(
+                        Icons.monetization_on_outlined,
+                        size: 35,
+                        color: themeState.getDarkTheme
+                            ? Colors.white
+                            : Colors.grey[600],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30),
+                        child: Text(
+                          user.balance.toString(),
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                      ),
+                      const Expanded(child: SizedBox()),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.add,
+                          color: themeState.getDarkTheme
+                              ? Colors.white
+                              : Colors.grey[600],
+                          size: 35,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // theme item
               Card(
                 child: SwitchListTile(
                   title: Text(
