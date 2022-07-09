@@ -14,14 +14,4 @@ class User {
     required this.base64Image,
     required this.balance,
   });
-
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-      id: json['id'],
-      name: json['name'],
-      email: json['email'],
-      base64Image: json['profile_picture'],
-      balance: json['balance'],
-    );
-  }
 }
