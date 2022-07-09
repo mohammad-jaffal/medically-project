@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -19,21 +21,81 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     final themeState = Provider.of<DarkThemeProvider>(context);
     final userProvider = Provider.of<UserProvider>(context);
     var user = userProvider.getUser;
+    var bytesImage = const Base64Decoder().convert(user.base64Image);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(user.name.toString()),
       ),
-      body: Center(
-        child: SwitchListTile(
-          title: Text("Theme"),
-          secondary: Icon(themeState.getDarkTheme
-              ? Icons.dark_mode_outlined
-              : Icons.light_mode_outlined),
-          onChanged: (bool value) {
-            themeState.setDarkTheme = value;
-          },
-          value: themeState.getDarkTheme,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              Card(
+                child: SizedBox(
+                  width: double.infinity,
+                  // color: Colors.red,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child: Image.memory(
+                            bytesImage,
+                            width: 150,
+                            height: 150,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(
+                        Icons.email,
+                        size: 35,
+                        color: themeState.getDarkTheme
+                            ? Colors.white
+                            : Colors.grey[600],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30),
+                        child: Text(
+                          user.email,
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Card(
+                child: SwitchListTile(
+                  title: Text(
+                      themeState.getDarkTheme ? "Dark mode" : "Light mode"),
+                  secondary: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 20, 10),
+                    child: Icon(themeState.getDarkTheme
+                        ? Icons.dark_mode_outlined
+                        : Icons.light_mode_outlined),
+                  ),
+                  onChanged: (bool value) {
+                    themeState.setDarkTheme = value;
+                  },
+                  value: themeState.getDarkTheme,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
