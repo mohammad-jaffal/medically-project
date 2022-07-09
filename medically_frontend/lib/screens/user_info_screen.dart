@@ -54,6 +54,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   ),
                 ),
               ),
+              const SizedBox(height: 5),
               // email item
               Card(
                 child: Padding(
@@ -79,10 +80,11 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   ),
                 ),
               ),
+              const SizedBox(height: 5),
               // ballance item
               Card(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
+                  padding: const EdgeInsets.fromLTRB(20, 5, 30, 5),
                   child: Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -115,6 +117,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   ),
                 ),
               ),
+              const SizedBox(height: 5),
               // theme item
               Card(
                 child: SwitchListTile(
@@ -131,6 +134,37 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   },
                   value: themeState.getDarkTheme,
                 ),
+              ),
+              const SizedBox(height: 5),
+              // logout item
+              InkWell(
+                child: Card(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
+                    child: Row(
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(
+                          Icons.logout,
+                          size: 35,
+                          color: themeState.getDarkTheme
+                              ? Colors.white
+                              : Colors.grey[600],
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 30),
+                          child: Text(
+                            'Log out',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                onTap: () {
+                  print('logout');
+                },
               ),
             ],
           ),
