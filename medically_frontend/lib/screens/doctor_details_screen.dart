@@ -76,7 +76,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                           bytesImage,
                           width: 150,
                           height: 150,
-                          fit: BoxFit.fill,
+                          fit: BoxFit.cover,
                         ),
                       ),
                       Padding(

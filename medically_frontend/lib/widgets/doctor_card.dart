@@ -35,7 +35,7 @@ class DoctorCard extends StatelessWidget {
                     _bytesImage,
                     width: 70,
                     height: 70,
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),

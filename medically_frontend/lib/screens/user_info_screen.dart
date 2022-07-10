@@ -46,7 +46,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                             bytesImage,
                             width: 150,
                             height: 150,
-                            fit: BoxFit.fill,
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
@@ -84,7 +84,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               // ballance item
               Card(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 5, 30, 5),
+                  padding: const EdgeInsets.fromLTRB(20, 4, 30, 4),
                   child: Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

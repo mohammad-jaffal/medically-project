@@ -6,6 +6,7 @@ class User {
   final String email;
   final String base64Image;
   final int balance;
+  final int type;
 
   User({
     required this.id,
@@ -13,5 +14,6 @@ class User {
     required this.email,
     required this.base64Image,
     required this.balance,
+    required this.type,
   });
 }

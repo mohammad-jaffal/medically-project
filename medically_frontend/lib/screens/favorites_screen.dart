@@ -41,7 +41,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               });
             },
             decoration: const InputDecoration(
-              hintText: 'Enter doctor\'s name...',
+              hintText: 'Search',
               hintStyle: TextStyle(
                 color: Colors.white,
                 fontSize: 18,

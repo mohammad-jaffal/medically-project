@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/doctor_screens/doctor_bottom_bar.dart';
 import 'package:medically_frontend/screens/bottom_bar.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -11,6 +12,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final user_type = 2;
   final _loginFormKey = GlobalKey<FormState>();
   final _signupFormKey = GlobalKey<FormState>();
   var _isLogin = true;
@@ -27,10 +29,20 @@ class _LoginScreenState extends State<LoginScreen> {
     // _loginFormKey.currentState!.save();
     // // print(_loginEmail);
     // // print(_loginPassword);
-    Navigator.of(context).pushReplacementNamed(
-      BottomBarScreen.routeName,
-      arguments: {},
-    );
+    // if user go user screens
+    if (user_type == 1) {
+      Navigator.of(context).pushReplacementNamed(
+        BottomBarScreen.routeName,
+        arguments: {},
+      );
+    }
+    // if doctor go to doctor screens
+    if (user_type == 2) {
+      Navigator.of(context).pushReplacementNamed(
+        DoctorBottomBarScreen.routeName,
+        arguments: {},
+      );
+    }
   }
 
   void _signupFunction() {
@@ -39,10 +51,22 @@ class _LoginScreenState extends State<LoginScreen> {
     // // print(_signupEmail);
     // // print(_signupPassword);
     // // print(_signupConfirmPassword);
-    Navigator.of(context).pushReplacementNamed(
-      BottomBarScreen.routeName,
-      arguments: {},
-    );
+
+    // if user go user screens
+    if (user_type == 1) {
+      Navigator.of(context).pushReplacementNamed(
+        BottomBarScreen.routeName,
+        arguments: {},
+      );
+    }
+
+    // if doctor go to doctor screens
+    if (user_type == 2) {
+      Navigator.of(context).pushReplacementNamed(
+        DoctorBottomBarScreen.routeName,
+        arguments: {},
+      );
+    }
   }
 
   @override

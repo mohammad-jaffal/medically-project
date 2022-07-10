@@ -50,7 +50,7 @@ class CallCard extends StatelessWidget {
                     _bytesImage,
                     width: 60,
                     height: 60,
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
