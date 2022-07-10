@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:medically_frontend/screens/home_screen.dart';
-import 'package:medically_frontend/screens/logs_screen.dart';
-import 'package:medically_frontend/screens/user_info_screen.dart';
+import 'package:medically_frontend/doctor_screens/doctor_info_screen.dart';
+import 'package:medically_frontend/doctor_screens/doctor_logs_screen.dart';
+import 'package:medically_frontend/doctor_screens/doctor_reviews_screen.dart';
 
 class DoctorBottomBarScreen extends StatefulWidget {
   const DoctorBottomBarScreen({Key? key}) : super(key: key);
@@ -19,10 +19,10 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
   @override
   void initState() {
     _pages = [
-      const HomeScreen(),
+      const DoctorReviewsScreen(),
       // const FavoritesScreen(),
-      const LogsScreen(),
-      const UserInfoScreen(),
+      const DoctorLogsScreen(),
+      const DoctorInfoScreen(),
     ];
     super.initState();
   }
@@ -44,8 +44,8 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
           currentIndex: _selectedIndex,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
+              icon: Icon(Icons.rate_review),
+              label: "Reviews",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.call),
