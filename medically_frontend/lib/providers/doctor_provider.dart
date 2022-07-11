@@ -17,6 +17,7 @@ class DoctorProvider with ChangeNotifier {
       bio:
           "doc5 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       domainId: 2,
+      online: true,
     );
     return doctor;
   }

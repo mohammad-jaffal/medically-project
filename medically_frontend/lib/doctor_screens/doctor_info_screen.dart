@@ -83,6 +83,24 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                 ),
               ),
               const SizedBox(height: 5),
+              Card(
+                child: SwitchListTile(
+                  title: Text(
+                      themeState.getDarkTheme ? "Dark mode" : "Light mode"),
+                  secondary: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 20, 10),
+                    child: Icon(themeState.getDarkTheme
+                        ? Icons.dark_mode_outlined
+                        : Icons.light_mode_outlined),
+                  ),
+                  onChanged: (bool value) {
+                    themeState.setDarkTheme = value;
+                  },
+                  value: themeState.getDarkTheme,
+                ),
+              ),
+              const SizedBox(height: 5),
+
               // ballance item
               Card(
                 child: Padding(

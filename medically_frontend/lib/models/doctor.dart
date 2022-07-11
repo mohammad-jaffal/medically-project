@@ -12,6 +12,7 @@ class Doctor {
   final String channelToken;
   final String bio;
   final int domainId;
+  final bool online;
 
   Doctor({
     required this.id,
@@ -25,6 +26,7 @@ class Doctor {
     required this.channelToken,
     required this.bio,
     required this.domainId,
+    required this.online,
   });
 
   factory Doctor.fromJson(Map<String, dynamic> json) {
@@ -40,6 +42,7 @@ class Doctor {
       channelToken: json['channel_token'],
       bio: json['bio'],
       domainId: json['domain_id'],
+      online: json['online'],
     );
   }
 }
