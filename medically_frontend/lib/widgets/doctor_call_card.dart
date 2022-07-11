@@ -28,9 +28,7 @@ class DoctorCallCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
-    final doctorsProvider = Provider.of<DoctorsProvider>(context);
-    final doctor = doctorsProvider.getDoctorByID(call.doctor_id);
-    var _bytesImage = Base64Decoder().convert(doctor.base64Image);
+    var _bytesImage = Base64Decoder().convert(call.call_image);
     double width = MediaQuery.of(context).size.width;
     return Card(
       child: Container(
@@ -61,7 +59,7 @@ class DoctorCallCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    doctor.name,
+                    call.user_name,
                     style: const TextStyle(fontSize: 18),
                   ),
                   Text(_printDuration(Duration(seconds: call.duration))),
