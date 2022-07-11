@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/widgets/doctor_call_card.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/calls_provider.dart';
@@ -20,7 +21,7 @@ class _DoctorLogsScreenState extends State<DoctorLogsScreen> {
   Widget build(BuildContext context) {
     final ScrollController scrollController = ScrollController();
     final callsProvider = Provider.of<CallsProvider>(context);
-    var calls = callsProvider.getCallsByDoctorId(1);
+    var calls = callsProvider.getCallsByUserId(1);
     return Scaffold(
       appBar: AppBar(
         title: Text('Logs'),
@@ -32,7 +33,7 @@ class _DoctorLogsScreenState extends State<DoctorLogsScreen> {
               controller: scrollController,
               padding: const EdgeInsets.all(10),
               itemCount: calls.length,
-              itemBuilder: (ctx, i) => CallCard(calls[i]),
+              itemBuilder: (ctx, i) => DoctorCallCard(calls[i]),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 1,
                 childAspectRatio: 4 / 1,
