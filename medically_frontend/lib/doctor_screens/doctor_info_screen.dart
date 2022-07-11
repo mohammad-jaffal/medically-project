@@ -56,6 +56,25 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                   ),
                 ),
               ),
+
+              const SizedBox(height: 5),
+              // online item
+              Card(
+                child: SwitchListTile(
+                  title: Text(doctor.online ? "Online" : "Offline"),
+                  secondary: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 20, 10),
+                    child: Icon(doctor.online
+                        ? Icons.person_outline_outlined
+                        : Icons.person_off_outlined),
+                  ),
+                  onChanged: (bool value) {
+                    doctorProvider.setOnline(value);
+                  },
+                  value: doctor.online,
+                ),
+              ),
+
               const SizedBox(height: 5),
               // email item
               Card(
@@ -80,23 +99,6 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                       ),
                     ],
                   ),
-                ),
-              ),
-              const SizedBox(height: 5),
-              Card(
-                child: SwitchListTile(
-                  title: Text(
-                      themeState.getDarkTheme ? "Dark mode" : "Light mode"),
-                  secondary: Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 10, 20, 10),
-                    child: Icon(themeState.getDarkTheme
-                        ? Icons.dark_mode_outlined
-                        : Icons.light_mode_outlined),
-                  ),
-                  onChanged: (bool value) {
-                    themeState.setDarkTheme = value;
-                  },
-                  value: themeState.getDarkTheme,
                 ),
               ),
               const SizedBox(height: 5),

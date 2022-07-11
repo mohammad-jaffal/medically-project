@@ -12,7 +12,7 @@ class Doctor {
   final String channelToken;
   final String bio;
   final int domainId;
-  final bool online;
+  bool online;
 
   Doctor({
     required this.id,
