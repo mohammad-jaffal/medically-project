@@ -7,7 +7,7 @@ class Styles {
           isDarkTheme ? const Color(0xFF00001a) : const Color(0xFFFFFFFF),
       primaryColor: isDarkTheme
           ? const Color(0xFF00001a)
-          : const Color.fromARGB(255, 0, 4, 255),
+          : const Color.fromARGB(255, 54, 135, 255),
       // Color.fromARGB(255, 0, 4, 255),
       colorScheme: ThemeData().colorScheme.copyWith(
             secondary:
@@ -19,15 +19,16 @@ class Styles {
           ? const Color(0xff0a0d2c)
           : const Color.fromARGB(255, 255, 255, 255),
       canvasColor:
-          isDarkTheme ? Colors.black : const Color.fromARGB(255, 0, 4, 255),
+          isDarkTheme ? Colors.black : const Color.fromARGB(255, 54, 135, 255),
       buttonTheme: Theme.of(context).buttonTheme.copyWith(
           colorScheme: isDarkTheme
               ? const ColorScheme.dark()
               : const ColorScheme.light()),
       // app bar theme
       appBarTheme: AppBarTheme(
-        backgroundColor:
-            isDarkTheme ? Colors.black : const Color.fromARGB(255, 0, 4, 255),
+        backgroundColor: isDarkTheme
+            ? Colors.black
+            : const Color.fromARGB(255, 54, 135, 255),
         // isDarkTheme ? Colors.black : const Color.fromARGB(255, 0, 4, 255),
         // This will be applied to the "back" icon
         iconTheme: IconThemeData(color: Colors.white),
@@ -44,7 +45,7 @@ class Styles {
           style: ElevatedButton.styleFrom(
         primary: isDarkTheme
             ? const Color(0xff0a0d2c)
-            : const Color.fromARGB(255, 0, 4, 255),
+            : const Color.fromARGB(255, 54, 135, 255),
       )),
     );
   }

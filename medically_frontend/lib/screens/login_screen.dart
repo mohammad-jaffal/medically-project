@@ -87,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const Text(
                           'Login',
                           style: TextStyle(
-                            color: Color.fromARGB(255, 0, 4, 255),
+                            color: Color.fromARGB(255, 54, 135, 255),
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
                           ),
@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(height: 50),
                         TextFormField(
                           style: const TextStyle(
-                            color: Color.fromARGB(255, 0, 4, 255),
+                            color: Color.fromARGB(255, 54, 135, 255),
                           ),
                           key: const ValueKey('login_email'),
                           keyboardType: TextInputType.emailAddress,
@@ -114,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(height: 20),
                         TextFormField(
                           style: const TextStyle(
-                            color: Color.fromARGB(255, 0, 4, 255),
+                            color: Color.fromARGB(255, 54, 135, 255),
                           ),
                           key: const ValueKey('login_password'),
                           decoration: InputDecoration(
@@ -133,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(height: 50),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: const Color.fromARGB(255, 0, 4, 255),
+                            primary: const Color.fromARGB(255, 54, 135, 255),
                             minimumSize: const Size.fromHeight(45),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
@@ -170,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const Text(
                           'Sign up',
                           style: TextStyle(
-                            color: Color.fromARGB(255, 0, 4, 255),
+                            color: Color.fromARGB(255, 54, 135, 255),
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
                           ),
@@ -178,7 +178,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(height: 50),
                         TextFormField(
                           style: const TextStyle(
-                            color: Color.fromARGB(255, 0, 4, 255),
+                            color: Color.fromARGB(255, 54, 135, 255),
                           ),
                           key: const ValueKey('signup_name'),
                           keyboardType: TextInputType.emailAddress,
@@ -197,7 +197,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(height: 20),
                         TextFormField(
                           style: const TextStyle(
-                            color: Color.fromARGB(255, 0, 4, 255),
+                            color: Color.fromARGB(255, 54, 135, 255),
                           ),
                           key: const ValueKey('signup_email'),
                           keyboardType: TextInputType.emailAddress,
@@ -216,7 +216,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(height: 20),
                         TextFormField(
                           style: const TextStyle(
-                            color: Color.fromARGB(255, 0, 4, 255),
+                            color: Color.fromARGB(255, 54, 135, 255),
                           ),
                           key: const ValueKey('signup_password'),
                           decoration: InputDecoration(
@@ -235,7 +235,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(height: 20),
                         TextFormField(
                           style: const TextStyle(
-                            color: Color.fromARGB(255, 0, 4, 255),
+                            color: Color.fromARGB(255, 54, 135, 255),
                           ),
                           key: const ValueKey('signup_confirm_password'),
                           decoration: InputDecoration(
@@ -254,7 +254,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(height: 50),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: const Color.fromARGB(255, 0, 4, 255),
+                            primary: const Color.fromARGB(255, 54, 135, 255),
                             minimumSize: const Size.fromHeight(45),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),

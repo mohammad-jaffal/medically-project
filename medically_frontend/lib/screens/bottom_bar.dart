@@ -40,6 +40,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(
         child: BottomNavigationBar(
+          unselectedItemColor: const Color.fromARGB(120, 255, 255, 255),
           onTap: _selectScreen,
           currentIndex: _selectedIndex,
           items: const [

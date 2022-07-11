@@ -39,6 +39,7 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(
         child: BottomNavigationBar(
+          unselectedItemColor: const Color.fromARGB(120, 255, 255, 255),
           type: BottomNavigationBarType.shifting,
           onTap: _selectScreen,
           currentIndex: _selectedIndex,
