@@ -5,6 +5,7 @@ class Doctor {
   final String name;
   final String email;
   final String base64Image;
+  final int balance;
   final int type;
   final double rating;
   final String channelName;
@@ -17,6 +18,7 @@ class Doctor {
     required this.name,
     required this.email,
     required this.base64Image,
+    required this.balance,
     required this.type,
     required this.rating,
     required this.channelName,
@@ -31,6 +33,7 @@ class Doctor {
       name: json['name'],
       email: json['email'],
       base64Image: json['profile_picture'],
+      balance: json['balance'],
       type: json['type'],
       rating: json['rating'],
       channelName: json['channel_name'],

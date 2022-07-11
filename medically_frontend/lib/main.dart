@@ -3,6 +3,7 @@ import 'package:medically_frontend/consts/theme_data.dart';
 import 'package:medically_frontend/doctor_screens/doctor_bottom_bar.dart';
 import 'package:medically_frontend/providers/calls_provider.dart';
 import 'package:medically_frontend/providers/dark_theme_provider.dart';
+import 'package:medically_frontend/providers/doctor_provider.dart';
 import 'package:medically_frontend/providers/doctors_provider.dart';
 import 'package:medically_frontend/providers/reviews_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
@@ -49,6 +50,7 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (ctx) => CallsProvider()),
         ChangeNotifierProvider(create: (ctx) => ReviewsProvider()),
         ChangeNotifierProvider(create: (ctx) => UserProvider()),
+        ChangeNotifierProvider(create: (ctx) => DoctorProvider()),
       ],
       child:
           Consumer<DarkThemeProvider>(builder: (context, themeProvider, child) {
