@@ -28,7 +28,9 @@ class BundleCard extends StatelessWidget {
               style: const TextStyle(fontSize: 20),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                print('buying $amount');
+              },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(
                   themeState.getDarkTheme

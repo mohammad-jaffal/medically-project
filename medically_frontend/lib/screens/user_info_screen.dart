@@ -140,8 +140,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               ),
               const SizedBox(height: 5),
               // logout item
-              InkWell(
-                child: Card(
+              Card(
+                child: InkWell(
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
                     child: Row(
@@ -164,10 +164,10 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                       ],
                     ),
                   ),
+                  onTap: () {
+                    print('logout');
+                  },
                 ),
-                onTap: () {
-                  print('logout');
-                },
               ),
             ],
           ),

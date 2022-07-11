@@ -32,8 +32,8 @@ class CallCard extends StatelessWidget {
     final doctor = doctorsProvider.getDoctorByID(call.doctor_id);
     var _bytesImage = Base64Decoder().convert(doctor.base64Image);
     double width = MediaQuery.of(context).size.width;
-    return InkWell(
-      child: Card(
+    return Card(
+      child: InkWell(
         child: Container(
           decoration: BoxDecoration(
             // color: Colors.lightBlue,
@@ -84,14 +84,14 @@ class CallCard extends StatelessWidget {
           ),
           // child: Text(doctor.name),
         ),
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            DoctorDetailsScreen.routeName,
+            arguments: doctor.id,
+          );
+        },
       ),
-      onTap: () {
-        Navigator.pushNamed(
-          context,
-          DoctorDetailsScreen.routeName,
-          arguments: doctor.id,
-        );
-      },
     );
   }
 }
