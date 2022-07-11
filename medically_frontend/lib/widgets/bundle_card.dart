@@ -24,7 +24,7 @@ class BundleCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              '$amount coins',
+              '$amount Coin',
               style: const TextStyle(fontSize: 20),
             ),
             ElevatedButton(

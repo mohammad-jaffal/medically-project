@@ -29,7 +29,12 @@ class CallsProvider with ChangeNotifier {
     }
   ];
 
-  List get getCalls {
+  List getCallsByUserId(var userID) {
+    var _allCalls = _calls.map((e) => Call.fromJson(e)).toList();
+    return [..._allCalls];
+  }
+
+  List getCallsByDoctorId(var doctorID) {
     var _allCalls = _calls.map((e) => Call.fromJson(e)).toList();
     return [..._allCalls];
   }
