@@ -6,6 +6,7 @@ import 'package:medically_frontend/providers/dark_theme_provider.dart';
 import 'package:medically_frontend/providers/doctors_provider.dart';
 import 'package:medically_frontend/providers/reviews_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
+import 'package:medically_frontend/screens/balance_screen.dart';
 import 'package:medically_frontend/screens/bottom_bar.dart';
 import 'package:medically_frontend/screens/doctor_details_screen.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
@@ -61,6 +62,7 @@ class _MyAppState extends State<MyApp> {
             BottomBarScreen.routeName: (ctx) => BottomBarScreen(),
             DoctorDetailsScreen.routeName: (ctx) => DoctorDetailsScreen(),
             DoctorBottomBarScreen.routeName: (ctx) => DoctorBottomBarScreen(),
+            BalanceScreen.routeName: (ctx) => BalanceScreen(),
           },
         );
       }),

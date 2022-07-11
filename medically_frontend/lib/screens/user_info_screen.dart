@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
+import 'package:medically_frontend/screens/balance_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/dark_theme_provider.dart';
@@ -104,7 +105,9 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                       ),
                       const Expanded(child: SizedBox()),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, BalanceScreen.routeName);
+                        },
                         icon: Icon(
                           Icons.add,
                           color: themeState.getDarkTheme
