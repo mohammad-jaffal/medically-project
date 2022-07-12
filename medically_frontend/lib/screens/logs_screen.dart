@@ -36,18 +36,21 @@ class _LogsScreenState extends State<LogsScreen> {
       body: Column(
         children: [
           Flexible(
-            child: GridView.builder(
-              controller: scrollController,
-              padding: const EdgeInsets.all(10),
-              itemCount: calls.length,
-              itemBuilder: (ctx, i) => CallCard(calls[i]),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1,
-                childAspectRatio: 4 / 1,
-                // crossAxisSpacing: 10,
-                mainAxisSpacing: 15,
-              ),
-            ),
+            child: calls.isEmpty
+                ? const Center(child: Text('No Calls Found!'))
+                : GridView.builder(
+                    controller: scrollController,
+                    padding: const EdgeInsets.all(10),
+                    itemCount: calls.length,
+                    itemBuilder: (ctx, i) => CallCard(calls[i]),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 1,
+                      childAspectRatio: 4 / 1,
+                      // crossAxisSpacing: 10,
+                      mainAxisSpacing: 15,
+                    ),
+                  ),
           ),
         ],
       ),

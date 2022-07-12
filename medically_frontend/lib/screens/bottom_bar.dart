@@ -54,7 +54,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
 
     var uid = userProvider.getUserId;
     doctorsProvider.fetchFavorites(uid);
-    callsProvider.fetchUserCalls(2);
+    callsProvider.fetchUserCalls(uid);
 
     return Scaffold(
       body: _pages[_selectedIndex],

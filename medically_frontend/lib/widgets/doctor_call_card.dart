@@ -59,7 +59,7 @@ class DoctorCallCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    call.user_name,
+                    call.name,
                     style: const TextStyle(fontSize: 18),
                   ),
                   Text(_printDuration(Duration(seconds: call.duration))),
