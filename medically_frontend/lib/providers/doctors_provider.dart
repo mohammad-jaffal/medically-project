@@ -7,24 +7,7 @@ import 'package:http/http.dart' as http;
 class DoctorsProvider with ChangeNotifier {
   var _doctors;
 
-  final List _domains = [
-    {
-      "id": 1,
-      "domain_name": "domain 1",
-    },
-    {
-      "id": 2,
-      "domain_name": "domain 2",
-    },
-    {
-      "id": 3,
-      "domain_name": "domain 3",
-    },
-    {
-      "id": 4,
-      "domain_name": "domain 4",
-    }
-  ];
+  var _domains;
 
   Future<void> fetchDoctors() async {
     var url = Uri.parse('http://10.0.2.2:8000/api/get-doctors');
@@ -34,6 +17,11 @@ class DoctorsProvider with ChangeNotifier {
         .decode(response.body)['doctors']
         .map((e) => Doctor.fromJson(e))
         .toList();
+
+    var domainsUrl = Uri.parse('http://10.0.2.2:8000/api/get-domains');
+    var domainsResponse = await http.get(domainsUrl);
+
+    _domains = json.decode(domainsResponse.body)['domains'];
     notifyListeners();
   }
 

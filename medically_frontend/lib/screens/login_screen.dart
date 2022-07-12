@@ -13,6 +13,7 @@ import 'package:medically_frontend/screens/bottom_bar.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import '../models/user.dart';
+import '../providers/doctors_provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -30,6 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final tokenProvider = Provider.of<TokenProvider>(context);
     final userProvider = Provider.of<UserProvider>(context);
     final doctorProvider = Provider.of<DoctorProvider>(context);
+    final doctorsProvider = Provider.of<DoctorsProvider>(context);
 
     var user_type;
 
@@ -61,6 +63,8 @@ class _LoginScreenState extends State<LoginScreen> {
             balance: response_body['balance'],
             type: response_body['type'],
           );
+
+          await doctorsProvider.fetchDoctors();
           userProvider.setuser(u);
           Navigator.of(context).pushReplacementNamed(BottomBarScreen.routeName);
 

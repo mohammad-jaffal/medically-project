@@ -46,9 +46,6 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final doctorsProvider =
-        Provider.of<DoctorsProvider>(context, listen: false);
-    doctorsProvider.fetchDoctors();
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(
