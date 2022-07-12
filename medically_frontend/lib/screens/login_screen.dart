@@ -64,33 +64,36 @@ class _LoginScreenState extends State<LoginScreen> {
           );
           userProvider.setuser(u);
           Navigator.of(context).pushReplacementNamed(BottomBarScreen.routeName);
+
           // if doctor go to doctor screens
         } else if (user_type == 2) {
-          // var detailsUrl = Uri.parse('http://10.0.2.2:8000/api/login');
-          // var detailsResponse = await http.post(detailsUrl, body: {
-          //   'email': 'doctor2@gmail.com',
-          //   'password': '121212',
-          // });
-          // if (response.statusCode == 200) {}
+          var detailsUrl = Uri.parse('http://10.0.2.2:8000/api/get-doctor');
+          var detailsResponse = await http.post(detailsUrl, body: {
+            'doctor_id': '${response_body['id']}',
+          });
+          if (detailsResponse.statusCode == 200) {
+            var details_response_body =
+                json.decode(detailsResponse.body)['doctor'][0];
 
-          // var d = Doctor(
-          //   id: response_body['id'],
-          //   name: response_body['name'],
-          //   email: response_body['email'],
-          //   base64Image: response_body['profile_picture'],
-          //   balance: response_body['balance'],
-          //   type: response_body['type'],
-          //   rating: response_body['rating'],
-          //   channelName: response_body['channel_name'],
-          //   channelToken: response_body['channel_token'],
-          //   bio: response_body['bio'],
-          //   domainId: response_body['domain_id'],
-          //   online: response_body['online'],
-          // );
-          // doctorProvider.setDoctor(d);
+            var d = Doctor(
+              id: details_response_body['id'],
+              name: details_response_body['name'],
+              email: details_response_body['email'],
+              base64Image: details_response_body['profile_picture'],
+              balance: details_response_body['balance'],
+              type: details_response_body['type'],
+              rating: double.parse(details_response_body['rating']),
+              channelName: details_response_body['channel_name'],
+              channelToken: details_response_body['channel_token'],
+              bio: details_response_body['bio'],
+              domainId: details_response_body['domain_id'],
+              online: details_response_body['online'] == 1,
+            );
+            doctorProvider.setDoctor(d);
 
-          // Navigator.of(context)
-          //     .pushReplacementNamed(DoctorBottomBarScreen.routeName);
+            Navigator.of(context)
+                .pushReplacementNamed(DoctorBottomBarScreen.routeName);
+          }
         } else {
           print('do nothing');
         }
