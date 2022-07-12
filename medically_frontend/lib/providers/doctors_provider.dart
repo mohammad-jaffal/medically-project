@@ -9,6 +9,8 @@ class DoctorsProvider with ChangeNotifier {
 
   var _domains;
 
+  var _favorites;
+
   Future<void> fetchDoctors() async {
     var url = Uri.parse('http://10.0.2.2:8000/api/get-doctors');
     var response = await http.get(url);
@@ -59,21 +61,28 @@ class DoctorsProvider with ChangeNotifier {
     var response = await http.post(url, body: {
       'user_id': '$userID',
     });
-    print(response.body);
+    // print(json.decode(response.body)['favorites']);
+    _favorites = json.decode(response.body)['favorites'];
+    // print(_favorites);
   }
 
   List getFavorites(var searchText) {
-    final _favoritesIDs = [5, 6];
-    var _favorites = [];
+    var favs = [];
+    var favoriteDoctors = [];
+
+    for (var fav in _favorites) {
+      favs.add(fav['doctor_id']);
+    }
+    // print(favs);
 
     for (var i = 0; i < _doctors.length; i++) {
       if (_doctors[i].name.contains(searchText) &&
-          _favoritesIDs.contains(_doctors[i].id)) {
-        _favorites.add(_doctors[i]);
+          favs.contains(_doctors[i].id)) {
+        favoriteDoctors.add(_doctors[i]);
       }
     }
 
-    return [..._favorites];
+    return [...favoriteDoctors];
   }
 
   Doctor getDoctorByID(var docID) {
