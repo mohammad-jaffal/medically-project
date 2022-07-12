@@ -5,11 +5,12 @@ class TokenProvider with ChangeNotifier {
   var _token;
 
   void setToken(var token) {
-    print(token);
     _token = token;
+    validateToken();
   }
 
   Future<bool> validateToken() async {
+    print(_token);
     var url = Uri.parse('http://10.0.2.2:8000/api/profile');
     var response = await http.post(url, headers: {
       'Accept': 'application/json',
