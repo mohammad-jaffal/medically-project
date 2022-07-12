@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/doctor_screens/doctor_bottom_bar.dart';
+import 'package:medically_frontend/models/doctor.dart';
+import 'package:medically_frontend/providers/doctor_provider.dart';
 import 'package:medically_frontend/providers/token_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/bottom_bar.dart';
@@ -25,6 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final tokenProvider = Provider.of<TokenProvider>(context);
     final userProvider = Provider.of<UserProvider>(context);
+    final doctorProvider = Provider.of<DoctorProvider>(context);
 
     var user_type;
     final _loginFormKey = GlobalKey<FormState>();
@@ -43,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
       // print('fetching');
       var url = Uri.parse('http://10.0.2.2:8000/api/login');
       var response = await http.post(url, body: {
-        'email': 'test2@gmail.com',
+        'email': 'doctor2@gmail.com',
         'password': '121212',
       });
       if (response.statusCode == 200) {
@@ -63,8 +66,31 @@ class _LoginScreenState extends State<LoginScreen> {
           Navigator.of(context).pushReplacementNamed(BottomBarScreen.routeName);
           // if doctor go to doctor screens
         } else if (user_type == 2) {
-          Navigator.of(context)
-              .pushReplacementNamed(DoctorBottomBarScreen.routeName);
+          // var detailsUrl = Uri.parse('http://10.0.2.2:8000/api/login');
+          // var detailsResponse = await http.post(detailsUrl, body: {
+          //   'email': 'doctor2@gmail.com',
+          //   'password': '121212',
+          // });
+          // if (response.statusCode == 200) {}
+
+          // var d = Doctor(
+          //   id: response_body['id'],
+          //   name: response_body['name'],
+          //   email: response_body['email'],
+          //   base64Image: response_body['profile_picture'],
+          //   balance: response_body['balance'],
+          //   type: response_body['type'],
+          //   rating: response_body['rating'],
+          //   channelName: response_body['channel_name'],
+          //   channelToken: response_body['channel_token'],
+          //   bio: response_body['bio'],
+          //   domainId: response_body['domain_id'],
+          //   online: response_body['online'],
+          // );
+          // doctorProvider.setDoctor(d);
+
+          // Navigator.of(context)
+          //     .pushReplacementNamed(DoctorBottomBarScreen.routeName);
         } else {
           print('do nothing');
         }

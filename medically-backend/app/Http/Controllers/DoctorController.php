@@ -51,6 +51,18 @@ class DoctorController extends Controller
         ], 200);
     }
 
+    public function getDoctor(Request $request){
+
+        // $doctor = Doctor_detail::join('users', 'users.id', '=', 'doctor_details.doctor_id')->get(['doctor_details.*', 'users.*'])->where('users.id','=',$request->doctor_id)->get();
+        $doctor = \DB::table('users')
+        ->join('doctor_details', 'doctor_details.doctor_id', '=', 'users.id')
+        ->where('users.id', $request->doctor_id)
+        ->get();
+        return response()->json([
+            "success" => true,
+            "doctor" => $doctor
+        ], 200);
+    }
 
 
 }
