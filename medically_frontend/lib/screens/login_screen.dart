@@ -12,7 +12,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final user_type = 2;
+  final user_type = 1;
   final _loginFormKey = GlobalKey<FormState>();
   final _signupFormKey = GlobalKey<FormState>();
   var _isLogin = true;
@@ -35,13 +35,14 @@ class _LoginScreenState extends State<LoginScreen> {
         BottomBarScreen.routeName,
         arguments: {},
       );
-    }
-    // if doctor go to doctor screens
-    if (user_type == 2) {
+      // if doctor go to doctor screens
+    } else if (user_type == 2) {
       Navigator.of(context).pushReplacementNamed(
         DoctorBottomBarScreen.routeName,
         arguments: {},
       );
+    } else {
+      print('do nothing');
     }
   }
 
