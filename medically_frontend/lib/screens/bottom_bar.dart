@@ -51,8 +51,10 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
     final userProvider = Provider.of<UserProvider>(context);
     final doctorsProvider = Provider.of<DoctorsProvider>(context);
     final callsProvider = Provider.of<CallsProvider>(context);
+
     var uid = userProvider.getUserId;
     doctorsProvider.fetchFavorites(uid);
+    callsProvider.fetchUserCalls(2);
 
     return Scaffold(
       body: _pages[_selectedIndex],
