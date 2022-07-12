@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/providers/doctors_provider.dart';
+import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/favorites_screen.dart';
 import 'package:medically_frontend/screens/home_screen.dart';
 import 'package:medically_frontend/screens/logs_screen.dart';
@@ -46,6 +47,11 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final userProvider = Provider.of<UserProvider>(context);
+    final doctorsProvider = Provider.of<DoctorsProvider>(context);
+    var uid = userProvider.getUserId;
+    doctorsProvider.fetchFavorites(uid);
+
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(

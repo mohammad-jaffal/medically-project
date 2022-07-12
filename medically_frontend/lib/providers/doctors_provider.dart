@@ -53,6 +53,15 @@ class DoctorsProvider with ChangeNotifier {
     return [..._domains];
   }
 
+  Future<void> fetchFavorites(var userID) async {
+    //  print('fetching');
+    var url = Uri.parse('http://10.0.2.2:8000/api/user/get-favorites');
+    var response = await http.post(url, body: {
+      'user_id': '$userID',
+    });
+    print(response.body);
+  }
+
   List getFavorites(var searchText) {
     final _favoritesIDs = [5, 6];
     var _favorites = [];
