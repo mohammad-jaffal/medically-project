@@ -36,7 +36,8 @@ class _LoginScreenState extends State<LoginScreen> {
       'email': 'test1@gmail.com',
       'password': '121212',
     });
-    print('Response body: ${response.body}');
+    print('Response body: ${json.decode(response.body)['access_token']}');
+    // var data = json.decode(response.body);
 // http://10.0.2.2:8000/api/user/allitems'
     // print(await http.read(Uri.parse('https://example.com/foobar.txt')));
 
