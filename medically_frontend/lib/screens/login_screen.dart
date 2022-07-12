@@ -23,6 +23,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _loginFormKey = GlobalKey<FormState>();
+  final _signupFormKey = GlobalKey<FormState>();
+  var _isLogin = true;
   @override
   Widget build(BuildContext context) {
     final tokenProvider = Provider.of<TokenProvider>(context);
@@ -30,9 +33,6 @@ class _LoginScreenState extends State<LoginScreen> {
     final doctorProvider = Provider.of<DoctorProvider>(context);
 
     var user_type;
-    final _loginFormKey = GlobalKey<FormState>();
-    final _signupFormKey = GlobalKey<FormState>();
-    var _isLogin = true;
 
     var _loginEmail = '';
     var _loginPassword = '';
@@ -43,7 +43,6 @@ class _LoginScreenState extends State<LoginScreen> {
     var _signupConfirmPassword = '';
 
     Future<void> _loginFunction() async {
-      _loginFormKey.currentState!.save();
       // print('fetching');
       var url = Uri.parse('http://10.0.2.2:8000/api/login');
       var response = await http.post(url, body: {
@@ -100,32 +99,39 @@ class _LoginScreenState extends State<LoginScreen> {
         }
         // Navigator.of(context)
         //     .pushReplacementNamed(BottomBarScreen.routeName, arguments: {});
+      } else {
+        print('wrong data');
       }
 
       // if user go user screens
     }
 
-    void _signupFunction() {
-      // _signupFormKey.currentState!.save();
-      // // print(_signupName);
-      // // print(_signupEmail);
-      // // print(_signupPassword);
-      // // print(_signupConfirmPassword);
+    Future<void> _signupFunction() async {
+      _signupFormKey.currentState!.save();
 
-      // if user go user screens
-      if (user_type == 1) {
-        Navigator.of(context).pushReplacementNamed(
-          BottomBarScreen.routeName,
-          arguments: {},
-        );
-      }
-
-      // if doctor go to doctor screens
-      if (user_type == 2) {
-        Navigator.of(context).pushReplacementNamed(
-          DoctorBottomBarScreen.routeName,
-          arguments: {},
-        );
+      if (_signupName == '' ||
+          _signupEmail == '' ||
+          _signupPassword == '' ||
+          _signupConfirmPassword == '') {
+        print('fill all');
+      } else {
+        if (_signupPassword != _signupConfirmPassword) {
+          print('unmatching passwords');
+        } else {
+          var url = Uri.parse('http://10.0.2.2:8000/api/register');
+          var response = await http.post(url, body: {
+            'name': _signupName,
+            'email': _signupEmail,
+            'password': _signupPassword,
+            'password_confirmation': _signupConfirmPassword,
+          });
+          if (json.decode(response.body)['message'] ==
+              'User successfully registered') {
+            _loginEmail = _signupEmail;
+            _loginPassword = _signupPassword;
+            _loginFunction();
+          }
+        }
       }
     }
 
@@ -201,7 +207,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          onPressed: _loginFunction,
+                          onPressed: () {
+                            _loginFormKey.currentState!.save();
+                            _loginFunction();
+                          },
                           child: const Text('Login'),
                         ),
                         const SizedBox(height: 30),
