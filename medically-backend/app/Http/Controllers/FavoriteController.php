@@ -21,7 +21,7 @@ class FavoriteController extends Controller
 
     // needs another look at the logic
     public function getFavoritesByUserID(Request $request){
-        $favorites = Favorite::all()->where('user_id',$request->user_id);
+        $favorites = Favorite::where('user_id','=',$request->user_id)->get();
         return response()->json([
             "success" => true,
             "favorites" => $favorites

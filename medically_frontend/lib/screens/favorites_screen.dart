@@ -68,18 +68,21 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
       body: Column(
         children: [
           Flexible(
-            child: GridView.builder(
-              controller: scrollController,
-              padding: const EdgeInsets.all(10),
-              itemCount: _doctors.length,
-              itemBuilder: (ctx, i) => DoctorCard(_doctors[i]),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1,
-                childAspectRatio: 4 / 1,
-                // crossAxisSpacing: 10,
-                mainAxisSpacing: 15,
-              ),
-            ),
+            child: _doctors.isEmpty
+                ? const Center(child: Text('No Doctors Found!'))
+                : GridView.builder(
+                    controller: scrollController,
+                    padding: const EdgeInsets.all(10),
+                    itemCount: _doctors.length,
+                    itemBuilder: (ctx, i) => DoctorCard(_doctors[i]),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 1,
+                      childAspectRatio: 4 / 1,
+                      // crossAxisSpacing: 10,
+                      mainAxisSpacing: 15,
+                    ),
+                  ),
           ),
         ],
       ),
