@@ -9,24 +9,7 @@ use Illuminate\Http\Request;
 class DoctorController extends Controller
 {
  
-    public function addDoctorDetails(Request $request){
-
-        $doctor = new Doctor_detail;
-
-        $doctor->doctor_id = $request->doctor_id;
-        $doctor->rating = 0;
-        $doctor->channel_name = $request->channel_name;
-        $doctor->channel_token = $request->channel_token;
-        $doctor->bio = 'empty doctor bio';
-        $doctor->domain_id = $request->domain_id;
-
-        $doctor->save();
-
-        return response()->json([
-            "success" => true,
-        ], 200);
-    }
-
+    
 
     public function getAllDoctors(Request $request){
 
@@ -48,6 +31,26 @@ class DoctorController extends Controller
             "success" => true,
         ], 200);
     }
+
+    public function addDoctorDetails(Request $request){
+
+        $doctor = new Doctor_detail;
+
+        $doctor->doctor_id = $request->doctor_id;
+        $doctor->rating = 0;
+        $doctor->channel_name = $request->channel_name;
+        $doctor->channel_token = $request->channel_token;
+        $doctor->bio = 'empty doctor bio';
+        $doctor->domain_id = $request->domain_id;
+        $doctor->online = 0;
+
+        $doctor->save();
+
+        return response()->json([
+            "success" => true,
+        ], 200);
+    }
+
 
 
 }

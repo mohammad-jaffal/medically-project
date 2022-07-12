@@ -28,7 +28,7 @@ class _LogsScreenState extends State<LogsScreen> {
     final ScrollController scrollController = ScrollController();
     final callsProvider = Provider.of<CallsProvider>(context);
     final themeState = Provider.of<DarkThemeProvider>(context);
-    var calls = callsProvider.getCallsByUserId(1);
+    var calls = callsProvider.getCalls(1);
     return Scaffold(
       appBar: AppBar(
         title: Text('Logs'),

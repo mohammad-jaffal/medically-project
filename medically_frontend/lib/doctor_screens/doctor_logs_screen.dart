@@ -21,7 +21,7 @@ class _DoctorLogsScreenState extends State<DoctorLogsScreen> {
   Widget build(BuildContext context) {
     final ScrollController scrollController = ScrollController();
     final callsProvider = Provider.of<CallsProvider>(context);
-    var calls = callsProvider.getCallsByDoctorId(1);
+    var calls = callsProvider.getCalls(1);
     return Scaffold(
       appBar: AppBar(
         title: Text('Logs'),

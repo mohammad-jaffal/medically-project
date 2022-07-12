@@ -50,12 +50,7 @@ class CallsProvider with ChangeNotifier {
     },
   ];
 
-  List getCallsByUserId(var userID) {
-    var _allCalls = _userCalls.map((e) => Call.fromJson(e)).toList();
-    return [..._allCalls];
-  }
-
-  List getCallsByDoctorId(var doctorID) {
+  List getCalls(var userID) {
     var _allCalls = _userCalls.map((e) => Call.fromJson(e)).toList();
     return [..._allCalls];
   }

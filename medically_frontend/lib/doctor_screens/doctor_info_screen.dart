@@ -106,7 +106,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
               // ballance item
               Card(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 4, 30, 4),
+                  padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
                   child: Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
