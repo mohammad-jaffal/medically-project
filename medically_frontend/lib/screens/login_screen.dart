@@ -43,11 +43,12 @@ class _LoginScreenState extends State<LoginScreen> {
     var _signupConfirmPassword = '';
 
     Future<void> _loginFunction() async {
+      _loginFormKey.currentState!.save();
       // print('fetching');
       var url = Uri.parse('http://10.0.2.2:8000/api/login');
       var response = await http.post(url, body: {
-        'email': 'doctor2@gmail.com',
-        'password': '121212',
+        'email': _loginEmail,
+        'password': _loginPassword,
       });
       if (response.statusCode == 200) {
         tokenProvider.setToken(json.decode(response.body)['access_token']);
