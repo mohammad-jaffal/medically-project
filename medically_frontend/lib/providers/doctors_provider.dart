@@ -61,7 +61,7 @@ class DoctorsProvider with ChangeNotifier {
     var response = await http.post(url, body: {
       'user_id': '$userID',
     });
-    print(json.decode(response.body));
+    // print(json.decode(response.body));
     _favorites = json.decode(response.body)['favorites'];
     // print(_favorites);
   }
