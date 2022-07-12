@@ -29,7 +29,7 @@ class CallController extends Controller
         $calls = \DB::table('calls')
         ->join('users', 'users.id', '=', 'calls.doctor_id')
         ->where('calls.user_id', $request->user_id)
-        ->select('calls.*', 'users.profile_picture')
+        ->select('calls.*','users.name' ,'users.profile_picture')
         ->get();
         return response()->json([
             "success" => true,
@@ -41,7 +41,7 @@ class CallController extends Controller
         $calls = \DB::table('calls')
         ->join('users', 'users.id', '=', 'calls.user_id')
         ->where('calls.doctor_id', $request->doctor_id)
-        ->select('calls.*', 'users.profile_picture')
+        ->select('calls.*', 'users.name' ,'users.profile_picture')
         ->get();
         return response()->json([
             "success" => true,

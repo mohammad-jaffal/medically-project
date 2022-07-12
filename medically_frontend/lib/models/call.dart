@@ -21,9 +21,11 @@ class Call {
     return Call(
       id: json['id'],
       doctor_id: json['doctor_id'],
-      user_name: json['user_name'],
-      doctor_name: json['doctor_name'],
-      call_image: json['call_image'],
+      // user_name: json['user_name'],
+      user_name: 'user_name',
+      // doctor_name: json['doctor_name'],
+      doctor_name: 'doctor_name',
+      call_image: json['profile_picture'],
       duration: json['duration'],
     );
   }
