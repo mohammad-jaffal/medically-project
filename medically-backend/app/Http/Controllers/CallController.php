@@ -19,14 +19,33 @@ class CallController extends Controller
             "success" => true,
         ], 200);
     }
+    // $doctor = \DB::table('users')
+    //     ->join('doctor_details', 'doctor_details.doctor_id', '=', 'users.id')
+    //     ->where('users.id', $request->doctor_id)
+    //     ->get();
+
 
     public function getCallsByUserID(Request $request){
-        $calls = Call::where('user_id','=',$request->user_id)->get();
+        $calls = \DB::table('calls')
+        ->join('users', 'users.id', '=', 'calls.doctor_id')
+        ->where('calls.user_id', $request->user_id)
+        ->select('calls.*', 'users.profile_picture')
+        ->get();
         return response()->json([
             "success" => true,
             "calls" => $calls
         ], 200);
     }
 
-  
+    public function getCallsByDoctorID(Request $request){
+        $calls = \DB::table('calls')
+        ->join('users', 'users.id', '=', 'calls.user_id')
+        ->where('calls.doctor_id', $request->doctor_id)
+        ->select('calls.*', 'users.profile_picture')
+        ->get();
+        return response()->json([
+            "success" => true,
+            "calls" => $calls
+        ], 200);
+    }
 }
