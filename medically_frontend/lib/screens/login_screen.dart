@@ -1,8 +1,12 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/doctor_screens/doctor_bottom_bar.dart';
 import 'package:medically_frontend/screens/bottom_bar.dart';
+import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -25,25 +29,35 @@ class _LoginScreenState extends State<LoginScreen> {
   var _signupPassword = '';
   var _signupConfirmPassword = '';
 
-  void _loginFunction() {
+  Future<void> _loginFunction() async {
+    print('fetching');
+    var url = Uri.parse('http://10.0.2.2:8000/api/login');
+    var response = await http.post(url, body: {
+      'email': 'test1@gmail.com',
+      'password': '121212',
+    });
+    print('Response body: ${response.body}');
+// http://10.0.2.2:8000/api/user/allitems'
+    // print(await http.read(Uri.parse('https://example.com/foobar.txt')));
+
     // _loginFormKey.currentState!.save();
     // // print(_loginEmail);
     // // print(_loginPassword);
     // if user go user screens
-    if (user_type == 1) {
-      Navigator.of(context).pushReplacementNamed(
-        BottomBarScreen.routeName,
-        arguments: {},
-      );
-      // if doctor go to doctor screens
-    } else if (user_type == 2) {
-      Navigator.of(context).pushReplacementNamed(
-        DoctorBottomBarScreen.routeName,
-        arguments: {},
-      );
-    } else {
-      print('do nothing');
-    }
+    // if (user_type == 1) {
+    //   Navigator.of(context).pushReplacementNamed(
+    //     BottomBarScreen.routeName,
+    //     arguments: {},
+    //   );
+    //   // if doctor go to doctor screens
+    // } else if (user_type == 2) {
+    //   Navigator.of(context).pushReplacementNamed(
+    //     DoctorBottomBarScreen.routeName,
+    //     arguments: {},
+    //   );
+    // } else {
+    //   print('do nothing');
+    // }
   }
 
   void _signupFunction() {
