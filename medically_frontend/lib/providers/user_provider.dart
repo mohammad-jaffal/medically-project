@@ -11,4 +11,8 @@ class UserProvider with ChangeNotifier {
   User get getUser {
     return _user;
   }
+
+  int get getUserId {
+    return _user.id;
+  }
 }
