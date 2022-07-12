@@ -25,17 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-  // @override
-  // void initState() {
-  //   super.initState();
-
-  //   WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-  //     final doctorsProvider =
-  //         Provider.of<DoctorsProvider>(context, listen: false);
-  //     await doctorsProvider.fetchDoctors();
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     final ScrollController scrollController = ScrollController();
@@ -44,9 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
     var _doctors = doctorsProvider.getDoctors(searchText, domainId);
     var _domains = doctorsProvider.getDomains;
     // print(_domains[1]['domain_name']);
-    while (_doctors.isEmpty) {
-      return const Center(child: CircularProgressIndicator());
-    }
+
     return Scaffold(
       appBar: AppBar(
         title: ListTile(
@@ -130,18 +117,21 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Flexible(
-            child: GridView.builder(
-              controller: scrollController,
-              padding: const EdgeInsets.all(10),
-              itemCount: _doctors.length,
-              itemBuilder: (ctx, i) => DoctorCard(_doctors[i]),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1,
-                childAspectRatio: 4 / 1,
-                // crossAxisSpacing: 10,
-                mainAxisSpacing: 15,
-              ),
-            ),
+            child: _doctors.isEmpty
+                ? const Center(child: Text('No Doctors Found!'))
+                : GridView.builder(
+                    controller: scrollController,
+                    padding: const EdgeInsets.all(10),
+                    itemCount: _doctors.length,
+                    itemBuilder: (ctx, i) => DoctorCard(_doctors[i]),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 1,
+                      childAspectRatio: 4 / 1,
+                      // crossAxisSpacing: 10,
+                      mainAxisSpacing: 15,
+                    ),
+                  ),
           ),
         ],
       ),

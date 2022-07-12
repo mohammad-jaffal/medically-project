@@ -29,7 +29,7 @@ class DoctorsProvider with ChangeNotifier {
   Future<void> fetchDoctors() async {
     var url = Uri.parse('http://10.0.2.2:8000/api/get-doctors');
     var response = await http.get(url);
-    print(json.decode(response.body)['doctors']);
+    // print(json.decode(response.body)['doctors']);
     _doctors = json
         .decode(response.body)['doctors']
         .map((e) => Doctor.fromJson(e))
