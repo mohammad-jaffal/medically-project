@@ -43,47 +43,36 @@ class _LoginScreenState extends State<LoginScreen> {
       // print('fetching');
       var url = Uri.parse('http://10.0.2.2:8000/api/login');
       var response = await http.post(url, body: {
-        'email': 'test1@gmail.com',
+        'email': 'test2@gmail.com',
         'password': '121212',
       });
       if (response.statusCode == 200) {
         tokenProvider.setToken(json.decode(response.body)['access_token']);
         var response_body = json.decode(await tokenProvider.validateToken());
-        print(response_body);
-        var u = User(
-          id: response_body['id'],
-          name: response_body['name'],
-          email: response_body['email'],
-          base64Image: response_body['profile_picture'],
-          balance: response_body['balance'],
-          type: response_body['type'],
-        );
-        userProvider.setuser(u);
-        Navigator.of(context)
-            .pushReplacementNamed(BottomBarScreen.routeName, arguments: {});
+        user_type = response_body['type'];
+        if (user_type == 1) {
+          var u = User(
+            id: response_body['id'],
+            name: response_body['name'],
+            email: response_body['email'],
+            base64Image: response_body['profile_picture'],
+            balance: response_body['balance'],
+            type: response_body['type'],
+          );
+          userProvider.setuser(u);
+          Navigator.of(context).pushReplacementNamed(BottomBarScreen.routeName);
+          // if doctor go to doctor screens
+        } else if (user_type == 2) {
+          Navigator.of(context)
+              .pushReplacementNamed(DoctorBottomBarScreen.routeName);
+        } else {
+          print('do nothing');
+        }
+        // Navigator.of(context)
+        //     .pushReplacementNamed(BottomBarScreen.routeName, arguments: {});
       }
-      // var data = json.decode(response.body);
-// http://10.0.2.2:8000/api/user/allitems'
-      // print(await http.read(Uri.parse('https://example.com/foobar.txt')));
 
-      // _loginFormKey.currentState!.save();
-      // // print(_loginEmail);
-      // // print(_loginPassword);
       // if user go user screens
-      // if (user_type == 1) {
-      //   Navigator.of(context).pushReplacementNamed(
-      //     BottomBarScreen.routeName,
-      //     arguments: {},
-      //   );
-      //   // if doctor go to doctor screens
-      // } else if (user_type == 2) {
-      //   Navigator.of(context).pushReplacementNamed(
-      //     DoctorBottomBarScreen.routeName,
-      //     arguments: {},
-      //   );
-      // } else {
-      //   print('do nothing');
-      // }
     }
 
     void _signupFunction() {

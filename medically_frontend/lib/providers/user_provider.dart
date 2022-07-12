@@ -5,7 +5,6 @@ import 'package:medically_frontend/models/user.dart';
 class UserProvider with ChangeNotifier {
   var _user;
   void setuser(User user) {
-    print('setting');
     _user = user;
   }
 
