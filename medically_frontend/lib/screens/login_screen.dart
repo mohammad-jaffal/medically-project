@@ -6,9 +6,12 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/doctor_screens/doctor_bottom_bar.dart';
 import 'package:medically_frontend/providers/token_provider.dart';
+import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/bottom_bar.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+
+import '../models/user.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -21,8 +24,9 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final tokenProvider = Provider.of<TokenProvider>(context);
+    final userProvider = Provider.of<UserProvider>(context);
 
-    final user_type = 1;
+    var user_type;
     final _loginFormKey = GlobalKey<FormState>();
     final _signupFormKey = GlobalKey<FormState>();
     var _isLogin = true;
@@ -36,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
     var _signupConfirmPassword = '';
 
     Future<void> _loginFunction() async {
-      print('fetching');
+      // print('fetching');
       var url = Uri.parse('http://10.0.2.2:8000/api/login');
       var response = await http.post(url, body: {
         'email': 'test1@gmail.com',
@@ -44,6 +48,19 @@ class _LoginScreenState extends State<LoginScreen> {
       });
       if (response.statusCode == 200) {
         tokenProvider.setToken(json.decode(response.body)['access_token']);
+        var response_body = json.decode(await tokenProvider.validateToken());
+        print(response_body);
+        var u = User(
+          id: response_body['id'],
+          name: response_body['name'],
+          email: response_body['email'],
+          base64Image: response_body['profile_picture'],
+          balance: response_body['balance'],
+          type: response_body['type'],
+        );
+        userProvider.setuser(u);
+        Navigator.of(context)
+            .pushReplacementNamed(BottomBarScreen.routeName, arguments: {});
       }
       // var data = json.decode(response.body);
 // http://10.0.2.2:8000/api/user/allitems'

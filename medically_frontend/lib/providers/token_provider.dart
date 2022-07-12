@@ -10,7 +10,7 @@ class TokenProvider with ChangeNotifier {
 
   void setToken(var token) {
     _token = token;
-    validateToken();
+    // validateToken();
   }
 
   Future<String> validateToken() async {
@@ -19,20 +19,7 @@ class TokenProvider with ChangeNotifier {
       'Accept': 'application/json',
       'Authorization': 'Bearer $_token'
     });
-    if (json.decode(response.body)['message'] == 'Unauthenticated.') {
-      return 'Unauthenticated';
-    }
-    print('Response body: ${json.decode(response.body)['id']}');
-    var u = User(
-      id: json.decode(response.body)['id'],
-      name: json.decode(response.body)['name'],
-      email: json.decode(response.body)['email'],
-      base64Image: json.decode(response.body)['profile_picture'],
-      balance: json.decode(response.body)['balance'],
-      type: json.decode(response.body)['type'],
-    );
 
-    UserProvider().setuser(u);
-    return 'false';
+    return response.body;
   }
 }
