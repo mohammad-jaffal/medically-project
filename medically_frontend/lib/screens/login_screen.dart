@@ -12,7 +12,6 @@ import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/bottom_bar.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-
 import '../models/user.dart';
 
 class LoginScreen extends StatefulWidget {

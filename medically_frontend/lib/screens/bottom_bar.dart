@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/providers/doctors_provider.dart';
 import 'package:medically_frontend/screens/favorites_screen.dart';
 import 'package:medically_frontend/screens/home_screen.dart';
 import 'package:medically_frontend/screens/logs_screen.dart';
 import 'package:medically_frontend/screens/user_info_screen.dart';
+import 'package:provider/provider.dart';
 
 class BottomBarScreen extends StatefulWidget {
   const BottomBarScreen({Key? key}) : super(key: key);
@@ -34,8 +36,19 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
     });
   }
 
+  // @override
+  // void didChangeDependencies() {
+  //   final doctorsProvider =
+  //       Provider.of<DoctorsProvider>(context, listen: false);
+  //   doctorsProvider.fetchDoctors();
+  //   super.didChangeDependencies();
+  // }
+
   @override
   Widget build(BuildContext context) {
+    final doctorsProvider =
+        Provider.of<DoctorsProvider>(context, listen: false);
+    doctorsProvider.fetchDoctors();
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(

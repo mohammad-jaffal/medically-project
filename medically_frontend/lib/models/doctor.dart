@@ -37,12 +37,12 @@ class Doctor {
       base64Image: json['profile_picture'],
       balance: json['balance'],
       type: json['type'],
-      rating: json['rating'],
+      rating: double.parse(json['rating']),
       channelName: json['channel_name'],
       channelToken: json['channel_token'],
       bio: json['bio'],
       domainId: json['domain_id'],
-      online: json['online'],
+      online: json['online'] == 1,
     );
   }
 }

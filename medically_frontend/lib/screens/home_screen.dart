@@ -25,6 +25,17 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
+  // @override
+  // void initState() {
+  //   super.initState();
+
+  //   WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+  //     final doctorsProvider =
+  //         Provider.of<DoctorsProvider>(context, listen: false);
+  //     await doctorsProvider.fetchDoctors();
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     final ScrollController scrollController = ScrollController();
@@ -33,6 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
     var _doctors = doctorsProvider.getDoctors(searchText, domainId);
     var _domains = doctorsProvider.getDomains;
     // print(_domains[1]['domain_name']);
+    while (_doctors.isEmpty) {
+      return const Center(child: CircularProgressIndicator());
+    }
     return Scaffold(
       appBar: AppBar(
         title: ListTile(
