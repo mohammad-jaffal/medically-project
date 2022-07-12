@@ -4,7 +4,8 @@ import 'package:http/http.dart' as http;
 class TokenProvider with ChangeNotifier {
   var _token;
 
-  void set setToken(var token) {
+  void setToken(var token) {
+    print(token);
     _token = token;
   }
 

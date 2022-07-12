@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/doctor_screens/doctor_bottom_bar.dart';
+import 'package:medically_frontend/providers/token_provider.dart';
 import 'package:medically_frontend/screens/bottom_bar.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -16,77 +18,81 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final user_type = 1;
-  final _loginFormKey = GlobalKey<FormState>();
-  final _signupFormKey = GlobalKey<FormState>();
-  var _isLogin = true;
-
-  var _loginEmail = '';
-  var _loginPassword = '';
-
-  var _signupName = '';
-  var _signupEmail = '';
-  var _signupPassword = '';
-  var _signupConfirmPassword = '';
-
-  Future<void> _loginFunction() async {
-    print('fetching');
-    var url = Uri.parse('http://10.0.2.2:8000/api/login');
-    var response = await http.post(url, body: {
-      'email': 'test1@gmail.com',
-      'password': '121212',
-    });
-    print('Response body: ${json.decode(response.body)['access_token']}');
-    // var data = json.decode(response.body);
-// http://10.0.2.2:8000/api/user/allitems'
-    // print(await http.read(Uri.parse('https://example.com/foobar.txt')));
-
-    // _loginFormKey.currentState!.save();
-    // // print(_loginEmail);
-    // // print(_loginPassword);
-    // if user go user screens
-    // if (user_type == 1) {
-    //   Navigator.of(context).pushReplacementNamed(
-    //     BottomBarScreen.routeName,
-    //     arguments: {},
-    //   );
-    //   // if doctor go to doctor screens
-    // } else if (user_type == 2) {
-    //   Navigator.of(context).pushReplacementNamed(
-    //     DoctorBottomBarScreen.routeName,
-    //     arguments: {},
-    //   );
-    // } else {
-    //   print('do nothing');
-    // }
-  }
-
-  void _signupFunction() {
-    // _signupFormKey.currentState!.save();
-    // // print(_signupName);
-    // // print(_signupEmail);
-    // // print(_signupPassword);
-    // // print(_signupConfirmPassword);
-
-    // if user go user screens
-    if (user_type == 1) {
-      Navigator.of(context).pushReplacementNamed(
-        BottomBarScreen.routeName,
-        arguments: {},
-      );
-    }
-
-    // if doctor go to doctor screens
-    if (user_type == 2) {
-      Navigator.of(context).pushReplacementNamed(
-        DoctorBottomBarScreen.routeName,
-        arguments: {},
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
+    final tokenProvider = Provider.of<TokenProvider>(context);
+
+    final user_type = 1;
+    final _loginFormKey = GlobalKey<FormState>();
+    final _signupFormKey = GlobalKey<FormState>();
+    var _isLogin = true;
+
+    var _loginEmail = '';
+    var _loginPassword = '';
+
+    var _signupName = '';
+    var _signupEmail = '';
+    var _signupPassword = '';
+    var _signupConfirmPassword = '';
+
+    Future<void> _loginFunction() async {
+      print('fetching');
+      var url = Uri.parse('http://10.0.2.2:8000/api/login');
+      var response = await http.post(url, body: {
+        'email': 'test1@gmail.com',
+        'password': '121212',
+      });
+      if (response.statusCode == 200) {
+        tokenProvider.setToken(json.decode(response.body)['access_token']);
+      }
+      // var data = json.decode(response.body);
+// http://10.0.2.2:8000/api/user/allitems'
+      // print(await http.read(Uri.parse('https://example.com/foobar.txt')));
+
+      // _loginFormKey.currentState!.save();
+      // // print(_loginEmail);
+      // // print(_loginPassword);
+      // if user go user screens
+      // if (user_type == 1) {
+      //   Navigator.of(context).pushReplacementNamed(
+      //     BottomBarScreen.routeName,
+      //     arguments: {},
+      //   );
+      //   // if doctor go to doctor screens
+      // } else if (user_type == 2) {
+      //   Navigator.of(context).pushReplacementNamed(
+      //     DoctorBottomBarScreen.routeName,
+      //     arguments: {},
+      //   );
+      // } else {
+      //   print('do nothing');
+      // }
+    }
+
+    void _signupFunction() {
+      // _signupFormKey.currentState!.save();
+      // // print(_signupName);
+      // // print(_signupEmail);
+      // // print(_signupPassword);
+      // // print(_signupConfirmPassword);
+
+      // if user go user screens
+      if (user_type == 1) {
+        Navigator.of(context).pushReplacementNamed(
+          BottomBarScreen.routeName,
+          arguments: {},
+        );
+      }
+
+      // if doctor go to doctor screens
+      if (user_type == 2) {
+        Navigator.of(context).pushReplacementNamed(
+          DoctorBottomBarScreen.routeName,
+          arguments: {},
+        );
+      }
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
