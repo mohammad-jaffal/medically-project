@@ -43,6 +43,7 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
     final callsProvider = Provider.of<CallsProvider>(context);
 
     var did = doctorProvider.getDoctorId;
+    print(did);
     callsProvider.fetchDoctorCalls(did);
 
     return Scaffold(

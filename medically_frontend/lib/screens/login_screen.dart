@@ -76,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 json.decode(detailsResponse.body)['doctor'][0];
 
             var d = Doctor(
-              id: details_response_body['id'],
+              id: details_response_body['doctor_id'],
               name: details_response_body['name'],
               email: details_response_body['email'],
               base64Image: details_response_body['profile_picture'],
@@ -166,7 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 json.decode(detailsResponse.body)['doctor'][0];
 
             var d = Doctor(
-              id: details_response_body['id'],
+              id: details_response_body['doctor_id'],
               name: details_response_body['name'],
               email: details_response_body['email'],
               base64Image: details_response_body['profile_picture'],
