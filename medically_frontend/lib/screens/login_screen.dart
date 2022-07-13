@@ -23,8 +23,15 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TokenProvider tokenProvider = TokenProvider();
+  void getCurrentToken() async {
+    var token = await tokenProvider.tokenPrefs.getToken();
+    print(token);
+  }
+
   @override
   void initState() {
+    getCurrentToken();
     super.initState();
   }
 
