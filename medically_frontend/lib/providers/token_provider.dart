@@ -22,4 +22,8 @@ class TokenProvider with ChangeNotifier {
 
     return response.body;
   }
+
+  String get getToken {
+    return _token;
+  }
 }

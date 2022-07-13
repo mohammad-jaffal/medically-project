@@ -3,9 +3,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/providers/token_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/balance_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
 
 import '../providers/dark_theme_provider.dart';
 
@@ -17,10 +19,20 @@ class UserInfoScreen extends StatefulWidget {
 }
 
 class _UserInfoScreenState extends State<UserInfoScreen> {
+  Future<void> _logoutFunction(var token) async {
+    var url = Uri.parse('http://10.0.2.2:8000/api/logout');
+    var response = await http.post(url, headers: {
+      'Accept': 'application/json',
+      'Authorization': 'Bearer $token'
+    });
+    print(response.body);
+  }
+
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
     final userProvider = Provider.of<UserProvider>(context);
+    final tokenProvider = Provider.of<TokenProvider>(context);
     var user = userProvider.getUser;
     var bytesImage = const Base64Decoder().convert(user.base64Image);
 
