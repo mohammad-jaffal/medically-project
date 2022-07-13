@@ -4,6 +4,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/doctor_screens/doctor_info_screen.dart';
 import 'package:medically_frontend/doctor_screens/doctor_logs_screen.dart';
 import 'package:medically_frontend/doctor_screens/doctor_reviews_screen.dart';
+import 'package:medically_frontend/providers/doctor_provider.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/calls_provider.dart';
 
 class DoctorBottomBarScreen extends StatefulWidget {
   const DoctorBottomBarScreen({Key? key}) : super(key: key);
@@ -35,6 +39,12 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final doctorProvider = Provider.of<DoctorProvider>(context);
+    final callsProvider = Provider.of<CallsProvider>(context);
+
+    var did = doctorProvider.getDoctorId;
+    callsProvider.fetchDoctorCalls(did);
+
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(

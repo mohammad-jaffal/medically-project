@@ -15,4 +15,8 @@ class DoctorProvider with ChangeNotifier {
     _doctor.online = status;
     notifyListeners();
   }
+
+  int get getDoctorId {
+    return _doctor.id;
+  }
 }
