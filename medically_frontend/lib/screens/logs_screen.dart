@@ -27,8 +27,7 @@ class _LogsScreenState extends State<LogsScreen> {
   Widget build(BuildContext context) {
     final ScrollController scrollController = ScrollController();
     final callsProvider = Provider.of<CallsProvider>(context);
-    final themeState = Provider.of<DarkThemeProvider>(context);
-    var calls = callsProvider.getUserCalls(1);
+    var calls = callsProvider.getCalls();
     return Scaffold(
       appBar: AppBar(
         title: Text('Logs'),

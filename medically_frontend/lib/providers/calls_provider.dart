@@ -16,12 +16,15 @@ class CallsProvider with ChangeNotifier {
     _userCalls = json.decode(response.body)['calls'];
   }
 
-  List getUserCalls(var userID) {
-    var _allCalls = _userCalls.map((e) => Call.fromJson(e)).toList();
-    return [..._allCalls];
+  Future<void> fetchDoctorCalls(doctorID) async {
+    var url = Uri.parse('http://10.0.2.2:8000/api/user/get-doctor-calls');
+    var response = await http.post(url, body: {
+      'doctor_id': '$doctorID',
+    });
+    _userCalls = json.decode(response.body)['calls'];
   }
 
-  List getDoctorCalls(var doctorID) {
+  List getCalls() {
     var _allCalls = _userCalls.map((e) => Call.fromJson(e)).toList();
     return [..._allCalls];
   }

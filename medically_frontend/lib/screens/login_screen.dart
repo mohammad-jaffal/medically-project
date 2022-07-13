@@ -23,6 +23,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool fetching = false;
   TokenProvider tokenProvider = TokenProvider();
   Future<String> getCurrentToken() async {
     var token = (await tokenProvider.tokenPrefs.getToken()).toString();
@@ -42,6 +43,9 @@ class _LoginScreenState extends State<LoginScreen> {
       var saved_token = (await getCurrentToken());
       if (saved_token == 'none') {
       } else {
+        setState(() {
+          fetching = true;
+        });
         tokenProvider.setToken(saved_token);
         var saved_body =
             json.decode(await tokenProvider.validateToken(saved_token));
@@ -129,6 +133,9 @@ class _LoginScreenState extends State<LoginScreen> {
         'password': _loginPassword,
       });
       if (response.statusCode == 200) {
+        setState(() {
+          fetching = true;
+        });
         var access_token = json.decode(response.body)['access_token'];
         tokenProvider.setToken(access_token);
         var response_body =
@@ -218,6 +225,13 @@ class _LoginScreenState extends State<LoginScreen> {
       }
     }
 
+    if (fetching) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
