@@ -182,7 +182,52 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     ),
                   ),
                   onTap: () {
-                    _logoutFunction(token);
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext ctx) {
+                        return AlertDialog(
+                          title: Row(
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.only(right: 6.0),
+                                child: Icon(Icons.exit_to_app),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text('Sure ?'),
+                              ),
+                            ],
+                          ),
+                          // content: const Text('Are you sure'),
+                          actions: [
+                            TextButton(
+                              onPressed: () async {
+                                Navigator.pop(context);
+                              },
+                              child: const Text(
+                                'NO',
+                                style: TextStyle(
+                                  color: Colors.lightBlue,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                _logoutFunction(token);
+                              },
+                              child: const Text(
+                                'YES',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    );
                   },
                 ),
               ),
