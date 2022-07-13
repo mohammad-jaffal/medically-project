@@ -35,6 +35,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     final tokenProvider = Provider.of<TokenProvider>(context);
     var user = userProvider.getUser;
     var bytesImage = const Base64Decoder().convert(user.base64Image);
+    var token = tokenProvider.getToken;
+    print(token);
 
     return Scaffold(
       appBar: AppBar(
