@@ -4,11 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/providers/token_provider.dart';
+import 'package:medically_frontend/screens/login_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/dark_theme_provider.dart';
 import '../providers/doctor_provider.dart';
 import '../providers/doctor_provider.dart';
+import 'package:http/http.dart' as http;
 
 class DoctorInfoScreen extends StatefulWidget {
   const DoctorInfoScreen({Key? key}) : super(key: key);
@@ -18,12 +21,25 @@ class DoctorInfoScreen extends StatefulWidget {
 }
 
 class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
+  Future<void> _logoutFunction(var token) async {
+    var url = Uri.parse('http://10.0.2.2:8000/api/logout');
+    var response = await http.post(url, headers: {
+      'Accept': 'application/json',
+      'Authorization': 'Bearer $token'
+    });
+
+    Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
     final doctorProvider = Provider.of<DoctorProvider>(context);
     var doctor = doctorProvider.getDoctor;
     var bytesImage = const Base64Decoder().convert(doctor.base64Image);
+
+    final tokenProvider = Provider.of<TokenProvider>(context);
+    var token = tokenProvider.getToken;
 
     return Scaffold(
       appBar: AppBar(
@@ -173,7 +189,53 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                     ),
                   ),
                   onTap: () {
-                    print('logout');
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext ctx) {
+                        return AlertDialog(
+                          title: Row(
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.only(right: 6.0),
+                                child: Icon(Icons.exit_to_app),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text('Sure ?'),
+                              ),
+                            ],
+                          ),
+                          // content: const Text('Are you sure'),
+                          actions: [
+                            TextButton(
+                              onPressed: () async {
+                                Navigator.pop(context);
+                              },
+                              child: const Text(
+                                'NO',
+                                style: TextStyle(
+                                  color: Colors.lightBlue,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                tokenProvider.setToken('none');
+                                _logoutFunction(token);
+                              },
+                              child: const Text(
+                                'YES',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    );
                   },
                 ),
               ),

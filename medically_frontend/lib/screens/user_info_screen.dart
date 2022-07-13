@@ -214,6 +214,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                             ),
                             TextButton(
                               onPressed: () {
+                                tokenProvider.setToken('none');
                                 _logoutFunction(token);
                               },
                               child: const Text(
