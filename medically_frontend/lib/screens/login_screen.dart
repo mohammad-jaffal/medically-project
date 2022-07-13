@@ -24,14 +24,28 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   TokenProvider tokenProvider = TokenProvider();
-  void getCurrentToken() async {
-    var token = await tokenProvider.tokenPrefs.getToken();
-    print(token);
+  Future<String> getCurrentToken() async {
+    var token = (await tokenProvider.tokenPrefs.getToken()).toString();
+    tokenProvider.setToken(token);
+    // print(token);
+    return token;
   }
 
   @override
   void initState() {
-    getCurrentToken();
+    final tokenProvider = Provider.of<TokenProvider>(context, listen: false);
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    final doctorProvider = Provider.of<DoctorProvider>(context, listen: false);
+    final doctorsProvider =
+        Provider.of<DoctorsProvider>(context, listen: false);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      var x = (await getCurrentToken());
+
+      print('hi ${await tokenProvider.validateToken(x)}');
+    });
+    // tokenProvider.setToken(getCurrentToken());
+    // print(tokenProvider.validateToken());
     super.initState();
   }
 
@@ -40,10 +54,11 @@ class _LoginScreenState extends State<LoginScreen> {
   var _isLogin = true;
   @override
   Widget build(BuildContext context) {
-    final tokenProvider = Provider.of<TokenProvider>(context);
-    final userProvider = Provider.of<UserProvider>(context);
-    final doctorProvider = Provider.of<DoctorProvider>(context);
-    final doctorsProvider = Provider.of<DoctorsProvider>(context);
+    final tokenProvider = Provider.of<TokenProvider>(context, listen: false);
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    final doctorProvider = Provider.of<DoctorProvider>(context, listen: false);
+    final doctorsProvider =
+        Provider.of<DoctorsProvider>(context, listen: false);
 
     var user_type;
 
@@ -64,7 +79,8 @@ class _LoginScreenState extends State<LoginScreen> {
       });
       if (response.statusCode == 200) {
         tokenProvider.setToken(json.decode(response.body)['access_token']);
-        var response_body = json.decode(await tokenProvider.validateToken());
+        var response_body = json.decode(await tokenProvider
+            .validateToken(json.decode(response.body)['access_token']));
         user_type = response_body['type'];
         if (user_type == 1) {
           var u = User(

@@ -16,11 +16,11 @@ class TokenProvider with ChangeNotifier {
     // validateToken();
   }
 
-  Future<String> validateToken() async {
+  Future<String> validateToken(String token) async {
     var url = Uri.parse('http://10.0.2.2:8000/api/profile');
     var response = await http.post(url, headers: {
       'Accept': 'application/json',
-      'Authorization': 'Bearer $_token'
+      'Authorization': 'Bearer $token'
     });
 
     return response.body;
