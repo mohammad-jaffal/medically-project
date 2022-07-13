@@ -3,9 +3,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/widgets.dart';
 import 'package:medically_frontend/providers/token_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/balance_screen.dart';
+import 'package:medically_frontend/screens/login_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 
@@ -25,7 +27,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
       'Accept': 'application/json',
       'Authorization': 'Bearer $token'
     });
-    print(response.body);
+
+    Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
   }
 
   @override
@@ -36,7 +39,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     var user = userProvider.getUser;
     var bytesImage = const Base64Decoder().convert(user.base64Image);
     var token = tokenProvider.getToken;
-    print(token);
+    // print(token);
 
     return Scaffold(
       appBar: AppBar(
@@ -179,7 +182,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     ),
                   ),
                   onTap: () {
-                    print('logout');
+                    _logoutFunction(token);
                   },
                 ),
               ),
