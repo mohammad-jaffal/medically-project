@@ -9,6 +9,9 @@ class TokenPrefs {
 
   Future<String?> getToken() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (prefs.getString(MEDICALLY_TOKEN) == null) {
+      return "empty";
+    }
     return prefs.getString(MEDICALLY_TOKEN);
   }
 }

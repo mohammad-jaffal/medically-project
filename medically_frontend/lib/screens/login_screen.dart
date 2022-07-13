@@ -23,6 +23,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   final _loginFormKey = GlobalKey<FormState>();
   final _signupFormKey = GlobalKey<FormState>();
   var _isLogin = true;

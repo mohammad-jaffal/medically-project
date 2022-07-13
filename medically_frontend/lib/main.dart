@@ -27,15 +27,22 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   DarkThemeProvider themeChangeProvider = DarkThemeProvider();
+  TokenProvider tokenProvider = TokenProvider();
 
   void getCurrentAppTheme() async {
     themeChangeProvider.setDarkTheme =
         await themeChangeProvider.darkThemePrefs.getTheme();
   }
 
+  void getCurrentToken() async {
+    var token = await tokenProvider.tokenPrefs.getToken();
+    print(token);
+  }
+
   @override
   void initState() {
     getCurrentAppTheme();
+    getCurrentToken();
     super.initState();
   }
 
