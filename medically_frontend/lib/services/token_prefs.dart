@@ -6,4 +6,9 @@ class TokenPrefs {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString(MEDICALLY_TOKEN, value);
   }
+
+  Future<String?> getToken() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(MEDICALLY_TOKEN);
+  }
 }
