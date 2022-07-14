@@ -33,6 +33,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void initState() {
+    setState(() {
+      fetching = true;
+    });
     final tokenProvider = Provider.of<TokenProvider>(context, listen: false);
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     final doctorProvider = Provider.of<DoctorProvider>(context, listen: false);
@@ -42,12 +45,15 @@ class _LoginScreenState extends State<LoginScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       var saved_token = (await getCurrentToken());
       if (saved_token == 'none') {
+        setState(() {
+          fetching = false;
+        });
       } else {
         tokenProvider.setToken(saved_token);
         var validateReturn =
             await tokenProvider.validateToken(saved_token, context);
         if (validateReturn == 'none') {
-          print('unauthenticatedd');
+          print('token expired');
           setState(() {
             fetching = false;
           });
@@ -101,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
         var validateReturn =
             await tokenProvider.validateToken(access_token, context);
         if (validateReturn == 'none') {
-          print('unauthenticatedd');
+          print('this should not happen');
           setState(() {
             fetching = false;
           });
@@ -111,8 +117,6 @@ class _LoginScreenState extends State<LoginScreen> {
           Navigator.of(context)
               .pushReplacementNamed(DoctorBottomBarScreen.routeName);
         }
-        // Navigator.of(context)
-        //     .pushReplacementNamed(BottomBarScreen.routeName, arguments: {});
       } else {
         print('wrong data');
       }

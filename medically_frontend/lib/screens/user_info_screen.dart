@@ -21,16 +21,6 @@ class UserInfoScreen extends StatefulWidget {
 }
 
 class _UserInfoScreenState extends State<UserInfoScreen> {
-  Future<void> _logoutFunction(var token) async {
-    var url = Uri.parse('http://10.0.2.2:8000/api/logout');
-    var response = await http.post(url, headers: {
-      'Accept': 'application/json',
-      'Authorization': 'Bearer $token'
-    });
-
-    Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
-  }
-
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
@@ -215,7 +205,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                             TextButton(
                               onPressed: () {
                                 tokenProvider.setToken('none');
-                                _logoutFunction(token);
+                                Navigator.of(context).pushReplacementNamed(
+                                    LoginScreen.routeName);
                               },
                               child: const Text(
                                 'YES',
