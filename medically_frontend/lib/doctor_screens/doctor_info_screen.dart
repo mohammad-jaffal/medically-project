@@ -74,8 +74,16 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                         ? Icons.person_outline_outlined
                         : Icons.person_off_outlined),
                   ),
-                  onChanged: (bool value) {
-                    doctorProvider.setOnline(value);
+                  onChanged: (bool value) async {
+                    var url = Uri.parse(
+                        'http://10.0.2.2:8000/api/user/set-doctor-status');
+                    var response = await http.post(url, body: {
+                      'doctor_id': '${doctor.id}',
+                      'status': value ? '1' : '0',
+                    });
+                    if (json.decode(response.body)['success']) {
+                      doctorProvider.setOnline(value);
+                    }
                   },
                   value: doctor.online,
                 ),
