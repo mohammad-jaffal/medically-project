@@ -25,6 +25,11 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool fetching = false;
   TokenProvider tokenProvider = TokenProvider();
+
+  final _loginFormKey = GlobalKey<FormState>();
+  final _signupFormKey = GlobalKey<FormState>();
+  var _isLogin = true;
+
   Future<String> getCurrentToken() async {
     var token = (await tokenProvider.tokenPrefs.getToken()).toString();
     // print(token);
@@ -37,10 +42,6 @@ class _LoginScreenState extends State<LoginScreen> {
       fetching = true;
     });
     final tokenProvider = Provider.of<TokenProvider>(context, listen: false);
-    final userProvider = Provider.of<UserProvider>(context, listen: false);
-    final doctorProvider = Provider.of<DoctorProvider>(context, listen: false);
-    final doctorsProvider =
-        Provider.of<DoctorsProvider>(context, listen: false);
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       var saved_token = (await getCurrentToken());
@@ -70,16 +71,9 @@ class _LoginScreenState extends State<LoginScreen> {
     super.initState();
   }
 
-  final _loginFormKey = GlobalKey<FormState>();
-  final _signupFormKey = GlobalKey<FormState>();
-  var _isLogin = true;
   @override
   Widget build(BuildContext context) {
     final tokenProvider = Provider.of<TokenProvider>(context, listen: false);
-    final userProvider = Provider.of<UserProvider>(context, listen: false);
-    final doctorProvider = Provider.of<DoctorProvider>(context, listen: false);
-    final doctorsProvider =
-        Provider.of<DoctorsProvider>(context, listen: false);
 
     var user_type;
 
