@@ -24,12 +24,12 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
+
     final doctorProvider = Provider.of<DoctorProvider>(context);
     var doctor = doctorProvider.getDoctor;
     var bytesImage = const Base64Decoder().convert(doctor.base64Image);
 
     final tokenProvider = Provider.of<TokenProvider>(context);
-    var token = tokenProvider.getToken;
 
     return Scaffold(
       appBar: AppBar(

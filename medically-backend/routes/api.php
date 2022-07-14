@@ -34,6 +34,8 @@ Route::group(['prefix'=>'user'], function(){
 
     Route::post('/add-review', [ReviewController::class, 'addReview']);
 
+Route::post('/set-doctor-status', [DoctorController::class, 'setStatus']);
+    
 
 });
 

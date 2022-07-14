@@ -29,63 +29,62 @@ class TokenProvider with ChangeNotifier {
     final doctorProvider = Provider.of<DoctorProvider>(context, listen: false);
     final doctorsProvider =
         Provider.of<DoctorsProvider>(context, listen: false);
+    // check if token is legit
     var url = Uri.parse('http://10.0.2.2:8000/api/profile');
     var response = await http.post(url, headers: {
       'Accept': 'application/json',
       'Authorization': 'Bearer $token'
     });
-    var saved_body = json.decode(response.body);
-    if (saved_body['message'] == 'Unauthenticated.') {
+    var savedBody = json.decode(response.body);
+    // if the token is no loger active
+    if (savedBody['message'] == 'Unauthenticated.') {
       tokenProvider.setToken('none');
       return 'none';
     } else {
-      var saved_type = saved_body['type'];
-      if (saved_type == 1) {
+      // fill the related provider with user depending on user type
+      // and send the type to login in scren to navigate to the correct screen
+      var savedType = savedBody['type'];
+      if (savedType == 1) {
         var u = User(
-          id: saved_body['id'],
-          name: saved_body['name'],
-          email: saved_body['email'],
-          base64Image: saved_body['profile_picture'],
-          balance: saved_body['balance'],
-          type: saved_body['type'],
+          id: savedBody['id'],
+          name: savedBody['name'],
+          email: savedBody['email'],
+          base64Image: savedBody['profile_picture'],
+          balance: savedBody['balance'],
+          type: savedBody['type'],
         );
 
         await doctorsProvider.fetchDoctors();
         userProvider.setuser(u);
         return 'user';
-
-        // if doctor go to doctor screens
-      } else if (saved_type == 2) {
+      } else if (savedType == 2) {
+        // fetch the doctor details if the type is doctor
         var detailsUrl = Uri.parse('http://10.0.2.2:8000/api/get-doctor');
         var detailsResponse = await http.post(detailsUrl, body: {
-          'doctor_id': '${saved_body['id']}',
+          'doctor_id': '${savedBody['id']}',
         });
         if (detailsResponse.statusCode == 200) {
-          var details_response_body =
-              json.decode(detailsResponse.body)['doctor'][0];
+          var detailsBody = json.decode(detailsResponse.body)['doctor'][0];
 
           var d = Doctor(
-            id: details_response_body['doctor_id'],
-            name: details_response_body['name'],
-            email: details_response_body['email'],
-            base64Image: details_response_body['profile_picture'],
-            balance: details_response_body['balance'],
-            type: details_response_body['type'],
-            rating: double.parse(details_response_body['rating']),
-            channelName: details_response_body['channel_name'],
-            channelToken: details_response_body['channel_token'],
-            bio: details_response_body['bio'],
-            domainId: details_response_body['domain_id'],
-            online: details_response_body['online'] == 1,
+            id: detailsBody['doctor_id'],
+            name: detailsBody['name'],
+            email: detailsBody['email'],
+            base64Image: detailsBody['profile_picture'],
+            balance: detailsBody['balance'],
+            type: detailsBody['type'],
+            rating: double.parse(detailsBody['rating']),
+            channelName: detailsBody['channel_name'],
+            channelToken: detailsBody['channel_token'],
+            bio: detailsBody['bio'],
+            domainId: detailsBody['domain_id'],
+            online: detailsBody['online'] == 1,
           );
           doctorProvider.setDoctor(d);
           return 'doctor';
         }
-      } else {
-        print('do nothing');
       }
     }
-
     return 'none';
   }
 

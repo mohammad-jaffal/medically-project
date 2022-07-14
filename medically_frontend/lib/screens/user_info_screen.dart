@@ -24,13 +24,12 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
+
     final userProvider = Provider.of<UserProvider>(context);
-    final tokenProvider = Provider.of<TokenProvider>(context);
     var user = userProvider.getUser;
     var bytesImage = const Base64Decoder().convert(user.base64Image);
-    var token = tokenProvider.getToken;
-    // print(token);
 
+    final tokenProvider = Provider.of<TokenProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(user.name.toString()),

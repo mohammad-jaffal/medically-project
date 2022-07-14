@@ -64,5 +64,12 @@ class DoctorController extends Controller
         ], 200);
     }
 
+    public function setStatus(Request $request){
 
+        \DB::table('doctor_details')->where('doctor_id', $request->doctor_id)->update(array('online' => $request->status));
+
+        return response()->json([
+            "success" => true,
+        ], 200);
+    }
 }
