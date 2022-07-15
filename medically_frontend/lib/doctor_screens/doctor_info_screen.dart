@@ -220,8 +220,9 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                             TextButton(
                               onPressed: () {
                                 tokenProvider.setToken('none');
-                                Navigator.of(context).pushReplacementNamed(
-                                    LoginScreen.routeName);
+                                Navigator.of(context).pushNamedAndRemoveUntil(
+                                    LoginScreen.routeName,
+                                    (Route<dynamic> route) => false);
                               },
                               child: const Text(
                                 'YES',

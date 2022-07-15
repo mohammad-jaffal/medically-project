@@ -204,8 +204,9 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                             TextButton(
                               onPressed: () {
                                 tokenProvider.setToken('none');
-                                Navigator.of(context).pushReplacementNamed(
-                                    LoginScreen.routeName);
+                                Navigator.of(context).pushNamedAndRemoveUntil(
+                                    LoginScreen.routeName,
+                                    (Route<dynamic> route) => false);
                               },
                               child: const Text(
                                 'YES',

@@ -8,6 +8,7 @@ import 'package:medically_frontend/providers/doctor_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/calls_provider.dart';
+import '../providers/reviews_provider.dart';
 
 class DoctorBottomBarScreen extends StatefulWidget {
   const DoctorBottomBarScreen({Key? key}) : super(key: key);
@@ -43,6 +44,9 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
     final callsProvider = Provider.of<CallsProvider>(context);
 
     var did = doctorProvider.getDoctorId;
+    final reviewsProvider =
+        Provider.of<ReviewsProvider>(context, listen: false);
+    reviewsProvider.fetchReviews(did);
     callsProvider.fetchDoctorCalls(did);
 
     return Scaffold(
