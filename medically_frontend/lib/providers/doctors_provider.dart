@@ -128,4 +128,8 @@ class DoctorsProvider with ChangeNotifier {
       }
     }
   }
+
+  void updatedoctorRating(var doctorID, var rating) {
+    print('$doctorID: $rating');
+  }
 }

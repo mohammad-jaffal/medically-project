@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -32,9 +34,10 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
         'review_text': myController.text,
         'rating': '$_rating',
       });
+      print(json.decode(response.body)['avg']);
       await Provider.of<ReviewsProvider>(context, listen: false)
           .fetchReviews(doctorID);
-      Navigator.pop(context);
+      // Navigator.pop(context);
     }
   }
 
