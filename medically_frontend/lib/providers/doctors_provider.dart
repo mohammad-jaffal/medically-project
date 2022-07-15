@@ -64,7 +64,7 @@ class DoctorsProvider with ChangeNotifier {
     // print(json.decode(response.body));
     var favorites = json.decode(response.body)['favorites'];
     for (var fav in favorites) {
-      print(fav['doctor_id']);
+      // print(fav['doctor_id']);
       _favoriteIDs.add(fav['doctor_id']);
     }
     // print(favs);
