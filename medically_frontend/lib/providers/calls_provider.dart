@@ -6,14 +6,14 @@ import 'package:medically_frontend/models/call.dart';
 import 'package:http/http.dart' as http;
 
 class CallsProvider with ChangeNotifier {
-  var _userCalls;
+  var _calls;
 
   Future<void> fetchUserCalls(userID) async {
     var url = Uri.parse('http://10.0.2.2:8000/api/user/get-user-calls');
     var response = await http.post(url, body: {
       'user_id': '$userID',
     });
-    _userCalls = json.decode(response.body)['calls'];
+    _calls = json.decode(response.body)['calls'];
   }
 
   Future<void> fetchDoctorCalls(doctorID) async {
@@ -21,11 +21,18 @@ class CallsProvider with ChangeNotifier {
     var response = await http.post(url, body: {
       'doctor_id': '$doctorID',
     });
-    _userCalls = json.decode(response.body)['calls'];
+    _calls = json.decode(response.body)['calls'];
   }
 
   List getCalls() {
-    var _allCalls = _userCalls.map((e) => Call.fromJson(e)).toList();
-    return [..._allCalls];
+    if (_calls != null) {
+      var _allCalls = _calls.map((e) => Call.fromJson(e)).toList();
+      return [..._allCalls];
+    }
+    return [];
+  }
+
+  void clearCalls() {
+    _calls = null;
   }
 }

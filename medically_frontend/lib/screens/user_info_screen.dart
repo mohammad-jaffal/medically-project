@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
+import 'package:medically_frontend/providers/calls_provider.dart';
+import 'package:medically_frontend/providers/reviews_provider.dart';
 import 'package:medically_frontend/providers/token_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/balance_screen.dart';
@@ -204,6 +206,12 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                             TextButton(
                               onPressed: () {
                                 tokenProvider.setToken('none');
+                                Provider.of<CallsProvider>(context,
+                                        listen: false)
+                                    .clearCalls();
+                                Provider.of<ReviewsProvider>(context,
+                                        listen: false)
+                                    .clearReviews();
                                 Navigator.of(context).pushNamedAndRemoveUntil(
                                     LoginScreen.routeName,
                                     (Route<dynamic> route) => false);

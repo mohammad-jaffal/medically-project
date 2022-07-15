@@ -19,12 +19,14 @@ class ReviewsProvider with ChangeNotifier {
   }
 
   List getReviews() {
-    var _allReviews = _reviews.map((e) => Review.fromJson(e)).toList();
-    return [..._allReviews];
+    if (_reviews != null) {
+      var _allReviews = _reviews.map((e) => Review.fromJson(e)).toList();
+      return [..._allReviews];
+    }
+    return [];
   }
 
   void clearReviews() {
-    print('clearing');
     _reviews = null;
   }
 }

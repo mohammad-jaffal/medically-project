@@ -20,7 +20,6 @@ class TokenProvider with ChangeNotifier {
   void setToken(var token) {
     _token = token;
     tokenPrefs.setToken(token);
-    // validateToken();
   }
 
   Future<String> validateToken(String token, BuildContext context) async {
