@@ -10,6 +10,8 @@ import 'package:medically_frontend/screens/logs_screen.dart';
 import 'package:medically_frontend/screens/user_info_screen.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/reviews_provider.dart';
+
 class BottomBarScreen extends StatefulWidget {
   const BottomBarScreen({Key? key}) : super(key: key);
   static const routeName = '/bottom-bar-screen';

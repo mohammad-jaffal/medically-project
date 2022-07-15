@@ -71,10 +71,10 @@ class DoctorCard extends StatelessWidget {
           ),
           // child: Text(doctor.name),
         ),
-        onTap: () {
+        onTap: () async {
           final reviewsProvider =
               Provider.of<ReviewsProvider>(context, listen: false);
-          reviewsProvider.fetchReviews(doctor.id);
+          await reviewsProvider.fetchReviews(doctor.id);
           Navigator.pushNamed(
             context,
             DoctorDetailsScreen.routeName,
