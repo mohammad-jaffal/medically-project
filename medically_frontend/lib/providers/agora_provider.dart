@@ -9,11 +9,8 @@ class AgoraProvider with ChangeNotifier {
   var _channelToken;
   var _channelName;
 
-  set setToken(var token) {
+  void setData(var token, var name) {
     _channelToken = token;
-  }
-
-  set setName(var name) {
     _channelName = name;
   }
 

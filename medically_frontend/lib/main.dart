@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medically_frontend/consts/theme_data.dart';
 import 'package:medically_frontend/doctor_screens/doctor_bottom_bar.dart';
+import 'package:medically_frontend/providers/agora_provider.dart';
 import 'package:medically_frontend/providers/calls_provider.dart';
 import 'package:medically_frontend/providers/dark_theme_provider.dart';
 import 'package:medically_frontend/providers/doctor_provider.dart';
@@ -55,6 +56,7 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (ctx) => UserProvider()),
         ChangeNotifierProvider(create: (ctx) => DoctorProvider()),
         ChangeNotifierProvider(create: (ctx) => TokenProvider()),
+        ChangeNotifierProvider(create: (ctx) => AgoraProvider()),
       ],
       child:
           Consumer<DarkThemeProvider>(builder: (context, themeProvider, child) {

@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/providers/agora_provider.dart';
 import 'package:medically_frontend/providers/reviews_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/add_review_screen.dart';
@@ -58,12 +59,10 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
         title: Text(doctor.name),
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.pushNamed(
-                context,
-                UserCallScreen.routeName,
-                arguments: docId,
-              );
+            onPressed: () async {
+              Provider.of<AgoraProvider>(context, listen: false)
+                  .setData(doctor.channelToken, doctor.channelName);
+              Navigator.pushNamed(context, UserCallScreen.routeName);
             },
             icon: const Icon(
               Icons.phone,

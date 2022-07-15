@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/providers/agora_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/doctors_provider.dart';
@@ -35,21 +36,24 @@ class _UserCallScreenState extends State<UserCallScreen> {
 
 // {
   late AgoraClient _client;
-
+  var token;
+  var name;
   @override
   void initState() {
+    final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
+    token = agoraProvider.getToken;
+    name = agoraProvider.getTName;
     super.initState();
     _initAgora();
   }
 
   Future<void> _initAgora() async {
     const appId = "cfdf49c6205745eba30ed0ebadc79407";
-    var t = "";
     _client = AgoraClient(
       agoraConnectionData: AgoraConnectionData(
         appId: "cfdf49c6205745eba30ed0ebadc79407",
-        channelName: "",
-        tempToken: t,
+        channelName: name,
+        tempToken: token,
       ),
     );
     await _client.initialize();
