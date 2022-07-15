@@ -15,4 +15,9 @@ class UserProvider with ChangeNotifier {
   int get getUserId {
     return _user.id;
   }
+
+  void addBalance(var balance) {
+    _user.balance += balance;
+    notifyListeners();
+  }
 }

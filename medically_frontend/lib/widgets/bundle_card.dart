@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/dark_theme_provider.dart';
@@ -13,6 +14,12 @@ class BundleCard extends StatelessWidget {
   }) : super(key: key);
   final int amount;
   final int price;
+
+  _addBalance(BuildContext ctx) {
+    Provider.of<UserProvider>(ctx, listen: false).addBalance(amount);
+    Navigator.pop(ctx);
+  }
+
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
@@ -29,7 +36,7 @@ class BundleCard extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                print('buying $amount');
+                _addBalance(context);
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(

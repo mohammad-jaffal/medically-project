@@ -5,7 +5,7 @@ class User {
   final String name;
   final String email;
   final String base64Image;
-  final int balance;
+  int balance;
   final int type;
 
   User({
