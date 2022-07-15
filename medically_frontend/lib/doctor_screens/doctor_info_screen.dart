@@ -8,10 +8,13 @@ import 'package:medically_frontend/providers/token_provider.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/calls_provider.dart';
 import '../providers/dark_theme_provider.dart';
 import '../providers/doctor_provider.dart';
 import '../providers/doctor_provider.dart';
 import 'package:http/http.dart' as http;
+
+import '../providers/reviews_provider.dart';
 
 class DoctorInfoScreen extends StatefulWidget {
   const DoctorInfoScreen({Key? key}) : super(key: key);
@@ -220,6 +223,12 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                             TextButton(
                               onPressed: () {
                                 tokenProvider.setToken('none');
+                                Provider.of<CallsProvider>(context,
+                                        listen: false)
+                                    .clearCalls();
+                                Provider.of<ReviewsProvider>(context,
+                                        listen: false)
+                                    .clearReviews();
                                 Navigator.of(context).pushNamedAndRemoveUntil(
                                     LoginScreen.routeName,
                                     (Route<dynamic> route) => false);
