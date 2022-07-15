@@ -35,7 +35,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
     final reviewsProvider = Provider.of<ReviewsProvider>(context);
     List reviews = reviewsProvider.getReviews();
     var favIds = doctorsProvider.getFavIds;
-    print(favIds);
+    // print(favIds);
 
     return Scaffold(
       appBar: AppBar(
@@ -50,7 +50,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
           ),
           PopupMenuButton(
             itemBuilder: (context) => [
-              false
+              favIds.contains(docId)
                   ? const PopupMenuItem(child: Text('Remove'))
                   : const PopupMenuItem(child: Text('Add')),
               const PopupMenuItem(child: Text('Review')),
