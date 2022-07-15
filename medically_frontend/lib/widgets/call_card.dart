@@ -10,6 +10,7 @@ import 'package:medically_frontend/screens/doctor_details_screen.dart';
 import 'package:medically_frontend/screens/user_call_screen.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/agora_provider.dart';
 import '../providers/dark_theme_provider.dart';
 
 class CallCard extends StatelessWidget {
@@ -77,11 +78,9 @@ class CallCard extends StatelessWidget {
                       themeState.getDarkTheme ? Colors.white : Colors.grey[600],
                   iconSize: 30,
                   onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      UserCallScreen.routeName,
-                      arguments: call.doctor_id,
-                    );
+                    //   Provider.of<AgoraProvider>(context, listen: false)
+                    // .setData(doctor.channelToken, doctor.channelName);
+                    Navigator.pushNamed(context, UserCallScreen.routeName);
                   },
                 ),
               )

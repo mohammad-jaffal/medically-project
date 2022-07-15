@@ -7,15 +7,15 @@ import 'package:provider/provider.dart';
 import '../providers/doctors_provider.dart';
 import 'package:agora_uikit/agora_uikit.dart';
 
-class UserCallScreen extends StatefulWidget {
-  const UserCallScreen({Key? key}) : super(key: key);
+class DoctorCallScreen extends StatefulWidget {
+  const DoctorCallScreen({Key? key}) : super(key: key);
   static const routeName = '/user-call-screen';
 
   @override
-  State<UserCallScreen> createState() => _UserCallScreenState();
+  State<DoctorCallScreen> createState() => _DoctorCallScreenState();
 }
 
-class _UserCallScreenState extends State<UserCallScreen> {
+class _DoctorCallScreenState extends State<DoctorCallScreen> {
   late AgoraClient _client;
   var token;
   var name;

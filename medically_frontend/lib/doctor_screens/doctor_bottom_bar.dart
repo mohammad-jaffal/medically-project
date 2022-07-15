@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/doctor_screens/doctor_call_screen.dart';
 import 'package:medically_frontend/doctor_screens/doctor_info_screen.dart';
 import 'package:medically_frontend/doctor_screens/doctor_logs_screen.dart';
 import 'package:medically_frontend/doctor_screens/doctor_reviews_screen.dart';
 import 'package:medically_frontend/providers/doctor_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/agora_provider.dart';
 import '../providers/calls_provider.dart';
 import '../providers/reviews_provider.dart';
 
@@ -26,7 +28,8 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
     _pages = [
       const DoctorReviewsScreen(),
       // const FavoritesScreen(),
-      const DoctorLogsScreen(),
+      // const DoctorLogsScreen(),
+      const DoctorCallScreen(),
       const DoctorInfoScreen(),
     ];
     super.initState();
@@ -42,7 +45,10 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
   Widget build(BuildContext context) {
     final doctorProvider = Provider.of<DoctorProvider>(context);
     final callsProvider = Provider.of<CallsProvider>(context);
-
+    Provider.of<AgoraProvider>(context, listen: false).setData(
+      doctorProvider.getDoctor.channelToken,
+      doctorProvider.getDoctor.channelName,
+    );
     var did = doctorProvider.getDoctorId;
     final reviewsProvider =
         Provider.of<ReviewsProvider>(context, listen: false);
