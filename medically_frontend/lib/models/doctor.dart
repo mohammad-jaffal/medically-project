@@ -7,7 +7,7 @@ class Doctor {
   final String base64Image;
   final int balance;
   final int type;
-  final double rating;
+  double rating;
   final String channelName;
   final String channelToken;
   final String bio;

@@ -129,7 +129,13 @@ class DoctorsProvider with ChangeNotifier {
     }
   }
 
-  void updatedoctorRating(var doctorID, var rating) {
-    print('$doctorID: $rating');
+  void updateDoctorRating(var doctorID, var rating) {
+    for (var i = 0; i < _doctors.length; i++) {
+      if (_doctors[i].id == doctorID) {
+        _doctors[i].rating = double.parse(rating);
+      }
+    }
+
+    notifyListeners();
   }
 }

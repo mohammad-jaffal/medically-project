@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:medically_frontend/providers/doctors_provider.dart';
 import 'package:medically_frontend/providers/reviews_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:provider/provider.dart';
@@ -34,10 +35,11 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
         'review_text': myController.text,
         'rating': '$_rating',
       });
-      print(json.decode(response.body)['avg']);
       await Provider.of<ReviewsProvider>(context, listen: false)
           .fetchReviews(doctorID);
-      // Navigator.pop(context);
+      Provider.of<DoctorsProvider>(context, listen: false)
+          .updateDoctorRating(doctorID, json.decode(response.body)['avg']);
+      Navigator.pop(context);
     }
   }
 
