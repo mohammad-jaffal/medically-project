@@ -6,6 +6,9 @@ import 'package:medically_frontend/models/doctor.dart';
 import 'dart:convert';
 
 import 'package:medically_frontend/screens/doctor_details_screen.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/reviews_provider.dart';
 
 class DoctorCard extends StatelessWidget {
   final Doctor doctor;
@@ -69,6 +72,9 @@ class DoctorCard extends StatelessWidget {
           // child: Text(doctor.name),
         ),
         onTap: () {
+          final reviewsProvider =
+              Provider.of<ReviewsProvider>(context, listen: false);
+          reviewsProvider.fetchReviews(doctor.id);
           Navigator.pushNamed(
             context,
             DoctorDetailsScreen.routeName,

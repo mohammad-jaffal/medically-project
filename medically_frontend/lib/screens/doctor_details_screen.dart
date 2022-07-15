@@ -122,18 +122,20 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                 ),
               ),
               const SizedBox(height: 30),
-              ListView.separated(
-                separatorBuilder: (BuildContext context, int index) {
-                  return const SizedBox(height: 20);
-                },
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: reviews.length,
-                itemBuilder: (context, index) => ReviewCard(
-                  reviews[index].rating * 1.0,
-                  reviews[index].review_text,
-                ),
-              ),
+              reviews.isEmpty
+                  ? const Center(child: Text('No Reviews Found!'))
+                  : ListView.separated(
+                      separatorBuilder: (BuildContext context, int index) {
+                        return const SizedBox(height: 20);
+                      },
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: reviews.length,
+                      itemBuilder: (context, index) => ReviewCard(
+                        reviews[index].rating * 1.0,
+                        reviews[index].review_text,
+                      ),
+                    ),
             ],
           ),
         ),

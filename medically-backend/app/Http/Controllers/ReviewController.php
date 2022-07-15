@@ -22,7 +22,22 @@ class ReviewController extends Controller
     }
 
     public function getReviewsByDoctorID(Request $request){
-        $reviews = Review::all()->where('doctor_id',$request->doctor_id);
+        // $reviews = \DB::table('reviews')
+        // ->join('users', 'users.id', '=', 'reviews.user_id')
+        // ->where('reviews.doctor_id', $request->doctor_id)
+        // ->select('reviews.*', 'users.name')
+        // ->get();
+        // return response()->json([
+        //     "success" => true,
+        //     "reviews" => $reviews
+        // ], 200);
+
+
+
+
+
+
+        $reviews = Review::where('doctor_id',$request->doctor_id)->get();
         return response()->json([
             "success" => true,
             "reviews" => $reviews

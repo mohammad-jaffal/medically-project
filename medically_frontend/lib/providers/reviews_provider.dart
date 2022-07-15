@@ -10,14 +10,17 @@ class ReviewsProvider with ChangeNotifier {
   var _reviews;
 
   Future<void> fetchReviews(doctorID) async {
+    print('fetching rweviews');
     var url = Uri.parse('http://10.0.2.2:8000/api/get-reviews');
     var response = await http.post(url, body: {
       'doctor_id': '$doctorID',
     });
-    _reviews = json.decode(response.body)['calls'];
+    _reviews = json.decode(response.body)['reviews'];
+    notifyListeners();
   }
 
   List getReviews() {
+    print('getting reviews');
     var _allReviews = _reviews.map((e) => Review.fromJson(e)).toList();
     return [..._allReviews];
   }
