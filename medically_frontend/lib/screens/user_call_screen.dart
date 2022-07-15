@@ -8,8 +8,12 @@ class UserCallScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final doctorId =
+        int.parse(ModalRoute.of(context)!.settings.arguments.toString());
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(doctorId.toString()),
+      ),
       body: Center(
         child: Text('User call screen'),
       ),
