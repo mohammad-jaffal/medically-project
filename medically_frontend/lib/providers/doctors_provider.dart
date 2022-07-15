@@ -99,4 +99,14 @@ class DoctorsProvider with ChangeNotifier {
   List get getFavIds {
     return [..._favoriteIDs];
   }
+
+  void addFavorite(var doctorID) {
+    for (var doctor in _doctors) {
+      if (doctor.id == doctorID) {
+        _favorites.add(doctor);
+        _favoriteIDs.add(doctorID);
+        notifyListeners();
+      }
+    }
+  }
 }

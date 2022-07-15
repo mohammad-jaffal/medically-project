@@ -21,6 +21,15 @@ class DoctorDetailsScreen extends StatefulWidget {
 }
 
 class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
+  void addFavorite(var doctorID, BuildContext ctx) {
+    print('add $doctorID');
+    Provider.of<DoctorsProvider>(context, listen: false).addFavorite(doctorID);
+  }
+
+  void removeFavorite(var doctorID, BuildContext ctx) {
+    print('remove $doctorID');
+  }
+
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
@@ -53,7 +62,13 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
           PopupMenuButton(
             enabled: true,
             onSelected: (value) {
-              print(value);
+              if (value == 1) {
+                removeFavorite(docId, context);
+              }
+              if (value == 2) {
+                addFavorite(docId, context);
+              }
+              if (value == 3) {}
             },
             itemBuilder: (context) => [
               favIds.contains(docId)
