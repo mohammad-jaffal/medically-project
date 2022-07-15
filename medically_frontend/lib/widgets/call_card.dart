@@ -7,6 +7,7 @@ import 'dart:convert';
 
 import 'package:medically_frontend/providers/doctors_provider.dart';
 import 'package:medically_frontend/screens/doctor_details_screen.dart';
+import 'package:medically_frontend/screens/user_call_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/dark_theme_provider.dart';
@@ -76,7 +77,11 @@ class CallCard extends StatelessWidget {
                       themeState.getDarkTheme ? Colors.white : Colors.grey[600],
                   iconSize: 30,
                   onPressed: () {
-                    print('call ${call.doctor_id}');
+                    Navigator.pushNamed(
+                      context,
+                      UserCallScreen.routeName,
+                      arguments: call.doctor_id,
+                    );
                   },
                 ),
               )
