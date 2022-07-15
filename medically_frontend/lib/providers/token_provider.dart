@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:medically_frontend/models/user.dart';
+import 'package:medically_frontend/providers/calls_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/bottom_bar.dart';
 import 'package:medically_frontend/services/token_prefs.dart';
@@ -26,6 +27,7 @@ class TokenProvider with ChangeNotifier {
     final tokenProvider = Provider.of<TokenProvider>(context, listen: false);
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     final doctorProvider = Provider.of<DoctorProvider>(context, listen: false);
+    final callsProvider = Provider.of<CallsProvider>(context, listen: false);
     final doctorsProvider =
         Provider.of<DoctorsProvider>(context, listen: false);
     // check if token is legit
@@ -55,6 +57,8 @@ class TokenProvider with ChangeNotifier {
 
         await doctorsProvider.fetchDoctors();
         userProvider.setuser(u);
+        doctorsProvider.fetchFavorites(u.id);
+        callsProvider.fetchUserCalls(u.id);
         return 'user';
       } else if (savedType == 2) {
         // fetch the doctor details if the type is doctor
@@ -80,6 +84,7 @@ class TokenProvider with ChangeNotifier {
             online: detailsBody['online'] == 1,
           );
           doctorProvider.setDoctor(d);
+          callsProvider.fetchUserCalls(d.id);
           return 'doctor';
         }
       }

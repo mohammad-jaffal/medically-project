@@ -21,13 +21,15 @@ class DoctorDetailsScreen extends StatefulWidget {
 }
 
 class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
-  void addFavorite(var doctorID, BuildContext ctx) {
+  void addFavorite(var doctorID) {
     print('add $doctorID');
     Provider.of<DoctorsProvider>(context, listen: false).addFavorite(doctorID);
   }
 
-  void removeFavorite(var doctorID, BuildContext ctx) {
+  void removeFavorite(var doctorID) {
     print('remove $doctorID');
+    Provider.of<DoctorsProvider>(context, listen: false)
+        .removeFavorite(doctorID);
   }
 
   @override
@@ -63,10 +65,10 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
             enabled: true,
             onSelected: (value) {
               if (value == 1) {
-                removeFavorite(docId, context);
+                removeFavorite(docId);
               }
               if (value == 2) {
-                addFavorite(docId, context);
+                addFavorite(docId);
               }
               if (value == 3) {}
             },

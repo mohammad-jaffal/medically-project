@@ -50,14 +50,6 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final userProvider = Provider.of<UserProvider>(context);
-    final doctorsProvider = Provider.of<DoctorsProvider>(context);
-    final callsProvider = Provider.of<CallsProvider>(context);
-
-    var uid = userProvider.getUserId;
-    doctorsProvider.fetchFavorites(uid);
-    callsProvider.fetchUserCalls(uid);
-
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(

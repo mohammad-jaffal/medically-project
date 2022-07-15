@@ -9,8 +9,7 @@ class DoctorsProvider with ChangeNotifier {
 
   var _domains;
 
-  var _favorites;
-  var _favoriteIDs;
+  List _favoriteIDs = [];
 
   Future<void> fetchDoctors() async {
     var url = Uri.parse('http://10.0.2.2:8000/api/get-doctors');
@@ -63,23 +62,22 @@ class DoctorsProvider with ChangeNotifier {
       'user_id': '$userID',
     });
     // print(json.decode(response.body));
-    _favorites = json.decode(response.body)['favorites'];
+    var favorites = json.decode(response.body)['favorites'];
+    for (var fav in favorites) {
+      print(fav['doctor_id']);
+      _favoriteIDs.add(fav['doctor_id']);
+    }
+    // print(favs);
+
     // print(_favorites);
   }
 
   List getFavorites(var searchText) {
-    var favs = [];
     var favoriteDoctors = [];
-
-    for (var fav in _favorites) {
-      favs.add(fav['doctor_id']);
-    }
-    // print(favs);
-    _favoriteIDs = favs;
 
     for (var i = 0; i < _doctors.length; i++) {
       if (_doctors[i].name.contains(searchText) &&
-          favs.contains(_doctors[i].id)) {
+          _favoriteIDs.contains(_doctors[i].id)) {
         favoriteDoctors.add(_doctors[i]);
       }
     }
@@ -103,8 +101,20 @@ class DoctorsProvider with ChangeNotifier {
   void addFavorite(var doctorID) {
     for (var doctor in _doctors) {
       if (doctor.id == doctorID) {
-        _favorites.add(doctor);
         _favoriteIDs.add(doctorID);
+        print(_favoriteIDs);
+
+        notifyListeners();
+      }
+    }
+  }
+
+  void removeFavorite(var doctorID) {
+    for (var doctor in _doctors) {
+      if (doctor.id == doctorID) {
+        // _favorites.remove(doctor);
+        _favoriteIDs.remove(doctorID);
+        print(_favoriteIDs);
         notifyListeners();
       }
     }
