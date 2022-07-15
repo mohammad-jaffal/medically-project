@@ -98,12 +98,16 @@ class DoctorsProvider with ChangeNotifier {
     return [..._favoriteIDs];
   }
 
-  void addFavorite(var doctorID) {
+  Future<void> addFavorite(var userID, var doctorID) async {
     for (var doctor in _doctors) {
       if (doctor.id == doctorID) {
         _favoriteIDs.add(doctorID);
-        print(_favoriteIDs);
-
+        // print(_favoriteIDs);
+        var url = Uri.parse('http://10.0.2.2:8000/api/user/add-favorite');
+        var response = await http.post(url, body: {
+          'user_id': '$userID',
+          'doctor_id': '$doctorID',
+        });
         notifyListeners();
       }
     }
@@ -114,7 +118,7 @@ class DoctorsProvider with ChangeNotifier {
       if (doctor.id == doctorID) {
         // _favorites.remove(doctor);
         _favoriteIDs.remove(doctorID);
-        print(_favoriteIDs);
+        // print(_favoriteIDs);
         notifyListeners();
       }
     }

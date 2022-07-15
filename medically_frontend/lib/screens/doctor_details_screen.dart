@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/providers/reviews_provider.dart';
+import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/widgets/review_card.dart';
 import 'package:provider/provider.dart';
 
@@ -21,9 +22,10 @@ class DoctorDetailsScreen extends StatefulWidget {
 }
 
 class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
-  void addFavorite(var doctorID) {
+  void addFavorite(var userID, var doctorID) {
     print('add $doctorID');
-    Provider.of<DoctorsProvider>(context, listen: false).addFavorite(doctorID);
+    Provider.of<DoctorsProvider>(context, listen: false)
+        .addFavorite(userID, doctorID);
   }
 
   void removeFavorite(var doctorID) {
@@ -46,6 +48,9 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
     final reviewsProvider = Provider.of<ReviewsProvider>(context);
     List reviews = reviewsProvider.getReviews();
     var favIds = doctorsProvider.getFavIds;
+
+    final userProvider = Provider.of<UserProvider>(context);
+    final userID = userProvider.getUserId;
     // print(favIds);
 
     return Scaffold(
@@ -68,7 +73,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                 removeFavorite(docId);
               }
               if (value == 2) {
-                addFavorite(docId);
+                addFavorite(userID, docId);
               }
               if (value == 3) {}
             },
