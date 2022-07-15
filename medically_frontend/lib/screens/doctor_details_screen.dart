@@ -51,9 +51,18 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
           PopupMenuButton(
             itemBuilder: (context) => [
               favIds.contains(docId)
-                  ? const PopupMenuItem(child: Text('Remove'))
-                  : const PopupMenuItem(child: Text('Add')),
-              const PopupMenuItem(child: Text('Review')),
+                  ? const PopupMenuItem(
+                      value: 1,
+                      child: Text('Remove'),
+                    )
+                  : const PopupMenuItem(
+                      value: 2,
+                      child: Text('Add'),
+                    ),
+              const PopupMenuItem(
+                value: 3,
+                child: Text('Review'),
+              ),
             ],
           ),
         ],
