@@ -5,10 +5,15 @@ import 'package:provider/provider.dart';
 
 import '../providers/doctors_provider.dart';
 
-class UserCallScreen extends StatelessWidget {
+class UserCallScreen extends StatefulWidget {
   const UserCallScreen({Key? key}) : super(key: key);
   static const routeName = '/user-call-screen';
 
+  @override
+  State<UserCallScreen> createState() => _UserCallScreenState();
+}
+
+class _UserCallScreenState extends State<UserCallScreen> {
   @override
   Widget build(BuildContext context) {
     final doctorId =
