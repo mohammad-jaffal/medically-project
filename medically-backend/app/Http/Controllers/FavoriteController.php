@@ -18,7 +18,15 @@ class FavoriteController extends Controller
             "success" => true,
         ], 200);
     }
-
+    
+    public function removeFavorite(Request $request){
+        Favorite::where('user_id','=',$request->user_id)->where('doctor_id','=',$request->doctor_id)->delete();
+       
+        return response()->json([
+            "success" => true,
+        ], 200);
+    }
+    
     // needs another look at the logic
     public function getFavoritesByUserID(Request $request){
         $favorites = Favorite::where('user_id','=',$request->user_id)->get();
