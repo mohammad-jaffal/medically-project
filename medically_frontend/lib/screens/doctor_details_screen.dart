@@ -33,7 +33,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
     var bytesImage = const Base64Decoder().convert(doctor.base64Image);
     // get reviews
     final reviewsProvider = Provider.of<ReviewsProvider>(context);
-    List reviews = reviewsProvider.getReviewsByDocID(docId);
+    List reviews = reviewsProvider.getReviews();
 
     return Scaffold(
       appBar: AppBar(

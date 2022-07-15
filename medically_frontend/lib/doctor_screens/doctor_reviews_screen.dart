@@ -23,7 +23,7 @@ class _DoctorReviewsScreenState extends State<DoctorReviewsScreen> {
     final docId = 1;
     // get reviews
     final reviewsProvider = Provider.of<ReviewsProvider>(context);
-    List reviews = reviewsProvider.getReviewsByDocID(docId);
+    List reviews = reviewsProvider.getReviews();
     return Scaffold(
       appBar: AppBar(
         title: Text('Reviews'),

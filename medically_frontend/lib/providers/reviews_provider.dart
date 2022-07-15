@@ -1,52 +1,23 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:medically_frontend/models/call.dart';
 import 'package:medically_frontend/models/review.dart';
 
-class ReviewsProvider with ChangeNotifier {
-  final List _reviews = [
-    {
-      "id": 1,
-      "user_id": 2,
-      "doctor_id": 2,
-      "rating": 4,
-      "review_text":
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    {
-      "id": 1,
-      "user_id": 2,
-      "doctor_id": 2,
-      "rating": 1,
-      "review_text":
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    {
-      "id": 1,
-      "user_id": 2,
-      "doctor_id": 2,
-      "rating": 3,
-      "review_text":
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    {
-      "id": 1,
-      "user_id": 2,
-      "doctor_id": 2,
-      "rating": 5,
-      "review_text":
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    {
-      "id": 1,
-      "user_id": 2,
-      "doctor_id": 2,
-      "rating": 3,
-      "review_text":
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-  ];
+import 'package:http/http.dart' as http;
 
-  List getReviewsByDocID(var docID) {
+class ReviewsProvider with ChangeNotifier {
+  var _reviews;
+
+  Future<void> fetchReviews(doctorID) async {
+    var url = Uri.parse('http://10.0.2.2:8000/api/get-reviews');
+    var response = await http.post(url, body: {
+      'doctor_id': '$doctorID',
+    });
+    _reviews = json.decode(response.body)['calls'];
+  }
+
+  List getReviews() {
     var _allReviews = _reviews.map((e) => Review.fromJson(e)).toList();
     return [..._allReviews];
   }
