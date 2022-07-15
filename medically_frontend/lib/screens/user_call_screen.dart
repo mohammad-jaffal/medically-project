@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/doctors_provider.dart';
 
 class UserCallScreen extends StatelessWidget {
   const UserCallScreen({Key? key}) : super(key: key);
@@ -10,12 +13,15 @@ class UserCallScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final doctorId =
         int.parse(ModalRoute.of(context)!.settings.arguments.toString());
+    final doctorsProvider = Provider.of<DoctorsProvider>(context);
+    var doctor = doctorsProvider.getDoctorByID(doctorId);
+    print(doctor.channelToken);
     return Scaffold(
       appBar: AppBar(
         title: Text(doctorId.toString()),
       ),
       body: Center(
-        child: Text('User call screen'),
+        child: Text(doctor.channelName),
       ),
     );
   }
