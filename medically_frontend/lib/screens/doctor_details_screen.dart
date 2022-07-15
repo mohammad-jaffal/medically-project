@@ -47,7 +47,15 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
             ),
           ),
           PopupMenuButton(
-            itemBuilder: (context) => [],
+            itemBuilder: (context) => [
+              false
+                  ? PopupMenuItem(
+                      child: Text('Remove'),
+                    )
+                  : PopupMenuItem(
+                      child: Text('Add'),
+                    ),
+            ],
           ),
         ],
       ),
