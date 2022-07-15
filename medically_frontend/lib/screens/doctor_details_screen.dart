@@ -46,12 +46,9 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
               // size: 35,
             ),
           ),
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.more_vert,
-                // size: 35,
-              )),
+          PopupMenuButton(
+            itemBuilder: (context) => [],
+          ),
         ],
       ),
       body: SingleChildScrollView(
