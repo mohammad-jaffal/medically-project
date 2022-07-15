@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 
 class UserCallScreen extends StatelessWidget {
   const UserCallScreen({Key? key}) : super(key: key);
+  static const routeName = '/user-call-screen';
 
   @override
   Widget build(BuildContext context) {

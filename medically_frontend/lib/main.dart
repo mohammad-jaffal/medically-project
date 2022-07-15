@@ -13,6 +13,7 @@ import 'package:medically_frontend/screens/balance_screen.dart';
 import 'package:medically_frontend/screens/bottom_bar.dart';
 import 'package:medically_frontend/screens/doctor_details_screen.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
+import 'package:medically_frontend/screens/user_call_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -69,6 +70,7 @@ class _MyAppState extends State<MyApp> {
             DoctorBottomBarScreen.routeName: (ctx) => DoctorBottomBarScreen(),
             BalanceScreen.routeName: (ctx) => BalanceScreen(),
             AddReviewScreen.routeName: (ctx) => AddReviewScreen(),
+            UserCallScreen.routeName: (ctx) => UserCallScreen(),
           },
         );
       }),
