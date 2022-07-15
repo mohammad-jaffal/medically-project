@@ -119,7 +119,32 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                 ),
               ),
               const SizedBox(height: 5),
-
+// rating item
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(
+                        Icons.star_border,
+                        size: 35,
+                        color: themeState.getDarkTheme
+                            ? Colors.white
+                            : Colors.grey[600],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30),
+                        child: Text(
+                          doctor.rating.toString(),
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 5),
               // ballance item
               Card(
                 child: Padding(
