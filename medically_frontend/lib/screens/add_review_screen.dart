@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:medically_frontend/providers/reviews_provider.dart';
+import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/dark_theme_provider.dart';
+import 'package:http/http.dart' as http;
 
 class AddReviewScreen extends StatefulWidget {
   AddReviewScreen({Key? key}) : super(key: key);
@@ -18,12 +21,20 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
   var _rating = 0;
   final myController = TextEditingController();
 
-  void _sendReview() {
+  Future<void> _sendReview(var userID, var doctorID) async {
     if (_rating == 0 || myController.text == '') {
       print('do nothing');
     } else {
-      print(_rating);
-      print(myController.text);
+      var url = Uri.parse('http://10.0.2.2:8000/api/user/add-review');
+      var response = await http.post(url, body: {
+        'user_id': '$userID',
+        'doctor_id': '$doctorID',
+        'review_text': myController.text,
+        'rating': '$_rating',
+      });
+      await Provider.of<ReviewsProvider>(context, listen: false)
+          .fetchReviews(doctorID);
+      Navigator.pop(context);
     }
   }
 
@@ -36,7 +47,9 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
-
+    var userID = Provider.of<UserProvider>(context, listen: false).getUserId;
+    final doctorId =
+        int.parse(ModalRoute.of(context)!.settings.arguments.toString());
     return Scaffold(
       appBar: AppBar(
         title: Text("review"),
@@ -87,7 +100,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                   const Expanded(child: SizedBox()),
                   FloatingActionButton(
                     onPressed: () {
-                      _sendReview();
+                      _sendReview(userID, doctorId);
                     },
                     backgroundColor: themeState.getDarkTheme
                         ? const Color(0xff0a0d2c)
