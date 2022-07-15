@@ -7,6 +7,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/providers/reviews_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
+import 'package:medically_frontend/screens/add_review_screen.dart';
 import 'package:medically_frontend/widgets/review_card.dart';
 import 'package:provider/provider.dart';
 
@@ -73,7 +74,13 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
               if (value == 2) {
                 addFavorite(userID, docId);
               }
-              if (value == 3) {}
+              if (value == 3) {
+                Navigator.pushNamed(
+                  context,
+                  AddReviewScreen.routeName,
+                  arguments: doctor.id,
+                );
+              }
             },
             itemBuilder: (context) => [
               favIds.contains(docId)
