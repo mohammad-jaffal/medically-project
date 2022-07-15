@@ -75,7 +75,9 @@ class CallCard extends StatelessWidget {
                   color:
                       themeState.getDarkTheme ? Colors.white : Colors.grey[600],
                   iconSize: 30,
-                  onPressed: () {},
+                  onPressed: () {
+                    print('call ${call.doctor_id}');
+                  },
                 ),
               )
             ],
