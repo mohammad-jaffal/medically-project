@@ -23,15 +23,13 @@ class DoctorDetailsScreen extends StatefulWidget {
 
 class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
   void addFavorite(var userID, var doctorID) {
-    print('add $doctorID');
     Provider.of<DoctorsProvider>(context, listen: false)
         .addFavorite(userID, doctorID);
   }
 
-  void removeFavorite(var doctorID) {
-    print('remove $doctorID');
+  void removeFavorite(var userID, var doctorID) {
     Provider.of<DoctorsProvider>(context, listen: false)
-        .removeFavorite(doctorID);
+        .removeFavorite(userID, doctorID);
   }
 
   @override
@@ -70,7 +68,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
             enabled: true,
             onSelected: (value) {
               if (value == 1) {
-                removeFavorite(docId);
+                removeFavorite(userID, docId);
               }
               if (value == 2) {
                 addFavorite(userID, docId);

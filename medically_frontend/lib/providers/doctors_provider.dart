@@ -113,11 +113,16 @@ class DoctorsProvider with ChangeNotifier {
     }
   }
 
-  void removeFavorite(var doctorID) {
+  Future<void> removeFavorite(var userID, var doctorID) async {
     for (var doctor in _doctors) {
       if (doctor.id == doctorID) {
         // _favorites.remove(doctor);
         _favoriteIDs.remove(doctorID);
+        var url = Uri.parse('http://10.0.2.2:8000/api/user/remove-favorite');
+        var response = await http.post(url, body: {
+          'user_id': '$userID',
+          'doctor_id': '$doctorID',
+        });
         // print(_favoriteIDs);
         notifyListeners();
       }
