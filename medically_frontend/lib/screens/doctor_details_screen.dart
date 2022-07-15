@@ -42,13 +42,19 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
         title: Text(doctor.name),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              print('call $docId');
+            },
             icon: const Icon(
               Icons.phone,
               // size: 35,
             ),
           ),
           PopupMenuButton(
+            enabled: true,
+            onSelected: (value) {
+              print(value);
+            },
             itemBuilder: (context) => [
               favIds.contains(docId)
                   ? const PopupMenuItem(
