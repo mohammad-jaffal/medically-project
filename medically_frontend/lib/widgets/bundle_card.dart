@@ -15,8 +15,8 @@ class BundleCard extends StatelessWidget {
   final int amount;
   final int price;
 
-  _addBalance(BuildContext ctx) {
-    Provider.of<UserProvider>(ctx, listen: false).addBalance(amount);
+  _addBalance(BuildContext ctx) async {
+    await Provider.of<UserProvider>(ctx, listen: false).addBalance(amount);
     Navigator.pop(ctx);
   }
 
