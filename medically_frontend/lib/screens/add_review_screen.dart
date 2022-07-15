@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 
 class AddReviewScreen extends StatelessWidget {
   const AddReviewScreen({Key? key}) : super(key: key);
+  static const routeName = '/add-review-screen';
 
   @override
   Widget build(BuildContext context) {
