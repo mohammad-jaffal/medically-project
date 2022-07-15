@@ -10,6 +10,7 @@ class DoctorsProvider with ChangeNotifier {
   var _domains;
 
   var _favorites;
+  var _favoriteIDs;
 
   Future<void> fetchDoctors() async {
     var url = Uri.parse('http://10.0.2.2:8000/api/get-doctors');
@@ -74,6 +75,7 @@ class DoctorsProvider with ChangeNotifier {
       favs.add(fav['doctor_id']);
     }
     // print(favs);
+    _favoriteIDs = favs;
 
     for (var i = 0; i < _doctors.length; i++) {
       if (_doctors[i].name.contains(searchText) &&
@@ -92,5 +94,9 @@ class DoctorsProvider with ChangeNotifier {
       }
     }
     return _doc;
+  }
+
+  List get getFavIds {
+    return [..._favoriteIDs];
   }
 }
