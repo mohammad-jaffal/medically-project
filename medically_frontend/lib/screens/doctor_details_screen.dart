@@ -41,11 +41,17 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(
+            icon: const Icon(
               Icons.phone,
-              size: 35,
+              // size: 35,
             ),
           ),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.more_vert,
+                // size: 35,
+              )),
         ],
       ),
       body: SingleChildScrollView(
@@ -59,24 +65,16 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                   // color: Colors.red,
                   child: Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.more_vert,
-                                size: 35,
-                              )),
-                        ],
-                      ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(100),
-                        child: Image.memory(
-                          bytesImage,
-                          width: 150,
-                          height: 150,
-                          fit: BoxFit.cover,
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child: Image.memory(
+                            bytesImage,
+                            width: 150,
+                            height: 150,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Padding(
