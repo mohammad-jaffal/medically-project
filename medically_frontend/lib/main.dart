@@ -1,3 +1,4 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:medically_frontend/consts/theme_data.dart';
 import 'package:medically_frontend/doctor_screens/doctor_bottom_bar.dart';
@@ -43,6 +44,11 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     getCurrentAppTheme();
+    AwesomeNotifications()
+        .actionStream
+        .listen((ReceivedNotification receivedNotification) {
+      print('clicked');
+    });
 
     super.initState();
   }
