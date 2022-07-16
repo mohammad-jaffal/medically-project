@@ -18,6 +18,7 @@ import 'package:medically_frontend/screens/bottom_bar.dart';
 import 'package:medically_frontend/screens/doctor_details_screen.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
 import 'package:medically_frontend/screens/user_call_screen.dart';
+import 'package:medically_frontend/screens/user_ringing_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:native_notify/native_notify.dart';
 
@@ -82,6 +83,7 @@ class _MyAppState extends State<MyApp> {
             UserCallScreen.routeName: (ctx) => UserCallScreen(),
             DoctorCallScreen.routeName: (ctx) => DoctorCallScreen(),
             DoctorRingingScreen.routeName: (ctx) => DoctorRingingScreen(),
+            UserRingingScreen.routeName: (ctx) => UserRingingScreen(),
           },
         );
       }),

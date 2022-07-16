@@ -10,6 +10,7 @@ import 'package:medically_frontend/providers/reviews_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/add_review_screen.dart';
 import 'package:medically_frontend/screens/user_call_screen.dart';
+import 'package:medically_frontend/screens/user_ringing_screen.dart';
 import 'package:medically_frontend/widgets/review_card.dart';
 import 'package:provider/provider.dart';
 
@@ -66,7 +67,8 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
               print('calling');
               NativeNotify.sendIndieNotification(1117, '0XErqq1jB7rDHxJbpRwhjt',
                   '$docId', 'Phone calls', 'from $userID', null, null);
-              Navigator.pushNamed(context, UserCallScreen.routeName);
+              Navigator.pushNamed(context, UserRingingScreen.routeName);
+              // Navigator.pushNamed(context, UserCallScreen.routeName);
             },
             icon: const Icon(
               Icons.phone,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/doctor_screens/doctor_call_screen.dart';
+import 'package:native_notify/native_notify.dart';
 
 class DoctorRingingScreen extends StatefulWidget {
   const DoctorRingingScreen({Key? key}) : super(key: key);
@@ -29,6 +30,14 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
             ElevatedButton(
               onPressed: () {
                 print('accept');
+                NativeNotify.sendIndieNotification(
+                    1117,
+                    '0XErqq1jB7rDHxJbpRwhjt',
+                    '1',
+                    'Phone calls',
+                    'accepted',
+                    null,
+                    null);
                 Navigator.pop(context);
                 Navigator.pushNamed(context, DoctorCallScreen.routeName);
               },

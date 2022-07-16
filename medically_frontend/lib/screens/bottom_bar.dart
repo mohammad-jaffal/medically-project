@@ -1,3 +1,4 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -7,6 +8,7 @@ import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/favorites_screen.dart';
 import 'package:medically_frontend/screens/home_screen.dart';
 import 'package:medically_frontend/screens/logs_screen.dart';
+import 'package:medically_frontend/screens/user_call_screen.dart';
 import 'package:medically_frontend/screens/user_info_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -25,6 +27,13 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
 
   @override
   void initState() {
+    AwesomeNotifications()
+        .actionStream
+        .listen((ReceivedNotification receivedNotification) {
+      print('clicked');
+      Navigator.pop(context);
+      Navigator.pushNamed(context, UserCallScreen.routeName);
+    });
     _pages = [
       const HomeScreen(),
       const FavoritesScreen(),
