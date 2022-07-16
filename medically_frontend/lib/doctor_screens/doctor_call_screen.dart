@@ -9,7 +9,7 @@ import 'package:agora_uikit/agora_uikit.dart';
 
 class DoctorCallScreen extends StatefulWidget {
   const DoctorCallScreen({Key? key}) : super(key: key);
-  static const routeName = '/user-call-screen';
+  static const routeName = '/doctor-call-screen';
 
   @override
   State<DoctorCallScreen> createState() => _DoctorCallScreenState();
@@ -36,6 +36,14 @@ class _DoctorCallScreenState extends State<DoctorCallScreen> {
         channelName: name,
         tempToken: token,
       ),
+      agoraEventHandlers: AgoraRtcEventHandlers(
+        leaveChannel: (RtcStats stats) {
+          Navigator.pop(context);
+        },
+        userOffline: (int uid, UserOfflineReason reason) {
+          print('someone left');
+        },
+      ),
     );
     await _client.initialize();
   }
@@ -53,13 +61,20 @@ class _DoctorCallScreenState extends State<DoctorCallScreen> {
             children: [
               AgoraVideoViewer(
                 client: _client,
-                layoutType: Layout.grid,
+                layoutType: Layout.floating,
                 showNumberOfUsers: true,
+                // showAVState: true,
+                disabledVideoWidget: Container(
+                  color: Colors.lightBlue,
+                  child: const Center(
+                    child: Text('Camera off'),
+                  ),
+                ),
               ),
               AgoraVideoButtons(
                 client: _client,
                 enabledButtons: const [
-                  // BuiltInButtons.toggleCamera,
+                  BuiltInButtons.toggleCamera,
                   BuiltInButtons.callEnd,
                   BuiltInButtons.toggleMic,
                 ],

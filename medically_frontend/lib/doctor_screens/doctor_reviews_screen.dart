@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 import '../providers/doctors_provider.dart';
 import '../providers/reviews_provider.dart';
 import '../widgets/review_card.dart';
+import 'doctor_call_screen.dart';
 
 class DoctorReviewsScreen extends StatefulWidget {
   const DoctorReviewsScreen({Key? key}) : super(key: key);
@@ -27,6 +28,17 @@ class _DoctorReviewsScreenState extends State<DoctorReviewsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Reviews'),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              Navigator.pushNamed(context, DoctorCallScreen.routeName);
+            },
+            icon: const Icon(
+              Icons.phone,
+              // size: 35,
+            ),
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: reviews.length,

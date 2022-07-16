@@ -28,8 +28,8 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
     _pages = [
       const DoctorReviewsScreen(),
       // const FavoritesScreen(),
-      // const DoctorLogsScreen(),
-      const DoctorCallScreen(),
+      const DoctorLogsScreen(),
+      // const DoctorCallScreen(),
       const DoctorInfoScreen(),
     ];
     super.initState();

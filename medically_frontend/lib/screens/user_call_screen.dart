@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:http/http.dart';
 import 'package:medically_frontend/providers/agora_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -36,6 +37,14 @@ class _UserCallScreenState extends State<UserCallScreen> {
         channelName: name,
         tempToken: token,
       ),
+      agoraEventHandlers: AgoraRtcEventHandlers(
+        leaveChannel: (RtcStats stats) {
+          Navigator.pop(context);
+        },
+        userOffline: (int uid, UserOfflineReason reason) {
+          print('someone left');
+        },
+      ),
     );
     await _client.initialize();
   }
@@ -55,6 +64,7 @@ class _UserCallScreenState extends State<UserCallScreen> {
                 client: _client,
                 layoutType: Layout.floating,
                 showNumberOfUsers: true,
+                // showAVState: true,
                 disabledVideoWidget: Container(
                   color: Colors.lightBlue,
                   child: const Center(
