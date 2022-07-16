@@ -30,7 +30,7 @@ packages:
     source: hosted
     version: "2.8.2"
   awesome_notifications:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: awesome_notifications
       url: "https://pub.dartlang.org"
