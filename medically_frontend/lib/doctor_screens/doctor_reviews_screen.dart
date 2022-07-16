@@ -28,17 +28,6 @@ class _DoctorReviewsScreenState extends State<DoctorReviewsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Reviews'),
-        actions: [
-          IconButton(
-            onPressed: () async {
-              Navigator.pushNamed(context, DoctorCallScreen.routeName);
-            },
-            icon: const Icon(
-              Icons.phone,
-              // size: 35,
-            ),
-          ),
-        ],
       ),
       body: ListView.builder(
         itemCount: reviews.length,
