@@ -6,6 +6,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/providers/token_provider.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
+import 'package:native_notify/native_notify.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/calls_provider.dart';
@@ -254,6 +255,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                                 Provider.of<ReviewsProvider>(context,
                                         listen: false)
                                     .clearReviews();
+                                NativeNotify.registerIndieID('-');
                                 Navigator.of(context).pushNamedAndRemoveUntil(
                                     LoginScreen.routeName,
                                     (Route<dynamic> route) => false);

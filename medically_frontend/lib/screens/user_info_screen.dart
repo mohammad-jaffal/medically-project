@@ -10,6 +10,7 @@ import 'package:medically_frontend/providers/token_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/balance_screen.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
+import 'package:native_notify/native_notify.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 
@@ -212,6 +213,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                 Provider.of<ReviewsProvider>(context,
                                         listen: false)
                                     .clearReviews();
+                                NativeNotify.registerIndieID('-');
                                 Navigator.of(context).pushNamedAndRemoveUntil(
                                     LoginScreen.routeName,
                                     (Route<dynamic> route) => false);
