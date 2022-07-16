@@ -53,13 +53,19 @@ class _UserCallScreenState extends State<UserCallScreen> {
             children: [
               AgoraVideoViewer(
                 client: _client,
-                layoutType: Layout.grid,
+                layoutType: Layout.floating,
                 showNumberOfUsers: true,
+                disabledVideoWidget: Container(
+                  color: Colors.lightBlue,
+                  child: const Center(
+                    child: Text('Camera off'),
+                  ),
+                ),
               ),
               AgoraVideoButtons(
                 client: _client,
                 enabledButtons: const [
-                  // BuiltInButtons.toggleCamera,
+                  BuiltInButtons.toggleCamera,
                   BuiltInButtons.callEnd,
                   BuiltInButtons.toggleMic,
                 ],
