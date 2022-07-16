@@ -45,11 +45,6 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     getCurrentAppTheme();
-    AwesomeNotifications()
-        .actionStream
-        .listen((ReceivedNotification receivedNotification) {
-      print('clicked');
-    });
 
     super.initState();
   }

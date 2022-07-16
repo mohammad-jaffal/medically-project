@@ -15,10 +15,13 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
     return Scaffold(
       body: Center(
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             ElevatedButton(
               onPressed: () {
                 print('reject');
+                Navigator.pop(context);
+                print('hiii');
               },
               style: ElevatedButton.styleFrom(primary: Colors.red),
               child: Icon(Icons.call_end),

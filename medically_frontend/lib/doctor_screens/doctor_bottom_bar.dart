@@ -1,3 +1,4 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -11,6 +12,7 @@ import 'package:provider/provider.dart';
 import '../providers/agora_provider.dart';
 import '../providers/calls_provider.dart';
 import '../providers/reviews_provider.dart';
+import 'doctor_ringing_screen.dart';
 
 class DoctorBottomBarScreen extends StatefulWidget {
   const DoctorBottomBarScreen({Key? key}) : super(key: key);
@@ -25,6 +27,12 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
 
   @override
   void initState() {
+    AwesomeNotifications()
+        .actionStream
+        .listen((ReceivedNotification receivedNotification) {
+      print('clicked');
+      Navigator.pushNamed(context, DoctorRingingScreen.routeName);
+    });
     _pages = [
       const DoctorReviewsScreen(),
       // const FavoritesScreen(),
