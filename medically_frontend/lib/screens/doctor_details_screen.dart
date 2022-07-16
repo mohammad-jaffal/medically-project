@@ -66,7 +66,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
               print('calling');
               NativeNotify.sendIndieNotification(1117, '0XErqq1jB7rDHxJbpRwhjt',
                   '$docId', 'Phone calls', 'from $userID', null, null);
-              // Navigator.pushNamed(context, UserCallScreen.routeName);
+              Navigator.pushNamed(context, UserCallScreen.routeName);
             },
             icon: const Icon(
               Icons.phone,
