@@ -17,8 +17,11 @@ import 'package:medically_frontend/screens/doctor_details_screen.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
 import 'package:medically_frontend/screens/user_call_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:native_notify/native_notify.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  NativeNotify.initialize(1117, '0XErqq1jB7rDHxJbpRwhjt', null, null);
   runApp(MyApp());
 }
 

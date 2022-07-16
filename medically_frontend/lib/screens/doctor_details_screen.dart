@@ -15,6 +15,7 @@ import 'package:provider/provider.dart';
 
 import '../providers/dark_theme_provider.dart';
 import '../providers/doctors_provider.dart';
+import 'package:native_notify/native_notify.dart';
 
 class DoctorDetailsScreen extends StatefulWidget {
   const DoctorDetailsScreen({Key? key}) : super(key: key);
@@ -62,6 +63,9 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
             onPressed: () async {
               Provider.of<AgoraProvider>(context, listen: false)
                   .setData(doctor.channelToken, doctor.channelName);
+              print('calling');
+              NativeNotify.sendIndieNotification(1117, '0XErqq1jB7rDHxJbpRwhjt',
+                  '$docId', 'Phone call', 'from $userID', null, null);
               Navigator.pushNamed(context, UserCallScreen.routeName);
             },
             icon: const Icon(

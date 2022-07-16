@@ -13,6 +13,7 @@ import '../doctor_screens/doctor_bottom_bar.dart';
 import '../models/doctor.dart';
 import 'doctor_provider.dart';
 import 'doctors_provider.dart';
+import 'package:native_notify/native_notify.dart';
 
 class TokenProvider with ChangeNotifier {
   TokenPrefs tokenPrefs = TokenPrefs();
@@ -42,6 +43,8 @@ class TokenProvider with ChangeNotifier {
       tokenProvider.setToken('none');
       return 'none';
     } else {
+      print('registering id');
+      NativeNotify.registerIndieID('${savedBody['id']}');
       // fill the related provider with user depending on user type
       // and send the type to login in scren to navigate to the correct screen
       var savedType = savedBody['type'];
@@ -54,6 +57,8 @@ class TokenProvider with ChangeNotifier {
           balance: savedBody['balance'],
           type: savedBody['type'],
         );
+
+        // register user id for native notify
 
         await doctorsProvider.fetchDoctors();
         userProvider.setuser(u);
