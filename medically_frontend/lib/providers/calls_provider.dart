@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 class CallsProvider with ChangeNotifier {
   var _calls;
-  var _time;
+  var _time = null;
 
   Future<void> fetchUserCalls(userID) async {
     var url = Uri.parse('http://10.0.2.2:8000/api/user/get-user-calls');
@@ -38,12 +38,14 @@ class CallsProvider with ChangeNotifier {
   }
 
   void setTime(DateTime time) {
-    print(time);
     _time = time;
   }
 
   void endTime(DateTime time) {
-    var diff = time.difference(_time).inSeconds;
-    print('...........................$diff................');
+    if (_time != null) {
+      var diff = time.difference(_time).inSeconds;
+      print('...........................$diff................');
+      _time = null;
+    }
   }
 }

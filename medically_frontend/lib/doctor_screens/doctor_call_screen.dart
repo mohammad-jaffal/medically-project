@@ -45,11 +45,12 @@ class _DoctorCallScreenState extends State<DoctorCallScreen> {
           Navigator.pop(context);
         },
         userOffline: (int uid, UserOfflineReason reason) {
-          print('someone left');
+          Provider.of<CallsProvider>(context, listen: false)
+              .endTime(DateTime.now());
         },
         userJoined: (int x, int y) {
-          print(
-              '--------------------------------------------------------------');
+          Provider.of<CallsProvider>(context, listen: false)
+              .setTime(DateTime.now());
         },
       ),
     );

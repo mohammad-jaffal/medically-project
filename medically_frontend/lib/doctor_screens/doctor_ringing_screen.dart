@@ -82,8 +82,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
             ElevatedButton(
               onPressed: () {
                 isRinging = false;
-                Provider.of<CallsProvider>(context, listen: false)
-                    .setTime(DateTime.now());
+
                 print('accept');
                 NativeNotify.sendIndieNotification(
                     1117,
