@@ -9,7 +9,7 @@ class AgoraProvider with ChangeNotifier {
   var _channelToken;
   var _channelName;
   var _callerID;
-  bool _inCall = true;
+  bool _inCall = false;
 
   void setData(var token, var name) {
     _channelToken = token;

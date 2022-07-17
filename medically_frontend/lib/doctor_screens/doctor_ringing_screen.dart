@@ -25,6 +25,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
     // agoraProvider.setInCall(true);
     await Future.delayed(const Duration(seconds: 10), () {
       if (isRinging) {
+        agoraProvider.setInCall(false);
         print('missed');
         NativeNotify.sendIndieNotification(1117, '0XErqq1jB7rDHxJbpRwhjt',
             '$callerId', 'Call action', 'missed', null, '{"accepted":false}');
@@ -43,6 +44,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
     if (isRinging) {
       print('calling start timer');
       _startTimer();
@@ -54,6 +56,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
           children: [
             ElevatedButton(
               onPressed: () {
+                agoraProvider.setInCall(false);
                 print('reject');
                 isRinging = false;
                 NativeNotify.sendIndieNotification(

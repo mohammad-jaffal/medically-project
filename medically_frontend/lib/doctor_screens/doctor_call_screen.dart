@@ -38,6 +38,7 @@ class _DoctorCallScreenState extends State<DoctorCallScreen> {
       ),
       agoraEventHandlers: AgoraRtcEventHandlers(
         leaveChannel: (RtcStats stats) {
+          Provider.of<AgoraProvider>(context, listen: false).setInCall(false);
           Navigator.pop(context);
         },
         userOffline: (int uid, UserOfflineReason reason) {

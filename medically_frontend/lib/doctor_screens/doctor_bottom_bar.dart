@@ -28,11 +28,13 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
 
   @override
   void initState() {
-    final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
-    var inCall = agoraProvider.getInCall;
     AwesomeNotifications()
         .actionStream
         .listen((ReceivedNotification receivedNotification) {
+      final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
+
+      var inCall = agoraProvider.getInCall;
+      print(inCall);
       agoraProvider.setCallerID(pushDataObject['userID']);
       if (inCall) {
         print('already in call');
@@ -47,6 +49,7 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
         // Navigator.pop(context);
       } else {
         // print(pushDataObject['userID']);
+        agoraProvider.setInCall(true);
         Navigator.pushNamed(context, DoctorRingingScreen.routeName);
       }
     });
