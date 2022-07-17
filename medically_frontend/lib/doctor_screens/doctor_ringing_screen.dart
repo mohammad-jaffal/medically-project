@@ -23,9 +23,9 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
     await Future.delayed(const Duration(seconds: 10), () {
       if (isRinging) {
         print('missed');
-        // NativeNotify.sendIndieNotification(1117, '0XErqq1jB7rDHxJbpRwhjt',
-        //     '$callerId', 'Phone calls', 'missed', null, '{"accepted":false}');
-        // Navigator.pop(context);
+        NativeNotify.sendIndieNotification(1117, '0XErqq1jB7rDHxJbpRwhjt',
+            '$callerId', 'Call action', 'missed', null, '{"accepted":false}');
+        Navigator.pop(context);
       }
     });
   }
@@ -50,11 +50,12 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
             ElevatedButton(
               onPressed: () {
                 print('reject');
+                isRinging = false;
                 NativeNotify.sendIndieNotification(
                     1117,
                     '0XErqq1jB7rDHxJbpRwhjt',
                     '$callerId',
-                    'Phone calls',
+                    'Call action',
                     'rejected',
                     null,
                     '{"accepted":false}');
@@ -67,16 +68,16 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
               onPressed: () {
                 isRinging = false;
                 print('accept');
-                // NativeNotify.sendIndieNotification(
-                //     1117,
-                //     '0XErqq1jB7rDHxJbpRwhjt',
-                //     '$callerId',
-                //     'Phone calls',
-                //     'accepted',
-                //     null,
-                //     '{"accepted":true}');
-                // Navigator.pop(context);
-                // Navigator.pushNamed(context, DoctorCallScreen.routeName);
+                NativeNotify.sendIndieNotification(
+                    1117,
+                    '0XErqq1jB7rDHxJbpRwhjt',
+                    '$callerId',
+                    'Call action',
+                    'accepted',
+                    null,
+                    '{"accepted":true}');
+                Navigator.pop(context);
+                Navigator.pushNamed(context, DoctorCallScreen.routeName);
               },
               style: ElevatedButton.styleFrom(primary: Colors.green),
               child: Icon(Icons.call_end),
