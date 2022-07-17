@@ -129,13 +129,23 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(100),
-                          child: Image.memory(
-                            bytesImage,
-                            width: 150,
-                            height: 150,
-                            fit: BoxFit.cover,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: doctor.online ? Colors.green : Colors.grey,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(100)),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(1),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Image.memory(
+                                bytesImage,
+                                width: 150,
+                                height: 150,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                         ),
                       ),

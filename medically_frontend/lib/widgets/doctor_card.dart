@@ -34,11 +34,9 @@ class DoctorCard extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10),
                 child: Container(
                   decoration: BoxDecoration(
-                      // border: Border.all(
-                      //   color: Colors.red,
-                      // ),
-                      color: doctor.online ? Colors.green : Colors.grey,
-                      borderRadius: BorderRadius.all(Radius.circular(100))),
+                    color: doctor.online ? Colors.green : Colors.grey,
+                    borderRadius: const BorderRadius.all(Radius.circular(100)),
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.all(1),
                     child: ClipRRect(
