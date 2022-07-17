@@ -62,22 +62,60 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
         actions: [
           IconButton(
             onPressed: () async {
-              Provider.of<AgoraProvider>(context, listen: false)
-                  .setData(doctor.channelToken, doctor.channelName);
-              print('calling');
-              NativeNotify.sendIndieNotification(
-                  1117,
-                  '0XErqq1jB7rDHxJbpRwhjt',
-                  '$docId',
-                  'Phone calls',
-                  'from $userID',
-                  null,
-                  '{"userID":"$userID"}');
-              Navigator.pushNamed(context, UserRingingScreen.routeName);
-              // Navigator.pushNamed(context, UserCallScreen.routeName);
+              if (doctor.online) {
+                Provider.of<AgoraProvider>(context, listen: false)
+                    .setData(doctor.channelToken, doctor.channelName);
+                print('calling');
+                NativeNotify.sendIndieNotification(
+                    1117,
+                    '0XErqq1jB7rDHxJbpRwhjt',
+                    '$docId',
+                    'Phone calls',
+                    'from $userID',
+                    null,
+                    '{"userID":"$userID"}');
+                Navigator.pushNamed(context, UserRingingScreen.routeName);
+                // Navigator.pushNamed(context, UserCallScreen.routeName);
+              } else {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext ctx) {
+                    return AlertDialog(
+                      title: Row(
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.only(right: 6.0),
+                            child: Icon(Icons.person_off),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text('Offline :('),
+                          ),
+                        ],
+                      ),
+                      // content: const Text('Are you sure'),
+                      actions: [
+                        TextButton(
+                          onPressed: () async {
+                            Navigator.pop(context);
+                          },
+                          child: const Text(
+                            'OK',
+                            style: TextStyle(
+                              color: Colors.lightBlue,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              }
             },
             icon: const Icon(
               Icons.phone,
+
               // size: 35,
             ),
           ),
