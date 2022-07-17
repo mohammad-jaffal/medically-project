@@ -29,14 +29,16 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
   @override
   void initState() {
     AwesomeNotifications()
-        .actionStream
+        .displayedStream
         .listen((ReceivedNotification receivedNotification) {
       if (pushDataObject['accepted']) {
         Navigator.pop(context);
         Navigator.pushNamed(context, UserCallScreen.routeName);
       } else {
+        print(pushDataObject['message']);
         Navigator.pop(context);
       }
+      AwesomeNotifications().cancelAll();
     });
     _pages = [
       const HomeScreen(),

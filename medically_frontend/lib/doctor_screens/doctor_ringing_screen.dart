@@ -27,8 +27,14 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
       if (isRinging) {
         agoraProvider.setInCall(false);
         print('missed');
-        NativeNotify.sendIndieNotification(1117, '0XErqq1jB7rDHxJbpRwhjt',
-            '$callerId', 'Call action', 'missed', null, '{"accepted":false}');
+        NativeNotify.sendIndieNotification(
+            1117,
+            '0XErqq1jB7rDHxJbpRwhjt',
+            '$callerId',
+            'Call action',
+            'missed',
+            null,
+            '{"accepted":false, "message":"call missed"}');
         Navigator.pop(context);
       }
     });
@@ -66,7 +72,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
                     'Call action',
                     'rejected',
                     null,
-                    '{"accepted":false}');
+                    '{"accepted":false, "message":"call declined"}');
                 Navigator.pop(context);
               },
               style: ElevatedButton.styleFrom(primary: Colors.red),

@@ -28,8 +28,14 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
 
   @override
   void initState() {
+    // AwesomeNotifications()
+    //     .displayedStream
+    //     .listen((ReceivedNotification receivedNotification) {
+    //   print(pushDataObject);
+    // });
+
     AwesomeNotifications()
-        .actionStream
+        .displayedStream
         .listen((ReceivedNotification receivedNotification) {
       final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
 
@@ -45,9 +51,11 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
             'Call action',
             'already in call',
             null,
-            '{"accepted":false}');
+            '{"accepted":false, "message":"already in call"}');
+        AwesomeNotifications().cancelAll();
         // Navigator.pop(context);
       } else {
+        AwesomeNotifications().cancelAll();
         // print(pushDataObject['userID']);
         agoraProvider.setInCall(true);
         Navigator.pushNamed(context, DoctorRingingScreen.routeName);
