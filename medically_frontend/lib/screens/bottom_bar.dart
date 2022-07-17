@@ -2,6 +2,7 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:medically_frontend/models/call.dart';
 import 'package:medically_frontend/providers/calls_provider.dart';
 import 'package:medically_frontend/providers/doctors_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';

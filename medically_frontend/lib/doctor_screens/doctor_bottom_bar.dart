@@ -89,7 +89,7 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
     final reviewsProvider =
         Provider.of<ReviewsProvider>(context, listen: false);
     reviewsProvider.fetchReviews(did);
-    callsProvider.fetchDoctorCalls(did);
+    // callsProvider.fetchDoctorCalls(did);
 
     return Scaffold(
       body: _pages[_selectedIndex],
