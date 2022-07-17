@@ -32,13 +32,24 @@ class DoctorCard extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 10),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: Image.memory(
-                    _bytesImage,
-                    width: 70,
-                    height: 70,
-                    fit: BoxFit.cover,
+                child: Container(
+                  decoration: BoxDecoration(
+                      // border: Border.all(
+                      //   color: Colors.red,
+                      // ),
+                      color: doctor.online ? Colors.green : Colors.grey,
+                      borderRadius: BorderRadius.all(Radius.circular(100))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(1),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100),
+                      child: Image.memory(
+                        _bytesImage,
+                        width: 70,
+                        height: 70,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
               ),
