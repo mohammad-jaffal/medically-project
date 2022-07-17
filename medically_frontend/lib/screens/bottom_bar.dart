@@ -10,6 +10,7 @@ import 'package:medically_frontend/screens/home_screen.dart';
 import 'package:medically_frontend/screens/logs_screen.dart';
 import 'package:medically_frontend/screens/user_call_screen.dart';
 import 'package:medically_frontend/screens/user_info_screen.dart';
+import 'package:native_notify/native_notify.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/reviews_provider.dart';
@@ -30,9 +31,12 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
     AwesomeNotifications()
         .actionStream
         .listen((ReceivedNotification receivedNotification) {
-      print('clicked');
-      Navigator.pop(context);
-      Navigator.pushNamed(context, UserCallScreen.routeName);
+      if (pushDataObject['accepted']) {
+        Navigator.pop(context);
+        Navigator.pushNamed(context, UserCallScreen.routeName);
+      } else {
+        Navigator.pop(context);
+      }
     });
     _pages = [
       const HomeScreen(),

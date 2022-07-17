@@ -32,6 +32,14 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
             ElevatedButton(
               onPressed: () {
                 print('reject');
+                NativeNotify.sendIndieNotification(
+                    1117,
+                    '0XErqq1jB7rDHxJbpRwhjt',
+                    '$callerId',
+                    'Phone calls',
+                    'rejected',
+                    null,
+                    '{"accepted":false}');
                 Navigator.pop(context);
               },
               style: ElevatedButton.styleFrom(primary: Colors.red),
@@ -47,7 +55,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
                     'Phone calls',
                     'accepted',
                     null,
-                    null);
+                    '{"accepted":true}');
                 Navigator.pop(context);
                 Navigator.pushNamed(context, DoctorCallScreen.routeName);
               },
