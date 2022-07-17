@@ -89,7 +89,7 @@ class TokenProvider with ChangeNotifier {
             online: detailsBody['online'] == 1,
           );
           doctorProvider.setDoctor(d);
-          callsProvider.fetchUserCalls(d.id);
+          callsProvider.fetchDoctorCalls(d.id);
           return 'doctor';
         }
       }
