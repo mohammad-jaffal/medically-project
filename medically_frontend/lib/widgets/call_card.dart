@@ -69,21 +69,6 @@ class CallCard extends StatelessWidget {
                   ],
                 ),
               ),
-              const Expanded(child: SizedBox()),
-              Padding(
-                padding: EdgeInsets.only(right: 11),
-                child: IconButton(
-                  icon: Icon(Icons.phone),
-                  color:
-                      themeState.getDarkTheme ? Colors.white : Colors.grey[600],
-                  iconSize: 30,
-                  onPressed: () {
-                    //   Provider.of<AgoraProvider>(context, listen: false)
-                    // .setData(doctor.channelToken, doctor.channelName);
-                    Navigator.pushNamed(context, UserCallScreen.routeName);
-                  },
-                ),
-              )
             ],
           ),
           // child: Text(doctor.name),

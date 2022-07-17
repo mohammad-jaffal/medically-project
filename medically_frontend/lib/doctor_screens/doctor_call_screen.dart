@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/providers/agora_provider.dart';
+import 'package:medically_frontend/providers/calls_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/doctors_provider.dart';
@@ -39,10 +40,16 @@ class _DoctorCallScreenState extends State<DoctorCallScreen> {
       agoraEventHandlers: AgoraRtcEventHandlers(
         leaveChannel: (RtcStats stats) {
           Provider.of<AgoraProvider>(context, listen: false).setInCall(false);
+          Provider.of<CallsProvider>(context, listen: false)
+              .endTime(DateTime.now());
           Navigator.pop(context);
         },
         userOffline: (int uid, UserOfflineReason reason) {
           print('someone left');
+        },
+        userJoined: (int x, int y) {
+          print(
+              '--------------------------------------------------------------');
         },
       ),
     );

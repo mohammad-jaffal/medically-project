@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/doctor_screens/doctor_call_screen.dart';
+import 'package:medically_frontend/providers/calls_provider.dart';
 import 'package:native_notify/native_notify.dart';
 import 'package:provider/provider.dart';
 
@@ -81,6 +82,8 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
             ElevatedButton(
               onPressed: () {
                 isRinging = false;
+                Provider.of<CallsProvider>(context, listen: false)
+                    .setTime(DateTime.now());
                 print('accept');
                 NativeNotify.sendIndieNotification(
                     1117,
