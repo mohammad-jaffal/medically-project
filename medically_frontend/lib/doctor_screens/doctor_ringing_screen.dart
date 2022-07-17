@@ -20,6 +20,9 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
 
   Future<void> _startTimer() async {
     print('starting timer');
+    final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
+
+    // agoraProvider.setInCall(true);
     await Future.delayed(const Duration(seconds: 10), () {
       if (isRinging) {
         print('missed');
@@ -32,7 +35,9 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
 
   @override
   void initState() {
-    callerId = Provider.of<AgoraProvider>(context, listen: false).getCallerID;
+    final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
+    callerId = agoraProvider.getCallerID;
+
     super.initState();
   }
 

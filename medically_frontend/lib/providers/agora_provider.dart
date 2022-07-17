@@ -9,6 +9,7 @@ class AgoraProvider with ChangeNotifier {
   var _channelToken;
   var _channelName;
   var _callerID;
+  bool _inCall = true;
 
   void setData(var token, var name) {
     _channelToken = token;
@@ -30,5 +31,15 @@ class AgoraProvider with ChangeNotifier {
 
   String get getCallerID {
     return _callerID;
+  }
+
+  void setInCall(bool inCall) {
+    print('setting incall $inCall');
+    _inCall = inCall;
+    notifyListeners();
+  }
+
+  bool get getInCall {
+    return _inCall;
   }
 }

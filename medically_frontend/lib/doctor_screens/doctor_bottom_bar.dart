@@ -28,14 +28,27 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
 
   @override
   void initState() {
+    final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
+    var inCall = agoraProvider.getInCall;
     AwesomeNotifications()
         .actionStream
         .listen((ReceivedNotification receivedNotification) {
-      Provider.of<AgoraProvider>(context, listen: false)
-          .setCallerID(pushDataObject['userID']);
-
-      // print(pushDataObject['userID']);
-      Navigator.pushNamed(context, DoctorRingingScreen.routeName);
+      agoraProvider.setCallerID(pushDataObject['userID']);
+      if (inCall) {
+        print('already in call');
+        NativeNotify.sendIndieNotification(
+            1117,
+            '0XErqq1jB7rDHxJbpRwhjt',
+            '${pushDataObject['userID']}',
+            'Call action',
+            'already in call',
+            null,
+            '{"accepted":false}');
+        // Navigator.pop(context);
+      } else {
+        // print(pushDataObject['userID']);
+        Navigator.pushNamed(context, DoctorRingingScreen.routeName);
+      }
     });
     _pages = [
       const DoctorReviewsScreen(),
