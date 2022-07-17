@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/providers/agora_provider.dart';
 import 'package:medically_frontend/providers/calls_provider.dart';
+import 'package:medically_frontend/providers/doctor_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/doctors_provider.dart';
@@ -38,10 +39,14 @@ class _DoctorCallScreenState extends State<DoctorCallScreen> {
         tempToken: token,
       ),
       agoraEventHandlers: AgoraRtcEventHandlers(
-        leaveChannel: (RtcStats stats) {
+        leaveChannel: (RtcStats stats) async {
           Provider.of<AgoraProvider>(context, listen: false).setInCall(false);
           Provider.of<CallsProvider>(context, listen: false)
               .endTime(DateTime.now(), context);
+          await Provider.of<CallsProvider>(context, listen: false)
+              .fetchDoctorCalls(
+                  Provider.of<DoctorProvider>(context, listen: false)
+                      .getDoctorId);
           Navigator.pop(context);
         },
         userOffline: (int uid, UserOfflineReason reason) {
