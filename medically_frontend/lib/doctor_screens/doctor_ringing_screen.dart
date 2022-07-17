@@ -16,6 +16,20 @@ class DoctorRingingScreen extends StatefulWidget {
 
 class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
   var callerId;
+  bool isRinging = true;
+
+  Future<void> _startTimer() async {
+    print('starting timer');
+    await Future.delayed(const Duration(seconds: 10), () {
+      if (isRinging) {
+        print('missed');
+        // NativeNotify.sendIndieNotification(1117, '0XErqq1jB7rDHxJbpRwhjt',
+        //     '$callerId', 'Phone calls', 'missed', null, '{"accepted":false}');
+        // Navigator.pop(context);
+      }
+    });
+  }
+
   @override
   void initState() {
     callerId = Provider.of<AgoraProvider>(context, listen: false).getCallerID;
@@ -24,6 +38,10 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (isRinging) {
+      print('calling start timer');
+      _startTimer();
+    }
     return Scaffold(
       body: Center(
         child: Row(
@@ -47,17 +65,18 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
             ),
             ElevatedButton(
               onPressed: () {
+                isRinging = false;
                 print('accept');
-                NativeNotify.sendIndieNotification(
-                    1117,
-                    '0XErqq1jB7rDHxJbpRwhjt',
-                    '$callerId',
-                    'Phone calls',
-                    'accepted',
-                    null,
-                    '{"accepted":true}');
-                Navigator.pop(context);
-                Navigator.pushNamed(context, DoctorCallScreen.routeName);
+                // NativeNotify.sendIndieNotification(
+                //     1117,
+                //     '0XErqq1jB7rDHxJbpRwhjt',
+                //     '$callerId',
+                //     'Phone calls',
+                //     'accepted',
+                //     null,
+                //     '{"accepted":true}');
+                // Navigator.pop(context);
+                // Navigator.pushNamed(context, DoctorCallScreen.routeName);
               },
               style: ElevatedButton.styleFrom(primary: Colors.green),
               child: Icon(Icons.call_end),

@@ -33,6 +33,7 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
         .listen((ReceivedNotification receivedNotification) {
       Provider.of<AgoraProvider>(context, listen: false)
           .setCallerID(pushDataObject['userID']);
+
       // print(pushDataObject['userID']);
       Navigator.pushNamed(context, DoctorRingingScreen.routeName);
     });
