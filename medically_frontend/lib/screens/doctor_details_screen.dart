@@ -65,8 +65,14 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
               Provider.of<AgoraProvider>(context, listen: false)
                   .setData(doctor.channelToken, doctor.channelName);
               print('calling');
-              NativeNotify.sendIndieNotification(1117, '0XErqq1jB7rDHxJbpRwhjt',
-                  '$docId', 'Phone calls', 'from $userID', null, null);
+              NativeNotify.sendIndieNotification(
+                  1117,
+                  '0XErqq1jB7rDHxJbpRwhjt',
+                  '$docId',
+                  'Phone calls',
+                  'from $userID',
+                  null,
+                  '{"userID":"$userID"}');
               Navigator.pushNamed(context, UserRingingScreen.routeName);
               // Navigator.pushNamed(context, UserCallScreen.routeName);
             },

@@ -7,6 +7,7 @@ import 'package:medically_frontend/doctor_screens/doctor_info_screen.dart';
 import 'package:medically_frontend/doctor_screens/doctor_logs_screen.dart';
 import 'package:medically_frontend/doctor_screens/doctor_reviews_screen.dart';
 import 'package:medically_frontend/providers/doctor_provider.dart';
+import 'package:native_notify/native_notify.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/agora_provider.dart';
@@ -30,7 +31,9 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
     AwesomeNotifications()
         .actionStream
         .listen((ReceivedNotification receivedNotification) {
-      print('clicked');
+      Provider.of<AgoraProvider>(context, listen: false)
+          .setCallerID(pushDataObject['userID']);
+      // print(pushDataObject['userID']);
       Navigator.pushNamed(context, DoctorRingingScreen.routeName);
     });
     _pages = [

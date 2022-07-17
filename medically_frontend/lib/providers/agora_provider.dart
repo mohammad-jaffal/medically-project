@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 class AgoraProvider with ChangeNotifier {
   var _channelToken;
   var _channelName;
+  var _callerID;
 
   void setData(var token, var name) {
     _channelToken = token;
@@ -20,5 +21,14 @@ class AgoraProvider with ChangeNotifier {
 
   String get getTName {
     return _channelName;
+  }
+
+  void setCallerID(var callerID) {
+    print('setting caller id $callerID');
+    _callerID = callerID;
+  }
+
+  String get getCallerID {
+    return _callerID;
   }
 }

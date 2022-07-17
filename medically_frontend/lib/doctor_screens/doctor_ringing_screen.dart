@@ -3,6 +3,9 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/doctor_screens/doctor_call_screen.dart';
 import 'package:native_notify/native_notify.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/agora_provider.dart';
 
 class DoctorRingingScreen extends StatefulWidget {
   const DoctorRingingScreen({Key? key}) : super(key: key);
@@ -12,6 +15,13 @@ class DoctorRingingScreen extends StatefulWidget {
 }
 
 class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
+  var callerId;
+  @override
+  void initState() {
+    callerId = Provider.of<AgoraProvider>(context, listen: false).getCallerID;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +43,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
                 NativeNotify.sendIndieNotification(
                     1117,
                     '0XErqq1jB7rDHxJbpRwhjt',
-                    '1',
+                    '$callerId',
                     'Phone calls',
                     'accepted',
                     null,
