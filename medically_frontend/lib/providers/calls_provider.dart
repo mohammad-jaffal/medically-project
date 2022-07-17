@@ -45,14 +45,18 @@ class CallsProvider with ChangeNotifier {
     _time = time;
   }
 
-  void endTime(DateTime time, BuildContext ctx) {
+  Future<void> endTime(DateTime time, BuildContext ctx) async {
     var docID = Provider.of<DoctorProvider>(ctx, listen: false).getDoctorId;
     var userID = Provider.of<AgoraProvider>(ctx, listen: false).getCallerID;
     if (_time != null) {
-      var diff = time.difference(_time).inSeconds;
-      print('...........................$diff................');
-      print('...........................$docID................');
-      print('...........................$userID................');
+      var duration = time.difference(_time).inSeconds;
+      var url = Uri.parse('http://10.0.2.2:8000/api/user/add-call');
+      var response = await http.post(url, body: {
+        'doctor_id': '$docID',
+        'user_id': '$userID',
+        'duration': '$duration',
+      });
+
       _time = null;
     }
   }
