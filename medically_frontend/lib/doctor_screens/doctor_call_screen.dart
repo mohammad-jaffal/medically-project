@@ -41,12 +41,12 @@ class _DoctorCallScreenState extends State<DoctorCallScreen> {
         leaveChannel: (RtcStats stats) {
           Provider.of<AgoraProvider>(context, listen: false).setInCall(false);
           Provider.of<CallsProvider>(context, listen: false)
-              .endTime(DateTime.now());
+              .endTime(DateTime.now(), context);
           Navigator.pop(context);
         },
         userOffline: (int uid, UserOfflineReason reason) {
           Provider.of<CallsProvider>(context, listen: false)
-              .endTime(DateTime.now());
+              .endTime(DateTime.now(), context);
         },
         userJoined: (int x, int y) {
           Provider.of<CallsProvider>(context, listen: false)

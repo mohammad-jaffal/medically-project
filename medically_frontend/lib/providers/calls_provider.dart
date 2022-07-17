@@ -4,6 +4,10 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:medically_frontend/models/call.dart';
 import 'package:http/http.dart' as http;
+import 'package:medically_frontend/providers/agora_provider.dart';
+import 'package:provider/provider.dart';
+
+import 'doctor_provider.dart';
 
 class CallsProvider with ChangeNotifier {
   var _calls;
@@ -41,10 +45,14 @@ class CallsProvider with ChangeNotifier {
     _time = time;
   }
 
-  void endTime(DateTime time) {
+  void endTime(DateTime time, BuildContext ctx) {
+    var docID = Provider.of<DoctorProvider>(ctx, listen: false).getDoctorId;
+    var userID = Provider.of<AgoraProvider>(ctx, listen: false).getCallerID;
     if (_time != null) {
       var diff = time.difference(_time).inSeconds;
       print('...........................$diff................');
+      print('...........................$docID................');
+      print('...........................$userID................');
       _time = null;
     }
   }
