@@ -46,7 +46,6 @@ class AgoraProvider with ChangeNotifier {
   }
 
   void setCallerName(var callerName) {
-    print('setting caller id $callerName');
     _callerName = callerName;
   }
 
@@ -55,7 +54,6 @@ class AgoraProvider with ChangeNotifier {
   }
 
   void setCallerImage(var callerImg) {
-    print('setting caller id $callerImg');
     _callerImage = callerImg;
   }
 

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -17,6 +19,8 @@ class DoctorRingingScreen extends StatefulWidget {
 
 class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
   var callerId;
+  var callerName;
+  var callerImage;
   bool isRinging = true;
 
   Future<void> _startTimer() async {
@@ -45,6 +49,8 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
   void initState() {
     final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
     callerId = agoraProvider.getCallerID;
+    callerName = agoraProvider.getCallerName;
+    callerImage = agoraProvider.getCallerImage;
 
     super.initState();
   }
@@ -52,54 +58,76 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
   @override
   Widget build(BuildContext context) {
     final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
+    // print(callerName);
+    var bytesImage = const Base64Decoder().convert(callerImage);
     if (isRinging) {
       print('calling start timer');
       _startTimer();
     }
     return Scaffold(
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                agoraProvider.setInCall(false);
-                print('reject');
-                isRinging = false;
-                NativeNotify.sendIndieNotification(
-                    1117,
-                    '0XErqq1jB7rDHxJbpRwhjt',
-                    '$callerId',
-                    'Call action',
-                    'rejected',
-                    null,
-                    '{"accepted":false, "message":"call declined"}');
-                Navigator.pop(context);
-              },
-              style: ElevatedButton.styleFrom(primary: Colors.red),
-              child: Icon(Icons.call_end),
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: 100,
+          ),
+          Text(callerName),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(100),
+              child: Image.memory(
+                bytesImage,
+                width: 150,
+                height: 150,
+                fit: BoxFit.cover,
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                isRinging = false;
+          ),
+          Expanded(child: SizedBox()),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  agoraProvider.setInCall(false);
+                  print('reject');
+                  isRinging = false;
+                  NativeNotify.sendIndieNotification(
+                      1117,
+                      '0XErqq1jB7rDHxJbpRwhjt',
+                      '$callerId',
+                      'Call action',
+                      'rejected',
+                      null,
+                      '{"accepted":false, "message":"call declined"}');
+                  Navigator.pop(context);
+                },
+                style: ElevatedButton.styleFrom(primary: Colors.red),
+                child: Icon(Icons.call_end),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  isRinging = false;
 
-                print('accept');
-                NativeNotify.sendIndieNotification(
-                    1117,
-                    '0XErqq1jB7rDHxJbpRwhjt',
-                    '$callerId',
-                    'Call action',
-                    'accepted',
-                    null,
-                    '{"accepted":true}');
-                Navigator.pop(context);
-                Navigator.pushNamed(context, DoctorCallScreen.routeName);
-              },
-              style: ElevatedButton.styleFrom(primary: Colors.green),
-              child: Icon(Icons.call_end),
-            ),
-          ],
-        ),
+                  print('accept');
+                  NativeNotify.sendIndieNotification(
+                      1117,
+                      '0XErqq1jB7rDHxJbpRwhjt',
+                      '$callerId',
+                      'Call action',
+                      'accepted',
+                      null,
+                      '{"accepted":true}');
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, DoctorCallScreen.routeName);
+                },
+                style: ElevatedButton.styleFrom(primary: Colors.green),
+                child: Icon(Icons.call_end),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

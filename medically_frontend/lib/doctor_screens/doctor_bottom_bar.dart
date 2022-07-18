@@ -41,9 +41,10 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
 
       var inCall = agoraProvider.getInCall;
       print(inCall);
-      print(pushDataObject['userName']);
-      print(pushDataObject['userImage']);
       agoraProvider.setCallerID(pushDataObject['userID']);
+      agoraProvider.setCallerName(pushDataObject['userName']);
+      agoraProvider.setCallerImage(pushDataObject['userImage']);
+
       if (inCall) {
         print('already in call');
         NativeNotify.sendIndieNotification(
