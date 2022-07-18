@@ -38,7 +38,7 @@ class DoctorCard extends StatelessWidget {
                     borderRadius: const BorderRadius.all(Radius.circular(100)),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(1),
+                    padding: const EdgeInsets.all(2),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(100),
                       child: Image.memory(

@@ -70,7 +70,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                     1117,
                     '0XErqq1jB7rDHxJbpRwhjt',
                     '$docId',
-                    'Phone calls',
+                    'Phone call',
                     'from $userID',
                     null,
                     '{"userID":"$userID"}');
@@ -174,7 +174,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                                 const BorderRadius.all(Radius.circular(100)),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(1),
+                            padding: const EdgeInsets.all(2),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(100),
                               child: Image.memory(
