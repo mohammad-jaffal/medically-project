@@ -53,7 +53,8 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
     var favIds = doctorsProvider.getFavIds;
 
     final userProvider = Provider.of<UserProvider>(context);
-    final userID = userProvider.getUserId;
+    final user = userProvider.getUser;
+    final userID = user.id;
     // print(favIds);
 
     return Scaffold(
@@ -73,7 +74,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                     'Phone call',
                     'from $userID',
                     null,
-                    '{"userID":"$userID"}');
+                    '{"userID":"$userID", "userName":"${user.name}"}');
                 Navigator.pushNamed(context, UserRingingScreen.routeName);
                 // Navigator.pushNamed(context, UserCallScreen.routeName);
               } else {

@@ -41,6 +41,7 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
 
       var inCall = agoraProvider.getInCall;
       print(inCall);
+      print(pushDataObject['userName']);
       agoraProvider.setCallerID(pushDataObject['userID']);
       if (inCall) {
         print('already in call');

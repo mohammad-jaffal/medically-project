@@ -24,7 +24,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
     final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
 
     // agoraProvider.setInCall(true);
-    await Future.delayed(const Duration(seconds: 10), () {
+    await Future.delayed(const Duration(seconds: 10000), () {
       if (isRinging) {
         agoraProvider.setInCall(false);
         print('missed');
