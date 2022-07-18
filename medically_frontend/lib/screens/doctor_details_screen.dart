@@ -75,7 +75,8 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                     'from $userID',
                     null,
                     '{"userID":"$userID", "userName":"${user.name}", "userImage":"${user.base64Image}"}');
-                Navigator.pushNamed(context, UserRingingScreen.routeName);
+                Navigator.pushNamed(context, UserRingingScreen.routeName,
+                    arguments: doctor.base64Image.toString());
                 // Navigator.pushNamed(context, UserCallScreen.routeName);
               } else {
                 showDialog(

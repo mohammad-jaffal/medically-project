@@ -60,9 +60,6 @@ class _UserCallScreenState extends State<UserCallScreen> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("video"),
-        ),
         body: SafeArea(
           child: Stack(
             children: [

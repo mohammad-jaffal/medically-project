@@ -34,7 +34,7 @@ class Doctor {
       id: json['doctor_id'],
       name: json['name'],
       email: json['email'],
-      base64Image: json['profile_picture'],
+      base64Image: json['profile_picture'].toString(),
       balance: json['balance'],
       type: json['type'],
       rating: double.parse(json['rating']),

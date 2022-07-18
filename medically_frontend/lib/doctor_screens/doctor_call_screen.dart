@@ -67,9 +67,6 @@ class _DoctorCallScreenState extends State<DoctorCallScreen> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("video"),
-        ),
         body: SafeArea(
           child: Stack(
             children: [

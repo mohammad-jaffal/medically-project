@@ -156,218 +156,226 @@ class _LoginScreenState extends State<LoginScreen> {
     }
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: _isLogin
-                // log in form ---------------------------
-                ? Form(
-                    key: _loginFormKey,
-                    child: Column(
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        const Text(
-                          'Login',
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 54, 135, 255),
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 50),
-                        TextFormField(
-                          style: const TextStyle(
-                            color: Color.fromARGB(255, 54, 135, 255),
-                          ),
-                          key: const ValueKey('login_email'),
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(50)),
-                            hintText: 'Email',
-                            hintStyle: const TextStyle(
-                              color: Colors.blueGrey,
-                            ),
-                          ),
-                          onSaved: (value) {
-                            _loginEmail = value.toString();
-                          },
-                        ),
-                        const SizedBox(height: 20),
-                        TextFormField(
-                          style: const TextStyle(
-                            color: Color.fromARGB(255, 54, 135, 255),
-                          ),
-                          key: const ValueKey('login_password'),
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(50)),
-                            hintText: 'Password',
-                            hintStyle: const TextStyle(
-                              color: Colors.blueGrey,
-                            ),
-                          ),
-                          obscureText: true,
-                          onSaved: (value) {
-                            _loginPassword = value.toString();
-                          },
-                        ),
-                        const SizedBox(height: 50),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            primary: const Color.fromARGB(255, 54, 135, 255),
-                            minimumSize: const Size.fromHeight(45),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            textStyle: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          onPressed: () {
-                            _loginFormKey.currentState!.save();
-                            _loginFunction();
-                          },
-                          child: const Text('Login'),
-                        ),
-                        const SizedBox(height: 30),
-                        TextButton(
-                          child: const Text(
-                            'Sign up',
-                            style: TextStyle(fontSize: 18),
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              _isLogin = !_isLogin;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  )
-                // sign up form ------------------------
-                : Form(
-                    key: _signupFormKey,
-                    child: Column(
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        const Text(
-                          'Sign up',
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 54, 135, 255),
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 50),
-                        TextFormField(
-                          style: const TextStyle(
-                            color: Color.fromARGB(255, 54, 135, 255),
-                          ),
-                          key: const ValueKey('signup_name'),
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(50)),
-                            hintText: 'name',
-                            hintStyle: const TextStyle(
-                              color: Colors.blueGrey,
-                            ),
-                          ),
-                          onSaved: (value) {
-                            _signupName = value.toString();
-                          },
-                        ),
-                        const SizedBox(height: 20),
-                        TextFormField(
-                          style: const TextStyle(
-                            color: Color.fromARGB(255, 54, 135, 255),
-                          ),
-                          key: const ValueKey('signup_email'),
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(50)),
-                            hintText: 'Email',
-                            hintStyle: const TextStyle(
-                              color: Colors.blueGrey,
-                            ),
-                          ),
-                          onSaved: (value) {
-                            _signupEmail = value.toString();
-                          },
-                        ),
-                        const SizedBox(height: 20),
-                        TextFormField(
-                          style: const TextStyle(
-                            color: Color.fromARGB(255, 54, 135, 255),
-                          ),
-                          key: const ValueKey('signup_password'),
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(50)),
-                            hintText: 'Password',
-                            hintStyle: const TextStyle(
-                              color: Colors.blueGrey,
-                            ),
-                          ),
-                          obscureText: true,
-                          onSaved: (value) {
-                            _signupPassword = value.toString();
-                          },
-                        ),
-                        const SizedBox(height: 20),
-                        TextFormField(
-                          style: const TextStyle(
-                            color: Color.fromARGB(255, 54, 135, 255),
-                          ),
-                          key: const ValueKey('signup_confirm_password'),
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(50)),
-                            hintText: 'Confirm password',
-                            hintStyle: const TextStyle(
-                              color: Colors.blueGrey,
-                            ),
-                          ),
-                          obscureText: true,
-                          onSaved: (value) {
-                            _signupConfirmPassword = value.toString();
-                          },
-                        ),
-                        const SizedBox(height: 50),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            primary: const Color.fromARGB(255, 54, 135, 255),
-                            minimumSize: const Size.fromHeight(45),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            textStyle: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          onPressed: _signupFunction,
-                          child: const Text('Sign Up'),
-                        ),
-                        const SizedBox(height: 30),
-                        TextButton(
-                          child: const Text(
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(
+          0,
+          MediaQuery.of(context).viewPadding.top,
+          0,
+          0,
+        ),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: _isLogin
+                  // log in form ---------------------------
+                  ? Form(
+                      key: _loginFormKey,
+                      child: Column(
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          const Text(
                             'Login',
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 54, 135, 255),
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          onPressed: () {
-                            setState(() {
-                              _isLogin = !_isLogin;
-                            });
-                          },
-                        ),
-                      ],
+                          const SizedBox(height: 50),
+                          TextFormField(
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 54, 135, 255),
+                            ),
+                            key: const ValueKey('login_email'),
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50)),
+                              hintText: 'Email',
+                              hintStyle: const TextStyle(
+                                color: Colors.blueGrey,
+                              ),
+                            ),
+                            onSaved: (value) {
+                              _loginEmail = value.toString();
+                            },
+                          ),
+                          const SizedBox(height: 20),
+                          TextFormField(
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 54, 135, 255),
+                            ),
+                            key: const ValueKey('login_password'),
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50)),
+                              hintText: 'Password',
+                              hintStyle: const TextStyle(
+                                color: Colors.blueGrey,
+                              ),
+                            ),
+                            obscureText: true,
+                            onSaved: (value) {
+                              _loginPassword = value.toString();
+                            },
+                          ),
+                          const SizedBox(height: 50),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: const Color.fromARGB(255, 54, 135, 255),
+                              minimumSize: const Size.fromHeight(45),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              textStyle: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            onPressed: () {
+                              _loginFormKey.currentState!.save();
+                              _loginFunction();
+                            },
+                            child: const Text('Login'),
+                          ),
+                          const SizedBox(height: 30),
+                          TextButton(
+                            child: const Text(
+                              'Sign up',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _isLogin = !_isLogin;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    )
+                  // sign up form ------------------------
+                  : Form(
+                      key: _signupFormKey,
+                      child: Column(
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          const Text(
+                            'Sign up',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 54, 135, 255),
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 50),
+                          TextFormField(
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 54, 135, 255),
+                            ),
+                            key: const ValueKey('signup_name'),
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50)),
+                              hintText: 'name',
+                              hintStyle: const TextStyle(
+                                color: Colors.blueGrey,
+                              ),
+                            ),
+                            onSaved: (value) {
+                              _signupName = value.toString();
+                            },
+                          ),
+                          const SizedBox(height: 20),
+                          TextFormField(
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 54, 135, 255),
+                            ),
+                            key: const ValueKey('signup_email'),
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50)),
+                              hintText: 'Email',
+                              hintStyle: const TextStyle(
+                                color: Colors.blueGrey,
+                              ),
+                            ),
+                            onSaved: (value) {
+                              _signupEmail = value.toString();
+                            },
+                          ),
+                          const SizedBox(height: 20),
+                          TextFormField(
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 54, 135, 255),
+                            ),
+                            key: const ValueKey('signup_password'),
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50)),
+                              hintText: 'Password',
+                              hintStyle: const TextStyle(
+                                color: Colors.blueGrey,
+                              ),
+                            ),
+                            obscureText: true,
+                            onSaved: (value) {
+                              _signupPassword = value.toString();
+                            },
+                          ),
+                          const SizedBox(height: 20),
+                          TextFormField(
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 54, 135, 255),
+                            ),
+                            key: const ValueKey('signup_confirm_password'),
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50)),
+                              hintText: 'Confirm password',
+                              hintStyle: const TextStyle(
+                                color: Colors.blueGrey,
+                              ),
+                            ),
+                            obscureText: true,
+                            onSaved: (value) {
+                              _signupConfirmPassword = value.toString();
+                            },
+                          ),
+                          const SizedBox(height: 50),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: const Color.fromARGB(255, 54, 135, 255),
+                              minimumSize: const Size.fromHeight(45),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              textStyle: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            onPressed: _signupFunction,
+                            child: const Text('Sign Up'),
+                          ),
+                          const SizedBox(height: 30),
+                          TextButton(
+                            child: const Text(
+                              'Login',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _isLogin = !_isLogin;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
+            ),
           ),
         ),
       ),
