@@ -74,7 +74,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                     'Phone call',
                     'from $userID',
                     null,
-                    '{"userID":"$userID", "userName":"${user.name}"}');
+                    '{"userID":"$userID", "userName":"${user.name}", "userImage":"${user.base64Image}"}');
                 Navigator.pushNamed(context, UserRingingScreen.routeName);
                 // Navigator.pushNamed(context, UserCallScreen.routeName);
               } else {
