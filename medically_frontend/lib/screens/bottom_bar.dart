@@ -29,14 +29,17 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
 
   @override
   void initState() {
+    // listen to notifications
     AwesomeNotifications()
         .displayedStream
         .listen((ReceivedNotification receivedNotification) {
       if (pushDataObject['accepted']) {
+        // join call if call accepted
         Navigator.pop(context);
         Navigator.pushNamed(context, UserCallScreen.routeName);
       } else {
-        print(pushDataObject['message']);
+        // call declined
+        // print(pushDataObject['message']);
         Navigator.pop(context);
       }
       AwesomeNotifications().cancelAll();
@@ -55,14 +58,6 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
       _selectedIndex = index;
     });
   }
-
-  // @override
-  // void didChangeDependencies() {
-  //   final doctorsProvider =
-  //       Provider.of<DoctorsProvider>(context, listen: false);
-  //   doctorsProvider.fetchDoctors();
-  //   super.didChangeDependencies();
-  // }
 
   @override
   Widget build(BuildContext context) {

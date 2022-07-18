@@ -25,6 +25,7 @@ class _UserCallScreenState extends State<UserCallScreen> {
   var name;
   @override
   void initState() {
+    // get doctors channel info from agora provider
     final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
     token = agoraProvider.getToken;
     name = agoraProvider.getTName;
@@ -33,6 +34,7 @@ class _UserCallScreenState extends State<UserCallScreen> {
   }
 
   Future<void> _initAgora() async {
+    // initialising agora client
     const appId = "cfdf49c6205745eba30ed0ebadc79407";
     _client = AgoraClient(
       agoraConnectionData: AgoraConnectionData(
@@ -42,6 +44,7 @@ class _UserCallScreenState extends State<UserCallScreen> {
       ),
       agoraEventHandlers: AgoraRtcEventHandlers(
         leaveChannel: (RtcStats stats) async {
+          // close the call screen and update calls
           await Provider.of<CallsProvider>(context, listen: false)
               .fetchUserCalls(
                   Provider.of<UserProvider>(context, listen: false).getUserId);

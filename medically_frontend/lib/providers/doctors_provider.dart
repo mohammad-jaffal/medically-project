@@ -14,7 +14,6 @@ class DoctorsProvider with ChangeNotifier {
   Future<void> fetchDoctors() async {
     var url = Uri.parse('http://10.0.2.2:8000/api/get-doctors');
     var response = await http.get(url);
-    // print(json.decode(response.body)['doctors']);
     _doctors = json
         .decode(response.body)['doctors']
         .map((e) => Doctor.fromJson(e))
@@ -56,20 +55,14 @@ class DoctorsProvider with ChangeNotifier {
   }
 
   Future<void> fetchFavorites(var userID) async {
-    //  print('fetching');
     var url = Uri.parse('http://10.0.2.2:8000/api/user/get-favorites');
     var response = await http.post(url, body: {
       'user_id': '$userID',
     });
-    // print(json.decode(response.body));
     var favorites = json.decode(response.body)['favorites'];
     for (var fav in favorites) {
-      // print(fav['doctor_id']);
       _favoriteIDs.add(fav['doctor_id']);
     }
-    // print(favs);
-
-    // print(_favorites);
   }
 
   List getFavorites(var searchText) {
@@ -102,7 +95,6 @@ class DoctorsProvider with ChangeNotifier {
     for (var doctor in _doctors) {
       if (doctor.id == doctorID) {
         _favoriteIDs.add(doctorID);
-        // print(_favoriteIDs);
         var url = Uri.parse('http://10.0.2.2:8000/api/user/add-favorite');
         var response = await http.post(url, body: {
           'user_id': '$userID',
@@ -116,14 +108,12 @@ class DoctorsProvider with ChangeNotifier {
   Future<void> removeFavorite(var userID, var doctorID) async {
     for (var doctor in _doctors) {
       if (doctor.id == doctorID) {
-        // _favorites.remove(doctor);
         _favoriteIDs.remove(doctorID);
         var url = Uri.parse('http://10.0.2.2:8000/api/user/remove-favorite');
         var response = await http.post(url, body: {
           'user_id': '$userID',
           'doctor_id': '$doctorID',
         });
-        // print(_favoriteIDs);
         notifyListeners();
       }
     }

@@ -40,14 +40,14 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
-
+    // get doctor data
     final docId =
         int.parse(ModalRoute.of(context)!.settings.arguments.toString());
     final doctorsProvider = Provider.of<DoctorsProvider>(context);
-    // print(docId);
+
     var doctor = doctorsProvider.getDoctorByID(docId);
     var bytesImage = const Base64Decoder().convert(doctor.base64Image);
-    // get reviews
+
     final reviewsProvider = Provider.of<ReviewsProvider>(context);
     List reviews = reviewsProvider.getReviews();
     var favIds = doctorsProvider.getFavIds;
@@ -55,7 +55,6 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
     final userProvider = Provider.of<UserProvider>(context);
     final user = userProvider.getUser;
     final userID = user.id;
-    // print(favIds);
 
     return Scaffold(
       appBar: AppBar(
@@ -63,10 +62,13 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
         actions: [
           IconButton(
             onPressed: () async {
+              // check if doctor is online
               if (doctor.online) {
+                // save doctors channel info
                 Provider.of<AgoraProvider>(context, listen: false)
                     .setData(doctor.channelToken, doctor.channelName);
                 print('calling');
+                // send calling notification to the doctor
                 NativeNotify.sendIndieNotification(
                     1117,
                     '0XErqq1jB7rDHxJbpRwhjt',
@@ -75,11 +77,12 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                     'from $userID',
                     null,
                     '{"userID":"$userID", "userName":"${user.name}", "userImage":"${user.base64Image}"}');
+                // redirect to ringing screen
                 Navigator.pushNamed(context, UserRingingScreen.routeName,
                     arguments: doctor.base64Image.toString());
-                // Navigator.pushNamed(context, UserCallScreen.routeName);
               } else {
                 showDialog(
+                  // show doctor is offline aler dialog
                   context: context,
                   builder: (BuildContext ctx) {
                     return AlertDialog(
@@ -95,7 +98,6 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                           ),
                         ],
                       ),
-                      // content: const Text('Are you sure'),
                       actions: [
                         TextButton(
                           onPressed: () async {
@@ -117,12 +119,11 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
             },
             icon: const Icon(
               Icons.phone,
-
-              // size: 35,
             ),
           ),
           PopupMenuButton(
             enabled: true,
+            // get user selected menu option
             onSelected: (value) {
               if (value == 1) {
                 removeFavorite(userID, docId);
@@ -139,6 +140,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
               }
             },
             itemBuilder: (context) => [
+              // check if doctor is favorite
               favIds.contains(docId)
                   ? const PopupMenuItem(
                       value: 1,
@@ -164,7 +166,6 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
               Card(
                 child: SizedBox(
                   width: double.infinity,
-                  // color: Colors.red,
                   child: Column(
                     children: [
                       Padding(
@@ -192,7 +193,6 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
                         child: Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Icon(
                               Icons.email,
@@ -215,13 +215,11 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                         padding: const EdgeInsets.fromLTRB(30, 0, 30, 20),
                         child: SizedBox(
                           width: double.infinity,
-                          // color: Colors.red,
                           child: Text(
                             doctor.bio,
                             style: const TextStyle(
                               fontSize: 18,
                               wordSpacing: 2,
-                              // letterSpacing: 1,
                               height: 1.5,
                             ),
                           ),

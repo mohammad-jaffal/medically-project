@@ -27,7 +27,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
-
+    // get user data
     final userProvider = Provider.of<UserProvider>(context);
     var user = userProvider.getUser;
     var bytesImage = const Base64Decoder().convert(user.base64Image);
@@ -42,10 +42,10 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
           padding: const EdgeInsets.all(10),
           child: Column(
             children: [
+              // user profile picture card
               Card(
                 child: SizedBox(
                   width: double.infinity,
-                  // color: Colors.red,
                   child: Column(
                     children: [
                       Padding(
@@ -65,12 +65,11 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                 ),
               ),
               const SizedBox(height: 5),
-              // email item
+              // email item card
               Card(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
                   child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Icon(
                         Icons.email,
@@ -91,12 +90,11 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                 ),
               ),
               const SizedBox(height: 5),
-              // ballance item
+              // ballance item card
               Card(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 4, 30, 4),
                   child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Icon(
                         Icons.monetization_on_outlined,
@@ -130,7 +128,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                 ),
               ),
               const SizedBox(height: 5),
-              // theme item
+              // theme item card
               Card(
                 child: SwitchListTile(
                   title: Text(
@@ -148,13 +146,12 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                 ),
               ),
               const SizedBox(height: 5),
-              // logout item
+              // logout item card
               Card(
                 child: InkWell(
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
                     child: Row(
-                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Icon(
                           Icons.logout,
@@ -190,7 +187,6 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                               ),
                             ],
                           ),
-                          // content: const Text('Are you sure'),
                           actions: [
                             TextButton(
                               onPressed: () async {

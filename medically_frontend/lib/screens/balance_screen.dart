@@ -12,27 +12,27 @@ class BalanceScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Map> bundles = [
       {
-        'amount': 50,
+        'amount': 5,
         'price': 5,
       },
       {
-        'amount': 100,
+        'amount': 10,
         'price': 10,
       },
       {
-        'amount': 150,
+        'amount': 15,
         'price': 15,
       },
       {
-        'amount': 200,
+        'amount': 20,
         'price': 20,
       },
       {
-        'amount': 500,
+        'amount': 50,
         'price': 50,
       },
       {
-        'amount': 1000,
+        'amount': 100,
         'price': 100,
       },
     ];
@@ -41,7 +41,6 @@ class BalanceScreen extends StatelessWidget {
         title: Text('Select bundle'),
       ),
       body: GridView.builder(
-        // controller: _controller,
         padding: const EdgeInsets.all(10),
         itemCount: bundles.length,
         itemBuilder: (ctx, i) => BundleCard(
@@ -51,7 +50,6 @@ class BalanceScreen extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 1,
           childAspectRatio: 5 / 1,
-          // mainAxisSpacing: 30,
         ),
       ),
     );

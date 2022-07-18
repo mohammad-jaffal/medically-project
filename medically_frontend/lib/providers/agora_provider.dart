@@ -27,7 +27,6 @@ class AgoraProvider with ChangeNotifier {
   }
 
   void setCallerID(var callerID) {
-    print('setting caller id $callerID');
     _callerID = callerID;
   }
 
@@ -36,7 +35,6 @@ class AgoraProvider with ChangeNotifier {
   }
 
   void setInCall(bool inCall) {
-    print('setting incall $inCall');
     _inCall = inCall;
     notifyListeners();
   }

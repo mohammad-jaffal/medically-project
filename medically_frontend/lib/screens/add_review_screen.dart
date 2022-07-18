@@ -52,12 +52,13 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
+    // get user and doctor id
     var userID = Provider.of<UserProvider>(context, listen: false).getUserId;
     final doctorId =
         int.parse(ModalRoute.of(context)!.settings.arguments.toString());
     return Scaffold(
       appBar: AppBar(
-        title: Text("review"),
+        title: Text("Review"),
       ),
       body: Padding(
         padding: EdgeInsets.all(10),
@@ -82,7 +83,6 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
                 child: TextField(
-                  // keyboardType: TextInputType.multiline,
                   textInputAction: TextInputAction.newline,
                   minLines: 1,
                   maxLines: 6,

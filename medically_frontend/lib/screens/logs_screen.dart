@@ -15,14 +15,6 @@ class LogsScreen extends StatefulWidget {
 }
 
 class _LogsScreenState extends State<LogsScreen> {
-  final searchNode = FocusNode();
-  var searchText = '';
-  @override
-  void dispose() {
-    searchNode.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     final ScrollController scrollController = ScrollController();
@@ -30,7 +22,7 @@ class _LogsScreenState extends State<LogsScreen> {
     var calls = callsProvider.getCalls();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Logs'),
+        title: const Text('Logs'),
       ),
       body: Column(
         children: [
@@ -46,7 +38,6 @@ class _LogsScreenState extends State<LogsScreen> {
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 1,
                       childAspectRatio: 4 / 1,
-                      // crossAxisSpacing: 10,
                       mainAxisSpacing: 15,
                     ),
                   ),

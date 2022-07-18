@@ -27,15 +27,16 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   Widget build(BuildContext context) {
     final ScrollController scrollController = ScrollController();
     final doctorsProvider = Provider.of<DoctorsProvider>(context);
-    final themeState = Provider.of<DarkThemeProvider>(context);
     var _doctors = doctorsProvider.getFavorites(searchText);
-    // print(_domains[1]['domain_name']);
+
     return Scaffold(
       appBar: AppBar(
         title: ListTile(
+          // app bar search box
           title: TextField(
             focusNode: searchNode,
             onChanged: (value) {
+              // update the list by doctors containing inserted chatacters
               setState(() {
                 searchText = value;
               });
@@ -52,13 +53,13 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
             style: const TextStyle(
               color: Colors.white,
             ),
-            // autofocus: true,
           ),
         ),
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
             onPressed: () {
+              // show keyboard
               searchNode.requestFocus();
             },
             icon: Icon(Icons.search),
@@ -79,7 +80,6 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 1,
                       childAspectRatio: 4 / 1,
-                      // crossAxisSpacing: 10,
                       mainAxisSpacing: 15,
                     ),
                   ),

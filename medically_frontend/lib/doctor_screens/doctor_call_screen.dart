@@ -23,6 +23,7 @@ class _DoctorCallScreenState extends State<DoctorCallScreen> {
   var name;
   @override
   void initState() {
+    // get channel data
     final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
     token = agoraProvider.getToken;
     name = agoraProvider.getTName;
@@ -30,6 +31,7 @@ class _DoctorCallScreenState extends State<DoctorCallScreen> {
     _initAgora();
   }
 
+  // this function initialises the agora client
   Future<void> _initAgora() async {
     const appId = "cfdf49c6205745eba30ed0ebadc79407";
     _client = AgoraClient(
@@ -40,6 +42,7 @@ class _DoctorCallScreenState extends State<DoctorCallScreen> {
       ),
       agoraEventHandlers: AgoraRtcEventHandlers(
         leaveChannel: (RtcStats stats) async {
+          // set incall to false, stop the timer, and update the calls
           Provider.of<AgoraProvider>(context, listen: false).setInCall(false);
           Provider.of<CallsProvider>(context, listen: false)
               .endTime(DateTime.now(), context);
@@ -50,10 +53,12 @@ class _DoctorCallScreenState extends State<DoctorCallScreen> {
           Navigator.pop(context);
         },
         userOffline: (int uid, UserOfflineReason reason) {
+          // stop the call timer
           Provider.of<CallsProvider>(context, listen: false)
               .endTime(DateTime.now(), context);
         },
         userJoined: (int x, int y) {
+          // start the call timer
           Provider.of<CallsProvider>(context, listen: false)
               .setTime(DateTime.now());
         },

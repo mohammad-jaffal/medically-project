@@ -52,7 +52,6 @@ class DoctorCard extends StatelessWidget {
                 ),
               ),
               Padding(
-                // padding: const EdgeInsets.symmetric(vertical: 10),
                 padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -78,9 +77,9 @@ class DoctorCard extends StatelessWidget {
               ),
             ],
           ),
-          // child: Text(doctor.name),
         ),
         onTap: () async {
+          // navigate to doctor details screen
           final reviewsProvider =
               Provider.of<ReviewsProvider>(context, listen: false);
           await reviewsProvider.fetchReviews(doctor.id);

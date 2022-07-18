@@ -22,6 +22,7 @@ class _DoctorLogsScreenState extends State<DoctorLogsScreen> {
   @override
   Widget build(BuildContext context) {
     final ScrollController scrollController = ScrollController();
+    // fetch calls
     final callsProvider = Provider.of<CallsProvider>(context);
     var calls = callsProvider.getCalls();
     return Scaffold(
@@ -42,7 +43,6 @@ class _DoctorLogsScreenState extends State<DoctorLogsScreen> {
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 1,
                       childAspectRatio: 4 / 1,
-                      // crossAxisSpacing: 10,
                       mainAxisSpacing: 15,
                     ),
                   ),

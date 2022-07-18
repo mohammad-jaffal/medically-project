@@ -32,11 +32,11 @@ class _HomeScreenState extends State<HomeScreen> {
     final themeState = Provider.of<DarkThemeProvider>(context);
     var _doctors = doctorsProvider.getDoctors(searchText, domainId);
     var _domains = doctorsProvider.getDomains;
-    // print(_domains[1]['domain_name']);
 
     return Scaffold(
       appBar: AppBar(
         title: ListTile(
+          // search box same as in favorites screen
           title: TextField(
             focusNode: searchNode,
             onChanged: (value) {
@@ -56,7 +56,6 @@ class _HomeScreenState extends State<HomeScreen> {
             style: const TextStyle(
               color: Colors.white,
             ),
-            // autofocus: true,
           ),
         ),
         automaticallyImplyLeading: false,
@@ -65,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               searchNode.requestFocus();
             },
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           ),
         ],
       ),
@@ -73,49 +72,49 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.all(10),
-            child: Container(
-              // decoration: const BoxDecoration(color: Colors.red),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Domains',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      ElevatedButton(
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Domains',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    // show all domains button
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          domainId = 0;
+                        });
+                      },
+                      child: const Text('All'),
+                    ),
+                  ],
+                ),
+                // domains fileter buttons
+                SizedBox(
+                  height: 30,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: _domains.length,
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            domainId = 0;
+                            domainId = _domains[index]['id'];
                           });
                         },
-                        child: const Text('All'),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 30,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: _domains.length,
-                      itemBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              domainId = _domains[index]['id'];
-                            });
-                          },
-                          child: Text(_domains[index]['domain_name']),
-                        ),
+                        child: Text(_domains[index]['domain_name']),
                       ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
+          // show doctors cards
           Flexible(
             child: _doctors.isEmpty
                 ? const Center(child: Text('No Doctors Found!'))
@@ -128,7 +127,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 1,
                       childAspectRatio: 4 / 1,
-                      // crossAxisSpacing: 10,
                       mainAxisSpacing: 15,
                     ),
                   ),

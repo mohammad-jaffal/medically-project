@@ -30,6 +30,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
     final themeState = Provider.of<DarkThemeProvider>(context);
 
     final doctorProvider = Provider.of<DoctorProvider>(context);
+    // get the doctor object
     var doctor = doctorProvider.getDoctor;
     var bytesImage = const Base64Decoder().convert(doctor.base64Image);
 
@@ -44,10 +45,10 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
           padding: const EdgeInsets.all(10),
           child: Column(
             children: [
+              // doctor profile picture card
               Card(
                 child: SizedBox(
                   width: double.infinity,
-                  // color: Colors.red,
                   child: Column(
                     children: [
                       Padding(
@@ -68,7 +69,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
               ),
 
               const SizedBox(height: 5),
-              // online item
+              // online status card
               Card(
                 child: SwitchListTile(
                   title: Text(doctor.online ? "Online" : "Offline"),
@@ -94,12 +95,11 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
               ),
 
               const SizedBox(height: 5),
-              // email item
+              // email item card
               Card(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
                   child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Icon(
                         Icons.email,
@@ -120,12 +120,11 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                 ),
               ),
               const SizedBox(height: 5),
-// rating item
+              // rating item card
               Card(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
                   child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Icon(
                         Icons.star_border,
@@ -146,12 +145,11 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                 ),
               ),
               const SizedBox(height: 5),
-              // ballance item
+              // ballance item card
               Card(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
                   child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Icon(
                         Icons.monetization_on_outlined,
@@ -172,7 +170,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                 ),
               ),
               const SizedBox(height: 5),
-              // theme item
+              // theme item card
               Card(
                 child: SwitchListTile(
                   title: Text(
@@ -190,13 +188,12 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                 ),
               ),
               const SizedBox(height: 5),
-              // logout item
+              // logout item card
               Card(
                 child: InkWell(
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
                     child: Row(
-                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Icon(
                           Icons.logout,
@@ -216,6 +213,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                     ),
                   ),
                   onTap: () {
+                    // show "are u sure ?" dialog
                     showDialog(
                       context: context,
                       builder: (BuildContext ctx) {
@@ -232,7 +230,6 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                               ),
                             ],
                           ),
-                          // content: const Text('Are you sure'),
                           actions: [
                             TextButton(
                               onPressed: () async {
@@ -248,6 +245,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                             ),
                             TextButton(
                               onPressed: () {
+                                // destroy token, clear data, clear notification subject id
                                 tokenProvider.setToken('none');
                                 Provider.of<CallsProvider>(context,
                                         listen: false)

@@ -16,7 +16,6 @@ class ReviewCard extends StatelessWidget {
     return Card(
       child: Container(
         decoration: BoxDecoration(
-          // color: Colors.lightBlue,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Column(
@@ -43,15 +42,12 @@ class ReviewCard extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 16,
                   wordSpacing: 2,
-                  // letterSpacing: 1,
                   height: 1.5,
                 ),
               ),
             ),
           ],
         ),
-
-        // child: Text(doctor.name),
       ),
     );
   }

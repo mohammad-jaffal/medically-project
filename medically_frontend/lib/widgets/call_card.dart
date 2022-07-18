@@ -29,9 +29,7 @@ class CallCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeState = Provider.of<DarkThemeProvider>(context);
     var _bytesImage = Base64Decoder().convert(call.call_image);
-    double width = MediaQuery.of(context).size.width;
     return Card(
       child: InkWell(
         child: Container(
@@ -40,7 +38,6 @@ class CallCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 10),
@@ -55,7 +52,6 @@ class CallCard extends StatelessWidget {
                 ),
               ),
               Padding(
-                // padding: const EdgeInsets.symmetric(vertical: 10),
                 padding: EdgeInsets.fromLTRB(30, 15, 0, 15),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -71,7 +67,6 @@ class CallCard extends StatelessWidget {
               ),
             ],
           ),
-          // child: Text(doctor.name),
         ),
         onTap: () {
           Navigator.pushNamed(

@@ -28,23 +28,18 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
 
   @override
   void initState() {
-    // AwesomeNotifications()
-    //     .displayedStream
-    //     .listen((ReceivedNotification receivedNotification) {
-    //   print(pushDataObject);
-    // });
-
+    // listen to notifications
     AwesomeNotifications()
         .displayedStream
         .listen((ReceivedNotification receivedNotification) {
       final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
 
       var inCall = agoraProvider.getInCall;
-      print(inCall);
+      // save caller data in agora provider
       agoraProvider.setCallerID(pushDataObject['userID']);
       agoraProvider.setCallerName(pushDataObject['userName']);
       agoraProvider.setCallerImage(pushDataObject['userImage']);
-
+      // notify the caller back if the doctor is already in a call
       if (inCall) {
         print('already in call');
         NativeNotify.sendIndieNotification(
@@ -56,19 +51,16 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
             null,
             '{"accepted":false, "message":"already in call"}');
         AwesomeNotifications().cancelAll();
-        // Navigator.pop(context);
       } else {
+        // redirect doctor to ringing screen
         AwesomeNotifications().cancelAll();
-        // print(pushDataObject['userID']);
         agoraProvider.setInCall(true);
         Navigator.pushNamed(context, DoctorRingingScreen.routeName);
       }
     });
     _pages = [
       const DoctorReviewsScreen(),
-      // const FavoritesScreen(),
       const DoctorLogsScreen(),
-      // const DoctorCallScreen(),
       const DoctorInfoScreen(),
     ];
     super.initState();
@@ -83,16 +75,16 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
   @override
   Widget build(BuildContext context) {
     final doctorProvider = Provider.of<DoctorProvider>(context);
-    final callsProvider = Provider.of<CallsProvider>(context);
+    // save doctor channel info in agora provider
     Provider.of<AgoraProvider>(context, listen: false).setData(
       doctorProvider.getDoctor.channelToken,
       doctorProvider.getDoctor.channelName,
     );
     var did = doctorProvider.getDoctorId;
+    // fetch doctor's reviews
     final reviewsProvider =
         Provider.of<ReviewsProvider>(context, listen: false);
     reviewsProvider.fetchReviews(did);
-    // callsProvider.fetchDoctorCalls(did);
 
     return Scaffold(
       body: _pages[_selectedIndex],

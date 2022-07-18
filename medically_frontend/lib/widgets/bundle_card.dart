@@ -16,6 +16,7 @@ class BundleCard extends StatelessWidget {
   final int price;
 
   _addBalance(BuildContext ctx) async {
+    // add the new balance to the database
     await Provider.of<UserProvider>(ctx, listen: false).addBalance(amount);
     Navigator.pop(ctx);
   }
@@ -53,6 +54,3 @@ class BundleCard extends StatelessWidget {
     );
   }
 }
-// themeState.getDarkTheme
-//                                   ? Colors.white
-//                                   : Colors.grey[600],

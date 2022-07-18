@@ -31,8 +31,8 @@ class _LoginScreenState extends State<LoginScreen> {
   var _isLogin = true;
 
   Future<String> getCurrentToken() async {
+    // get token saved in device storage
     var token = (await tokenProvider.tokenPrefs.getToken()).toString();
-    // print(token);
     return token;
   }
 
@@ -44,20 +44,24 @@ class _LoginScreenState extends State<LoginScreen> {
     final tokenProvider = Provider.of<TokenProvider>(context, listen: false);
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+      // check if user logged out
       var saved_token = (await getCurrentToken());
       if (saved_token == 'none') {
         setState(() {
           fetching = false;
         });
       } else {
+        // check if the token is still active
         tokenProvider.setToken(saved_token);
         var validateReturn =
             await tokenProvider.validateToken(saved_token, context);
         if (validateReturn == 'none') {
-          print('token expired');
+          // the token expired
+          // print('token expired');
           setState(() {
             fetching = false;
           });
+          // navigate to screen if user or doctor
         } else if (validateReturn == 'user') {
           Navigator.of(context).pushReplacementNamed(BottomBarScreen.routeName);
         } else if (validateReturn == 'doctor') {
@@ -66,8 +70,6 @@ class _LoginScreenState extends State<LoginScreen> {
         }
       }
     });
-    // tokenProvider.setToken(getCurrentToken());
-    // print(tokenProvider.validateToken());
     super.initState();
   }
 
@@ -76,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final tokenProvider = Provider.of<TokenProvider>(context, listen: false);
 
     var user_type;
-
+    // input fields text
     var _loginEmail = '';
     var _loginPassword = '';
 
@@ -86,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
     var _signupConfirmPassword = '';
 
     Future<void> _loginFunction() async {
-      // print('fetching');
+      // logging in :)
       var url = Uri.parse('http://10.0.2.2:8000/api/login');
       var response = await http.post(url, body: {
         'email': _loginEmail,
@@ -94,14 +96,16 @@ class _LoginScreenState extends State<LoginScreen> {
       });
       if (response.statusCode == 200) {
         setState(() {
+          // to show circular progress indicator
           fetching = true;
         });
+        // validate token (get logged in profile info)
         var access_token = json.decode(response.body)['access_token'];
         tokenProvider.setToken(access_token);
         var validateReturn =
             await tokenProvider.validateToken(access_token, context);
         if (validateReturn == 'none') {
-          print('this should not happen');
+          // this should not happen :)
           setState(() {
             fetching = false;
           });
@@ -112,10 +116,9 @@ class _LoginScreenState extends State<LoginScreen> {
               .pushReplacementNamed(DoctorBottomBarScreen.routeName);
         }
       } else {
+        // if user entered wrong data
         print('wrong data');
       }
-
-      // if user go user screens
     }
 
     Future<void> _signupFunction() async {
@@ -137,6 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
             'password': _signupPassword,
             'password_confirmation': _signupConfirmPassword,
           });
+          // automatically log in the registered user
           if (json.decode(response.body)['message'] ==
               'User successfully registered') {
             _loginEmail = _signupEmail;
@@ -172,7 +176,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ? Form(
                       key: _loginFormKey,
                       child: Column(
-                        // ignore: prefer_const_literals_to_create_immutables
                         children: [
                           const Text(
                             'Login',
@@ -258,7 +261,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   : Form(
                       key: _signupFormKey,
                       child: Column(
-                        // ignore: prefer_const_literals_to_create_immutables
                         children: [
                           const Text(
                             'Sign up',

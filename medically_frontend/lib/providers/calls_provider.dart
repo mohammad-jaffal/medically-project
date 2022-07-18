@@ -46,6 +46,7 @@ class CallsProvider with ChangeNotifier {
   }
 
   Future<void> endTime(DateTime time, BuildContext ctx) async {
+    // end call time and register the call in the database
     var docID = Provider.of<DoctorProvider>(ctx, listen: false).getDoctorId;
     var userID = Provider.of<AgoraProvider>(ctx, listen: false).getCallerID;
     if (_time != null) {

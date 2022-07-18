@@ -28,7 +28,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
     print('starting timer');
     final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
 
-    // agoraProvider.setInCall(true);
+    // notify the caller if the call is missed
     await Future.delayed(const Duration(seconds: 10), () {
       if (isRinging) {
         agoraProvider.setInCall(false);
@@ -48,6 +48,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
 
   @override
   void initState() {
+    // get caller data
     final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
     callerId = agoraProvider.getCallerID;
     callerName = agoraProvider.getCallerName;
@@ -59,7 +60,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
   @override
   Widget build(BuildContext context) {
     final agoraProvider = Provider.of<AgoraProvider>(context, listen: false);
-    // print(callerName);
+    // get caller image
     var bytesImage = const Base64Decoder().convert(callerImage);
     if (isRinging) {
       print('calling start timer');
@@ -67,7 +68,6 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
     }
     return Scaffold(
       body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const SizedBox(
             height: 50,
@@ -105,6 +105,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
               children: [
                 ElevatedButton(
                   onPressed: () {
+                    // notify the caller when call declined
                     agoraProvider.setInCall(false);
                     print('reject');
                     isRinging = false;
@@ -133,7 +134,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
                 ElevatedButton(
                   onPressed: () {
                     isRinging = false;
-
+                    // notify caller when call accepted
                     print('accept');
                     NativeNotify.sendIndieNotification(
                         1117,
@@ -144,6 +145,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
                         null,
                         '{"accepted":true}');
                     Navigator.pop(context);
+                    // redirect to call screen
                     Navigator.pushNamed(context, DoctorCallScreen.routeName);
                   },
                   style: ElevatedButton.styleFrom(
