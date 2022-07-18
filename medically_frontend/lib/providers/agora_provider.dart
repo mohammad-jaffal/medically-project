@@ -9,6 +9,8 @@ class AgoraProvider with ChangeNotifier {
   var _channelToken;
   var _channelName;
   var _callerID;
+  var _callerName;
+  var _callerImage;
   bool _inCall = false;
 
   void setData(var token, var name) {
@@ -41,5 +43,23 @@ class AgoraProvider with ChangeNotifier {
 
   bool get getInCall {
     return _inCall;
+  }
+
+  void setCallerName(var callerName) {
+    print('setting caller id $callerName');
+    _callerName = callerName;
+  }
+
+  String get getCallerName {
+    return _callerName;
+  }
+
+  void setCallerImage(var callerImg) {
+    print('setting caller id $callerImg');
+    _callerImage = callerImg;
+  }
+
+  String get getCallerImage {
+    return _callerImage;
   }
 }
