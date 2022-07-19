@@ -21,6 +21,9 @@ class DoctorProvider with ChangeNotifier {
   }
 
   void updateBalance(var balance) {
-    _doctor.balance = int.parse(_doctor.balance) + balance;
+    // print('adding ${0.8 * balance}');
+    _doctor.balance = _doctor.balance + (0.8 * balance).toInt();
+    print('adding ${_doctor.balance}');
+    notifyListeners();
   }
 }

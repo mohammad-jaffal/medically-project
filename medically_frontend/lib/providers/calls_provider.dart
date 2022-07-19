@@ -67,6 +67,7 @@ class CallsProvider with ChangeNotifier {
         'user_id': '$userID',
         'balance': '$cost',
       });
+      Provider.of<DoctorProvider>(ctx, listen: false).updateBalance(cost);
 
       _time = null;
     }

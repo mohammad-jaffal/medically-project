@@ -1,17 +1,17 @@
 import 'dart:ffi';
 
 class Doctor {
-  final int id;
-  final String name;
-  final String email;
-  final String base64Image;
-  final int balance;
-  final int type;
+  int id;
+  String name;
+  String email;
+  String base64Image;
+  int balance;
+  int type;
   double rating;
-  final String channelName;
-  final String channelToken;
-  final String bio;
-  final int domainId;
+  String channelName;
+  String channelToken;
+  String bio;
+  int domainId;
   bool online;
 
   Doctor({
