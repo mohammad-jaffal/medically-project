@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -210,6 +211,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                         listen: false)
                                     .clearReviews();
                                 NativeNotify.registerIndieID('-');
+
                                 Navigator.of(context).pushNamedAndRemoveUntil(
                                     LoginScreen.routeName,
                                     (Route<dynamic> route) => false);

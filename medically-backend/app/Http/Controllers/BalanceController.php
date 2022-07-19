@@ -17,7 +17,21 @@ class BalanceController extends Controller
         
 
         return response()->json([
-            "success" => $userbalance,
+            "success" => true,
+        ], 200);
+    }
+    public function transferBalance(Request $request){
+        $userBalance = User::where('id','=',$request->user_id)->value('balance');
+        $userNew = (int)$userBalance-(int)$request->balance;
+        \DB::table('users')->where('id', $request->user_id)->update(array('balance' => $userNew));
+
+        $doctorBalance = User::where('id','=',$request->doctor_id)->value('balance');
+        $doctorNew = (int)$doctorBalance+0.8*(int)$request->balance;
+        \DB::table('users')->where('id', $request->doctor_id)->update(array('balance' => $doctorNew));
+        
+
+        return response()->json([
+            "success" => true,
         ], 200);
     }
 }

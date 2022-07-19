@@ -12,27 +12,27 @@ class BalanceScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Map> bundles = [
       {
-        'amount': 5,
+        'amount': 50,
         'price': 5,
       },
       {
-        'amount': 10,
+        'amount': 100,
         'price': 10,
       },
       {
-        'amount': 15,
+        'amount': 150,
         'price': 15,
       },
       {
-        'amount': 20,
+        'amount': 200,
         'price': 20,
       },
       {
-        'amount': 50,
+        'amount': 500,
         'price': 50,
       },
       {
-        'amount': 100,
+        'amount': 1000,
         'price': 100,
       },
     ];
