@@ -64,22 +64,48 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
             onPressed: () async {
               // check if doctor is online
               if (doctor.online) {
-                // save doctors channel info
-                Provider.of<AgoraProvider>(context, listen: false)
-                    .setData(doctor.channelToken, doctor.channelName);
-                print('calling');
-                // send calling notification to the doctor
-                NativeNotify.sendIndieNotification(
-                    1117,
-                    '0XErqq1jB7rDHxJbpRwhjt',
-                    '$docId',
-                    'Phone call',
-                    'from $userID',
-                    null,
-                    '{"userID":"$userID", "userName":"${user.name}", "userImage":"${user.base64Image}"}');
-                // redirect to ringing screen
-                Navigator.pushNamed(context, UserRingingScreen.routeName,
-                    arguments: doctor.base64Image.toString());
+                if (user.balance < 10) {
+                  showDialog(
+                    // show doctor is offline aler dialog
+                    context: context,
+                    builder: (BuildContext ctx) {
+                      return AlertDialog(
+                        title: const Text('Not enough balance!'),
+                        actions: [
+                          TextButton(
+                            onPressed: () async {
+                              Navigator.pop(context);
+                            },
+                            child: const Text(
+                              'OK',
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                } else {
+                  // save doctors channel info
+                  Provider.of<AgoraProvider>(context, listen: false)
+                      .setData(doctor.channelToken, doctor.channelName);
+                  print('calling');
+                  // send calling notification to the doctor
+                  NativeNotify.sendIndieNotification(
+                      1117,
+                      '0XErqq1jB7rDHxJbpRwhjt',
+                      '$docId',
+                      'Phone call',
+                      'from $userID',
+                      null,
+                      '{"userID":"$userID", "userName":"${user.name}", "userImage":"${user.base64Image}"}');
+                  // redirect to ringing screen
+                  Navigator.pushNamed(context, UserRingingScreen.routeName,
+                      arguments: doctor.base64Image.toString());
+                }
               } else {
                 showDialog(
                   // show doctor is offline aler dialog
