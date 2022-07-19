@@ -19,4 +19,8 @@ class DoctorProvider with ChangeNotifier {
   int get getDoctorId {
     return _doctor.id;
   }
+
+  void updateBalance(var balance) {
+    _doctor.balance = int.parse(_doctor.balance) + balance;
+  }
 }
