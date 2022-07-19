@@ -48,6 +48,8 @@ class _UserCallScreenState extends State<UserCallScreen> {
           await Provider.of<CallsProvider>(context, listen: false)
               .fetchUserCalls(
                   Provider.of<UserProvider>(context, listen: false).getUserId);
+
+          Provider.of<UserProvider>(context, listen: false).updateBalance();
           Navigator.pop(context);
         },
         userOffline: (int uid, UserOfflineReason reason) {

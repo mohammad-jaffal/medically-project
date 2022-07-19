@@ -36,6 +36,6 @@ class UserProvider with ChangeNotifier {
     });
     print(json.decode(response.body)['balance']);
     _user.balance = json.decode(response.body)['balance'];
-    // notifyListeners();
+    notifyListeners();
   }
 }
