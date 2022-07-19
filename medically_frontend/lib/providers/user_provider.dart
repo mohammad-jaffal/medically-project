@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:medically_frontend/models/call.dart';
 import 'package:medically_frontend/models/user.dart';
@@ -25,5 +27,15 @@ class UserProvider with ChangeNotifier {
       'balance': '$balance',
     });
     notifyListeners();
+  }
+
+  Future<void> updateBalance() async {
+    var url = Uri.parse('http://10.0.2.2:8000/api/user/get-balance');
+    var response = await http.post(url, body: {
+      'user_id': '${_user.id}',
+    });
+    print(json.decode(response.body)['balance']);
+    _user.balance = json.decode(response.body)['balance'];
+    // notifyListeners();
   }
 }

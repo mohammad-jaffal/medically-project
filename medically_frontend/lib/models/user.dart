@@ -1,12 +1,12 @@
 import 'dart:ffi';
 
 class User {
-  final int id;
-  final String name;
-  final String email;
-  final String base64Image;
+  int id;
+  String name;
+  String email;
+  String base64Image;
   int balance;
-  final int type;
+  int type;
 
   User({
     required this.id,
