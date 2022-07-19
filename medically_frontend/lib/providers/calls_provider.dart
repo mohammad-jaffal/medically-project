@@ -57,6 +57,16 @@ class CallsProvider with ChangeNotifier {
         'user_id': '$userID',
         'duration': '$duration',
       });
+      var cost = 10 * (duration ~/ 60 + 1);
+      print(
+          '----------------------------------------------------------------------------------------$cost');
+
+      var costUrl = Uri.parse('http://10.0.2.2:8000/api/user/transfer-balance');
+      var costResponse = await http.post(costUrl, body: {
+        'doctor_id': '$docID',
+        'user_id': '$userID',
+        'balance': '$cost',
+      });
 
       _time = null;
     }
