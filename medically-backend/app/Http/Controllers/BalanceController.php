@@ -20,6 +20,7 @@ class BalanceController extends Controller
             "success" => true,
         ], 200);
     }
+
     public function transferBalance(Request $request){
         $userBalance = User::where('id','=',$request->user_id)->value('balance');
         $userNew = (int)$userBalance-(int)$request->balance;
@@ -34,4 +35,15 @@ class BalanceController extends Controller
             "success" => true,
         ], 200);
     }
+
+    public function getBalance(Request $request){
+        $balance = User::where('id','=',$request->user_id)->value('balance');
+        
+        return response()->json([
+            "success" => true,
+            "balance" => $balance,
+        ], 200);
+    }
+
+
 }

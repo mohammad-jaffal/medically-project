@@ -40,6 +40,7 @@ Route::group(['prefix'=>'user'], function(){
 
 
     Route::post('/add-balance', [BalanceController::class, 'addBalance']);
+    Route::post('/get-balance', [BalanceController::class, 'getBalance']);
     Route::post('/transfer-balance', [BalanceController::class, 'transferBalance']);
     
 
