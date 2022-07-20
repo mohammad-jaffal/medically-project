@@ -6,10 +6,14 @@ const Home = () => {
             <Navbar />
             <div className="home-body">
                 <div className="filter-container">
-                    <p>Filter</p>
+                    <p className="block-title">Filter</p>
+                    <select className="type-select">
+                        <option value="1">User</option>
+                        <option value="2">Doctor</option>
+                    </select>
                 </div>
                 <div className="data-container">
-                    <p>Data</p>
+                    <p className="block-title">Data</p>
                 </div>
             </div>
         </div>

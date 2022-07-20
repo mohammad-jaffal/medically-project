@@ -149,7 +149,7 @@
   min-width: 400px;
 }
 
-.add-domain-body>p {
+.block-title {
   font-size: 25px;
   margin-bottom: 10px;
   color: rgb(54, 135, 255);
@@ -218,21 +218,39 @@ color: rgb(54, 135, 255);
 /*  */
 
 .home-body {
-  background-color: aqua;
   width: 80%;
   align-self: center;
   margin-top: 100px;
   display: flex;
+  border: 1px solid rgb(54, 135, 255);
+  border-radius:10px;
+  padding: 10px;
 }
 
 
 .filter-container{
-  background-color: darkgray;
   width: 25%;
+  border-right: 1px solid rgb(54, 135, 255);
 }
 .data-container{
-  background-color: burlywood;
   width: 75%;
+}
+
+.type-select{
+  width: 80%;
+  min-width: 100px;
+  height: 40px;
+  border: 1px solid rgb(54, 135, 255);
+  border-radius: 10px;
+  /* text-align: center; */
+  padding-left: 5px;
+  font-size: 20px;
+  color: rgb(54, 135, 255);
+}
+.type-select:focus {
+  outline: none !important;
+  border-color: rgb(54, 135, 255);
+  box-shadow: 0 0 5px rgb(54, 135, 255);
 }
 
 
