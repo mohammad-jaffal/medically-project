@@ -1,6 +1,6 @@
 
 
-const UserData = ({ user_id, name, email, balance }) => {
+const DoctorData = ({ doctor_id, name, email, domain, balance }) => {
 
 
 
@@ -10,30 +10,35 @@ const UserData = ({ user_id, name, email, balance }) => {
                 <li className="name-title">Name</li>
                 <li className="email-title">Email</li>
                 <li className="balance-title">Balance</li>
+                <li className="domain-title">Domain</li>
             </ul>
             <ul className="data-item">
                 <li className="name-item">{name}</li>
                 <li className="email-item">{email}</li>
                 <li className="balance-item">{balance}</li>
+                <li className="domain-item">{domain}</li>
             </ul>
             <ul className="data-item">
                 <li className="name-item">{name}</li>
                 <li className="email-item">{email}</li>
                 <li className="balance-item">{balance}</li>
+                <li className="domain-item">{domain}</li>
             </ul>
             <ul className="data-item">
                 <li className="name-item">{name}</li>
                 <li className="email-item">{email}</li>
                 <li className="balance-item">{balance}</li>
+                <li className="domain-item">{domain}</li>
             </ul>
             <ul className="data-item">
                 <li className="name-item">{name}</li>
                 <li className="email-item">{email}</li>
                 <li className="balance-item">{balance}</li>
+                <li className="domain-item">{domain}</li>
             </ul>
         </div>
     );
 
 }
 
-export default UserData;
+export default DoctorData;
