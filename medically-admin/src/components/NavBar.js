@@ -1,7 +1,15 @@
+import { useNavigate } from "react-router-dom";
 
 
 const Navbar = () => {
+    let navigate = useNavigate();
 
+
+
+    function logoutFunction() {
+        navigate("/");
+        // navigate("/home", { replace: true });
+    }
     return (
         <div className="navbar">
             <div className="main-logo">Admin Panel</div>
