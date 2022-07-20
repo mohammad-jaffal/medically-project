@@ -14,6 +14,12 @@
   flex-direction: column;
 }
 
+/*  */
+/*  */
+/* LOGIN PAGE STYLE */
+/*  */
+/*  */
+
 .login-form-container {
   display: flex;
   flex-direction: column;
@@ -73,4 +79,55 @@
 
 .login-btn:active {
   background-color: rgba(54, 135, 255, 0.8);
+}
+
+
+/*  */
+/*  */
+/* NAVBAR STYLE */
+/*  */
+/*  */
+
+.navbar {
+  background-color: rgb(54, 135, 255);
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right: 10%;
+  color: white;
+  height: 75px;
+}
+
+.navbar-title {
+  font-size: 35px;
+  font-weight: bold;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.navbar-menu {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  
+}
+
+.navbar-li {
+  /* height: 60%; */
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+  list-style-type: none;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.navbar-li>div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

@@ -7,12 +7,11 @@ const Navbar = () => {
 
 
     function logoutFunction() {
-        navigate("/");
-        // navigate("/home", { replace: true });
+        navigate("/", { replace: true });
     }
     return (
         <div className="navbar">
-            <div className="main-logo">Admin Panel</div>
+            <div className="navbar-title">Admin Panel</div>
             <ul className="navbar-menu">
                 <li className="navbar-li" onClick={() => {}}><div>Home</div></li>
                 <li className="navbar-li" onClick={() => {}}><div>Add Domain</div></li>
