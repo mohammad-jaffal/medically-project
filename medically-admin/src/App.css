@@ -106,13 +106,14 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .navbar-menu {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
-  
+
 }
 
 .navbar-li {
@@ -140,8 +141,55 @@
 /*  */
 /*  */
 
-.add-domain-body{
-  background-color: aquamarine;
-  width: 80%;
+.add-domain-body {
+  width: 500px;
   align-self: center;
+  margin-top: 100px;
+  min-width: 400px;
+}
+
+.add-domain-body>p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.domain-input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.domain-input{
+width: 80%;
+height: 40px;
+border: 1px solid rgb(54, 135, 255);
+border-radius: 10px;
+padding-left: 20px;
+font-size: 20px;
+color: rgb(54, 135, 255);
+}
+
+.domain-input:focus {
+  outline: none !important;
+  border-color: rgb(54, 135, 255);
+  box-shadow: 0 0 5px rgb(54, 135, 255);
+}
+
+
+.admin-btn {
+  /* width: 60px; */
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(54, 135, 255);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.admin-btn:active {
+  background-color: rgba(54, 135, 255, 0.8);
 }
