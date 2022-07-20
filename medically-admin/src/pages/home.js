@@ -1,4 +1,5 @@
 import Navbar from "../components/NavBar";
+import UserData from "../components/UserData";
 
 const Home = () => {
     return (
@@ -24,6 +25,7 @@ const Home = () => {
                         <p className="block-title">Data</p>
                         <input type="text" className="search-input" placeholder="Name / Email" />
                     </div>
+                    <UserData name={'first name'} email={'firstemail@gmail.com'} balance={'150'}/>
 
                 </div>
             </div>

@@ -294,14 +294,70 @@
 
 
 
+/*  */
+/*  */
+/* USERDATA STYLE */
+/*  */
+/*  */
 
 
 
+.user-data{
+  width: 100%;
+  /* background-color: aqua; */
+}
 
 
 
+.user-data-item{
+  display: flex;
+  border-top: 2px solid rgba(54, 135, 255,0.5);
+  height: 40px;
+  padding-top: 15px;
+}
+
+.user-data-item>li{
+  list-style-type: none;
+}
+
+/* TITLES */
+
+.name-title{
+  width: 200px;
+  color: rgb(54, 135, 255);
+  font-size: 20px;
+}
+
+.email-title{
+  width: 300px;
+  color: rgb(54, 135, 255);
+  font-size: 20px;
+
+}
+
+.balance-title{
+  width: 50px;
+  color: rgb(54, 135, 255);
+  font-size: 20px;
+
+}
 
 
+
+/* ITEMS */
+
+.name-item{
+  width: 200px;
+}
+
+.email-item{
+  width: 300px;
+
+}
+
+.balance-item{
+  width: 50px;
+}
 
 
 
