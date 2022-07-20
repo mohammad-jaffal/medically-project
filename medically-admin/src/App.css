@@ -46,7 +46,7 @@
   width: 90%;
   height: 40px;
   border: 1px solid rgb(54, 135, 255);
-  border-radius: 20px;
+  border-radius: 10px;
   text-align: center;
   font-size: 20px;
   color: rgb(54, 135, 255);
@@ -67,7 +67,7 @@
 .login-btn {
   width: 110px;
   height: 40px;
-  border-radius: 20px;
+  border-radius: 10px;
   border: none;
   background-color: rgb(54, 135, 255);
   color: white;
@@ -221,9 +221,9 @@
   align-self: center;
   margin-top: 100px;
   display: flex;
-  border: 1px solid rgb(54, 135, 255);
   border-radius: 10px;
   padding: 20px;
+
 }
 
 
@@ -266,8 +266,8 @@
 }
 
 
-.data-container {
-  width: 75%;
+.home-data-container {
+  width: fit-content;
   padding-left: 10px;
 }
 
@@ -282,6 +282,7 @@
   margin-left: 10px;
   font-size: 20px;
   color: rgb(54, 135, 255);
+  margin-bottom: 40px;
 }
 
 .search-input:focus {

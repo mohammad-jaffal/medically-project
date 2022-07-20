@@ -3,7 +3,7 @@ import Navbar from "../components/NavBar";
 import UserData from "../components/UserData";
 
 const Home = () => {
-    var type = 1;
+    var type = 2;
     return (
         <div className="global-container">
             <Navbar />
@@ -13,7 +13,7 @@ const Home = () => {
                         <option value="1">User</option>
                         <option value="2">Doctor</option>
                     </select>
-                    {type == 2 &&
+                    {type === 2 &&
                         <div className="domains-filter">
                             <div className="domain-filter-item">domain 1</div>
                             <div className="domain-filter-item">domain 2</div>
@@ -24,10 +24,10 @@ const Home = () => {
                     }
 
                 </div>
-                <div className="data-container">
+                <div className="home-data-container">
                     <input type="text" className="search-input" placeholder="Name / Email" />
-                    {type == 2 && <DoctorData name={'first name'} email={'firstemail@gmail.com'} balance={'150'} domain={'example domain'} />}
-                    {type == 1 && <UserData name={'first name'} email={'firstemail@gmail.com'} balance={'150'} />}
+                    {type === 2 && <DoctorData name={'first name'} email={'firstemail@gmail.com'} balance={'150'} domain={'example domain'} />}
+                    {type === 1 && <UserData name={'first name'} email={'firstemail@gmail.com'} balance={'150'} />}
 
                 </div>
             </div>
