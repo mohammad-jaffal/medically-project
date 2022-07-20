@@ -161,14 +161,14 @@
   margin-bottom: 40px;
 }
 
-.domain-input{
-width: 80%;
-height: 40px;
-border: 1px solid rgb(54, 135, 255);
-border-radius: 10px;
-padding-left: 20px;
-font-size: 20px;
-color: rgb(54, 135, 255);
+.domain-input {
+  width: 80%;
+  height: 40px;
+  border: 1px solid rgb(54, 135, 255);
+  border-radius: 10px;
+  padding-left: 20px;
+  font-size: 20px;
+  color: rgb(54, 135, 255);
 }
 
 .domain-input:focus {
@@ -195,17 +195,16 @@ color: rgb(54, 135, 255);
   background-color: rgba(54, 135, 255, 0.8);
 }
 
-.domains-container{
-}
+.domains-container {}
 
-.domain-card{
+.domain-card {
   height: 40px;
   font-size: 20px;
   margin-left: 20px;
   color: rgb(54, 135, 255);
 }
 
-.domain-card>span{
+.domain-card>span {
   color: black;
 }
 
@@ -223,21 +222,18 @@ color: rgb(54, 135, 255);
   margin-top: 100px;
   display: flex;
   border: 1px solid rgb(54, 135, 255);
-  border-radius:10px;
+  border-radius: 10px;
   padding: 10px;
 }
 
 
-.filter-container{
+.filter-container {
   width: 25%;
   border-right: 1px solid rgb(54, 135, 255);
 }
-.data-container{
-  width: 75%;
-  padding-left: 10px;
-}
 
-.type-select{
+
+.type-select {
   width: 80%;
   min-width: 100px;
   height: 40px;
@@ -247,16 +243,17 @@ color: rgb(54, 135, 255);
   padding-left: 5px;
   font-size: 20px;
 }
+
 .type-select:focus {
   outline: none !important;
   border-color: rgb(54, 135, 255);
 }
 
-.domains-filter{
+.domains-filter {
   margin-top: 40px;
 }
 
-.domain-filter-item{
+.domain-filter-item {
   cursor: pointer;
   width: fit-content;
   height: 40px;
@@ -264,9 +261,56 @@ color: rgb(54, 135, 255);
   font-size: 20px;
 }
 
-.domain-filter-item:hover{
+.domain-filter-item:hover {
   font-size: 22px;
 }
+
+
+.data-container {
+  width: 75%;
+  padding-left: 10px;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-input {
+  width: 300px;
+  height: 40px;
+  border: 1px solid rgb(54, 135, 255);
+  border-radius: 10px;
+  padding-left: 20px;
+  font-size: 20px;
+  color: rgb(54, 135, 255);
+}
+
+.search-input:focus {
+  outline: none !important;
+  border-color: rgb(54, 135, 255);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 600px) {

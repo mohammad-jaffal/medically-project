@@ -20,7 +20,11 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="data-container">
-                    <p className="block-title">Data</p>
+                    <div className="results-header">
+                        <p className="block-title">Data</p>
+                        <input type="text" className="search-input" placeholder="Name / Email" />
+                    </div>
+
                 </div>
             </div>
         </div>
