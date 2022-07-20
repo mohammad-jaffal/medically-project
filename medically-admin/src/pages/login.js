@@ -1,4 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
+    let navigate = useNavigate();
+
+    function loginFuntion() {
+        navigate("/home", { replace: true });
+    }
+
     return (
         <div className="global-container">
             <div className="login-form-container">
@@ -7,7 +15,7 @@ const Login = () => {
 
                 <input type="password" id="li_password" className="login-input" placeholder="Password" required />
 
-                <button className='login-btn' onClick={() => { }}>Login</button>
+                <button className='login-btn' onClick={() => { loginFuntion() }}>Login</button>
             </div>
         </div>
     );
