@@ -66,7 +66,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
               if (doctor.online) {
                 if (user.balance < 10) {
                   showDialog(
-                    // show doctor is offline aler dialog
+                    // show alert if not enough balance
                     context: context,
                     builder: (BuildContext ctx) {
                       return AlertDialog(

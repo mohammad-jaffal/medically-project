@@ -1,3 +1,4 @@
+import 'package:agora_uikit/controllers/rtm_channel_event_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -71,7 +72,7 @@ class _UserCallScreenState extends State<UserCallScreen> {
               AgoraVideoViewer(
                 client: _client,
                 layoutType: Layout.floating,
-                showNumberOfUsers: true,
+                showNumberOfUsers: false,
                 // showAVState: true,
                 disabledVideoWidget: Container(
                   color: Colors.lightBlue,
