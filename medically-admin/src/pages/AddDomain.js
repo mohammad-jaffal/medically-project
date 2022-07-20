@@ -4,7 +4,9 @@ const AddDomain = () => {
     return (
         <div className="global-container">
             <Navbar/>
-            <p> Add Domain</p>
+            <div className="add-domain-body">
+                <p>add domain</p>
+            </div>
         </div>
     );
 }

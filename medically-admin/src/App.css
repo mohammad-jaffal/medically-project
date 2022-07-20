@@ -131,3 +131,17 @@
   flex-direction: column;
   justify-content: center;
 }
+
+
+
+/*  */
+/*  */
+/* ADD DOMAIN STYLE */
+/*  */
+/*  */
+
+.add-domain-body{
+  background-color: aquamarine;
+  width: 80%;
+  align-self: center;
+}
