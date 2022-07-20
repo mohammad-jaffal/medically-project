@@ -149,8 +149,9 @@
 }
 
 .add-domain-body>p {
-  font-size: 20px;
+  font-size: 25px;
   margin-bottom: 10px;
+  color: rgb(54, 135, 255);
 }
 
 .domain-input-container {
@@ -192,4 +193,18 @@ color: rgb(54, 135, 255);
 
 .admin-btn:active {
   background-color: rgba(54, 135, 255, 0.8);
+}
+
+.domains-container{
+}
+
+.domain-card{
+  height: 40px;
+  font-size: 20px;
+  margin-left: 20px;
+  color: rgb(54, 135, 255);
+}
+
+.domain-card>span{
+  color: black;
 }
