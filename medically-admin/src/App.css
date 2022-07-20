@@ -45,17 +45,18 @@
   font-size: 20px;
   color: rgb(54, 135, 255);
   margin-bottom: 30px;
-  
+
 }
+
 .login-input::placeholder {
   color: rgba(54, 135, 255, 0.5);
 }
 
-.login-input:focus { 
-    outline: none !important;
-    border-color: rgb(54, 135, 255);
-    box-shadow: 0 0 5px rgb(54, 135, 255);
- }
+.login-input:focus {
+  outline: none !important;
+  border-color: rgb(54, 135, 255);
+  box-shadow: 0 0 5px rgb(54, 135, 255);
+}
 
 .login-btn {
   width: 110px;
@@ -70,6 +71,6 @@
   cursor: pointer;
 }
 
-.login-btn:active{
+.login-btn:active {
   background-color: rgba(54, 135, 255, 0.8);
 }
