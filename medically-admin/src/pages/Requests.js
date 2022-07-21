@@ -66,7 +66,7 @@ const Requests = () => {
             <div className="requests-body">
                 <p className="block-title">Requests:</p>
 
-                <DoctorInfoDialog isOpen={isDialogOpen} closeDialog={closeFunction} userId={userId} domains={domains}  />
+                <DoctorInfoDialog isOpen={isDialogOpen} closeDialog={closeFunction} userId={userId} domains={domains} fetchPen={fetchPending} />
                 <table className="data-table">
                     <tr>
                         <th>Name</th>
