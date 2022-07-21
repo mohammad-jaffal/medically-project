@@ -29,13 +29,15 @@ class _DoctorReviewsScreenState extends State<DoctorReviewsScreen> {
       appBar: AppBar(
         title: Text('Reviews'),
       ),
-      body: ListView.builder(
-        itemCount: reviews.length,
-        itemBuilder: (context, index) => ReviewCard(
-          reviews[index].rating * 1.0,
-          reviews[index].review_text,
-        ),
-      ),
+      body: reviews.isEmpty
+          ? const Center(child: Text('No Reviews Found!'))
+          : ListView.builder(
+              itemCount: reviews.length,
+              itemBuilder: (context, index) => ReviewCard(
+                reviews[index].rating * 1.0,
+                reviews[index].review_text,
+              ),
+            ),
     );
   }
 }

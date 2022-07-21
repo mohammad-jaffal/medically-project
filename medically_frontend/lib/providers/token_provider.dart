@@ -48,7 +48,7 @@ class TokenProvider with ChangeNotifier {
       // fill the related provider with user depending on user type
       // and send the type to login in screen to navigate to the correct screen
       var savedType = savedBody['type'];
-      if (savedType == 1) {
+      if (savedType == 1 || savedType == 3) {
         var u = User(
           id: savedBody['id'],
           name: savedBody['name'],

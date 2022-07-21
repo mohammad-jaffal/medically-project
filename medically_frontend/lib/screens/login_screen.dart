@@ -121,7 +121,7 @@ class _LoginScreenState extends State<LoginScreen> {
       }
     }
 
-    Future<void> _signupFunction() async {
+    Future<void> _signupFunction(var type) async {
       _signupFormKey.currentState!.save();
 
       if (_signupName == '' ||
@@ -139,6 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
             'email': _signupEmail,
             'password': _signupPassword,
             'password_confirmation': _signupConfirmPassword,
+            'type': type.toString(),
           });
           // automatically log in the registered user
           if (json.decode(response.body)['message'] ==
@@ -359,10 +360,30 @@ class _LoginScreenState extends State<LoginScreen> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            onPressed: _signupFunction,
+                            onPressed: () {
+                              _signupFunction(1);
+                            },
                             child: const Text('Sign Up'),
                           ),
                           const SizedBox(height: 30),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: const Color.fromARGB(255, 54, 135, 255),
+                              minimumSize: const Size.fromHeight(45),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              textStyle: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            onPressed: () {
+                              _signupFunction(3);
+                            },
+                            child: const Text('Doctor Sign Up'),
+                          ),
+                          const SizedBox(height: 20),
                           TextButton(
                             child: const Text(
                               'Login',

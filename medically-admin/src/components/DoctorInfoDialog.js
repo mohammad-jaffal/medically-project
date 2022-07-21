@@ -6,7 +6,6 @@ const DoctorInfoDialog = (props) => {
     const tokenRef = useRef('');
     const domainRef = useRef('');
 
-console.log(props.userId);
 async function handleAdd(){
     if(nameRef.current.value == '' || tokenRef.current.value == ''){
         alert('fill all')
