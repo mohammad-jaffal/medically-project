@@ -17,16 +17,24 @@ const Requests = () => {
             if (res.ok) {
                 const data = await res.json();
                 setPendingUsers(data['users']);
-                console.log(data['users']);
             }
         });
     }
-    function acceptFuntion(x) {
+    function acceptFuntion(id) {
         setIsDialogOpen(true);
-        console.log(x);
+        console.log(id);
     }
-    function rejectFuntion(x) {
-        console.log(x);
+    async function rejectFuntion(id)  {
+        const params = new FormData();
+        params.append('user_id', id);
+        await fetch("http://localhost:8000/api/admin/decline-doctor", {
+                method: "POST",
+                body: params,
+            }).then(async res => {
+            if (res.ok) {
+                fetchPending();
+            }
+        });
     }
     function closeFunction() {
         setIsDialogOpen(false);
