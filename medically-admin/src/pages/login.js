@@ -10,8 +10,6 @@ const Login = () => {
     async function loginFunction() {
         var inputEmail = emailRef.current.value;
         var inputPass = passwordRef.current.value;
-        console.log(inputEmail);
-        console.log(inputPass);
         if (inputEmail == "" || inputPass == "") {
             alert("fill all");
         } else {
@@ -19,37 +17,39 @@ const Login = () => {
             params.append('email', inputEmail);
             params.append('password', inputPass);
             // validate email and password
-            // await axios.post(`http://localhost:8000/api/login`, params).then(async res => {
 
-            //     if (res['status'] == 200) {
-            //         var token = (res.data['access_token']);
-            //         // check if admin login
-            //         await axios.post("http://localhost:8000/profile", {
-            //             headers: {
-            //                 Authorization: 'Bearer ' + token,
-            //                 Accept: 'application/json',
-            //             },
-
-            //         }).then(res => {
-
-            //             console.log(res);
-            //         })
-            //     }
-
-            // })
-            //     .catch(err => {
-            //         alert("login failed");
-            //     })
             await fetch("http://localhost:8000/api/login", {
                 method: "POST",
                 body: params,
-            }).then(async res=>{
-                const data = await res.json();
-                console.log(data);
-            });
+            }).then(async res => {
+                if (res.ok) {
+                    const data = await res.json();
+                    var token = data['access_token'];
+                    // check user type
+                    await fetch("http://localhost:8000/api/profile", {
+                        method: "POST",
+                        headers: {
+                            "Authorization": 'Bearer ' + token,
+                            "Accept": 'application/json',
+                        },
+
+                    }).then(async res => {
+                        if (res.ok) {
+                            const data2 = await res.json();
+                            if (data2['type'] == 0) {
+                                navigate("/home", { replace: true });
+                            }else{
+                                alert('You can\'t login here!');
+                            }
+                        }
+                    });
+                }
+                else{
+                    alert("Wrong Credentials!")
+                }
+            })
         }
 
-        // navigate("/home", { replace: true });
     }
 
     return (
