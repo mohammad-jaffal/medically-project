@@ -1,6 +1,6 @@
 
 
-const DoctorData = ({ doctor_id, name, email, domain, balance }) => {
+const DoctorData = ({ doctors }) => {
 
 
 
@@ -12,24 +12,16 @@ const DoctorData = ({ doctor_id, name, email, domain, balance }) => {
                 <th>Balance</th>
                 <th>Domain</th>
             </tr>
-            <tr>
-                <td>{name}</td>
-                <td>{email}</td>
-                <td>{balance}</td>
-                <td>{domain}</td>
-            </tr>
-            <tr>
-                <td>{name}</td>
-                <td>{email}</td>
-                <td>{balance}</td>
-                <td>{domain}</td>
-            </tr>
-            <tr>
-                <td>{name}</td>
-                <td>{email}</td>
-                <td>{balance}</td>
-                <td>{domain}</td>
-            </tr>
+            {doctors.map((doctor, index) => {
+                return (
+                    <tr key={index}>
+                        <td>{doctor.name}</td>
+                        <td>{doctor.email}</td>
+                        <td>{doctor.balance}</td>
+                        <td>{doctor.domain_id}</td>
+                    </tr>
+                )
+            })}
         </table>
     );
 

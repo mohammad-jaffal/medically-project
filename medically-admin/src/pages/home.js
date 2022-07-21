@@ -64,7 +64,7 @@ const Home = () => {
                 </div>
                 <div className="home-data-container">
                     <input type="text" className="search-input" placeholder="Name / Email" />
-                    {selectedType == 2 && <DoctorData name={'first name'} email={'firstemail@gmail.com'} balance={'150'} domain={'example domain'} />}
+                    {selectedType == 2 && <DoctorData doctors={doctors} />}
                     {selectedType == 1 && <UserData users={users} />}
 
                 </div>
