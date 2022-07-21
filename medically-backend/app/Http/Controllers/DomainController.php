@@ -15,6 +15,7 @@ class DomainController extends Controller
 
         return response()->json([
             "success" => true,
+            "domain" => $domain
         ], 200);
     }
 
