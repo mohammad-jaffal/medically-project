@@ -15,45 +15,45 @@ const Home = () => {
     // fetch all users
     const fetchUsers = async () => {
         await fetch("http://localhost:8000/api/admin/get-users", {
-                        method: "GET",
-                    }).then(async res => {
-                        if (res.ok) {
-                            const data = await res.json();
-                            setUsers(data['users']);
-                        }
-                    });
+            method: "GET",
+        }).then(async res => {
+            if (res.ok) {
+                const data = await res.json();
+                setUsers(data['users']);
+            }
+        });
     }
 
     // fetch all doctors
     const fetchDoctors = async () => {
         await fetch("http://localhost:8000/api/get-doctors", {
-                        method: "GET",
-                    }).then(async res => {
-                        if (res.ok) {
-                            const data = await res.json();
-                            setDoctors(data['doctors']);
-                        }
-                    });
+            method: "GET",
+        }).then(async res => {
+            if (res.ok) {
+                const data = await res.json();
+                setDoctors(data['doctors']);
+            }
+        });
     }
 
     // fetch all domains
     const fetchDomains = async () => {
         await fetch("http://localhost:8000/api/get-domains", {
-                        method: "GET",
-                    }).then(async res => {
-                        if (res.ok) {
-                            const data = await res.json();
-                            setDomains(data['domains']);
-                        }
-                    });
+            method: "GET",
+        }).then(async res => {
+            if (res.ok) {
+                const data = await res.json();
+                setDomains(data['domains']);
+            }
+        });
     }
 
     // use effect :)
-    useEffect(()=>{
+    useEffect(() => {
         fetchUsers();
         fetchDoctors();
         fetchDomains();
-    },[])
+    }, [])
 
 
     return (
@@ -61,17 +61,18 @@ const Home = () => {
             <Navbar />
             <div className="home-body">
                 <div className="filter-container" >
-                    <select className="type-select" ref={typeRef} onChange={() => {setSelectedType(typeRef.current.value)}}>
+                    <select className="type-select" ref={typeRef} onChange={() => { setSelectedType(typeRef.current.value) }}>
                         <option value="1">Users</option>
                         <option value="2">Doctors</option>
                     </select>
                     {selectedType == 2 &&
                         <div className="domains-filter">
-                            <div className="domain-filter-item">domain 1</div>
-                            <div className="domain-filter-item">domain 2</div>
-                            <div className="domain-filter-item">domain 3</div>
-                            <div className="domain-filter-item">domain 4</div>
-                            <div className="domain-filter-item">domain 5</div>
+                            {domains.map((domain, index) => {
+                                return (
+                                    <div className="domain-filter-item" key={index}>{domain.domain_name}</div>
+                                )
+                            })}
+                            
                         </div>
                     }
 
