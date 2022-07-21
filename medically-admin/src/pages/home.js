@@ -7,6 +7,9 @@ import { React, useState, useEffect, useRef } from "react";
 const Home = () => {
     var [selectedType, setSelectedType] = useState(1);
     const typeRef = useRef(null);
+    const searchRef = useRef(null);
+    var [searchKey, setSearchKey] = useState('');
+
 
     var [users, setUsers] = useState([]);
     var [doctors, setDoctors] = useState([]);
@@ -50,12 +53,6 @@ const Home = () => {
             }
         });
     }
-    // filter function
-    const filterFunction = (name , email, domain) => {
-        console.log(domain);
-        console.log(name);
-        console.log(email);
-    }
 
     // use effect :)
     useEffect(() => {
@@ -88,9 +85,9 @@ const Home = () => {
 
                 </div>
                 <div className="home-data-container">
-                    <input type="text" className="search-input" placeholder="Name / Email" />
-                    {selectedType == 2 && <DoctorData doctors={filteredDoctors} domains={domains} selectedDomain={selectedDomain}/>}
-                    {selectedType == 1 && <UserData users={users} />}
+                    <input type="text" ref={searchRef} className="search-input" placeholder="Name / Email" onChange={()=>{setSearchKey(searchRef.current.value)}}/>
+                    {selectedType == 2 && <DoctorData doctors={filteredDoctors} domains={domains} selectedDomain={selectedDomain} searchKey={searchKey}/>}
+                    {selectedType == 1 && <UserData users={users} searchKey={searchKey} />}
 
                 </div>
             </div>

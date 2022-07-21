@@ -1,6 +1,6 @@
 
 
-const UserData = ({ users }) => {
+const UserData = ({ users, searchKey }) => {
 
 
     return (
@@ -11,15 +11,17 @@ const UserData = ({ users }) => {
                 <th>Balance</th>
             </tr>
             {users.map((user, index) => {
-                return (
-                    <tr key={index}>
-                        <td>{user.name}</td>
-                        <td>{user.email}</td>
-                        <td>{user.balance}</td>
-                    </tr>
-                )
+                if (user.name.toLowerCase().includes(searchKey.toLowerCase()) || user.email.toLowerCase().includes(searchKey.toLowerCase())) {
+                    return (
+                        <tr key={index}>
+                            <td>{user.name}</td>
+                            <td>{user.email}</td>
+                            <td>{user.balance}</td>
+                        </tr>
+                    )
+                }
             })}
-            
+
         </table>
     );
 
