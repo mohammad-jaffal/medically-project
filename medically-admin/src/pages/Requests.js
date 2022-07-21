@@ -13,7 +13,9 @@ const Requests = () => {
     function rejectFuntion(x){
         console.log(x);
     }
-
+    function closeFunction(){
+        setIsDialogOpen(false);
+    }
     return (
         <div className="global-container">
             <Navbar />
@@ -26,7 +28,7 @@ const Requests = () => {
                     accept={() => { acceptFuntion('accept an id') }}
                     decline={() => { rejectFuntion('reject an id') }}
                 />
-                <DoctorInfoDialog isOpen={isDialogOpen}/>
+                <DoctorInfoDialog isOpen={isDialogOpen} closeDialog={closeFunction}/>
             </div>
         </div>
     );

@@ -1,9 +1,9 @@
+import { React, useState, useEffect, useRef } from "react";
 
 
-const DoctorInfoDialog = ({ doctor_id, name, email, domain, balance, isOpen }) => {
+const DoctorInfoDialog = ({ doctor_id, name, email, domain, balance, isOpen, closeDialog}) => {
 
 
-    
 
 
     if (isOpen) {
@@ -13,6 +13,7 @@ const DoctorInfoDialog = ({ doctor_id, name, email, domain, balance, isOpen }) =
                     <input type="text" className="domain-input" placeholder="Channel Name" required />
                     <input type="text" className="domain-input" placeholder="Channel Token" required />
                     <button className="admin-btn">Add</button>
+                    <button onClick={closeDialog}>Cancel</button>
                 </div>
             </div>
         );
