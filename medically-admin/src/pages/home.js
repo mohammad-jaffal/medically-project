@@ -11,6 +11,8 @@ const Home = () => {
     var [users, setUsers] = useState([]);
     var [doctors, setDoctors] = useState([]);
     var [domains, setDomains] = useState([]);
+    var [selectedDomain, setSelectedDomain] = useState(null);
+    var [filteredDoctors, setFilteredDoctors] = useState([]);
 
     // fetch all users
     const fetchUsers = async () => {
@@ -32,6 +34,7 @@ const Home = () => {
             if (res.ok) {
                 const data = await res.json();
                 setDoctors(data['doctors']);
+                setFilteredDoctors(data['doctors']);
             }
         });
     }
@@ -46,6 +49,12 @@ const Home = () => {
                 setDomains(data['domains']);
             }
         });
+    }
+    // filter function
+    const filterFunction = (name , email, domain) => {
+        console.log(domain);
+        console.log(name);
+        console.log(email);
     }
 
     // use effect :)
@@ -67,19 +76,20 @@ const Home = () => {
                     </select>
                     {selectedType == 2 &&
                         <div className="domains-filter">
+                            <div className="domain-filter-item" onClick={() => { setSelectedDomain(null) }}>All</div>
                             {domains.map((domain, index) => {
                                 return (
-                                    <div className="domain-filter-item" key={index}>{domain.domain_name}</div>
+                                    <div className="domain-filter-item" key={index} onClick={() => { setSelectedDomain(domain.id) }}>{domain.domain_name}</div>
                                 )
                             })}
-                            
+
                         </div>
                     }
 
                 </div>
                 <div className="home-data-container">
                     <input type="text" className="search-input" placeholder="Name / Email" />
-                    {selectedType == 2 && <DoctorData doctors={doctors} domains={domains} />}
+                    {selectedType == 2 && <DoctorData doctors={filteredDoctors} domains={domains} selectedDomain={selectedDomain}/>}
                     {selectedType == 1 && <UserData users={users} />}
 
                 </div>

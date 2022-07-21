@@ -2,7 +2,6 @@
 
 const UserData = ({ users }) => {
 
-    console.log(users);
 
     return (
         <table className="data-table">

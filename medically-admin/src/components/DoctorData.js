@@ -1,6 +1,6 @@
 
 
-const DoctorData = ({ doctors }) => {
+const DoctorData = ({ doctors, selectedDomain }) => {
 
 
 
@@ -13,14 +13,16 @@ const DoctorData = ({ doctors }) => {
                 <th>Domain</th>
             </tr>
             {doctors.map((doctor, index) => {
-                return (
-                    <tr key={index}>
-                        <td>{doctor.name}</td>
-                        <td>{doctor.email}</td>
-                        <td>{doctor.balance}</td>
-                        <td>{doctor.domain_id}</td>
-                    </tr>
-                )
+                if (doctor.domain_id == selectedDomain || selectedDomain==null) {
+                    return (
+                        <tr key={index}>
+                            <td>{doctor.name}</td>
+                            <td>{doctor.email}</td>
+                            <td>{doctor.balance}</td>
+                            <td>{doctor.domain_id}</td>
+                        </tr>
+                    );
+                }
             })}
         </table>
     );
