@@ -5,38 +5,40 @@ const DoctorRequest = ({ doctor_id, name, email, domain, balance }) => {
 
 
     return (
-        <div className="data-container">
-            <ul className="data-item">
-                <li className="name-title">Name</li>
-                <li className="email-title">Email</li>
-                <button>reject</button>
-                <button>accept</button>
-            </ul>
-            <ul className="data-item">
-                <li className="name-item">{name}</li>
-                <li className="email-item">{email}</li>
-                <button>reject</button>
-                <button>accept</button>
-            </ul>
-            <ul className="data-item">
-                <li className="name-item">{name}</li>
-                <li className="email-item">{email}</li>
-                <button>reject</button>
-                <button>accept</button>
-            </ul>
-            <ul className="data-item">
-                <li className="name-item">{name}</li>
-                <li className="email-item">{email}</li>
-                <button>reject</button>
-                <button>accept</button>
-            </ul>
-            <ul className="data-item">
-                <li className="name-item">{name}</li>
-                <li className="email-item">{email}</li>
-                <button>reject</button>
-                <button>accept</button>
-            </ul>
-        </div>
+        <table className="data-table">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>{name}</td>
+                <td>{email}</td>
+                <td>
+                    <button>reject</button>
+                    <button>accept</button>
+                </td>
+
+            </tr>
+            <tr>
+                <td>{name}</td>
+                <td>{email}</td>
+                <td>
+                    <button>reject</button>
+                    <button>accept</button>
+                </td>
+
+            </tr>
+            <tr>
+                <td>{name}</td>
+                <td>{email}</td>
+                <td>
+                    <button>reject</button>
+                    <button>accept</button>
+                </td>
+
+            </tr>
+        </table>
     );
 
 }

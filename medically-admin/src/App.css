@@ -292,86 +292,6 @@
 
 
 
-/*  */
-/*  */
-/* DATA STYLE */
-/*  */
-/*  */
-
-
-
-.data-container{
-  width: 100%;
-  /* background-color: aqua; */
-}
-
-
-
-.data-item{
-  display: flex;
-  border-top: 1px solid rgba(54, 135, 255,0.5);
-  height: 40px;
-  /* padding-top: 15px; */
-  gap: 5px;
-  
-}
-
-.data-item>li{
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-}
-
-/* TITLES */
-
-.name-title{
-  width: 200px;
-  color: rgb(54, 135, 255);
-  font-size: 20px;
-}
-
-.email-title{
-  width: 250px;
-  color: rgb(54, 135, 255);
-  font-size: 20px;
-}
-
-.balance-title{
-  width: 100px;
-  color: rgb(54, 135, 255);
-  font-size: 20px;
-}
-
-.domain-title{
-  /* width: 200px; */
-  color: rgb(54, 135, 255);
-  font-size: 20px;
-}
-
-
-
-/* ITEMS */
-
-.name-item{
-  width: 200px;
-}
-
-.email-item{
-  width: 250px;
-
-}
-
-.balance-item{
-  width: 100px;
-}
-
-.domain-item{
-  /* width: 200px; */
-}
-
-
-
 
 
 
@@ -385,10 +305,20 @@
 
 
 .requests-body {
-  width: fit-content;
+  /* width: fit-content; */
   margin-left: 10%;
   margin-top: 100px;
   overflow: hidden;
+}
+
+.requests-form-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-container{
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -398,13 +328,28 @@
 
 
 
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
 
+.data-table{
+  border-collapse: collapse;
+  
+}
 
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
+.data-table>tr{
+  border: 1px solid;
+  height: 40px;
+}
+
+.data-table>tr>td,th{
+  border: 1px solid;
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 
 
