@@ -7,6 +7,32 @@ import { React, useState, useEffect, useRef } from "react";
 const Home = () => {
     var [selectedType, setSelectedType] = useState(1);
     const typeRef = useRef(null);
+
+    var [users, setUsers] = useState([]);
+    var [doctors, setDoctors] = useState([]);
+
+    // fetch all users
+    const fetchUsers = async () => {
+        await fetch("http://localhost:8000/api/admin/get-users", {
+                        method: "GET",
+                    }).then(async res => {
+                        if (res.ok) {
+                            const data = await res.json();
+                            setUsers(data['users']);
+                        }
+                    });
+    }
+
+    // fetch all doctors
+    const fetchDoctors = async () => {
+        
+    }
+    useEffect(()=>{
+        fetchUsers();
+        fetchDoctors();
+    },[])
+
+
     return (
         <div className="global-container">
             <Navbar />
