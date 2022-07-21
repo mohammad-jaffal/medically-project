@@ -1,6 +1,28 @@
 import Navbar from "../components/NavBar";
+import { React, useState, useEffect, useRef } from "react";
+
 
 const AddDomain = () => {
+
+    var [domains, setDomains] = useState([]);
+
+    // fetch all domains
+    const fetchDomains = async () => {
+        await fetch("http://localhost:8000/api/get-domains", {
+            method: "GET",
+        }).then(async res => {
+            if (res.ok) {
+                const data = await res.json();
+                setDomains(data['domains']);
+            }
+        });
+    }
+
+    // use effect :)
+    useEffect(() => {
+        fetchDomains();
+    }, [])
+
     return (
         <div className="global-container">
             <Navbar />
@@ -12,11 +34,11 @@ const AddDomain = () => {
                 </div>
                 <p className="block-title">Available Domains:</p>
                 <ul className="domains-container">
-                    <li className="domain-card"><span>domain 1</span></li>
-                    <li className="domain-card"><span>domain 2</span></li>
-                    <li className="domain-card"><span>domain 3</span></li>
-                    <li className="domain-card"><span>domain 4</span></li>
-                    <li className="domain-card"><span>domain 5</span></li>
+                    {domains.map((domain, index) => {
+                        return (
+                            <li key={index} className="domain-card"><span>{domain.domain_name}</span></li>
+                        )
+                    })}
                 </ul>
             </div>
         </div>
