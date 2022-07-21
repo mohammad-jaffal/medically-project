@@ -10,6 +10,7 @@ const Home = () => {
 
     var [users, setUsers] = useState([]);
     var [doctors, setDoctors] = useState([]);
+    var [domains, setDomains] = useState([]);
 
     // fetch all users
     const fetchUsers = async () => {
@@ -35,10 +36,23 @@ const Home = () => {
                     });
     }
 
+    // fetch all domains
+    const fetchDomains = async () => {
+        await fetch("http://localhost:8000/api/get-domains", {
+                        method: "GET",
+                    }).then(async res => {
+                        if (res.ok) {
+                            const data = await res.json();
+                            setDomains(data['domains']);
+                        }
+                    });
+    }
+
     // use effect :)
     useEffect(()=>{
         fetchUsers();
         fetchDoctors();
+        fetchDomains();
     },[])
 
 
@@ -48,8 +62,8 @@ const Home = () => {
             <div className="home-body">
                 <div className="filter-container" >
                     <select className="type-select" ref={typeRef} onChange={() => {setSelectedType(typeRef.current.value)}}>
-                        <option value="1">User</option>
-                        <option value="2">Doctor</option>
+                        <option value="1">Users</option>
+                        <option value="2">Doctors</option>
                     </select>
                     {selectedType == 2 &&
                         <div className="domains-filter">
@@ -64,7 +78,7 @@ const Home = () => {
                 </div>
                 <div className="home-data-container">
                     <input type="text" className="search-input" placeholder="Name / Email" />
-                    {selectedType == 2 && <DoctorData doctors={doctors} />}
+                    {selectedType == 2 && <DoctorData doctors={doctors} domains={domains} />}
                     {selectedType == 1 && <UserData users={users} />}
 
                 </div>
