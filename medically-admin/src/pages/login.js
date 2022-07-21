@@ -19,26 +19,34 @@ const Login = () => {
             params.append('email', inputEmail);
             params.append('password', inputPass);
             // validate email and password
-            await axios.post(`http://localhost:8000/api/login`, params).then(async res => {
+            // await axios.post(`http://localhost:8000/api/login`, params).then(async res => {
 
-                if (res['status'] == 200) {
-                    var token = (res.data['access_token']);
-                    await axios.post("http://localhost:8000/profile", {
-                        headers: {
-                            Authorization: 'Bearer ' + token,
-                            Accept: 'application/json',
-                        },
+            //     if (res['status'] == 200) {
+            //         var token = (res.data['access_token']);
+            //         // check if admin login
+            //         await axios.post("http://localhost:8000/profile", {
+            //             headers: {
+            //                 Authorization: 'Bearer ' + token,
+            //                 Accept: 'application/json',
+            //             },
 
-                    }).then(res => {
+            //         }).then(res => {
 
-                        console.log(res);
-                    })
-                }
+            //             console.log(res);
+            //         })
+            //     }
 
-            })
-                .catch(err => {
-                    alert("login failed");
-                })
+            // })
+            //     .catch(err => {
+            //         alert("login failed");
+            //     })
+            await fetch("http://localhost:8000/api/login", {
+                method: "POST",
+                body: params,
+            }).then(async res=>{
+                const data = await res.json();
+                console.log(data);
+            });
         }
 
         // navigate("/home", { replace: true });
