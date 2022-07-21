@@ -24,6 +24,7 @@ Route::group(['prefix'=>'admin'], function(){
     Route::post('/make-doctor', [DoctorController::class, 'makeDoctor']);
     Route::post('/add-domain', [DomainController::class, 'addDomain']);
     Route::get('/get-users', [UserController::class, 'getAllUsers']);
+    Route::get('/get-pending-users', [UserController::class, 'getPendingUsers']);
 
 });
 

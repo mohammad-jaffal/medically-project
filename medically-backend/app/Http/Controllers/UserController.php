@@ -16,4 +16,14 @@ class UserController extends Controller
             "users" => $users
         ], 200);
     }
+
+    public function getPendingUsers(Request $request){
+
+        $users = User::where('type', 3)->get();
+
+        return response()->json([
+            "success" => true,
+            "users" => $users
+        ], 200);
+    }
 }
