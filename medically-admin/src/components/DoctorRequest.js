@@ -15,8 +15,8 @@ const DoctorRequest = ({ doctor_id, name, email, domain, balance }) => {
                 <td>{name}</td>
                 <td>{email}</td>
                 <td>
-                    <button>reject</button>
-                    <button>accept</button>
+                    <button className="request-action-btn">reject</button>
+                    <button className="request-action-btn">accept</button>
                 </td>
 
             </tr>
@@ -24,8 +24,8 @@ const DoctorRequest = ({ doctor_id, name, email, domain, balance }) => {
                 <td>{name}</td>
                 <td>{email}</td>
                 <td>
-                    <button>reject</button>
-                    <button>accept</button>
+                    <button className="request-action-btn">reject</button>
+                    <button className="request-action-btn">accept</button>
                 </td>
 
             </tr>
@@ -33,8 +33,8 @@ const DoctorRequest = ({ doctor_id, name, email, domain, balance }) => {
                 <td>{name}</td>
                 <td>{email}</td>
                 <td>
-                    <button>reject</button>
-                    <button>accept</button>
+                    <button className="request-action-btn">reject</button>
+                    <button className="request-action-btn">accept</button>
                 </td>
 
             </tr>

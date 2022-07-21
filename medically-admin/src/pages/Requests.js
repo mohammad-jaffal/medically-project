@@ -9,10 +9,8 @@ const Requests = () => {
             <div className="requests-body">
                 <p className="block-title">Requests:</p>
                 <input type="text" className="search-input" placeholder="Name / Email" />
-                <div className="requests-form-container">
-                    <DoctorRequest name={'first name'} email={'firstemail@gmail.com'} />
-                    {/* <DoctorInfo/> */}
-                </div>
+                <DoctorRequest name={'first name'} email={'firstemail@gmail.com'} />
+                {/* <DoctorInfo/> */}
             </div>
         </div>
     );
