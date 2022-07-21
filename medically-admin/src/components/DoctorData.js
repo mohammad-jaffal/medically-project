@@ -1,7 +1,6 @@
 
 
-const DoctorData = ({ doctors, selectedDomain }) => {
-
+const DoctorData = ({ doctors, selectedDomain, domains }) => {
 
 
     return (
@@ -13,13 +12,18 @@ const DoctorData = ({ doctors, selectedDomain }) => {
                 <th>Domain</th>
             </tr>
             {doctors.map((doctor, index) => {
-                if (doctor.domain_id == selectedDomain || selectedDomain==null) {
+                if (doctor.domain_id == selectedDomain || selectedDomain == null) {
                     return (
                         <tr key={index}>
                             <td>{doctor.name}</td>
                             <td>{doctor.email}</td>
                             <td>{doctor.balance}</td>
-                            <td>{doctor.domain_id}</td>
+                            {domains.map((domain, index) => {
+                                if (domain['id'] == doctor.domain_id) {
+                                    return <td key={index}>{domain['domain_name']}</td>;
+                                }
+
+                            })}
                         </tr>
                     );
                 }
