@@ -1,19 +1,22 @@
 import DoctorData from "../components/DoctorData";
 import Navbar from "../components/NavBar";
 import UserData from "../components/UserData";
+import { React, useState, useEffect, useRef } from "react";
+
 
 const Home = () => {
-    var type = 2;
+    var [selectedType, setSelectedType] = useState(1);
+    const typeRef = useRef(null);
     return (
         <div className="global-container">
             <Navbar />
             <div className="home-body">
                 <div className="filter-container" >
-                    <select className="type-select" onChange={() => { }}>
+                    <select className="type-select" ref={typeRef} onChange={() => {setSelectedType(typeRef.current.value)}}>
                         <option value="1">User</option>
                         <option value="2">Doctor</option>
                     </select>
-                    {type === 2 &&
+                    {selectedType == 2 &&
                         <div className="domains-filter">
                             <div className="domain-filter-item">domain 1</div>
                             <div className="domain-filter-item">domain 2</div>
@@ -26,8 +29,8 @@ const Home = () => {
                 </div>
                 <div className="home-data-container">
                     <input type="text" className="search-input" placeholder="Name / Email" />
-                    {type === 2 && <DoctorData name={'first name'} email={'firstemail@gmail.com'} balance={'150'} domain={'example domain'} />}
-                    {type === 1 && <UserData name={'first name'} email={'firstemail@gmail.com'} balance={'150'} />}
+                    {selectedType == 2 && <DoctorData name={'first name'} email={'firstemail@gmail.com'} balance={'150'} domain={'example domain'} />}
+                    {selectedType == 1 && <UserData name={'first name'} email={'firstemail@gmail.com'} balance={'150'} />}
 
                 </div>
             </div>
