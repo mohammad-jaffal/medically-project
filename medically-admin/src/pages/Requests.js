@@ -5,8 +5,10 @@ import Navbar from "../components/NavBar";
 const Requests = () => {
 
     var [isDialogOpen, setIsDialogOpen] = useState(false);
-
     var [pendingUsers, setPendingUsers] = useState([]);
+    
+    var [domains, setDomains] = useState([]);
+    var [userId, setUserId] = useState('');
     const domainRef = useRef('');
 
     // fetch all domains
@@ -21,17 +23,9 @@ const Requests = () => {
         });
     }
     async function acceptFuntion(id) {
+        setUserId(id);
         setIsDialogOpen(true);
-        const params = new FormData();
-        params.append('user_id', id);
-        await fetch("http://localhost:8000/api/admin/accept-doctor", {
-                method: "POST",
-                body: params,
-            }).then(async res => {
-            if (res.ok) {
-                fetchPending();
-            }
-        });
+        
     }
     async function rejectFuntion(id)  {
         const params = new FormData();
@@ -49,12 +43,20 @@ const Requests = () => {
         setIsDialogOpen(false);
     }
 
-    function addFunction() {
-        console.log('adding');
+    const fetchDomains = async () => {
+        await fetch("http://localhost:8000/api/get-domains", {
+            method: "GET",
+        }).then(async res => {
+            if (res.ok) {
+                const data = await res.json();
+                setDomains(data['domains']);
+            }
+        });
     }
 
     useEffect(() => {
         fetchPending();
+        fetchDomains()
     }, [])
 
 
@@ -64,7 +66,7 @@ const Requests = () => {
             <div className="requests-body">
                 <p className="block-title">Requests:</p>
 
-                <DoctorInfoDialog isOpen={isDialogOpen} closeDialog={closeFunction} addDoctor={addFunction} />
+                <DoctorInfoDialog isOpen={isDialogOpen} closeDialog={closeFunction} userId={userId} domains={domains}  />
                 <table className="data-table">
                     <tr>
                         <th>Name</th>
