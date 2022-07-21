@@ -14,11 +14,13 @@
   overflow: hidden;
 }
 
+
 /*  */
 /*  */
 /* LOGIN PAGE STYLE */
 /*  */
 /*  */
+
 
 .login-form-container {
   display: flex;
@@ -322,10 +324,10 @@
 
 .request-info-body {
   /* background-color: aqua; */
-  height: 100vh;
+  height: calc(100vh - 75px);
   width: 100vw;
   position: absolute;
-  top: 0;
+  top: 75px;
   left: 0;
   backdrop-filter: blur(5px);
 }

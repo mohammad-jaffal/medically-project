@@ -1,6 +1,6 @@
 
 
-const DoctorRequest = ({ doctor_id, name, email, domain, balance }) => {
+const DoctorRequest = ({ doctor_id, name, email, domain, balance, accept, decline }) => {
 
 
 
@@ -15,8 +15,8 @@ const DoctorRequest = ({ doctor_id, name, email, domain, balance }) => {
                 <td>{name}</td>
                 <td>{email}</td>
                 <td>
-                    <button className="request-action-btn">reject</button>
-                    <button className="request-action-btn">accept</button>
+                    <button className="request-action-btn" onClick={decline}>decline</button>
+                    <button className="request-action-btn" onClick={accept}>accept</button>
                 </td>
 
             </tr>
@@ -24,8 +24,8 @@ const DoctorRequest = ({ doctor_id, name, email, domain, balance }) => {
                 <td>{name}</td>
                 <td>{email}</td>
                 <td>
-                    <button className="request-action-btn">reject</button>
-                    <button className="request-action-btn">accept</button>
+                    <button className="request-action-btn" onClick={decline}>decline</button>
+                    <button className="request-action-btn" onClick={accept}>accept</button>
                 </td>
 
             </tr>
@@ -33,12 +33,13 @@ const DoctorRequest = ({ doctor_id, name, email, domain, balance }) => {
                 <td>{name}</td>
                 <td>{email}</td>
                 <td>
-                    <button className="request-action-btn">reject</button>
-                    <button className="request-action-btn">accept</button>
+                    <button className="request-action-btn" onClick={decline}>decline</button>
+                    <button className="request-action-btn" onClick={accept}>accept</button>
                 </td>
 
             </tr>
         </table>
+
     );
 
 }

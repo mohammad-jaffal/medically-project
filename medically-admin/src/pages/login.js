@@ -4,8 +4,7 @@ const Login = () => {
     let navigate = useNavigate();
 
     function loginFunction() {
-        navigate("/home");
-        // navigate("/home", { replace: true });
+        navigate("/home", { replace: true });
     }
 
     return (
