@@ -23,9 +23,18 @@ class DoctorController extends Controller
     // DB::table('user')->where('email', $userEmail)->update(array('member_type' => $plan));
 
 
-    public function makeDoctor(Request $request){
+    public function acceptDoctor(Request $request){
 
         \DB::table('users')->where('id', $request->user_id)->update(array('type' => 2));
+
+        return response()->json([
+            "success" => true,
+        ], 200);
+    }
+
+    public function declineDoctor(Request $request){
+
+        \DB::table('users')->where('id', $request->user_id)->update(array('type' => 1));
 
         return response()->json([
             "success" => true,

@@ -21,7 +21,8 @@ Route::group(['middleware' => 'api'], function($router) {
 
 Route::group(['prefix'=>'admin'], function(){
     Route::post('/add-doctor-details', [DoctorController::class, 'addDoctorDetails']);
-    Route::post('/make-doctor', [DoctorController::class, 'makeDoctor']);
+    Route::post('/accept-doctor', [DoctorController::class, 'acceptDoctor']);
+    Route::post('/decline-doctor', [DoctorController::class, 'declineDoctor']);
     Route::post('/add-domain', [DomainController::class, 'addDomain']);
     Route::get('/get-users', [UserController::class, 'getAllUsers']);
     Route::get('/get-pending-users', [UserController::class, 'getPendingUsers']);
