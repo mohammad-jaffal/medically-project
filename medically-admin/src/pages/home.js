@@ -25,8 +25,17 @@ const Home = () => {
 
     // fetch all doctors
     const fetchDoctors = async () => {
-        
+        await fetch("http://localhost:8000/api/get-doctors", {
+                        method: "GET",
+                    }).then(async res => {
+                        if (res.ok) {
+                            const data = await res.json();
+                            setDoctors(data['doctors']);
+                        }
+                    });
     }
+
+    // use effect :)
     useEffect(()=>{
         fetchUsers();
         fetchDoctors();
@@ -56,7 +65,7 @@ const Home = () => {
                 <div className="home-data-container">
                     <input type="text" className="search-input" placeholder="Name / Email" />
                     {selectedType == 2 && <DoctorData name={'first name'} email={'firstemail@gmail.com'} balance={'150'} domain={'example domain'} />}
-                    {selectedType == 1 && <UserData name={'first name'} email={'firstemail@gmail.com'} balance={'150'} />}
+                    {selectedType == 1 && <UserData users={users} />}
 
                 </div>
             </div>

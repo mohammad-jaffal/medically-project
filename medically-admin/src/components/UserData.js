@@ -1,8 +1,8 @@
 
 
-const UserData = ({ user_id, name, email, balance }) => {
+const UserData = ({ users }) => {
 
-
+    console.log(users);
 
     return (
         <table className="data-table">
@@ -11,21 +11,16 @@ const UserData = ({ user_id, name, email, balance }) => {
                 <th>Email</th>
                 <th>Balance</th>
             </tr>
-            <tr>
-                <td>{name}</td>
-                <td>{email}</td>
-                <td>{balance}</td>
-            </tr>
-            <tr>
-                <td>{name}</td>
-                <td>{email}</td>
-                <td>{balance}</td>
-            </tr>
-            <tr>
-                <td>{name}</td>
-                <td>{email}</td>
-                <td>{balance}</td>
-            </tr>
+            {users.map((user, index) => {
+                return (
+                    <tr key={index}>
+                        <td>{user.name}</td>
+                        <td>{user.email}</td>
+                        <td>{user.balance}</td>
+                    </tr>
+                )
+            })}
+            
         </table>
     );
 
