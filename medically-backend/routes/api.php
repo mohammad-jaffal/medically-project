@@ -9,6 +9,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CallController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\BalanceController;
+use App\Http\Controllers\UserController;
 
 Route::group(['middleware' => 'api'], function($router) {
     Route::post('/register', [JWTController::class, 'register']);
@@ -22,6 +23,8 @@ Route::group(['prefix'=>'admin'], function(){
     Route::post('/add-doctor-details', [DoctorController::class, 'addDoctorDetails']);
     Route::post('/make-doctor', [DoctorController::class, 'makeDoctor']);
     Route::post('/add-domain', [DomainController::class, 'addDomain']);
+    Route::get('/get-users', [UserController::class, 'getAllUsers']);
+
 });
 
 
