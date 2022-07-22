@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class Doctor {
   int id;
   String name;
@@ -34,7 +32,7 @@ class Doctor {
       id: json['doctor_id'],
       name: json['name'],
       email: json['email'],
-      base64Image: json['profile_picture'].toString(),
+      base64Image: json['profile_picture'],
       balance: json['balance'],
       type: json['type'],
       rating: double.parse(json['rating']),

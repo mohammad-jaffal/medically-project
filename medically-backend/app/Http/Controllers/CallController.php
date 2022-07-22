@@ -30,6 +30,7 @@ class CallController extends Controller
         ->join('users', 'users.id', '=', 'calls.doctor_id')
         ->where('calls.user_id', $request->user_id)
         ->select('calls.*','users.name' ,'users.profile_picture')
+        ->orderBy('calls.created_at','DESC')
         ->get();
         return response()->json([
             "success" => true,
