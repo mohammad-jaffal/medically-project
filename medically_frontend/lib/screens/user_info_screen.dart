@@ -1,10 +1,10 @@
 import 'dart:convert';
-
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:medically_frontend/providers/calls_provider.dart';
 import 'package:medically_frontend/providers/reviews_provider.dart';
 import 'package:medically_frontend/providers/token_provider.dart';
@@ -25,6 +25,18 @@ class UserInfoScreen extends StatefulWidget {
 }
 
 class _UserInfoScreenState extends State<UserInfoScreen> {
+  Future pickImage(var option) async {
+    //  camera
+    if (option == 'C') {
+      print('camera');
+      await ImagePicker().pickImage(source: ImageSource.camera);
+    }
+    //  gallery
+    if (option == 'G') {}
+    //  romove the image
+    if (option == 'R') {}
+  }
+
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
@@ -113,7 +125,9 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                                     ),
                                                   ],
                                                 ),
-                                                onTap: () {},
+                                                onTap: () {
+                                                  pickImage('C');
+                                                },
                                               ),
                                               // gallery
                                               InkWell(
