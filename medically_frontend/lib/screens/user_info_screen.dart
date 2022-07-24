@@ -32,7 +32,10 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
       await ImagePicker().pickImage(source: ImageSource.camera);
     }
     //  gallery
-    if (option == 'G') {}
+    if (option == 'G') {
+      print('gallery');
+      await ImagePicker().pickImage(source: ImageSource.gallery);
+    }
     //  romove the image
     if (option == 'R') {}
   }
@@ -160,7 +163,9 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                                     ),
                                                   ],
                                                 ),
-                                                onTap: () {},
+                                                onTap: () {
+                                                  pickImage('G');
+                                                },
                                               ),
                                               // remove image
                                               InkWell(
