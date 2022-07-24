@@ -36,6 +36,32 @@ class _LoginScreenState extends State<LoginScreen> {
     return token;
   }
 
+  void createAlert(BuildContext context, var message) {
+    showDialog(
+      // show alert if not enough balance
+      context: context,
+      builder: (BuildContext ctx) {
+        return AlertDialog(
+          title: Text('$message'),
+          actions: [
+            TextButton(
+              onPressed: () async {
+                Navigator.pop(context);
+              },
+              child: const Text(
+                'OK',
+                style: TextStyle(
+                  color: Colors.lightBlue,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   void initState() {
     setState(() {
@@ -117,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
         }
       } else {
         // if user entered wrong data
-        // print('wrong data');
+        createAlert(context, 'Wrong credentials!');
       }
     }
 
@@ -129,8 +155,11 @@ class _LoginScreenState extends State<LoginScreen> {
           _signupPassword == '' ||
           _signupConfirmPassword == '') {
         // print('fill all');
+        createAlert(context, 'Fill all fields!');
       } else {
         if (_signupPassword != _signupConfirmPassword) {
+          createAlert(context, 'Passwords do not match!');
+
           // print('unmatching passwords');
         } else {
           var url = Uri.parse('http://10.0.2.2:8000/api/register');
@@ -188,6 +217,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(height: 50),
                           TextFormField(
+                            textAlign: TextAlign.center,
                             style: const TextStyle(
                               color: Color.fromARGB(255, 54, 135, 255),
                             ),
@@ -207,6 +237,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(height: 20),
                           TextFormField(
+                            textAlign: TextAlign.center,
                             style: const TextStyle(
                               color: Color.fromARGB(255, 54, 135, 255),
                             ),
@@ -273,6 +304,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(height: 50),
                           TextFormField(
+                            textAlign: TextAlign.center,
                             style: const TextStyle(
                               color: Color.fromARGB(255, 54, 135, 255),
                             ),
@@ -292,6 +324,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(height: 20),
                           TextFormField(
+                            textAlign: TextAlign.center,
                             style: const TextStyle(
                               color: Color.fromARGB(255, 54, 135, 255),
                             ),
@@ -311,6 +344,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(height: 20),
                           TextFormField(
+                            textAlign: TextAlign.center,
                             style: const TextStyle(
                               color: Color.fromARGB(255, 54, 135, 255),
                             ),
@@ -330,6 +364,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(height: 20),
                           TextFormField(
+                            textAlign: TextAlign.center,
                             style: const TextStyle(
                               color: Color.fromARGB(255, 54, 135, 255),
                             ),
@@ -365,10 +400,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                             child: const Text('Sign Up'),
                           ),
-                          const SizedBox(height: 30),
+                          const SizedBox(height: 10),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              primary: const Color.fromARGB(255, 54, 135, 255),
+                              primary: Colors.white,
                               minimumSize: const Size.fromHeight(45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
@@ -381,7 +416,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             onPressed: () {
                               _signupFunction(3);
                             },
-                            child: const Text('Doctor Sign Up'),
+                            child: const Text(
+                              'Sign Up as Doctor',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 54, 135, 255),
+                              ),
+                            ),
                           ),
                           const SizedBox(height: 20),
                           TextButton(
