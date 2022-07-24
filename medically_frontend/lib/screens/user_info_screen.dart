@@ -26,23 +26,18 @@ class UserInfoScreen extends StatefulWidget {
 }
 
 class _UserInfoScreenState extends State<UserInfoScreen> {
-  Future pickImage(var option) async {
-    //  camera
-    if (option == 'C') {
-      print('camera');
-      final image = await ImagePicker().pickImage(source: ImageSource.camera);
-      if (image == null) return;
-      List<int> imageBytes = await image.readAsBytes() as List<int>;
-      String base64Image = base64Encode(imageBytes);
-      log(base64Image);
-    }
-    //  gallery
-    if (option == 'G') {
-      print('gallery');
-      await ImagePicker().pickImage(source: ImageSource.gallery);
-    }
-    //  romove the image
-    if (option == 'R') {}
+  // handles picking and updating images
+  Future pickImage(ImageSource source) async {
+    print('camera');
+    final image = await ImagePicker().pickImage(
+      source: source,
+      maxHeight: 200,
+      maxWidth: 200,
+    );
+    if (image == null) return;
+    List<int> imageBytes = await image.readAsBytes() as List<int>;
+    String base64Image = base64Encode(imageBytes);
+    log(base64Image);
   }
 
   @override
@@ -134,7 +129,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                                   ],
                                                 ),
                                                 onTap: () {
-                                                  pickImage('C');
+                                                  pickImage(ImageSource.camera);
                                                   Navigator.pop(context);
                                                 },
                                               ),
@@ -170,7 +165,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                                   ],
                                                 ),
                                                 onTap: () {
-                                                  pickImage('G');
+                                                  pickImage(
+                                                      ImageSource.gallery);
                                                   Navigator.pop(context);
                                                 },
                                               ),
