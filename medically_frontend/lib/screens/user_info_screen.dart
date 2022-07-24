@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -29,7 +30,11 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     //  camera
     if (option == 'C') {
       print('camera');
-      await ImagePicker().pickImage(source: ImageSource.camera);
+      final image = await ImagePicker().pickImage(source: ImageSource.camera);
+      if (image == null) return;
+      List<int> imageBytes = await image.readAsBytes() as List<int>;
+      String base64Image = base64Encode(imageBytes);
+      log(base64Image);
     }
     //  gallery
     if (option == 'G') {
