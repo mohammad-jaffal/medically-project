@@ -71,13 +71,11 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                     context: context,
                                     builder: (BuildContext context) {
                                       return AlertDialog(
-                                        title: Text(
+                                        title: const Text(
                                           'Select option',
                                           style: TextStyle(
-                                            color: themeState.getDarkTheme
-                                                ? Colors.white
-                                                : const Color.fromARGB(
-                                                    255, 54, 135, 255),
+                                            color: Color.fromARGB(
+                                                255, 54, 135, 255),
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
@@ -153,32 +151,22 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                               // remove image
                                               InkWell(
                                                 child: Row(
-                                                  children: [
+                                                  children: const [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsets.all(
-                                                              8.0),
+                                                          EdgeInsets.all(8.0),
                                                       child: Icon(
-                                                        Icons
-                                                            .remove_circle_outline,
-                                                        color: themeState
-                                                                .getDarkTheme
-                                                            ? Colors.white
-                                                            : const Color
-                                                                    .fromARGB(
-                                                                255,
-                                                                54,
-                                                                135,
-                                                                255),
+                                                        Icons.remove_circle,
+                                                        color: Colors.red,
                                                       ),
                                                     ),
-                                                    const Text(
+                                                    Text(
                                                       'Remove',
                                                       style: TextStyle(
-                                                        fontSize: 18,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                      ),
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color: Colors.red),
                                                     ),
                                                   ],
                                                 ),
