@@ -196,6 +196,10 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                                                   ],
                                                 ),
                                                 onTap: () {
+                                                  Provider.of<DoctorProvider>(
+                                                          context,
+                                                          listen: false)
+                                                      .deleteImage();
                                                   Navigator.pop(context);
                                                 },
                                               ),
