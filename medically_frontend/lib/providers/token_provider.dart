@@ -43,7 +43,7 @@ class TokenProvider with ChangeNotifier {
       tokenProvider.setToken('none');
       return 'none';
     } else {
-      print('registering id');
+      // print('registering id');
       NativeNotify.registerIndieID('${savedBody['id']}');
       // fill the related provider with user depending on user type
       // and send the type to login in screen to navigate to the correct screen

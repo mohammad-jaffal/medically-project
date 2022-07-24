@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
         }
       } else {
         // if user entered wrong data
-        print('wrong data');
+        // print('wrong data');
       }
     }
 
@@ -128,10 +128,10 @@ class _LoginScreenState extends State<LoginScreen> {
           _signupEmail == '' ||
           _signupPassword == '' ||
           _signupConfirmPassword == '') {
-        print('fill all');
+        // print('fill all');
       } else {
         if (_signupPassword != _signupConfirmPassword) {
-          print('unmatching passwords');
+          // print('unmatching passwords');
         } else {
           var url = Uri.parse('http://10.0.2.2:8000/api/register');
           var response = await http.post(url, body: {

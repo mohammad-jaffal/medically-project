@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -19,7 +21,7 @@ class DoctorCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _bytesImage = Base64Decoder().convert(doctor.base64Image);
+    Uint8List _bytesImage = Base64Decoder().convert(doctor.base64Image);
 
     return Card(
       child: InkWell(
