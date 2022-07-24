@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:medically_frontend/providers/token_provider.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
 import 'package:native_notify/native_notify.dart';
@@ -25,6 +26,21 @@ class DoctorInfoScreen extends StatefulWidget {
 }
 
 class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
+  Future pickImage(ImageSource source) async {
+    print('camera');
+    final image = await ImagePicker().pickImage(
+      source: source,
+      maxHeight: 200,
+      maxWidth: 200,
+    );
+    if (image == null) return;
+    List<int> imageBytes = await image.readAsBytes() as List<int>;
+    String base64Image = base64Encode(imageBytes);
+    // log(base64Image);
+    Provider.of<DoctorProvider>(context, listen: false)
+        .updateImage(base64Image);
+  }
+
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
@@ -116,7 +132,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                                                   ],
                                                 ),
                                                 onTap: () {
-                                                  // pickImage(ImageSource.camera);
+                                                  pickImage(ImageSource.camera);
                                                   Navigator.pop(context);
                                                 },
                                               ),
@@ -152,8 +168,8 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                                                   ],
                                                 ),
                                                 onTap: () {
-                                                  // pickImage(
-                                                  //     ImageSource.gallery);
+                                                  pickImage(
+                                                      ImageSource.gallery);
                                                   Navigator.pop(context);
                                                 },
                                               ),
