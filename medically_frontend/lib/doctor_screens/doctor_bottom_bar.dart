@@ -49,7 +49,7 @@ class _DoctorBottomBarScreenState extends State<DoctorBottomBarScreen> {
             'Call action',
             'already in call',
             null,
-            '{"accepted":false, "message":"already in call"}');
+            '{"accepted":false, "message":"Already in call"}');
         AwesomeNotifications().cancelAll();
       } else {
         // redirect doctor to ringing screen

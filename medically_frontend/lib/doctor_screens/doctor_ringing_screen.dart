@@ -40,7 +40,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
             'Call action',
             'missed',
             null,
-            '{"accepted":false, "message":"call missed"}');
+            '{"accepted":false, "message":"Call missed"}');
         Navigator.pop(context);
       }
     });
@@ -116,7 +116,7 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
                         'Call action',
                         'rejected',
                         null,
-                        '{"accepted":false, "message":"call declined"}');
+                        '{"accepted":false, "message":"Call declined"}');
                     Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(

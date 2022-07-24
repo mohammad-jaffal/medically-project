@@ -39,8 +39,30 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
         Navigator.pushNamed(context, UserCallScreen.routeName);
       } else {
         // call declined
-        // print(pushDataObject['message']);
+        print(pushDataObject['message']);
         Navigator.pop(context);
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('${pushDataObject['message']}'),
+              actions: [
+                TextButton(
+                  onPressed: () async {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    'OK',
+                    style: TextStyle(
+                      color: Colors.lightBlue,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ],
+            );
+          },
+        );
       }
       AwesomeNotifications().cancelAll();
     });

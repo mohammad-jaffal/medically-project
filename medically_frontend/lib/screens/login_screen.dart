@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
     showDialog(
       // show alert if not enough balance
       context: context,
-      builder: (BuildContext ctx) {
+      builder: (BuildContext context) {
         return AlertDialog(
           title: Text('$message'),
           actions: [
