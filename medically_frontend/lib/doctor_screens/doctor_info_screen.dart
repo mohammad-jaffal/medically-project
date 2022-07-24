@@ -53,14 +53,153 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(100),
-                          child: Image.memory(
-                            bytesImage,
-                            width: MediaQuery.of(context).size.width / 2,
-                            height: MediaQuery.of(context).size.width / 2,
-                            fit: BoxFit.cover,
-                          ),
+                        child: Stack(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Image.memory(
+                                bytesImage,
+                                width: MediaQuery.of(context).size.width / 2,
+                                height: MediaQuery.of(context).size.width / 2,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Positioned(
+                              right: 0,
+                              bottom: 0,
+                              child: FloatingActionButton(
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        title: const Text(
+                                          'Select option',
+                                          style: TextStyle(
+                                            color: Color.fromARGB(
+                                                255, 54, 135, 255),
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        content: SingleChildScrollView(
+                                          child: ListBody(
+                                            children: [
+                                              // camera
+                                              InkWell(
+                                                child: Row(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Icon(
+                                                        Icons.camera,
+                                                        color: themeState
+                                                                .getDarkTheme
+                                                            ? Colors.white
+                                                            : const Color
+                                                                    .fromARGB(
+                                                                255,
+                                                                54,
+                                                                135,
+                                                                255),
+                                                      ),
+                                                    ),
+                                                    const Text(
+                                                      'Camera',
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                onTap: () {
+                                                  // pickImage(ImageSource.camera);
+                                                  Navigator.pop(context);
+                                                },
+                                              ),
+                                              // gallery
+                                              InkWell(
+                                                child: Row(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Icon(
+                                                        Icons.image,
+                                                        color: themeState
+                                                                .getDarkTheme
+                                                            ? Colors.white
+                                                            : const Color
+                                                                    .fromARGB(
+                                                                255,
+                                                                54,
+                                                                135,
+                                                                255),
+                                                      ),
+                                                    ),
+                                                    const Text(
+                                                      'Gallery',
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                onTap: () {
+                                                  // pickImage(
+                                                  //     ImageSource.gallery);
+                                                  Navigator.pop(context);
+                                                },
+                                              ),
+                                              // remove image
+                                              InkWell(
+                                                child: Row(
+                                                  children: const [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child: Icon(
+                                                        Icons.remove_circle,
+                                                        color: Colors.red,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'Remove',
+                                                      style: TextStyle(
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color: Colors.red),
+                                                    ),
+                                                  ],
+                                                ),
+                                                onTap: () {
+                                                  Navigator.pop(context);
+                                                },
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Icon(
+                                  Icons.add_a_photo_rounded,
+                                  color: themeState.getDarkTheme
+                                      ? Colors.white
+                                      : Colors.grey[600],
+                                  size: 30,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
