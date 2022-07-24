@@ -67,6 +67,12 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                               bottom: 0,
                               child: FloatingActionButton(
                                 onPressed: () {},
+                                child: Icon(
+                                  Icons.camera_alt_outlined,
+                                  color: themeState.getDarkTheme
+                                      ? Colors.white
+                                      : Colors.grey[600],
+                                ),
                               ),
                             ),
                           ],
