@@ -41,6 +41,7 @@ dependencies:
   agora_uikit: ^1.0.2
   native_notify: ^0.0.15
   awesome_notifications: ^0.6.21
+  image_picker: ^0.8.5+3
   
   
   
