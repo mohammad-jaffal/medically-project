@@ -26,7 +26,7 @@ class CallCard extends StatelessWidget {
     String twoDigits(int n) => n.toString().padLeft(2, "0");
     String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
     String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
-    return "${twoDigits(duration.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
+    return "$twoDigitMinutes:$twoDigitSeconds";
   }
 
   @override
@@ -34,9 +34,9 @@ class CallCard extends StatelessWidget {
     var _bytesImage = Base64Decoder().convert(call.call_image);
     print(call.date);
     // final DateTime now = DateTime(call.date);
-    final dbdate = DateFormat('yyyy-MM-dd HH:mm:ss').parse(call.date);
-    final DateFormat formatter = DateFormat("MMMM d, kk:mm a");
-    final String formatted = formatter.format(dbdate);
+    final call_date = DateFormat('yyyy-MM-dd HH:mm:ss').parse(call.date);
+    final DateFormat formatter = DateFormat("MMMM d, HH:mm");
+    final String formatted = formatter.format(call_date);
     print(formatted);
 
     return Card(
@@ -70,7 +70,13 @@ class CallCard extends StatelessWidget {
                       call.name,
                       style: const TextStyle(fontSize: 18),
                     ),
-                    Text(_printDuration(Duration(seconds: call.duration))),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(formatted + "  -  "),
+                        Text(_printDuration(Duration(seconds: call.duration))),
+                      ],
+                    ),
                   ],
                 ),
               ),
