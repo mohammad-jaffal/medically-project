@@ -194,6 +194,10 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                                   ],
                                                 ),
                                                 onTap: () {
+                                                  Provider.of<UserProvider>(
+                                                          context,
+                                                          listen: false)
+                                                      .deleteImage();
                                                   Navigator.pop(context);
                                                 },
                                               ),
