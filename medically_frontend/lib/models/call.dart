@@ -1,12 +1,13 @@
 import 'dart:ffi';
 
 class Call {
-  final int id;
-  final int user_id;
-  final int doctor_id;
-  final String name;
-  final String call_image;
-  final int duration;
+  int id;
+  int user_id;
+  int doctor_id;
+  String name;
+  String call_image;
+  int duration;
+  var date;
 
   Call({
     required this.id,
@@ -15,6 +16,7 @@ class Call {
     required this.name,
     required this.call_image,
     required this.duration,
+    required this.date,
   });
 
   factory Call.fromJson(Map<String, dynamic> json) {
@@ -25,6 +27,7 @@ class Call {
       name: json['name'],
       call_image: json['profile_picture'],
       duration: json['duration'],
+      date: json['created_at'],
     );
   }
 }

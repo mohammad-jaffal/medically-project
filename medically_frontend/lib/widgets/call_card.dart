@@ -13,6 +13,8 @@ import 'package:provider/provider.dart';
 import '../providers/agora_provider.dart';
 import '../providers/dark_theme_provider.dart';
 
+import 'package:intl/intl.dart';
+
 class CallCard extends StatelessWidget {
   final Call call;
 
@@ -30,6 +32,13 @@ class CallCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _bytesImage = Base64Decoder().convert(call.call_image);
+    print(call.date);
+    // final DateTime now = DateTime(call.date);
+    final dbdate = DateFormat('yyyy-MM-dd HH:mm:ss').parse(call.date);
+    final DateFormat formatter = DateFormat("MMMM d, kk:mm a");
+    final String formatted = formatter.format(dbdate);
+    print(formatted);
+
     return Card(
       child: InkWell(
         child: Container(
