@@ -26,4 +26,13 @@ class UserController extends Controller
             "users" => $users
         ], 200);
     }
+
+    public function changeImage(Request $request){
+
+        $users = User::find($request->id)->update(array('profile_picture' => $request->image));
+
+        return response()->json([
+            "success" => true,
+        ], 200);
+    }
 }

@@ -51,6 +51,9 @@ Route::group(['prefix'=>'user'], function(){
 
 });
 
+Route::post('/change-image', [UserController::class, 'changeImage']);
+
+
 
 Route::get('/get-doctors', [DoctorController::class, 'getAllDoctors']);
 Route::post('/get-doctor', [DoctorController::class, 'getDoctor']);
