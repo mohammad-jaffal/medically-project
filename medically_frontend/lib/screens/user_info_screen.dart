@@ -130,6 +130,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                                 ),
                                                 onTap: () {
                                                   pickImage('C');
+                                                  Navigator.pop(context);
                                                 },
                                               ),
                                               // gallery
@@ -165,6 +166,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                                 ),
                                                 onTap: () {
                                                   pickImage('G');
+                                                  Navigator.pop(context);
                                                 },
                                               ),
                                               // remove image
@@ -189,7 +191,9 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                                     ),
                                                   ],
                                                 ),
-                                                onTap: () {},
+                                                onTap: () {
+                                                  Navigator.pop(context);
+                                                },
                                               ),
                                             ],
                                           ),
