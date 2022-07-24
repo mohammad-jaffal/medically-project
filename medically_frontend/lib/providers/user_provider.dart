@@ -38,4 +38,15 @@ class UserProvider with ChangeNotifier {
     _user.balance = json.decode(response.body)['balance'];
     notifyListeners();
   }
+
+  Future<void> updateImage(var base64String) async {
+    var url = Uri.parse('http://10.0.2.2:8000/api/change-image');
+    var response = await http.post(url, body: {
+      'id': '${_user.id}',
+      'image': '$base64String',
+    });
+    _user.base64Image = base64String;
+
+    notifyListeners();
+  }
 }

@@ -37,7 +37,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     if (image == null) return;
     List<int> imageBytes = await image.readAsBytes() as List<int>;
     String base64Image = base64Encode(imageBytes);
-    log(base64Image);
+    // log(base64Image);
+    Provider.of<UserProvider>(context, listen: false).updateImage(base64Image);
   }
 
   @override
