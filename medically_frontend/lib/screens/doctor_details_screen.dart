@@ -208,8 +208,8 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                               borderRadius: BorderRadius.circular(100),
                               child: Image.memory(
                                 bytesImage,
-                                width: 150,
-                                height: 150,
+                                width: MediaQuery.of(context).size.width / 2,
+                                height: MediaQuery.of(context).size.width / 2,
                                 fit: BoxFit.cover,
                               ),
                             ),

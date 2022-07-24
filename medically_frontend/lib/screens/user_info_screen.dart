@@ -51,14 +51,25 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(100),
-                          child: Image.memory(
-                            bytesImage,
-                            width: 150,
-                            height: 150,
-                            fit: BoxFit.cover,
-                          ),
+                        child: Stack(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Image.memory(
+                                bytesImage,
+                                width: MediaQuery.of(context).size.width / 2,
+                                height: MediaQuery.of(context).size.width / 2,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Positioned(
+                              right: 0,
+                              bottom: 0,
+                              child: FloatingActionButton(
+                                onPressed: () {},
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
