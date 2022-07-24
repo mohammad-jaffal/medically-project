@@ -32,12 +32,10 @@ class CallCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _bytesImage = Base64Decoder().convert(call.call_image);
-    print(call.date);
-    // final DateTime now = DateTime(call.date);
-    final call_date = DateFormat('yyyy-MM-dd HH:mm:ss').parse(call.date);
+
+    final db_date = DateFormat('yyyy-MM-dd HH:mm:ss').parse(call.date);
     final DateFormat formatter = DateFormat("MMMM d, HH:mm");
-    final String formatted = formatter.format(call_date);
-    print(formatted);
+    final String call_date = formatter.format(db_date);
 
     return Card(
       child: InkWell(
@@ -71,9 +69,8 @@ class CallCard extends StatelessWidget {
                       style: const TextStyle(fontSize: 18),
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(formatted + "  -  "),
+                        Text(call_date + "  -  "),
                         Text(_printDuration(Duration(seconds: call.duration))),
                       ],
                     ),

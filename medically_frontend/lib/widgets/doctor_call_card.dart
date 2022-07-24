@@ -10,6 +10,7 @@ import 'package:medically_frontend/screens/doctor_details_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/dark_theme_provider.dart';
+import 'package:intl/intl.dart';
 
 class DoctorCallCard extends StatelessWidget {
   final Call call;
@@ -22,12 +23,15 @@ class DoctorCallCard extends StatelessWidget {
     String twoDigits(int n) => n.toString().padLeft(2, "0");
     String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
     String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
-    return "${twoDigits(duration.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
+    return "$twoDigitMinutes:$twoDigitSeconds";
   }
 
   @override
   Widget build(BuildContext context) {
     var _bytesImage = Base64Decoder().convert(call.call_image);
+    final db_date = DateFormat('yyyy-MM-dd HH:mm:ss').parse(call.date);
+    final DateFormat formatter = DateFormat("MMMM d, HH:mm");
+    final String call_date = formatter.format(db_date);
     return Card(
       child: Container(
         decoration: BoxDecoration(
@@ -57,7 +61,12 @@ class DoctorCallCard extends StatelessWidget {
                     call.name,
                     style: const TextStyle(fontSize: 18),
                   ),
-                  Text(_printDuration(Duration(seconds: call.duration))),
+                  Row(
+                    children: [
+                      Text(call_date + "  -  "),
+                      Text(_printDuration(Duration(seconds: call.duration))),
+                    ],
+                  ),
                 ],
               ),
             ),
