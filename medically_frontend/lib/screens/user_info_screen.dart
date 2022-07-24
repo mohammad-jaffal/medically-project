@@ -66,12 +66,137 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                               right: 0,
                               bottom: 0,
                               child: FloatingActionButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        title: Text(
+                                          'Select option',
+                                          style: TextStyle(
+                                            color: themeState.getDarkTheme
+                                                ? Colors.white
+                                                : const Color.fromARGB(
+                                                    255, 54, 135, 255),
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        content: SingleChildScrollView(
+                                          child: ListBody(
+                                            children: [
+                                              // camera
+                                              InkWell(
+                                                child: Row(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Icon(
+                                                        Icons.camera,
+                                                        color: themeState
+                                                                .getDarkTheme
+                                                            ? Colors.white
+                                                            : const Color
+                                                                    .fromARGB(
+                                                                255,
+                                                                54,
+                                                                135,
+                                                                255),
+                                                      ),
+                                                    ),
+                                                    const Text(
+                                                      'Camera',
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                onTap: () {},
+                                              ),
+                                              // gallery
+                                              InkWell(
+                                                child: Row(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Icon(
+                                                        Icons.image,
+                                                        color: themeState
+                                                                .getDarkTheme
+                                                            ? Colors.white
+                                                            : const Color
+                                                                    .fromARGB(
+                                                                255,
+                                                                54,
+                                                                135,
+                                                                255),
+                                                      ),
+                                                    ),
+                                                    const Text(
+                                                      'Gallery',
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                onTap: () {},
+                                              ),
+                                              // remove image
+                                              InkWell(
+                                                child: Row(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Icon(
+                                                        Icons
+                                                            .remove_circle_outline,
+                                                        color: themeState
+                                                                .getDarkTheme
+                                                            ? Colors.white
+                                                            : const Color
+                                                                    .fromARGB(
+                                                                255,
+                                                                54,
+                                                                135,
+                                                                255),
+                                                      ),
+                                                    ),
+                                                    const Text(
+                                                      'Remove',
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                onTap: () {},
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
                                 child: Icon(
-                                  Icons.camera_alt_outlined,
+                                  Icons.add_a_photo_rounded,
                                   color: themeState.getDarkTheme
                                       ? Colors.white
                                       : Colors.grey[600],
+                                  size: 30,
                                 ),
                               ),
                             ),
