@@ -170,15 +170,15 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
               favIds.contains(docId)
                   ? const PopupMenuItem(
                       value: 1,
-                      child: Text('Remove'),
+                      child: Text('Remove Favorite'),
                     )
                   : const PopupMenuItem(
                       value: 2,
-                      child: Text('Add'),
+                      child: Text('Add Favorite'),
                     ),
               const PopupMenuItem(
                 value: 3,
-                child: Text('Review'),
+                child: Text('Write Review'),
               ),
             ],
           ),
