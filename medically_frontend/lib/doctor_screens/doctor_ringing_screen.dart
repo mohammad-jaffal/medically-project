@@ -69,30 +69,32 @@ class _DoctorRingingScreenState extends State<DoctorRingingScreen> {
     return Scaffold(
       body: Column(
         children: [
-          const SizedBox(
-            height: 50,
-          ),
           SizedBox(
             width: double.infinity,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 0, 20),
-              child: Text(
-                callerName,
-                style: const TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                ),
+              padding: const EdgeInsets.fromLTRB(0, 50, 0, 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    callerName,
+                    style: const TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(100),
+              borderRadius: BorderRadius.circular(200),
               child: Image.memory(
                 bytesImage,
-                width: MediaQuery.of(context).size.width / 2,
-                height: MediaQuery.of(context).size.width / 2,
+                width: MediaQuery.of(context).size.width / 1.5,
+                height: MediaQuery.of(context).size.width / 1.5,
                 fit: BoxFit.cover,
               ),
             ),

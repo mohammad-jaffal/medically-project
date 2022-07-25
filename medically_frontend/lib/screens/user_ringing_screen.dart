@@ -23,13 +23,13 @@ class _UserRingingScreenState extends State<UserRingingScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(100),
+                borderRadius: BorderRadius.circular(200),
                 child: Image.memory(
                   bytesImage,
-                  width: MediaQuery.of(context).size.width / 2,
-                  height: MediaQuery.of(context).size.width / 2,
+                  width: MediaQuery.of(context).size.width / 1.5,
+                  height: MediaQuery.of(context).size.width / 1.5,
                   fit: BoxFit.cover,
                 ),
               ),
