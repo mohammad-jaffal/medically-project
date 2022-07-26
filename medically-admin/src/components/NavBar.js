@@ -15,7 +15,16 @@ const Navbar = () => {
         <div className="navbar">
             {/* <div className="navbar-title">Admin Panel</div> */}
             <img src={mainLogo} className="navbar-logo" />
-            <img src={hamIcon} className="ham-icon" />
+            <div className="hamburgur-menu">
+                <img src={hamIcon} className="ham-icon" />
+                <ul className="ham-list">
+                    <li><p>Home</p></li>
+                    <li><p>Requests</p></li>
+                    <li><p>Add Domain</p></li>
+                    <li><p>Logout</p></li>
+                </ul>
+            </div>
+
             <ul className="navbar-menu">
                 <li className="navbar-li" onClick={() => { navigate("/home", { replace: true }) }}><div>Home</div></li>
                 <li className="navbar-li" onClick={() => { navigate("/requests", { replace: true }) }}><div>Requests</div></li>

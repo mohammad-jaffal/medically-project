@@ -120,13 +120,39 @@
   flex-direction: column;
   justify-content: center;
 }
-
-.ham-icon {
-  /* height: 50px; */
-  width: 40px;
+.hamburgur-menu {
   align-self: center;
+  display: flex;
+  flex-direction: column;
+}
+.ham-icon {
+  width: 40px;
   display: none;
   cursor: pointer;
+}
+.ham-list{
+  /* display: none; */
+  position: absolute;
+  top: 75px;
+  right: 0;
+  width: 200px;
+
+}
+
+.ham-list>li{
+  background-color: rgb(54, 135, 255);
+  font-size: 18px;
+  user-select: none;
+  list-style-type: none;
+  font-weight: bold;
+  padding: 10px;
+}
+.ham-list>li>p{
+  width: fit-content;
+  cursor: pointer;
+}
+.ham-list>li>p:hover{
+  color: rgba(255, 255, 255, 0.7);;
 }
 
 .navbar-menu {
