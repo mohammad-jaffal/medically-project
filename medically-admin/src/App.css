@@ -11,6 +11,7 @@
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
+  min-width: fit-content;
   /* overflow: hidden; */
 }
 
@@ -91,7 +92,7 @@
 /*  */
 
 .navbar {
-  width: 100vmax;
+  width: 100%;
   background-color: rgb(54, 135, 255);
   display: flex;
   justify-content: space-between;
@@ -99,10 +100,13 @@
   padding-right: 10%;
   color: white;
   height: 75px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  right: 0;
 }
 
 .navbar-logo {
-  padding-left: 20px;
   height: 90%;
   align-self: center;
 }
@@ -278,7 +282,7 @@
 
 
 .home-data-container {
-  width: fit-content;
+  /* width: fit-content; */
 }
 
 
