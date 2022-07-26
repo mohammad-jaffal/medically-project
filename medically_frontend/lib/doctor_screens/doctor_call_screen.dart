@@ -78,7 +78,7 @@ class _DoctorCallScreenState extends State<DoctorCallScreen> {
               AgoraVideoViewer(
                 client: _client,
                 layoutType: Layout.floating,
-                showNumberOfUsers: true,
+                showNumberOfUsers: false,
                 // showAVState: true,
                 disabledVideoWidget: Container(
                   color: Colors.lightBlue,

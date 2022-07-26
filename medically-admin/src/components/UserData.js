@@ -7,6 +7,7 @@ const UserData = ({ users, searchKey }) => {
         <table className="data-table">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Balance</th>
@@ -17,6 +18,7 @@ const UserData = ({ users, searchKey }) => {
                     return (
                         <tbody key={index}>
                             <tr >
+                                <td>{user.id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.balance}</td>

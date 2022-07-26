@@ -7,6 +7,7 @@ const DoctorData = ({ doctors, selectedDomain, domains, searchKey }) => {
         <table className="data-table">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Balance</th>
@@ -20,6 +21,7 @@ const DoctorData = ({ doctors, selectedDomain, domains, searchKey }) => {
                         return (
                             <tbody key={index}>
                                 <tr>
+                                    <td>{doctor.id}</td>
                                     <td>{doctor.name}</td>
                                     <td>{doctor.email}</td>
                                     <td>{doctor.balance}</td>
