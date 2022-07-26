@@ -11,7 +11,7 @@
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 
@@ -91,6 +91,7 @@
 /*  */
 
 .navbar {
+  width: 100vmax;
   background-color: rgb(54, 135, 255);
   display: flex;
   justify-content: space-between;
@@ -99,6 +100,13 @@
   color: white;
   height: 75px;
 }
+
+.navbar-logo {
+  padding-left: 20px;
+  height: 90%;
+  align-self: center;
+}
+
 
 .navbar-title {
   font-size: 35px;
@@ -148,7 +156,7 @@
   /* align-self: center; */
   margin-left: 10%;
   margin-top: 100px;
-  min-width: 400px;
+  /* min-width: 400px; */
 }
 
 .block-title {
@@ -238,7 +246,7 @@
 
 .type-select {
   width: 80%;
-  min-width: 100px;
+  /* min-width: 100px; */
   height: 40px;
   border: 1px solid rgb(54, 135, 255);
   border-radius: 10px;
