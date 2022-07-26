@@ -2,6 +2,8 @@ import DoctorData from "../components/DoctorData";
 import Navbar from "../components/NavBar";
 import UserData from "../components/UserData";
 import { React, useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 
 const Home = () => {
@@ -16,6 +18,33 @@ const Home = () => {
     var [domains, setDomains] = useState([]);
     var [selectedDomain, setSelectedDomain] = useState(null);
     var [filteredDoctors, setFilteredDoctors] = useState([]);
+
+
+    let navigate = useNavigate();
+
+    // validate token
+    const validateToken = () =>{
+        var token = localStorage.getItem('admin_token');
+        fetch("http://localhost:8000/api/profile", {
+                        method: "POST",
+                        headers: {
+                            "Authorization": 'Bearer ' + token,
+                            "Accept": 'application/json',
+                        },
+
+                    }).then(async res => {
+                        if (res.ok) {
+                            const data = await res.json();
+                            if (data['type'] != 0) {
+                                localStorage.setItem('admin_token', "none");
+                                navigate("/", { replace: true });
+                            }
+                        }else{
+                            localStorage.setItem('admin_token', "none");
+                                navigate("/", { replace: true });
+                        }
+                    });
+    }
 
     // fetch all users
     const fetchUsers = async () => {
@@ -56,6 +85,7 @@ const Home = () => {
 
     // use effect :)
     useEffect(() => {
+        validateToken();
         fetchUsers();
         fetchDoctors();
         fetchDomains();

@@ -37,6 +37,8 @@ const Login = () => {
                         if (res.ok) {
                             const data2 = await res.json();
                             if (data2['type'] == 0) {
+                                localStorage.setItem('admin_token', token);
+                                console.log(token);
                                 navigate("/home", { replace: true });
                             }else{
                                 alert('You can\'t login here!');
