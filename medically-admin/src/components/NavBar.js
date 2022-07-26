@@ -19,10 +19,10 @@ const Navbar = () => {
             <div className="hamburgur-menu">
                 <img src={hamIcon} className="ham-icon" onClick={()=> setMenuOpen(!menuOpen)} />
                 {menuOpen && <ul className="ham-list">
-                    <li><p>Home</p></li>
-                    <li><p>Requests</p></li>
-                    <li><p>Add Domain</p></li>
-                    <li><p>Logout</p></li>
+                    <li><p onClick={() => { navigate("/home", { replace: true }); setMenuOpen(false); }}>Home</p></li>
+                    <li><p onClick={() => { navigate("/requests", { replace: true }); setMenuOpen(false); }}>Requests</p></li>
+                    <li><p onClick={() => { navigate("/add-domain", { replace: true }); setMenuOpen(false); }}>Add Domain</p></li>
+                    <li><p onClick={() => { logoutFunction() }}>Logout</p></li>
                 </ul>}
             </div>
 
