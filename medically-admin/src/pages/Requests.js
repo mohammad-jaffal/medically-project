@@ -1,6 +1,8 @@
 import { React, useState, useEffect, useRef } from "react";
 import DoctorInfoDialog from "../components/DoctorInfoDialog";
 import Navbar from "../components/NavBar";
+import { useNavigate } from "react-router-dom";
+
 
 const Requests = () => {
 
@@ -10,6 +12,31 @@ const Requests = () => {
     var [domains, setDomains] = useState([]);
     var [userId, setUserId] = useState('');
     const domainRef = useRef('');
+
+    let navigate = useNavigate();
+    // validate token
+    const validateToken = () =>{
+        var token = localStorage.getItem('admin_token');
+        fetch("http://localhost:8000/api/profile", {
+                        method: "POST",
+                        headers: {
+                            "Authorization": 'Bearer ' + token,
+                            "Accept": 'application/json',
+                        },
+
+                    }).then(async res => {
+                        if (res.ok) {
+                            const data = await res.json();
+                            if (data['type'] != 0) {
+                                localStorage.setItem('admin_token', "none");
+                                navigate("/", { replace: true });
+                            }
+                        }else{
+                            localStorage.setItem('admin_token', "none");
+                                navigate("/", { replace: true });
+                        }
+                    });
+    }
 
     // fetch all domains
     const fetchPending = async () => {
@@ -55,6 +82,7 @@ const Requests = () => {
     }
 
     useEffect(() => {
+        validateToken();
         fetchPending();
         fetchDomains()
     }, [])
