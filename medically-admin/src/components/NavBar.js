@@ -7,6 +7,7 @@ const Navbar = () => {
 
 
     function logoutFunction() {
+        localStorage.setItem('admin_token', "none");
         navigate("/", { replace: true });
     }
     return (
