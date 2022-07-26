@@ -131,12 +131,11 @@
   cursor: pointer;
 }
 .ham-list{
-  /* display: none; */
+  display: none;
   position: absolute;
   top: 75px;
   right: 0;
   width: 200px;
-
 }
 
 .ham-list>li{
@@ -440,6 +439,9 @@ tbody>tr>td {
   }
   .navbar-menu{
     display: none;
+  }
+  .ham-list{
+    display: block;
   }
 }
 

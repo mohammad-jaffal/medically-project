@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import mainLogo from '../assets/adminlogo.png';
 import hamIcon from '../assets/hamicon.png';
+import { React, useState, useEffect, useRef } from "react";
+
 
 const Navbar = () => {
     let navigate = useNavigate();
-
-
+    var [menuOpen, setMenuOpen] = useState(false);
 
     function logoutFunction() {
         localStorage.setItem('admin_token', "none");
@@ -16,13 +17,13 @@ const Navbar = () => {
             {/* <div className="navbar-title">Admin Panel</div> */}
             <img src={mainLogo} className="navbar-logo" />
             <div className="hamburgur-menu">
-                <img src={hamIcon} className="ham-icon" />
-                <ul className="ham-list">
+                <img src={hamIcon} className="ham-icon" onClick={()=> setMenuOpen(!menuOpen)} />
+                {menuOpen && <ul className="ham-list">
                     <li><p>Home</p></li>
                     <li><p>Requests</p></li>
                     <li><p>Add Domain</p></li>
                     <li><p>Logout</p></li>
-                </ul>
+                </ul>}
             </div>
 
             <ul className="navbar-menu">
