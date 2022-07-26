@@ -121,13 +121,20 @@
   justify-content: center;
 }
 
+.ham-icon {
+  /* height: 50px; */
+  width: 40px;
+  align-self: center;
+  display: none;
+  cursor: pointer;
+}
+
 .navbar-menu {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
-
 }
 
 .navbar-li {
@@ -398,6 +405,15 @@ tbody>tr>td {
 @media (max-width: 600px) {
   .domain-input-container {
     width: 83vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .ham-icon{
+    display: flex;
+  }
+  .navbar-menu{
+    display: none;
   }
 }
 
