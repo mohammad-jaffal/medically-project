@@ -284,6 +284,7 @@
   font-size: 20px;
   color: rgb(54, 135, 255);
   margin-bottom: 40px;
+  margin-left: 20px;
 }
 
 .search-input:focus {
@@ -362,17 +363,17 @@
 /*  */
 
 .data-table {
+  margin-left: 20px;
   border-collapse: collapse;
 }
 
 .data-table>tr {
-  /* border: 1px solid; */
   height: 40px;
 }
 
 
-.data-table>tr>td,
-th {
+.data-table>thead>tr>th,
+tbody>tr>td {
   border: 1px solid;
   height: 40px;
   padding-left: 20px;
@@ -389,29 +390,12 @@ th {
 }
 
 
-/* @media (max-width: 1000px) {
-  .email-title{
-    display: none;
-  }
-  .balance-title{
-    display: none;
-  }
-  .domain-title{
-    display: none;
-  }
-  .email-item{
-    display: none;
-  }
-  .balance-item{
-    display: none;
-  }
-  .domain-item{
-    display: none;
-  }
-} */
-
 
 @media (max-width: 1300px) {
+  .search-input {
+    margin-top: 40px;
+  }
+
   .home-body {
     flex-direction: column;
   }

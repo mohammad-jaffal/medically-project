@@ -8,34 +8,34 @@ const Requests = () => {
 
     var [isDialogOpen, setIsDialogOpen] = useState(false);
     var [pendingUsers, setPendingUsers] = useState([]);
-    
+
     var [domains, setDomains] = useState([]);
     var [userId, setUserId] = useState('');
     const domainRef = useRef('');
 
     let navigate = useNavigate();
     // validate token
-    const validateToken = () =>{
+    const validateToken = () => {
         var token = localStorage.getItem('admin_token');
         fetch("http://localhost:8000/api/profile", {
-                        method: "POST",
-                        headers: {
-                            "Authorization": 'Bearer ' + token,
-                            "Accept": 'application/json',
-                        },
+            method: "POST",
+            headers: {
+                "Authorization": 'Bearer ' + token,
+                "Accept": 'application/json',
+            },
 
-                    }).then(async res => {
-                        if (res.ok) {
-                            const data = await res.json();
-                            if (data['type'] != 0) {
-                                localStorage.setItem('admin_token', "none");
-                                navigate("/", { replace: true });
-                            }
-                        }else{
-                            localStorage.setItem('admin_token', "none");
-                                navigate("/", { replace: true });
-                        }
-                    });
+        }).then(async res => {
+            if (res.ok) {
+                const data = await res.json();
+                if (data['type'] != 0) {
+                    localStorage.setItem('admin_token', "none");
+                    navigate("/", { replace: true });
+                }
+            } else {
+                localStorage.setItem('admin_token', "none");
+                navigate("/", { replace: true });
+            }
+        });
     }
 
     // fetch all domains
@@ -52,15 +52,15 @@ const Requests = () => {
     async function acceptFuntion(id) {
         setUserId(id);
         setIsDialogOpen(true);
-        
+
     }
-    async function rejectFuntion(id)  {
+    async function rejectFuntion(id) {
         const params = new FormData();
         params.append('user_id', id);
         await fetch("http://localhost:8000/api/admin/decline-doctor", {
-                method: "POST",
-                body: params,
-            }).then(async res => {
+            method: "POST",
+            body: params,
+        }).then(async res => {
             if (res.ok) {
                 fetchPending();
             }
@@ -96,24 +96,28 @@ const Requests = () => {
 
                 <DoctorInfoDialog isOpen={isDialogOpen} closeDialog={closeFunction} userId={userId} domains={domains} fetchPen={fetchPending} />
                 <table className="data-table">
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Action</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
                     {pendingUsers.map((user, index) => {
                         return (
-                            <tr key={index}>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
-                                <td>
-                                    <button className="request-action-btn" onClick={() => {rejectFuntion(user.id) }}>decline</button>
-                                    <button className="request-action-btn" onClick={()=>{acceptFuntion(user.id)}}>accept</button>
-                                </td>
-                            </tr>
+                            <tbody>
+                                <tr key={index}>
+                                    <td>{user.name}</td>
+                                    <td>{user.email}</td>
+                                    <td>
+                                        <button className="request-action-btn" onClick={() => { rejectFuntion(user.id) }}>decline</button>
+                                        <button className="request-action-btn" onClick={() => { acceptFuntion(user.id) }}>accept</button>
+                                    </td>
+                                </tr>
+                            </tbody>
                         )
                     })}
-                    </table>
+                </table>
             </div>
         </div>
     );
