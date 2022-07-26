@@ -19,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final searchNode = FocusNode();
   var searchText = '';
   var domainId = 0;
+  var chosenDomain = "All";
   @override
   void dispose() {
     searchNode.dispose();
@@ -77,8 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Domains',
+                    Text(
+                      '${chosenDomain}',
                       style: TextStyle(fontSize: 20),
                     ),
                     // show all domains button
@@ -86,6 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () {
                         setState(() {
                           domainId = 0;
+                          chosenDomain = "All";
                         });
                       },
                       child: const Text('All'),
@@ -104,6 +106,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         onPressed: () {
                           setState(() {
                             domainId = _domains[index]['id'];
+                            chosenDomain =
+                                _domains[domainId - 1]['domain_name'];
                           });
                         },
                         child: Text(_domains[index]['domain_name']),
