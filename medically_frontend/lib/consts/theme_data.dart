@@ -16,10 +16,11 @@ class Styles {
           ),
 
       cardColor: isDarkTheme
-          ? const Color(0xff0a0d2c)
+          ? Color.fromARGB(255, 18, 23, 77)
           : const Color.fromARGB(255, 255, 255, 255),
-      canvasColor:
-          isDarkTheme ? Colors.black : const Color.fromARGB(255, 54, 135, 255),
+      canvasColor: isDarkTheme
+          ? Color.fromARGB(255, 9, 11, 44)
+          : const Color.fromARGB(255, 54, 135, 255),
       buttonTheme: Theme.of(context).buttonTheme.copyWith(
           colorScheme: isDarkTheme
               ? const ColorScheme.dark()
@@ -27,7 +28,7 @@ class Styles {
       // app bar theme
       appBarTheme: AppBarTheme(
         backgroundColor: isDarkTheme
-            ? Colors.black
+            ? Color.fromARGB(255, 9, 11, 44)
             : const Color.fromARGB(255, 54, 135, 255),
         // isDarkTheme ? Colors.black : const Color.fromARGB(255, 0, 4, 255),
         // This will be applied to the "back" icon

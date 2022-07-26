@@ -107,7 +107,7 @@
 }
 
 .navbar-logo {
-  height: 90%;
+  height: 80%;
   align-self: center;
 }
 
@@ -356,6 +356,9 @@
   margin-left: 10%;
   margin-top: 100px;
   overflow: hidden;
+}
+.requests-body > .block-title{
+  padding-left: 20px;
 }
 
 .requests-form-container {
