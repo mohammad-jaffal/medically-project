@@ -1,11 +1,37 @@
 import Navbar from "../components/NavBar";
 import { React, useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const AddDomain = () => {
 
     var [domains, setDomains] = useState([]);
     const domainRef = useRef('');
+
+    let navigate = useNavigate();
+    // validate token
+    const validateToken = () =>{
+        var token = localStorage.getItem('admin_token');
+        fetch("http://localhost:8000/api/profile", {
+                        method: "POST",
+                        headers: {
+                            "Authorization": 'Bearer ' + token,
+                            "Accept": 'application/json',
+                        },
+
+                    }).then(async res => {
+                        if (res.ok) {
+                            const data = await res.json();
+                            if (data['type'] != 0) {
+                                localStorage.setItem('admin_token', "none");
+                                navigate("/", { replace: true });
+                            }
+                        }else{
+                            localStorage.setItem('admin_token', "none");
+                                navigate("/", { replace: true });
+                        }
+                    });
+    }
 
     // fetch all domains
     const fetchDomains = async () => {
@@ -44,6 +70,7 @@ const AddDomain = () => {
 
     // use effect :)
     useEffect(() => {
+        validateToken();
         fetchDomains();
     }, [])
 

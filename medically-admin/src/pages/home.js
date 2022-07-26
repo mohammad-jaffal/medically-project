@@ -21,7 +21,6 @@ const Home = () => {
 
 
     let navigate = useNavigate();
-
     // validate token
     const validateToken = () =>{
         var token = localStorage.getItem('admin_token');
