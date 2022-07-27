@@ -35,11 +35,13 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
         'review_text': myController.text,
         'rating': '$_rating',
       });
-      await Provider.of<ReviewsProvider>(context, listen: false)
-          .fetchReviews(doctorID);
-      Provider.of<DoctorsProvider>(context, listen: false)
-          .updateDoctorRating(doctorID, json.decode(response.body)['avg']);
-      Navigator.pop(context);
+      if (json.decode(response.body)['success']) {
+        await Provider.of<ReviewsProvider>(context, listen: false)
+            .fetchReviews(doctorID);
+        Provider.of<DoctorsProvider>(context, listen: false)
+            .updateDoctorRating(doctorID, json.decode(response.body)['avg']);
+        Navigator.pop(context);
+      }
     }
   }
 
