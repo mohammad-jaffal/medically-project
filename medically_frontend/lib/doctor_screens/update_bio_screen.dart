@@ -33,7 +33,7 @@ class _UpdateBioScreenState extends State<UpdateBioScreen> {
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
-    // get user and doctor id
+    // get doctor id
     var doctorID =
         Provider.of<DoctorProvider>(context, listen: false).getDoctorId;
     return Scaffold(
