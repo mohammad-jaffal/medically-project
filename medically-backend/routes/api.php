@@ -58,4 +58,6 @@ Route::post('/change-image', [UserController::class, 'changeImage']);
 Route::get('/get-doctors', [DoctorController::class, 'getAllDoctors']);
 Route::post('/get-doctor', [DoctorController::class, 'getDoctor']);
 Route::get('/get-domains', [DomainController::class, 'getDomains']);
+Route::post('/update-bio', [DoctorController::class, 'updateBio']);
+
 Route::post('/get-reviews', [ReviewController::class, 'getReviewsByDoctorID']);

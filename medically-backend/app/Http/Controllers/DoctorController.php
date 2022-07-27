@@ -81,4 +81,13 @@ class DoctorController extends Controller
             "success" => true,
         ], 200);
     }
+
+    public function updateBio(Request $request){
+
+        \DB::table('doctor_details')->where('doctor_id', $request->doctor_id)->update(array('bio' => $request->bio));
+
+        return response()->json([
+            "success" => true,
+        ], 200);
+    }
 }
