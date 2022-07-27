@@ -51,4 +51,9 @@ class DoctorProvider with ChangeNotifier {
 
     notifyListeners();
   }
+
+  void updateBio(var bio) {
+    _doctor.bio = bio;
+    notifyListeners();
+  }
 }

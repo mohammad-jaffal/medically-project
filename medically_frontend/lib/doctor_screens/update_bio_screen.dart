@@ -24,6 +24,25 @@ class UpdateBioScreen extends StatefulWidget {
 class _UpdateBioScreenState extends State<UpdateBioScreen> {
   final myController = TextEditingController();
 
+  // updates bio in database and in provider
+  Future<void> _updateBio(var doctorID) async {
+    if (myController.text == '') {
+      print('do nothing');
+    } else {
+      var url = Uri.parse('http://10.0.2.2:8000/api/update-bio');
+      var response = await http.post(url, body: {
+        'doctor_id': '$doctorID',
+        'bio': myController.text,
+      });
+      // update the bio locally only if its updated in db
+      if (json.decode(response.body)['success']) {
+        Provider.of<DoctorProvider>(context, listen: false)
+            .updateBio(myController.text);
+        Navigator.pop(context);
+      }
+    }
+  }
+
   @override
   void dispose() {
     myController.dispose();
@@ -69,7 +88,9 @@ class _UpdateBioScreenState extends State<UpdateBioScreen> {
                 children: [
                   const Expanded(child: SizedBox()),
                   FloatingActionButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _updateBio(doctorID);
+                    },
                     backgroundColor: themeState.getDarkTheme
                         ? const Color(0xff0a0d2c)
                         : const Color.fromARGB(255, 54, 135, 255),
