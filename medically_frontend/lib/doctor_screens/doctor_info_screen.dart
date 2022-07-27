@@ -26,6 +26,7 @@ class DoctorInfoScreen extends StatefulWidget {
 }
 
 class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
+  final myController = TextEditingController();
   Future pickImage(ImageSource source) async {
     print('camera');
     final image = await ImagePicker().pickImage(
@@ -281,30 +282,33 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
               const SizedBox(height: 5),
               // bio card
               Card(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.text_snippet,
-                        size: 35,
-                        color: themeState.getDarkTheme
-                            ? Colors.white
-                            : Colors.grey[600],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: Container(
-                          width: MediaQuery.of(context).size.width / 1.7,
-                          child: Text(
-                            doctor.bio,
-                            style: const TextStyle(fontSize: 20),
+                child: InkWell(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.text_snippet,
+                          size: 35,
+                          color: themeState.getDarkTheme
+                              ? Colors.white
+                              : Colors.grey[600],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width / 1.7,
+                            child: Text(
+                              doctor.bio,
+                              style: const TextStyle(fontSize: 20),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
+                  onTap: () {},
                 ),
               ),
               const SizedBox(height: 5),
