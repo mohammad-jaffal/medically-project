@@ -4,6 +4,7 @@ import 'package:medically_frontend/consts/theme_data.dart';
 import 'package:medically_frontend/doctor_screens/doctor_bottom_bar.dart';
 import 'package:medically_frontend/doctor_screens/doctor_call_screen.dart';
 import 'package:medically_frontend/doctor_screens/doctor_ringing_screen.dart';
+import 'package:medically_frontend/doctor_screens/update_bio_screen.dart';
 import 'package:medically_frontend/providers/agora_provider.dart';
 import 'package:medically_frontend/providers/calls_provider.dart';
 import 'package:medically_frontend/providers/dark_theme_provider.dart';
@@ -83,6 +84,7 @@ class _MyAppState extends State<MyApp> {
             DoctorCallScreen.routeName: (ctx) => DoctorCallScreen(),
             DoctorRingingScreen.routeName: (ctx) => DoctorRingingScreen(),
             UserRingingScreen.routeName: (ctx) => UserRingingScreen(),
+            UpdateBioScreen.routeName: (ctx) => UpdateBioScreen(),
           },
         );
       }),

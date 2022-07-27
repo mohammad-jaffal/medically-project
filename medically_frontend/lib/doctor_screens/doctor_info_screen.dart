@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:medically_frontend/doctor_screens/update_bio_screen.dart';
 import 'package:medically_frontend/providers/token_provider.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
 import 'package:native_notify/native_notify.dart';
@@ -308,7 +309,9 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                       ],
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, UpdateBioScreen.routeName);
+                  },
                 ),
               ),
               const SizedBox(height: 5),
