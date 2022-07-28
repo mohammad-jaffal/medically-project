@@ -81,9 +81,13 @@ class _DoctorCallScreenState extends State<DoctorCallScreen> {
                 showNumberOfUsers: false,
                 // showAVState: true,
                 disabledVideoWidget: Container(
-                  color: Colors.lightBlue,
-                  child: const Center(
-                    child: Text('Camera off'),
+                  color: Color.fromARGB(255, 54, 135, 255),
+                  child: Center(
+                    child: Icon(
+                      Icons.videocam_off,
+                      color: Colors.white,
+                      size: 90,
+                    ),
                   ),
                 ),
               ),
