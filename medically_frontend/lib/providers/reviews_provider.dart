@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 
 class ReviewsProvider with ChangeNotifier {
   var _reviews;
-
+  // fetchs all reviews for a doctor
   Future<void> fetchReviews(doctorID) async {
     var url = Uri.parse('http://10.0.2.2:8000/api/get-reviews');
     var response = await http.post(url, body: {
@@ -18,6 +18,7 @@ class ReviewsProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  //  returns a list of review objects
   List getReviews() {
     if (_reviews != null) {
       var _allReviews = _reviews.map((e) => Review.fromJson(e)).toList();

@@ -11,6 +11,7 @@ class DoctorsProvider with ChangeNotifier {
 
   List _favoriteIDs = [];
 
+  // fetches all doctors from database
   Future<void> fetchDoctors() async {
     var url = Uri.parse('http://10.0.2.2:8000/api/get-doctors');
     var response = await http.get(url);
@@ -26,6 +27,7 @@ class DoctorsProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  // return doctors based on domain and search text
   List getDoctors(var searchText, var domainId) {
     var _doctorsList = [];
     if (_doctors != null) {
@@ -50,10 +52,12 @@ class DoctorsProvider with ChangeNotifier {
     return [..._doctorsList];
   }
 
+  // returns list of all domains
   List get getDomains {
     return [..._domains];
   }
 
+  // fetches all favorite doctors by user id
   Future<void> fetchFavorites(var userID) async {
     var url = Uri.parse('http://10.0.2.2:8000/api/user/get-favorites');
     var response = await http.post(url, body: {
@@ -65,6 +69,7 @@ class DoctorsProvider with ChangeNotifier {
     }
   }
 
+  // returns list with favorate doctors, and allowing user to filter search text
   List getFavorites(var searchText) {
     var favoriteDoctors = [];
 
@@ -77,6 +82,7 @@ class DoctorsProvider with ChangeNotifier {
     return [...favoriteDoctors];
   }
 
+  // returns doctor object based on doctor id
   Doctor getDoctorByID(var docID) {
     var _doc;
     for (var i = 0; i < _doctors.length; i++) {
@@ -87,10 +93,12 @@ class DoctorsProvider with ChangeNotifier {
     return _doc;
   }
 
+  // returnds id list of favorate doctors
   List get getFavIds {
     return [..._favoriteIDs];
   }
 
+  // adds a favorite doctor locally and to database
   Future<void> addFavorite(var userID, var doctorID) async {
     for (var doctor in _doctors) {
       if (doctor.id == doctorID) {
@@ -105,6 +113,7 @@ class DoctorsProvider with ChangeNotifier {
     }
   }
 
+  // removes a favorite doctor locally and from database
   Future<void> removeFavorite(var userID, var doctorID) async {
     for (var doctor in _doctors) {
       if (doctor.id == doctorID) {
@@ -119,13 +128,13 @@ class DoctorsProvider with ChangeNotifier {
     }
   }
 
+  // updates a doctors rating locally
   void updateDoctorRating(var doctorID, var rating) {
     for (var i = 0; i < _doctors.length; i++) {
       if (_doctors[i].id == doctorID) {
         _doctors[i].rating = double.parse(rating);
       }
     }
-
     notifyListeners();
   }
 }

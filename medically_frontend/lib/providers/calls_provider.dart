@@ -12,7 +12,7 @@ import 'doctor_provider.dart';
 class CallsProvider with ChangeNotifier {
   var _calls;
   var _time = null;
-
+  // fetches calls from database based on user id
   Future<void> fetchUserCalls(userID) async {
     var url = Uri.parse('http://10.0.2.2:8000/api/user/get-user-calls');
     var response = await http.post(url, body: {
@@ -21,6 +21,7 @@ class CallsProvider with ChangeNotifier {
     _calls = json.decode(response.body)['calls'];
   }
 
+  // fetches calls from database based on doctor id
   Future<void> fetchDoctorCalls(doctorID) async {
     var url = Uri.parse('http://10.0.2.2:8000/api/user/get-doctor-calls');
     var response = await http.post(url, body: {
@@ -29,6 +30,7 @@ class CallsProvider with ChangeNotifier {
     _calls = json.decode(response.body)['calls'];
   }
 
+  // returns list of call objects
   List getCalls() {
     if (_calls != null) {
       var _allCalls = _calls.map((e) => Call.fromJson(e)).toList();
@@ -41,16 +43,19 @@ class CallsProvider with ChangeNotifier {
     _calls = null;
   }
 
+  // starts the time of the call start
   void setTime(DateTime time) {
     _time = time;
   }
 
+  // ends the time of the call and updates the database with the new call
   Future<void> endTime(DateTime time, BuildContext ctx) async {
     // end call time and register the call in the database
     var docID = Provider.of<DoctorProvider>(ctx, listen: false).getDoctorId;
     var userID = Provider.of<AgoraProvider>(ctx, listen: false).getCallerID;
     if (_time != null) {
       var duration = time.difference(_time).inSeconds;
+      // adds the call to the database
       var url = Uri.parse('http://10.0.2.2:8000/api/user/add-call');
       var response = await http.post(url, body: {
         'doctor_id': '$docID',
@@ -58,7 +63,7 @@ class CallsProvider with ChangeNotifier {
         'duration': '$duration',
       });
       var cost = 10 * (duration ~/ 60 + 1);
-
+      // transfers balance from user to doctor based on duration of call
       var costUrl = Uri.parse('http://10.0.2.2:8000/api/user/transfer-balance');
       var costResponse = await http.post(costUrl, body: {
         'doctor_id': '$docID',
