@@ -28,20 +28,17 @@
 Note that I didn't use any styling library or theme, all from scratch
 
 | Login  | Sign up  | User - Home  | User - Favorites  | User - Logs  |
-| -----------------| -----| -----------------| -----| -----|
+| -------| -------- | ------------ | ----------------- | ------------ |
 | <img src="./readme/figma/login.png"/> | <img src="./readme/figma/signup.png"/> | <img src="./readme/figma/user-home.png"/> | <img src="./readme/figma/user-favorite.png"/> |  <img src="./readme/figma/user-logs.png"/> |
 
 <!-- | User - Home  | User - Favorites  | User - Logs  |
 | -----------------| -----| -----|
 | <img src="./readme/figma/user-home.png"/> | <img src="./readme/figma/user-favorite.png"/> |  <img src="./readme/figma/user-logs.png"/> | -->
 
-| User - Profile  | User - Doctor Info  |
-| -----------------| -----|
-| <img src="./readme/figma/user-profile.png"/> | <img src="./readme/figma/doctorinfo.png"/> |
+| User - Profile  | User - Doctor Info  | Doctor - Reviews  | Doctor - Logs  | Doctor - Profile  |
+| --------------- | ------------------- | ----------------- | -------------- | ----------------- |
+| <img src="./readme/figma/user-profile.png"/> | <img src="./readme/figma/doctorinfo.png"/> | <img src="./readme/figma/doctor-reviews.png"/> | <img src="./readme/figma/doctor-logs.png"/> |  <img src="./readme/figma/doctor-profile.png"/> |
 
-| Doctor - Reviews  | Doctor - Logs  | Doctor - Profile  |
-| -----------------| -----| -----|
-| <img src="./readme/figma/doctor-reviews.png"/> | <img src="./readme/figma/doctor-logs.png"/> |  <img src="./readme/figma/doctor-profile.png"/> |
 
 <br><br>
 
