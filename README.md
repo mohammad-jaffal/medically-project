@@ -39,6 +39,9 @@ Note that I didn't use any styling library or theme, all from scratch
 | -----------------| -----|
 | <img src="./demo/figma/user-profile.png"/> | <img src="./demo/figma/doctorinfo.png"/> |
 
+| Doctor - Reviews  | Doctor - Logs  | Doctor - Profile  |
+| -----------------| -----| -----|
+| <img src="./demo/figma/doctor-reviews.png"/> | <img src="./demo/figma/doctor-logs.png"/> |  <img src="./demo/figma/doctor-profile.png"/> |
 
 <br><br>
 
