@@ -76,6 +76,13 @@ Here's a brief high-level overview of the tech stack the app uses:
 | ------------------------------------------ |
 | <img src="./readme/device/responses.png"/> |
 
+> The App is also available in dark mode.
+
+| User - Home                            | User - Favorites                            | User - Logs                            | User - Profile                            |
+| -------------------------------------- | ------------------------------------------- | -------------------------------------- | ----------------------------------------- |
+| <img src="./readme/device/home2.png"/> | <img src="./readme/device/favorites2.png"/> | <img src="./readme/device/logs2.png"/> | <img src="./readme/device/profile2.png"/> |
+
+
 
 <br><br>
 <img src="./readme/title6.svg"/>
