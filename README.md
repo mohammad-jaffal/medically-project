@@ -55,10 +55,26 @@ Here's a brief high-level overview of the tech stack the app uses:
 <br><br>
 <img src="./readme/title5.svg"/>
 
-| Login                                  | Sign up                                 | User - Home                               | User - Favorites                              |
-| -------------------------------------- | --------------------------------------- | ----------------------------------------- | --------------------------------------------- |
-| <img src="./readme/device/login.png"/> | <img src="./readme/device/signup.png"/> | <img src="./readme/figma/user-home.png"/> | <img src="./readme/figma/user-favorite.png"/> |
+| Login                                  | Sign up                                 | User - Home                           | User - Favorites                           |
+| -------------------------------------- | --------------------------------------- | ------------------------------------- | ------------------------------------------ |
+| <img src="./readme/device/login.png"/> | <img src="./readme/device/signup.png"/> | <img src="./readme/device/home.png"/> | <img src="./readme/device/favorites.png"/> |
 
+| User - Logs                           | User - Profile                           | User - Doctor Info                          | User - Balance                           |
+| ------------------------------------- | ---------------------------------------- | ------------------------------------------- | ---------------------------------------- |
+| <img src="./readme/device/logs.png"/> | <img src="./readme/device/profile.png"/> | <img src="./readme/device/doctorinfo.png"/> | <img src="./readme/device/balance.png"/> |
+
+
+| Doctor - Reviews                                | Doctor - Logs                                | Doctor - Profile                                |
+| ----------------------------------------------- | -------------------------------------------- | ----------------------------------------------- |
+| <img src="./readme/device/doctor-reviews.png"/> | <img src="./readme/device/doctor-logs.png"/> | <img src="./readme/device/doctor-profile.png"/> |
+
+| User - Calling                           | Doctor - Ringing                         |
+| ---------------------------------------- | ---------------------------------------- |
+| <img src="./readme/device/calling.png"/> | <img src="./readme/device/ringing.png"/> |
+
+| Call Responses                             |
+| ------------------------------------------ |
+| <img src="./readme/device/responses.png"/> |
 
 
 <br><br>
