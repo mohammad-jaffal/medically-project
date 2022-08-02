@@ -31,9 +31,9 @@ Note that I didn't use any styling library or theme, all from scratch
 | -----------------| -----|
 | <img src="./demo/figma/login.png"/> | <img src="./demo/figma/signup.png"/> |
 
-| User - Home  | User - Favorites  |
-| -----------------| -----|
-| <img src="./demo/figma/user-home.png"/> | <img src="./demo/figma/user-favorite.png"/> |
+| User - Home  | User - Favorites  | User - Logs  |
+| -----------------| -----| -----|
+| <img src="./demo/figma/user-home.png"/> | <img src="./demo/figma/user-favorite.png"/> |  <img src="./demo/figma/user-logs.png"/> |
 <!-- 
 | Artists results  | Artist's Albums  |
 | -----------------| -----|
