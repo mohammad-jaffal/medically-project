@@ -33,13 +33,19 @@ class DoctorsProvider with ChangeNotifier {
     if (_doctors != null) {
       if (domainId == 0) {
         for (var i = 0; i < _doctors.length; i++) {
-          if (_doctors[i].name.contains(searchText)) {
+          if (_doctors[i]
+              .name
+              .toLowerCase()
+              .contains(searchText.toLowerCase())) {
             _doctorsList.add(_doctors[i]);
           }
         }
       } else {
         for (var i = 0; i < _doctors.length; i++) {
-          if (_doctors[i].name.contains(searchText) &&
+          if (_doctors[i]
+                  .name
+                  .toLowerCase()
+                  .contains(searchText.toLowerCase()) &&
               _doctors[i].domainId == domainId) {
             _doctorsList.add(_doctors[i]);
           }
