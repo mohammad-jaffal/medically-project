@@ -34,10 +34,10 @@ Note that I didn't use any styling library or theme, all from scratch
 | User - Home  | User - Favorites  | User - Logs  |
 | -----------------| -----| -----|
 | <img src="./demo/figma/user-home.png"/> | <img src="./demo/figma/user-favorite.png"/> |  <img src="./demo/figma/user-logs.png"/> |
-<!-- 
-| Artists results  | Artist's Albums  |
+
+| User - Profile  | User - Doctor Info  |
 | -----------------| -----|
-| ![Artists results](https://github.com/julescript/spotifyndr/blob/master/demo/Artists_Page.jpg) | ![Artist's Albums](https://github.com/julescript/spotifyndr/blob/master/demo/Albums_Page.jpg) | -->
+| <img src="./demo/figma/user-profile.png"/> | <img src="./demo/figma/doctorinfo.png"/> |
 
 
 <br><br>
