@@ -27,13 +27,13 @@
 > This design was planned before on paper, then moved to Figma app for the fine details.
 Note that I didn't use any styling library or theme, all from scratch
 
-| Login  | Sign up  |
-| -----------------| -----|
-| <img src="./readme/figma/login.png"/> | <img src="./readme/figma/signup.png"/> |
+| Login  | Sign up  | User - Home  | User - Favorites  | User - Logs  |
+| -----------------| -----| -----------------| -----| -----|
+| <img src="./readme/figma/login.png"/> | <img src="./readme/figma/signup.png"/> | <img src="./readme/figma/user-home.png"/> | <img src="./readme/figma/user-favorite.png"/> |  <img src="./readme/figma/user-logs.png"/> |
 
-| User - Home  | User - Favorites  | User - Logs  |
+<!-- | User - Home  | User - Favorites  | User - Logs  |
 | -----------------| -----| -----|
-| <img src="./readme/figma/user-home.png"/> | <img src="./readme/figma/user-favorite.png"/> |  <img src="./readme/figma/user-logs.png"/> |
+| <img src="./readme/figma/user-home.png"/> | <img src="./readme/figma/user-favorite.png"/> |  <img src="./readme/figma/user-logs.png"/> | -->
 
 | User - Profile  | User - Doctor Info  |
 | -----------------| -----|
