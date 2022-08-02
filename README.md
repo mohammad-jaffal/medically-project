@@ -13,21 +13,19 @@
 
 <img src="./readme/title2.svg"/>
 
-> The Well app is a mental health and mindfulness app built on top of the science of positive psychology. The Well app is more than just another meditation or journaling app; it encourages you to enhance and reflect on your day with structured, guided activities.
-> 
-> There are 5 daily tasks that the Well app asks you to complete each day: record 3 gratitudes, write a journal entry, perform 3 acts of kindness, exercise for 20 minutes, and meditate for 15 minutes.
+> Medically is a mobile application that allows users to reach out to registered doctors on the platform, place a paid call, rate, review, and add them to their favorites list.
 
 ### User Stories
-- As a user, I want to browsse ablums, so that I can find quick links
-- As a user, I want to browsse ablums, so that I can find quick links
-- As a user, I want to browsse ablums, so that I can find quick links
+- As a user, I want to consult a doctor for urgent issue without waiting for an appointment
+- As a user, I want to share my experience with the doctor I called
+<!-- - As a doctor, I want to get paid for my consultations -->
 
 <br><br>
 
 <img src="./readme/title3.svg"/>
 
 > This design was planned before on paper, then moved to Figma app for the fine details.
-Note that i didn't use any styling library or theme, all from scratch and using pure css modules
+Note that i didn't use any styling library or theme, all from scratch
 
 | Landing  | Home/Search  |
 | -----------------| -----|
@@ -81,18 +79,17 @@ This is an example of how to list things you need to use the software and how to
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
    ```
-3. Install NPM packages
+2. Install packages for react project
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+3. Install packages for flutter project
+   ```sh
+   flutter pub get
    ```
 
 
