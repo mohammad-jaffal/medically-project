@@ -27,18 +27,17 @@
 > This design was planned before on paper, then moved to Figma app for the fine details.
 Note that I didn't use any styling library or theme, all from scratch
 
-| Login  | Sign up  | User - Home  | User - Favorites  | User - Logs  |
-| -------| -------- | ------------ | ----------------- | ------------ |
-| <img src="./readme/figma/login.png"/> | <img src="./readme/figma/signup.png"/> | <img src="./readme/figma/user-home.png"/> | <img src="./readme/figma/user-favorite.png"/> |  <img src="./readme/figma/user-logs.png"/> |
+| Login                                 | Sign up                                | User - Home                               | User - Favorites                              |
+| ------------------------------------- | -------------------------------------- | ----------------------------------------- | --------------------------------------------- |
+| <img src="./readme/figma/login.png"/> | <img src="./readme/figma/signup.png"/> | <img src="./readme/figma/user-home.png"/> | <img src="./readme/figma/user-favorite.png"/> |
 
-<!-- | User - Home  | User - Favorites  | User - Logs  |
-| -----------------| -----| -----|
-| <img src="./readme/figma/user-home.png"/> | <img src="./readme/figma/user-favorite.png"/> |  <img src="./readme/figma/user-logs.png"/> | -->
+| User - Logs                                | User - Profile                               | User - Doctor Info                         | Doctor - Reviews                               |
+| ------------------------------------------ | -------------------------------------------- | ------------------------------------------ | ---------------------------------------------- |
+|  <img src="./readme/figma/user-logs.png"/> | <img src="./readme/figma/user-profile.png"/> | <img src="./readme/figma/doctorinfo.png"/> | <img src="./readme/figma/doctor-reviews.png"/> |
 
-| User - Profile  | User - Doctor Info  | Doctor - Reviews  | Doctor - Logs  | Doctor - Profile  |
-| --------------- | ------------------- | ----------------- | -------------- | ----------------- |
-| <img src="./readme/figma/user-profile.png"/> | <img src="./readme/figma/doctorinfo.png"/> | <img src="./readme/figma/doctor-reviews.png"/> | <img src="./readme/figma/doctor-logs.png"/> |  <img src="./readme/figma/doctor-profile.png"/> |
-
+| Doctor - Logs                               | Doctor - Profile                               |
+| ------------------------------------------- | ---------------------------------------------- |
+| <img src="./readme/figma/doctor-logs.png"/> | <img src="./readme/figma/doctor-profile.png"/> |
 
 <br><br>
 
