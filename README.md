@@ -30,6 +30,10 @@ Note that I didn't use any styling library or theme, all from scratch
 | Login  | Sign up  |
 | -----------------| -----|
 | <img src="./demo/figma/login.png"/> | <img src="./demo/figma/signup.png"/> |
+
+| User - Home  | User - Favorites  |
+| -----------------| -----|
+| <img src="./demo/figma/user-home.png"/> | <img src="./demo/figma/user-favorite.png"/> |
 <!-- 
 | Artists results  | Artist's Albums  |
 | -----------------| -----|
