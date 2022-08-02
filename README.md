@@ -25,11 +25,11 @@
 <img src="./readme/title3.svg"/>
 
 > This design was planned before on paper, then moved to Figma app for the fine details.
-Note that i didn't use any styling library or theme, all from scratch
+Note that I didn't use any styling library or theme, all from scratch
 
 | Landing  | Home/Search  |
 | -----------------| -----|
-| ![Landing](https://github.com/julescript/spotifyndr/blob/master/demo/Landing_Page.jpg) | ![Home/Search](https://github.com/julescript/spotifyndr/blob/master/demo/Search_Page.jpg) |
+| <img src="./demo/figma/login.png"/> | ![Home/Search](https://github.com/julescript/spotifyndr/blob/master/demo/Search_Page.jpg) |
 
 | Artists results  | Artist's Albums  |
 | -----------------| -----|
@@ -75,11 +75,11 @@ Here's a brief high-level overview of the tech stack the Well app uses:
    ```sh
    git clone https://github.com/mohammad-jaffal/medically-project.git
    ```
-2. Install packages for react project
+2. Install packages for the React project
    ```sh
    npm install
    ```
-3. Install packages for flutter project
+3. Install packages for the Flutter project
    ```sh
    flutter pub get
    ```

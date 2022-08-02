@@ -292,7 +292,9 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               Card(
                 child: SwitchListTile(
                   title: Text(
-                      themeState.getDarkTheme ? "Dark mode" : "Light mode"),
+                    themeState.getDarkTheme ? "Dark mode" : "Light mode",
+                    style: const TextStyle(fontSize: 20),
+                  ),
                   secondary: Padding(
                     padding: const EdgeInsets.fromLTRB(10, 10, 20, 10),
                     child: Icon(themeState.getDarkTheme
