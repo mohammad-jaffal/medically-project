@@ -27,13 +27,13 @@
 > This design was planned before on paper, then moved to Figma app for the fine details.
 Note that I didn't use any styling library or theme, all from scratch
 
-| Landing  | Home/Search  |
+| Login  | Sign up  |
 | -----------------| -----|
-| <img src="./demo/figma/login.png"/> | ![Home/Search](https://github.com/julescript/spotifyndr/blob/master/demo/Search_Page.jpg) |
-
+| <img src="./demo/figma/login.png"/> | <img src="./demo/figma/signup.png"/> |
+<!-- 
 | Artists results  | Artist's Albums  |
 | -----------------| -----|
-| ![Artists results](https://github.com/julescript/spotifyndr/blob/master/demo/Artists_Page.jpg) | ![Artist's Albums](https://github.com/julescript/spotifyndr/blob/master/demo/Albums_Page.jpg) |
+| ![Artists results](https://github.com/julescript/spotifyndr/blob/master/demo/Artists_Page.jpg) | ![Artist's Albums](https://github.com/julescript/spotifyndr/blob/master/demo/Albums_Page.jpg) | -->
 
 
 <br><br>
