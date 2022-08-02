@@ -106,8 +106,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         onPressed: () {
                           setState(() {
                             domainId = _domains[index]['id'];
-                            chosenDomain =
-                                _domains[domainId - 1]['domain_name'];
+                            chosenDomain = Provider.of<DoctorsProvider>(context,
+                                    listen: false)
+                                .getDomainName(domainId);
                           });
                         },
                         child: Text(_domains[index]['domain_name']),

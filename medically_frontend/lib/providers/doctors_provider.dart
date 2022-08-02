@@ -54,13 +54,26 @@ class DoctorsProvider with ChangeNotifier {
     } else {
       return [];
     }
-
+    if (_doctorsList.length == 0) {
+      print('empty');
+    }
     return [..._doctorsList];
   }
 
   // returns list of all domains
   List get getDomains {
     return [..._domains];
+  }
+
+  // returns domain name by id
+  String getDomainName(var domain_id) {
+    var name;
+    for (var i = 0; i < _domains.length; i++) {
+      if (_domains[i]['id'] == domain_id) {
+        name = _domains[i]['domain_name'];
+      }
+    }
+    return name;
   }
 
   // fetches all favorite doctors by user id

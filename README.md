@@ -55,10 +55,10 @@ Here's a brief high-level overview of the tech stack the app uses:
 <br><br>
 <img src="./readme/title5.svg"/>
 
+| Login                                  | Sign up                                 | User - Home                               | User - Favorites                              |
+| -------------------------------------- | --------------------------------------- | ----------------------------------------- | --------------------------------------------- |
+| <img src="./readme/device/login.png"/> | <img src="./readme/device/signup.png"/> | <img src="./readme/figma/user-home.png"/> | <img src="./readme/figma/user-favorite.png"/> |
 
-| Login  | Sign up  |
-| -----------------| -----|
-| <img src="./readme/device/login.png"/> | <img src="./readme/device/signup.png"/> |
 
 
 <br><br>

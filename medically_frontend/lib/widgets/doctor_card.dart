@@ -5,6 +5,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:medically_frontend/models/doctor.dart';
+import 'package:medically_frontend/providers/doctors_provider.dart';
 import 'dart:convert';
 
 import 'package:medically_frontend/screens/doctor_details_screen.dart';
@@ -22,7 +23,8 @@ class DoctorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Uint8List _bytesImage = Base64Decoder().convert(doctor.base64Image);
-
+    final doctorsProvider = Provider.of<DoctorsProvider>(context);
+    var domainName = doctorsProvider.getDomainName(doctor.domainId);
     return Card(
       child: InkWell(
         child: Container(
@@ -63,7 +65,7 @@ class DoctorCard extends StatelessWidget {
                       doctor.name,
                       style: const TextStyle(fontSize: 18),
                     ),
-                    Text('domain ${doctor.domainId}'),
+                    Text(domainName),
                     RatingBarIndicator(
                       rating: doctor.rating,
                       itemBuilder: (context, index) => const Icon(
