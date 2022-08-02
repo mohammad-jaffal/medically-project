@@ -29,25 +29,25 @@ Note that I didn't use any styling library or theme, all from scratch
 
 | Login  | Sign up  |
 | -----------------| -----|
-| <img src="./demo/figma/login.png"/> | <img src="./demo/figma/signup.png"/> |
+| <img src="./readme/figma/login.png"/> | <img src="./readme/figma/signup.png"/> |
 
 | User - Home  | User - Favorites  | User - Logs  |
 | -----------------| -----| -----|
-| <img src="./demo/figma/user-home.png"/> | <img src="./demo/figma/user-favorite.png"/> |  <img src="./demo/figma/user-logs.png"/> |
+| <img src="./readme/figma/user-home.png"/> | <img src="./readme/figma/user-favorite.png"/> |  <img src="./readme/figma/user-logs.png"/> |
 
 | User - Profile  | User - Doctor Info  |
 | -----------------| -----|
-| <img src="./demo/figma/user-profile.png"/> | <img src="./demo/figma/doctorinfo.png"/> |
+| <img src="./readme/figma/user-profile.png"/> | <img src="./readme/figma/doctorinfo.png"/> |
 
 | Doctor - Reviews  | Doctor - Logs  | Doctor - Profile  |
 | -----------------| -----| -----|
-| <img src="./demo/figma/doctor-reviews.png"/> | <img src="./demo/figma/doctor-logs.png"/> |  <img src="./demo/figma/doctor-profile.png"/> |
+| <img src="./readme/figma/doctor-reviews.png"/> | <img src="./readme/figma/doctor-logs.png"/> |  <img src="./readme/figma/doctor-profile.png"/> |
 
 <br><br>
 
 <img src="./readme/title4.svg"/>
 
-Here's a brief high-level overview of the tech stack the Well app uses:
+Here's a brief high-level overview of the tech stack the app uses:
 
 - This project uses the [Flutter app development framework](https://flutter.dev/). Flutter is an open source framework by Google for building beautiful, natively compiled, multi-platform applications from a single codebase.
 - For persistent storage (database), the app uses [MySQL](https://www.mysql.com/) database.
@@ -60,9 +60,9 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 <img src="./readme/title5.svg"/>
 
 
-| Landing  | Home/Search  |
+| Login  | Sign up  |
 | -----------------| -----|
-| ![Landing](https://github.com/julescript/spotifyndr/blob/master/demo/Landing_Page.jpg) | ![Home/Search](https://github.com/julescript/spotifyndr/blob/master/demo/Search_Page.jpg) |
+| <img src="./readme/device/login.png"/> | <img src="./readme/device/signup.png"/> |
 
 
 <br><br>
