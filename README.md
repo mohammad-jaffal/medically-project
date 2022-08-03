@@ -4,14 +4,14 @@
 
 > Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available.  
 
-**[PROJECT PHILOSOPHY]() • [WIREFRAMES]() • [TECH STACK]() • [IMPLEMENTATION]() • [HOW TO RUN?]()**
+**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)**
 
 </div>
 
 <br><br>
 
 
-<img src="./readme/title2.svg"/>
+<img id="project_philosophy" src="./readme/title2.svg"/>
 
 > Medically is a mobile application that allows users to reach out to registered doctors on the platform, place a paid call, rate, review, and add them to their favorites list.
 
@@ -22,7 +22,7 @@
 
 <br><br>
 
-<img src="./readme/title3.svg"/>
+<img id="wireframes" src="./readme/title3.svg"/>
 
 > This design was planned before on paper, then moved to Figma app for the fine details.
 Note that I didn't use any styling library or theme, all from scratch
@@ -41,7 +41,7 @@ Note that I didn't use any styling library or theme, all from scratch
 
 <br><br>
 
-<img src="./readme/title4.svg"/>
+<img id="tech_stack" src="./readme/title4.svg"/>
 
 Here's a brief high-level overview of the tech stack the app uses:
 
@@ -53,7 +53,7 @@ Here's a brief high-level overview of the tech stack the app uses:
 
 
 <br><br>
-<img src="./readme/title5.svg"/>
+<img id="implementation" src="./readme/title5.svg"/>
 
 * User Screens
 
@@ -143,7 +143,7 @@ Here's a brief high-level overview of the tech stack the app uses:
 
 
 <br><br>
-<img src="./readme/title6.svg"/>
+<img id="how_to_run" src="./readme/title6.svg"/>
 
 
 
