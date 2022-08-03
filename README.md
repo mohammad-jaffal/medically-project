@@ -76,13 +76,15 @@ Here's a brief high-level overview of the tech stack the app uses:
 | <img src="./readme/device/calling.png"/> | <img src="./readme/device/ringing.png"/> |
 
 
-<img src="/readme/device/call.gif" width="250"/>
+<img src="/readme/device/call.gif" width="200"/>
 
 | Call Responses                             |
 | ------------------------------------------ |
 | <img src="./readme/device/responses.png"/> |
 
 > The App is also available in dark mode.
+
+<img src="/readme/device/theme.gif" width="250"/>
 
 | User - Home                            | User - Favorites                            | User - Logs                            | User - Profile                            |
 | -------------------------------------- | ------------------------------------------- | -------------------------------------- | ----------------------------------------- |
