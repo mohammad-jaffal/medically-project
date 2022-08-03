@@ -87,6 +87,8 @@ Note that I didn't use any styling library or theme, all from scratch.
 
 <img id="implementation" src="./readme/title5.svg"/>
 
+<br>
+
 * User Screens
 
 | Login                                  | Home                                         | Navigation                                | Filter                                     |
@@ -110,7 +112,7 @@ Note that I didn't use any styling library or theme, all from scratch.
 | ------------------------------------- | ---------------------------------------- | ------------------------------------------- | ---------------------------------------- |
 | <img src="./readme/device/logs.png"/> | <img src="./readme/device/profile.png"/> | <img src="./readme/device/doctorinfo.png"/> | <img src="./readme/device/balance.png"/> |
 
-
+<br>
 
 * Doctor Screens
 
@@ -119,21 +121,21 @@ Note that I didn't use any styling library or theme, all from scratch.
 | --------------------------------------------- | ----------------------------------------------- | -------------------------------------------- | ------------------------------------------ |
 | <img src="./readme/gifs/doctor-profile.gif"/> | <img src="./readme/device/doctor-reviews.png"/> | <img src="./readme/device/doctor-logs.png"/> | <img src="./readme/gifs/doctor-edit.gif"/> |
 
-
+<br>
 
 * Call System
 
 
 | Calling                                | Video Call                                       | Ringing                                  |
 | -------------------------------------- | ------------------------------------------------ | ---------------------------------------- |
-| <img src="./readme/gifs/calling.gif"/> | <img src="/readme/device/call.gif" width="250"/> | <img src="./readme/device/ringing.png"/> |
+| <img src="./readme/gifs/calling.gif"/> | <img src="/readme/device/call.gif" width="220"/> | <img src="./readme/device/ringing.png"/> |
 
 
 | Call Responses                             |
 | ------------------------------------------ |
 | <img src="./readme/device/responses.png"/> |
 
-
+<br>
 
 * Dark Mode
 
