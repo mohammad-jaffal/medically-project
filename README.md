@@ -70,7 +70,7 @@ Here's a brief high-level overview of the tech stack the app uses:
 
 | User - Calling                           | Video Call                                                    | Doctor - Ringing                         |
 | ---------------------------------------- | ------------------------------------------------------------- | ---------------------------------------- |
-| <img src="./readme/device/calling.png"/> | <img src="/readme/device/call.gif" width="250" height="500"/> | <img src="./readme/device/ringing.png"/> |
+| <img src="./readme/device/calling.png"/> | <img src="/readme/device/call.gif" width="30%"/> | <img src="./readme/device/ringing.png"/> |
 
 
 | Call Responses                             |
