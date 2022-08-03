@@ -59,8 +59,9 @@ Here's a brief high-level overview of the tech stack the app uses:
 | -------------------------------------- | --------------------------------------- | ------------------------------------- | ------------------------------------------ |
 | <img src="./readme/device/login.png"/> | <img src="./readme/device/signup.png"/> | <img src="./readme/device/home.png"/> | <img src="./readme/device/favorites.png"/> |
 
-
+<p align="center">
 <img src="/readme/device/navigation.gif" width="250"/>
+</p>
 
 | User - Logs                           | User - Profile                           | User - Doctor Info                          | User - Balance                           |
 | ------------------------------------- | ---------------------------------------- | ------------------------------------------- | ---------------------------------------- |
@@ -75,8 +76,9 @@ Here's a brief high-level overview of the tech stack the app uses:
 | ----------------------------------------  | ---------------------------------------- |
 | <img src="./readme/device/calling.png"/> | <img src="./readme/device/ringing.png"/> |
 
-
+<p align="center">
 <img src="/readme/device/call.gif" width="200"/>
+</p>
 
 | Call Responses                             |
 | ------------------------------------------ |
@@ -84,7 +86,9 @@ Here's a brief high-level overview of the tech stack the app uses:
 
 > The App is also available in dark mode.
 
+<p align="center">
 <img src="/readme/device/theme.gif" width="250"/>
+</p>
 
 | User - Home                            | User - Favorites                            | User - Logs                            | User - Profile                            |
 | -------------------------------------- | ------------------------------------------- | -------------------------------------- | ----------------------------------------- |
