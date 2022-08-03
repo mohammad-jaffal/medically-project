@@ -411,32 +411,26 @@
 
 .data-table {
   border-collapse: collapse;
-  margin: 30px auto;
-  min-width: 400px;
+  margin-left: 20px;
   border-radius: 5px;
   text-align: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   width: 50%;
-  background-color: rgb(229, 237, 248);
+  background-color: rgba(54, 134, 255, 0.062);
   color: #333;
-  /* margin-left: 20px;
-  border-collapse: collapse; */
 }
 
 .data-table>tr {
-  /* height: 40px; */
-  border-bottom: 1px solid #ddd;
+  height: 40px;
 }
 
 
 .data-table>thead>tr>th,
 tbody>tr>td {
-  /* border: 1px solid;
   height: 40px;
   padding-left: 20px;
   padding-right: 20px;
-  text-align: start; */
-  padding: 15px 15px;
+  text-align: start;
+  padding: 10px 15px;
 }
 
 
