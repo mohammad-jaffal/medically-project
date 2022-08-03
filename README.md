@@ -82,6 +82,31 @@ Here's a brief high-level overview of the tech stack the app uses:
 | -------------------------------------- | ------------------------------------------- | -------------------------------------- | ----------------------------------------- |
 | <img src="./readme/device/home2.png"/> | <img src="./readme/device/favorites2.png"/> | <img src="./readme/device/logs2.png"/> | <img src="./readme/device/profile2.png"/> |
 
+> Admin panel.
+
+| Admin - Doctors Data                           |
+| ---------------------------------------------- |
+| <img src="./readme/device/admin-doctors.PNG"/> |
+
+| Admin - Users Data                           |
+| -------------------------------------------- |
+| <img src="./readme/device/admin-users.PNG"/> |
+
+| Admin - Hamburger Menu                                |
+| ----------------------------------------------------- |
+| <img src="./readme/device/admin-hamburger-menu.PNG"/> |
+
+| Admin - Add Domain                                |
+| ------------------------------------------------- |
+| <img src="./readme/device/admin-add-domain.PNG"/> |
+
+| Admin - Requests                                |
+| ----------------------------------------------- |
+| <img src="./readme/device/admin-requests.PNG"/> |
+
+| Admin - Accept Request                        |
+| --------------------------------------------- |
+| <img src="./readme/device/admin-accept.PNG"/> |
 
 
 <br><br>
