@@ -126,9 +126,9 @@ Note that I didn't use any styling library or theme, all from scratch.
 * Call System
 
 
-| Calling                                | Video Call                                       | Ringing                                  |
-| -------------------------------------- | ------------------------------------------------ | ---------------------------------------- |
-| <img src="./readme/gifs/calling.gif"/> | <img src="/readme/device/call.gif" width="220"/> | <img src="./readme/device/ringing.png"/> |
+| Calling                                | Video Call                                       | Ringing                                |
+| -------------------------------------- | ------------------------------------------------ | -------------------------------------- |
+| <img src="./readme/gifs/calling.gif"/> | <img src="/readme/device/call.gif" width="220"/> | <img src="./readme/gifs/ringing.gif"/> |
 
 
 | Call Responses                             |
