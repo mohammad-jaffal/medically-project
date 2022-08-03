@@ -23,6 +23,7 @@
 
 ### Doctor Stories
 - As a doctor, I want to answer or decline incoming calls.
+- As a doctor, I want to be able to go online or offline.
 - As a doctor, I want to get a revenue from answering to patients calls.
 
 <br>
@@ -66,6 +67,7 @@ Note that I didn't use any styling library or theme, all from scratch
 Here's a brief high-level overview of the tech stack the app uses:
 
 - This project uses the [Flutter app development framework](https://flutter.dev/). Flutter is an open source framework by Google for building beautiful, natively compiled, multi-platform applications from a single codebase.
+- For the backend, the app uses [Laravel](https://laravel.com//) framework. Laravel is a free and open-source PHP web framework, intended for the development of web applications following the model–view–controller architectural pattern and based on Symfony.
 - For persistent storage (database), the app uses [MySQL](https://www.mysql.com/) database.
 - For the video call system, the app uses the [agora_uikit](https://pub.dev/packages/agora_uikit) package.
 - The app uses the font ["Roboto"](https://fonts.google.com/specimen/Roboto) as its main font, and the design of the app adheres to the material design guidelines.
