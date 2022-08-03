@@ -61,35 +61,41 @@ Here's a brief high-level overview of the tech stack the app uses:
 | -------------------------------------- | -------------------------------------------- | ----------------------------------------- | ------------------------------------------ |
 | <img src="./readme/gifs/login.gif"/>   | <img src="./readme/gifs/home-scroll.gif"/>   | <img src="./readme/gifs/navigation.gif"/> | <img src="./readme/gifs/home-filter.gif"/> |
 
-| Add Balance                                  | Calling Screen                           | Review                                | Favoriting/Unfavoriting                   |
-| -------------------------------------------- | ---------------------------------------- | ------------------------------------- | ----------------------------------------- |
-| <img src="./readme/gifs/add-balance.gif"/>   | <img src="./readme/gifs/calling.gif"/>   | <img src="./readme/gifs/review.gif"/> | <img src="./readme/gifs/unfavorite.gif"/> |
+| Add Balance                                  | Update Image                                  | Review                                | Favoriting/Unfavoriting                   |
+| -------------------------------------------- | --------------------------------------------- | ------------------------------------- | ----------------------------------------- |
+| <img src="./readme/gifs/add-balance.gif"/>   | <img src="./readme/gifs/delete-image.gif"/>   | <img src="./readme/gifs/review.gif"/> | <img src="./readme/gifs/unfavorite.gif"/> |
 
 
 
 
-| Login                                  | Sign up                                 | User - Home                           | User - Favorites                           |
+| Login                                  | Sign up                                 | Home                                  | Favorites                                  |
 | -------------------------------------- | --------------------------------------- | ------------------------------------- | ------------------------------------------ |
 | <img src="./readme/device/login.png"/> | <img src="./readme/device/signup.png"/> | <img src="./readme/device/home.png"/> | <img src="./readme/device/favorites.png"/> |
 
 
 
-| User - Logs                           | User - Profile                           | User - Doctor Info                          | User - Balance                           |
+| Logs                                  | Profile                                  | Doctor Info                                 | Balance                                  |
 | ------------------------------------- | ---------------------------------------- | ------------------------------------------- | ---------------------------------------- |
 | <img src="./readme/device/logs.png"/> | <img src="./readme/device/profile.png"/> | <img src="./readme/device/doctorinfo.png"/> | <img src="./readme/device/balance.png"/> |
+
+
+
+* Doctor Screens
 
 
 | Doctor - Reviews                                | Doctor - Logs                                | Doctor - Profile                                |
 | ----------------------------------------------- | -------------------------------------------- | ----------------------------------------------- |
 | <img src="./readme/device/doctor-reviews.png"/> | <img src="./readme/device/doctor-logs.png"/> | <img src="./readme/device/doctor-profile.png"/> |
 
-| User - Calling                           | Doctor - Ringing                         |
-| ----------------------------------------  | ---------------------------------------- |
-| <img src="./readme/device/calling.png"/> | <img src="./readme/device/ringing.png"/> |
 
-<p align="center">
-<img src="/readme/device/call.gif" width="200"/>
-</p>
+
+* Call System
+
+
+| Calling                                | Video Call                                       | Ringing                                  |
+| -------------------------------------- | ------------------------------------------------ | ---------------------------------------- |
+| <img src="./readme/gifs/calling.gif"/> | <img src="/readme/device/call.gif" width="200"/> | <img src="./readme/device/ringing.png"/> |
+
 
 | Call Responses                             |
 | ------------------------------------------ |
@@ -98,7 +104,7 @@ Here's a brief high-level overview of the tech stack the app uses:
 > The App is also available in dark mode.
 
 <p align="center">
-<img src="/readme/device/theme.gif" width="250"/>
+<img src="/readme/gifs/dark-mode.gif" width="250"/>
 </p>
 
 | User - Home                            | User - Favorites                            | User - Logs                            | User - Profile                            |
