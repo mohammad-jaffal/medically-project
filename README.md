@@ -18,7 +18,7 @@
 <br>
 
 ### User Stories
-- As a user, I want to consult a doctor for urgent issue without waiting for an appointment.
+- As a user, I want to consult an admin for urgent issue without waiting for an appointment.
 - As a user, I want to share my experience with the doctor I called.
 
 <br>
@@ -31,9 +31,9 @@
 <br>
 
 ### Admin Stories
-- As a doctor, I want to accept or decline requested doctors.
-- As a doctor, I want to add new domains.
-- As a doctor, I want to track the stats of all users and doctors.
+- As an admin, I want to accept or decline requested doctors.
+- As an admin, I want to add new domains.
+- As an admin, I want to track the stats of all users and doctors.
 
 <br><br>
 
