@@ -90,6 +90,10 @@ Here's a brief high-level overview of the tech stack the app uses:
 | -------------------------------------- | ------------------------------------------- | -------------------------------------- | ----------------------------------------- |
 | <img src="./readme/device/home2.png"/> | <img src="./readme/device/favorites2.png"/> | <img src="./readme/device/logs2.png"/> | <img src="./readme/device/profile2.png"/> |
 
+| User - Balance                            | User - Doctor Info                           | Doctor - Logs                                 | Doctor - Profile                                 |
+| ----------------------------------------- | -------------------------------------------- | --------------------------------------------- | ------------------------------------------------ |
+| <img src="./readme/device/balance2.png"/> | <img src="./readme/device/doctorinfo2.png"/> | <img src="./readme/device/doctor-logs2.png"/> | <img src="./readme/device/doctor-profile2.png"/> |
+
 > Admin panel.
 
 | Admin - Doctors Data                           |
