@@ -110,13 +110,13 @@ Note that I didn't use any styling library or theme, all from scratch.
 <img src="./readme/gifs/dark-mode.gif" width="250"/>
 </p>
 
-| User - Home                            | User - Favorites                            | User - Logs                            | User - Profile                            |
+| Home                                   | Favorites                                   | Logs                                   | Profile                                   |
 | -------------------------------------- | ------------------------------------------- | -------------------------------------- | ----------------------------------------- |
 | <img src="./readme/device/home2.png"/> | <img src="./readme/device/favorites2.png"/> | <img src="./readme/device/logs2.png"/> | <img src="./readme/device/profile2.png"/> |
 
-| User - Balance                            | User - Doctor Info                           | Doctor - Logs                                 | Doctor - Profile                                 |
-| ----------------------------------------- | -------------------------------------------- | --------------------------------------------- | ------------------------------------------------ |
-| <img src="./readme/device/balance2.png"/> | <img src="./readme/device/doctorinfo2.png"/> | <img src="./readme/device/doctor-logs2.png"/> | <img src="./readme/device/doctor-profile2.png"/> |
+| Balance                                   | Doctor Info                                  |
+| ----------------------------------------- | -------------------------------------------- |
+| <img src="./readme/device/balance2.png"/> | <img src="./readme/device/doctorinfo2.png"/> |
 
 <br>
 
