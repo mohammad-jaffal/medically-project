@@ -34,21 +34,14 @@ Route::group(['prefix'=>'user'], function(){
     Route::post('/add-favorite', [FavoriteController::class, 'addFavorite']);
     Route::post('/remove-favorite', [FavoriteController::class, 'removeFavorite']);
     Route::post('/get-favorites', [FavoriteController::class, 'getFavoritesByUserID']);
-
     Route::post('/add-call', [CallController::class, 'addCall']);
     Route::post('/get-user-calls', [CallController::class, 'getCallsByUserID']);
     Route::post('/get-doctor-calls', [CallController::class, 'getCallsByDoctorID']);
-
     Route::post('/add-review', [ReviewController::class, 'addReview']);
-
     Route::post('/set-doctor-status', [DoctorController::class, 'setStatus']);
-
-
     Route::post('/add-balance', [BalanceController::class, 'addBalance']);
     Route::post('/get-balance', [BalanceController::class, 'getBalance']);
     Route::post('/transfer-balance', [BalanceController::class, 'transferBalance']);
-    
-
 });
 
 Route::post('/change-image', [UserController::class, 'changeImage']);
@@ -59,5 +52,4 @@ Route::get('/get-doctors', [DoctorController::class, 'getAllDoctors']);
 Route::post('/get-doctor', [DoctorController::class, 'getDoctor']);
 Route::get('/get-domains', [DomainController::class, 'getDomains']);
 Route::post('/update-bio', [DoctorController::class, 'updateBio']);
-
 Route::post('/get-reviews', [ReviewController::class, 'getReviewsByDoctorID']);

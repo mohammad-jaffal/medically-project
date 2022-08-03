@@ -55,13 +55,24 @@ Here's a brief high-level overview of the tech stack the app uses:
 <br><br>
 <img src="./readme/title5.svg"/>
 
+* User Screens
+
+| Login                                  | Home                                         | Navigation                                | Filter                                     |
+| -------------------------------------- | -------------------------------------------- | ----------------------------------------- | ------------------------------------------ |
+| <img src="./readme/gifs/login.gif"/>   | <img src="./readme/gifs/home-scroll.gif"/>   | <img src="./readme/gifs/navigation.gif"/> | <img src="./readme/gifs/home-filter.gif"/> |
+
+| Add Balance                                  | Calling Screen                           | Review                                | Favoriting/Unfavoriting                   |
+| -------------------------------------------- | ---------------------------------------- | ------------------------------------- | ----------------------------------------- |
+| <img src="./readme/gifs/add-balance.gif"/>   | <img src="./readme/gifs/calling.gif"/>   | <img src="./readme/gifs/review.gif"/> | <img src="./readme/gifs/unfavorite.gif"/> |
+
+
+
+
 | Login                                  | Sign up                                 | User - Home                           | User - Favorites                           |
 | -------------------------------------- | --------------------------------------- | ------------------------------------- | ------------------------------------------ |
 | <img src="./readme/device/login.png"/> | <img src="./readme/device/signup.png"/> | <img src="./readme/device/home.png"/> | <img src="./readme/device/favorites.png"/> |
 
-<p align="center">
-<img src="/readme/device/navigation.gif" width="250"/>
-</p>
+
 
 | User - Logs                           | User - Profile                           | User - Doctor Info                          | User - Balance                           |
 | ------------------------------------- | ---------------------------------------- | ------------------------------------------- | ---------------------------------------- |
