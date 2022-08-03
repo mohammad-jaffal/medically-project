@@ -59,6 +59,9 @@ Here's a brief high-level overview of the tech stack the app uses:
 | -------------------------------------- | --------------------------------------- | ------------------------------------- | ------------------------------------------ |
 | <img src="./readme/device/login.png"/> | <img src="./readme/device/signup.png"/> | <img src="./readme/device/home.png"/> | <img src="./readme/device/favorites.png"/> |
 
+
+<img src="/readme/device/navigation.gif" width="250"/>
+
 | User - Logs                           | User - Profile                           | User - Doctor Info                          | User - Balance                           |
 | ------------------------------------- | ---------------------------------------- | ------------------------------------------- | ---------------------------------------- |
 | <img src="./readme/device/logs.png"/> | <img src="./readme/device/profile.png"/> | <img src="./readme/device/doctorinfo.png"/> | <img src="./readme/device/balance.png"/> |
@@ -72,9 +75,8 @@ Here's a brief high-level overview of the tech stack the app uses:
 | ----------------------------------------  | ---------------------------------------- |
 | <img src="./readme/device/calling.png"/> | <img src="./readme/device/ringing.png"/> |
 
-| Video Call                                       |             
-| ------------------------------------------------ |
-| <img src="/readme/device/call.gif" width="250"/> |
+
+<img src="/readme/device/call.gif" width="250"/>
 
 | Call Responses                             |
 | ------------------------------------------ |
