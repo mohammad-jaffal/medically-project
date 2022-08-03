@@ -107,9 +107,9 @@ Here's a brief high-level overview of the tech stack the app uses:
 * Doctor Screens
 
 
-| Doctor - Reviews                                | Doctor - Logs                                | Doctor - Profile                                |
-| ----------------------------------------------- | -------------------------------------------- | ----------------------------------------------- |
-| <img src="./readme/device/doctor-reviews.png"/> | <img src="./readme/device/doctor-logs.png"/> | <img src="./readme/device/doctor-profile.png"/> |
+| Profile                                       | Reviews                                         | Logs                                         | Edit                                       |
+| --------------------------------------------- | ----------------------------------------------- | -------------------------------------------- | ------------------------------------------ |
+| <img src="./readme/gifs/doctor-profile.gif"/> | <img src="./readme/device/doctor-reviews.png"/> | <img src="./readme/device/doctor-logs.png"/> | <img src="./readme/gifs/doctor-edit.gif"/> |
 
 
 
@@ -125,10 +125,12 @@ Here's a brief high-level overview of the tech stack the app uses:
 | ------------------------------------------ |
 | <img src="./readme/device/responses.png"/> |
 
+<br>
+
 > The App is also available in dark mode.
 
 <p align="center">
-<img src="/readme/gifs/dark-mode.gif" width="250"/>
+<img src="./readme/gifs/dark-mode.gif" width="250"/>
 </p>
 
 | User - Home                            | User - Favorites                            | User - Logs                            | User - Profile                            |
