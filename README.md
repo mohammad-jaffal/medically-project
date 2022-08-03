@@ -15,6 +15,8 @@
 
 > Medically is a mobile application that allows users to reach out to registered doctors on the platform, place a paid call, rate, review, and add them to their favorites list.
 
+<br>
+
 ### User Stories
 - As a user, I want to consult a doctor for urgent issue without waiting for an appointment.
 - As a user, I want to share my experience with the doctor I called.
@@ -42,7 +44,9 @@
 <img id="wireframes" src="./readme/title3.svg"/>
 
 > This design was planned before on paper, then moved to Figma app for the fine details.
-Note that I didn't use any styling library or theme, all from scratch
+Note that I didn't use any styling library or theme, all from scratch.
+
+<br>
 
 | Login                                 | Sign up                                | User - Home                               | User - Favorites                              |
 | ------------------------------------- | -------------------------------------- | ----------------------------------------- | --------------------------------------------- |
@@ -64,7 +68,9 @@ Note that I didn't use any styling library or theme, all from scratch
 
 <img id="tech_stack" src="./readme/title4.svg"/>
 
-Here's a brief high-level overview of the tech stack the app uses:
+>Here's a brief high-level overview of the tech stack the app uses:
+
+<br>
 
 - This project uses the [Flutter app development framework](https://flutter.dev/). Flutter is an open source framework by Google for building beautiful, natively compiled, multi-platform applications from a single codebase.
 - For the backend, the app uses [Laravel](https://laravel.com//) framework. Laravel is a free and open-source PHP web framework, intended for the development of web applications following the model–view–controller architectural pattern and based on Symfony.
@@ -120,16 +126,17 @@ Here's a brief high-level overview of the tech stack the app uses:
 
 | Calling                                | Video Call                                       | Ringing                                  |
 | -------------------------------------- | ------------------------------------------------ | ---------------------------------------- |
-| <img src="./readme/gifs/calling.gif"/> | <img src="/readme/device/call.gif" width="200"/> | <img src="./readme/device/ringing.png"/> |
+| <img src="./readme/gifs/calling.gif"/> | <img src="/readme/device/call.gif" width="250"/> | <img src="./readme/device/ringing.png"/> |
 
 
 | Call Responses                             |
 | ------------------------------------------ |
 | <img src="./readme/device/responses.png"/> |
 
-<br>
 
-> The App is also available in dark mode.
+
+* Dark Mode
+
 
 <p align="center">
 <img src="./readme/gifs/dark-mode.gif" width="250"/>
