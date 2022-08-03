@@ -16,9 +16,25 @@
 > Medically is a mobile application that allows users to reach out to registered doctors on the platform, place a paid call, rate, review, and add them to their favorites list.
 
 ### User Stories
-- As a user, I want to consult a doctor for urgent issue without waiting for an appointment
-- As a user, I want to share my experience with the doctor I called
-<!-- - As a doctor, I want to get paid for my consultations -->
+- As a user, I want to consult a doctor for urgent issue without waiting for an appointment.
+- As a user, I want to share my experience with the doctor I called.
+
+<br>
+
+### Doctor Stories
+- As a doctor, I want to answer or decline incoming calls.
+- As a doctor, I want to get a revenue from answering to patients calls.
+
+<br>
+
+### Admin Stories
+- As a doctor, I want to accept or decline requested doctors.
+- As a doctor, I want to add new domains.
+- As a doctor, I want to track the stats of all users and doctors.
+
+<br><br>
+
+**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
 
 <br><br>
 
