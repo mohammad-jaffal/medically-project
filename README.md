@@ -100,17 +100,23 @@ Note that I didn't use any styling library or theme, all from scratch.
 | <img src="./readme/gifs/add-balance.gif"/>   | <img src="./readme/gifs/delete-image.gif"/>   | <img src="./readme/gifs/review.gif"/> | <img src="./readme/gifs/unfavorite.gif"/> |
 
 
-* Static User Screens
 
-| Login                                  | Sign up                                 | Home                                  | Favorites                                  |
-| -------------------------------------- | --------------------------------------- | ------------------------------------- | ------------------------------------------ |
-| <img src="./readme/device/login.png"/> | <img src="./readme/device/signup.png"/> | <img src="./readme/device/home.png"/> | <img src="./readme/device/favorites.png"/> |
+<br>
 
+* Dark Mode
 
 
-| Logs                                  | Profile                                  | Doctor Info                                 | Balance                                  |
-| ------------------------------------- | ---------------------------------------- | ------------------------------------------- | ---------------------------------------- |
-| <img src="./readme/device/logs.png"/> | <img src="./readme/device/profile.png"/> | <img src="./readme/device/doctorinfo.png"/> | <img src="./readme/device/balance.png"/> |
+<p align="center">
+<img src="./readme/gifs/dark-mode.gif" width="250"/>
+</p>
+
+| User - Home                            | User - Favorites                            | User - Logs                            | User - Profile                            |
+| -------------------------------------- | ------------------------------------------- | -------------------------------------- | ----------------------------------------- |
+| <img src="./readme/device/home2.png"/> | <img src="./readme/device/favorites2.png"/> | <img src="./readme/device/logs2.png"/> | <img src="./readme/device/profile2.png"/> |
+
+| User - Balance                            | User - Doctor Info                           | Doctor - Logs                                 | Doctor - Profile                                 |
+| ----------------------------------------- | -------------------------------------------- | --------------------------------------------- | ------------------------------------------------ |
+| <img src="./readme/device/balance2.png"/> | <img src="./readme/device/doctorinfo2.png"/> | <img src="./readme/device/doctor-logs2.png"/> | <img src="./readme/device/doctor-profile2.png"/> |
 
 <br>
 
@@ -134,23 +140,6 @@ Note that I didn't use any styling library or theme, all from scratch.
 | Call Responses                             |
 | ------------------------------------------ |
 | <img src="./readme/device/responses.png"/> |
-
-<br>
-
-* Dark Mode
-
-
-<p align="center">
-<img src="./readme/gifs/dark-mode.gif" width="250"/>
-</p>
-
-| User - Home                            | User - Favorites                            | User - Logs                            | User - Profile                            |
-| -------------------------------------- | ------------------------------------------- | -------------------------------------- | ----------------------------------------- |
-| <img src="./readme/device/home2.png"/> | <img src="./readme/device/favorites2.png"/> | <img src="./readme/device/logs2.png"/> | <img src="./readme/device/profile2.png"/> |
-
-| User - Balance                            | User - Doctor Info                           | Doctor - Logs                                 | Doctor - Profile                                 |
-| ----------------------------------------- | -------------------------------------------- | --------------------------------------------- | ------------------------------------------------ |
-| <img src="./readme/device/balance2.png"/> | <img src="./readme/device/doctorinfo2.png"/> | <img src="./readme/device/doctor-logs2.png"/> | <img src="./readme/device/doctor-profile2.png"/> |
 
 <br>
 
