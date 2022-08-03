@@ -72,6 +72,10 @@ Here's a brief high-level overview of the tech stack the app uses:
 | ---------------------------------------- | ---------------------------------------- |
 | <img src="./readme/device/calling.png"/> | <img src="./readme/device/ringing.png"/> |
 
+| Video Call                           |
+| ------------------------------------ |
+| ![videoCall](readme/device/call.gif) |
+
 | Call Responses                             |
 | ------------------------------------------ |
 | <img src="./readme/device/responses.png"/> |
