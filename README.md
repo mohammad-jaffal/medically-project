@@ -1,4 +1,4 @@
-<img src="./readme/title1.svg"/>
+<img id="top" src="./readme/title1.svg"/>
 
 <div align="center">
 
@@ -41,6 +41,10 @@ Note that I didn't use any styling library or theme, all from scratch
 
 <br><br>
 
+**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
+
+<br><br>
+
 <img id="tech_stack" src="./readme/title4.svg"/>
 
 Here's a brief high-level overview of the tech stack the app uses:
@@ -51,8 +55,12 @@ Here's a brief high-level overview of the tech stack the app uses:
 - The app uses the font ["Roboto"](https://fonts.google.com/specimen/Roboto) as its main font, and the design of the app adheres to the material design guidelines.
 
 
+<br><br>
+
+**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
 
 <br><br>
+
 <img id="implementation" src="./readme/title5.svg"/>
 
 * User Screens
@@ -141,8 +149,12 @@ Here's a brief high-level overview of the tech stack the app uses:
 | --------------------------------------------- |
 | <img src="./readme/device/admin-accept.PNG"/> |
 
+<br><br>
+
+**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
 
 <br><br>
+
 <img id="how_to_run" src="./readme/title6.svg"/>
 
 
@@ -169,3 +181,8 @@ Here's a brief high-level overview of the tech stack the app uses:
    ```
 
 
+<br><br>
+
+**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
+
+<br><br>
