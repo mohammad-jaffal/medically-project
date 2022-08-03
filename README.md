@@ -100,7 +100,7 @@ Note that I didn't use any styling library or theme, all from scratch.
 | <img src="./readme/gifs/add-balance.gif"/>   | <img src="./readme/gifs/delete-image.gif"/>   | <img src="./readme/gifs/review.gif"/> | <img src="./readme/gifs/unfavorite.gif"/> |
 
 
-
+* Static User Screens
 
 | Login                                  | Sign up                                 | Home                                  | Favorites                                  |
 | -------------------------------------- | --------------------------------------- | ------------------------------------- | ------------------------------------------ |
@@ -152,29 +152,31 @@ Note that I didn't use any styling library or theme, all from scratch.
 | ----------------------------------------- | -------------------------------------------- | --------------------------------------------- | ------------------------------------------------ |
 | <img src="./readme/device/balance2.png"/> | <img src="./readme/device/doctorinfo2.png"/> | <img src="./readme/device/doctor-logs2.png"/> | <img src="./readme/device/doctor-profile2.png"/> |
 
-> Admin panel.
+<br>
 
-| Admin - Doctors Data                           |
+* Admin Panel
+
+| Doctors Data                                   |
 | ---------------------------------------------- |
 | <img src="./readme/device/admin-doctors.PNG"/> |
 
-| Admin - Users Data                           |
+| Users Data                                   |
 | -------------------------------------------- |
 | <img src="./readme/device/admin-users.PNG"/> |
 
-| Admin - Hamburger Menu                                |
+| Hamburger Menu                                        |
 | ----------------------------------------------------- |
 | <img src="./readme/device/admin-hamburger-menu.PNG"/> |
 
-| Admin - Add Domain                                |
+| Add Domain                                        |
 | ------------------------------------------------- |
 | <img src="./readme/device/admin-add-domain.PNG"/> |
 
-| Admin - Requests                                |
+| Requests                                        |
 | ----------------------------------------------- |
 | <img src="./readme/device/admin-requests.PNG"/> |
 
-| Admin - Accept Request                        |
+| Accept Request                                |
 | --------------------------------------------- |
 | <img src="./readme/device/admin-accept.PNG"/> |
 
