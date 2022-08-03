@@ -68,9 +68,9 @@ Here's a brief high-level overview of the tech stack the app uses:
 | ----------------------------------------------- | -------------------------------------------- | ----------------------------------------------- |
 | <img src="./readme/device/doctor-reviews.png"/> | <img src="./readme/device/doctor-logs.png"/> | <img src="./readme/device/doctor-profile.png"/> |
 
-| User - Calling                           | Doctor - Ringing                         | Video Call                             |
-| ---------------------------------------- | ---------------------------------------- | -------------------------------------- |
-| <img src="./readme/device/calling.png"/> | <img src="./readme/device/ringing.png"/> | <video src="./readme/device/call.gif"> |
+| User - Calling                           | Doctor - Ringing                         | Video Call          |
+| ---------------------------------------- | ---------------------------------------- | ------------------- |
+| <img src="./readme/device/calling.png"/> | <img src="./readme/device/ringing.png"/> | ![](../../call.gif) |
 
 | Call Responses                             |
 | ------------------------------------------ |
