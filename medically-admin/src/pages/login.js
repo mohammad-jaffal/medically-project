@@ -7,12 +7,12 @@ const Login = () => {
     let navigate = useNavigate();
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
-
+    const apiConst = myConstClass.api_const;
     const validateToken = () => {
-        console.log(myConstClass.api_const);
+        
         var token = localStorage.getItem('admin_token');
                     // check user type
-                     fetch("http://localhost:8000/api/profile", {
+                     fetch(`${apiConst}/profile`, {
                         method: "POST",
                         headers: {
                             "Authorization": 'Bearer ' + token,
@@ -43,7 +43,7 @@ const Login = () => {
             params.append('password', inputPass);
             // validate email and password
 
-            await fetch("http://localhost:8000/api/login", {
+            await fetch(`${apiConst}/login`, {
                 method: "POST",
                 body: params,
             }).then(async res => {
@@ -51,7 +51,7 @@ const Login = () => {
                     const data = await res.json();
                     var token = data['access_token'];
                     // check user type
-                    await fetch("http://localhost:8000/api/profile", {
+                    await fetch(`${apiConst}/profile`, {
                         method: "POST",
                         headers: {
                             "Authorization": 'Bearer ' + token,
