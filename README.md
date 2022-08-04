@@ -60,9 +60,13 @@ Note that I didn't use any styling library or theme, all from scratch.
 | ------------------------------------------ | -------------------------------------------- | ------------------------------------------ | ---------------------------------------------- |
 |  <img src="./readme/figma/user-logs.png"/> | <img src="./readme/figma/user-profile.png"/> | <img src="./readme/figma/doctorinfo.png"/> | <img src="./readme/figma/doctor-reviews.png"/> |
 
+<div align="center">
+
 | Doctor - Logs                               | Doctor - Profile                               |
 | ------------------------------------------- | ---------------------------------------------- |
 | <img src="./readme/figma/doctor-logs.png"/> | <img src="./readme/figma/doctor-profile.png"/> |
+
+</div>
 
 <br><br>
 
