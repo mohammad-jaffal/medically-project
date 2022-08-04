@@ -1,15 +1,8 @@
-import 'package:agora_uikit/controllers/rtm_channel_event_handler.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:http/http.dart';
 import 'package:medically_frontend/providers/agora_provider.dart';
 import 'package:provider/provider.dart';
-
 import '../providers/calls_provider.dart';
-import '../providers/doctors_provider.dart';
 import 'package:agora_uikit/agora_uikit.dart';
-
 import '../providers/user_provider.dart';
 
 class UserCallScreen extends StatefulWidget {

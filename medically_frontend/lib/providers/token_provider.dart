@@ -1,15 +1,11 @@
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:medically_frontend/models/user.dart';
 import 'package:medically_frontend/providers/calls_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
-import 'package:medically_frontend/screens/bottom_bar.dart';
 import 'package:medically_frontend/services/token_prefs.dart';
 import 'package:provider/provider.dart';
-
-import '../doctor_screens/doctor_bottom_bar.dart';
 import '../models/doctor.dart';
 import 'doctor_provider.dart';
 import 'doctors_provider.dart';

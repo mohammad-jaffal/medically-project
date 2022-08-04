@@ -1,15 +1,7 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:medically_frontend/providers/doctor_provider.dart';
-import 'package:medically_frontend/providers/doctors_provider.dart';
-import 'package:medically_frontend/providers/reviews_provider.dart';
-import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:provider/provider.dart';
-
 import '../consts/constants.dart';
 import '../providers/dark_theme_provider.dart';
 import 'package:http/http.dart' as http;

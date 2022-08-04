@@ -1,20 +1,11 @@
 import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/doctor_screens/doctor_bottom_bar.dart';
-import 'package:medically_frontend/models/doctor.dart';
-import 'package:medically_frontend/providers/doctor_provider.dart';
 import 'package:medically_frontend/providers/token_provider.dart';
-import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/bottom_bar.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import '../consts/constants.dart';
-import '../models/user.dart';
-import '../providers/doctors_provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

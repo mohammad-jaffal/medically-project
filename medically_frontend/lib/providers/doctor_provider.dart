@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:medically_frontend/models/doctor.dart';
 import 'package:http/http.dart' as http;
-
 import '../consts/constants.dart';
 
 class DoctorProvider with ChangeNotifier {

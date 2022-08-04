@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:medically_frontend/models/doctor.dart';
 import 'package:medically_frontend/widgets/doctor_card.dart';
 import 'package:provider/provider.dart';
-
 import '../providers/dark_theme_provider.dart';
 import '../providers/doctors_provider.dart';
 

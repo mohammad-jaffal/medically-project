@@ -1,20 +1,11 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:medically_frontend/models/call.dart';
-import 'package:medically_frontend/providers/calls_provider.dart';
-import 'package:medically_frontend/providers/doctors_provider.dart';
-import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/favorites_screen.dart';
 import 'package:medically_frontend/screens/home_screen.dart';
 import 'package:medically_frontend/screens/logs_screen.dart';
 import 'package:medically_frontend/screens/user_call_screen.dart';
 import 'package:medically_frontend/screens/user_info_screen.dart';
 import 'package:native_notify/native_notify.dart';
-import 'package:provider/provider.dart';
-
-import '../providers/reviews_provider.dart';
 
 class BottomBarScreen extends StatefulWidget {
   const BottomBarScreen({Key? key}) : super(key: key);

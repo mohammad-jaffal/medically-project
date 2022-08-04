@@ -1,18 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/models/call.dart';
-import 'package:medically_frontend/models/doctor.dart';
 import 'dart:convert';
-
-import 'package:medically_frontend/providers/doctors_provider.dart';
 import 'package:medically_frontend/screens/doctor_details_screen.dart';
-import 'package:medically_frontend/screens/user_call_screen.dart';
-import 'package:provider/provider.dart';
-
-import '../providers/agora_provider.dart';
-import '../providers/dark_theme_provider.dart';
-
 import 'package:intl/intl.dart';
 
 class CallCard extends StatelessWidget {

@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class Review {
   final int id;
   final int user_id;

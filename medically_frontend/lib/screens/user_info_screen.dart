@@ -1,10 +1,5 @@
 import 'dart:convert';
-import 'dart:developer';
-import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:medically_frontend/providers/calls_provider.dart';
 import 'package:medically_frontend/providers/reviews_provider.dart';
@@ -14,8 +9,6 @@ import 'package:medically_frontend/screens/balance_screen.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
 import 'package:native_notify/native_notify.dart';
 import 'package:provider/provider.dart';
-import 'package:http/http.dart' as http;
-
 import '../providers/dark_theme_provider.dart';
 
 class UserInfoScreen extends StatefulWidget {

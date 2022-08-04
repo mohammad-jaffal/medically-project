@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:provider/provider.dart';
-
 import '../providers/dark_theme_provider.dart';
 
 class BundleCard extends StatelessWidget {

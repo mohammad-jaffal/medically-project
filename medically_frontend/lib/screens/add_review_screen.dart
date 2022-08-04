@@ -1,14 +1,11 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:medically_frontend/providers/doctors_provider.dart';
 import 'package:medically_frontend/providers/reviews_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:provider/provider.dart';
-
+import '../consts/constants.dart';
 import '../providers/dark_theme_provider.dart';
 import 'package:http/http.dart' as http;
 
@@ -21,6 +18,7 @@ class AddReviewScreen extends StatefulWidget {
 }
 
 class _AddReviewScreenState extends State<AddReviewScreen> {
+  String apiConst = Constants.api_const;
   var _rating = 0;
   final myController = TextEditingController();
 
@@ -28,7 +26,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
     if (_rating == 0 || myController.text == '') {
       print('do nothing');
     } else {
-      var url = Uri.parse('http://10.0.2.2:8000/api/user/add-review');
+      var url = Uri.parse('$apiConst/user/add-review');
       var response = await http.post(url, body: {
         'user_id': '$userID',
         'doctor_id': '$doctorID',

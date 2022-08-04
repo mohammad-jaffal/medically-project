@@ -1,12 +1,9 @@
 import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:medically_frontend/models/call.dart';
 import 'package:http/http.dart' as http;
 import 'package:medically_frontend/providers/agora_provider.dart';
 import 'package:provider/provider.dart';
-
 import '../consts/constants.dart';
 import 'doctor_provider.dart';
 

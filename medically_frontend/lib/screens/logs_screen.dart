@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/widgets/call_card.dart';
 import 'package:provider/provider.dart';
-
 import '../providers/calls_provider.dart';
-import '../providers/dark_theme_provider.dart';
 
 class LogsScreen extends StatefulWidget {
   const LogsScreen({Key? key}) : super(key: key);

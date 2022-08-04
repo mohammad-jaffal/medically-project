@@ -1,11 +1,7 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:medically_frontend/models/call.dart';
 import 'package:medically_frontend/models/review.dart';
-
 import 'package:http/http.dart' as http;
-
 import '../consts/constants.dart';
 
 class ReviewsProvider with ChangeNotifier {

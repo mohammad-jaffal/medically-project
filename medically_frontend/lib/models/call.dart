@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class Call {
   int id;
   int user_id;

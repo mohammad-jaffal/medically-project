@@ -1,14 +1,8 @@
 import 'dart:convert';
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/doctor_screens/doctor_call_screen.dart';
-import 'package:medically_frontend/providers/calls_provider.dart';
 import 'package:native_notify/native_notify.dart';
 import 'package:provider/provider.dart';
-
 import '../providers/agora_provider.dart';
 
 class DoctorRingingScreen extends StatefulWidget {

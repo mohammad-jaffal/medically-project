@@ -1,23 +1,16 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:medically_frontend/doctor_screens/update_bio_screen.dart';
 import 'package:medically_frontend/providers/token_provider.dart';
 import 'package:medically_frontend/screens/login_screen.dart';
 import 'package:native_notify/native_notify.dart';
 import 'package:provider/provider.dart';
-
 import '../consts/constants.dart';
 import '../providers/calls_provider.dart';
 import '../providers/dark_theme_provider.dart';
 import '../providers/doctor_provider.dart';
-import '../providers/doctor_provider.dart';
 import 'package:http/http.dart' as http;
-
 import '../providers/reviews_provider.dart';
 
 class DoctorInfoScreen extends StatefulWidget {

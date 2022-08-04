@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
-
-import '../providers/dark_theme_provider.dart';
 import '../providers/doctors_provider.dart';
 import '../widgets/doctor_card.dart';
 

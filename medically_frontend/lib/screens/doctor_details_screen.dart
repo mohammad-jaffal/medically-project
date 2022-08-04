@@ -1,19 +1,12 @@
 import 'dart:convert';
-import 'dart:ffi';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/providers/agora_provider.dart';
 import 'package:medically_frontend/providers/reviews_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/add_review_screen.dart';
-import 'package:medically_frontend/screens/user_call_screen.dart';
 import 'package:medically_frontend/screens/user_ringing_screen.dart';
 import 'package:medically_frontend/widgets/review_card.dart';
 import 'package:provider/provider.dart';
-
 import '../providers/dark_theme_provider.dart';
 import '../providers/doctors_provider.dart';
 import 'package:native_notify/native_notify.dart';

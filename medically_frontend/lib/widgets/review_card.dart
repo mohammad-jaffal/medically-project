@@ -1,13 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:medically_frontend/providers/reviews_provider.dart';
-import 'package:provider/provider.dart';
 
 class ReviewCard extends StatelessWidget {
-  String name = '';
   final double rating;
   final String review_text;
   ReviewCard(this.rating, this.review_text, {Key? key}) : super(key: key);

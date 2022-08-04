@@ -1,16 +1,11 @@
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:medically_frontend/models/doctor.dart';
 import 'package:medically_frontend/providers/doctors_provider.dart';
 import 'dart:convert';
-
 import 'package:medically_frontend/screens/doctor_details_screen.dart';
 import 'package:provider/provider.dart';
-
 import '../providers/reviews_provider.dart';
 
 class DoctorCard extends StatelessWidget {

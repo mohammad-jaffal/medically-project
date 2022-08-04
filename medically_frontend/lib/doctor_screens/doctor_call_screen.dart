@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:medically_frontend/providers/agora_provider.dart';
 import 'package:medically_frontend/providers/calls_provider.dart';
 import 'package:medically_frontend/providers/doctor_provider.dart';
 import 'package:provider/provider.dart';
-
-import '../providers/doctors_provider.dart';
 import 'package:agora_uikit/agora_uikit.dart';
 
 class DoctorCallScreen extends StatefulWidget {
