@@ -3,10 +3,12 @@ import Navbar from "../components/NavBar";
 import UserData from "../components/UserData";
 import { React, useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import * as myConstClass from '../consts/constants';
 
 
 
 const Home = () => {
+    const apiConst = myConstClass.api_const;
     var [selectedType, setSelectedType] = useState(1);
     const typeRef = useRef(null);
     const searchRef = useRef(null);
@@ -24,7 +26,7 @@ const Home = () => {
     // validate token
     const validateToken = () =>{
         var token = localStorage.getItem('admin_token');
-        fetch("http://localhost:8000/api/profile", {
+        fetch(`${apiConst}/profile`, {
                         method: "POST",
                         headers: {
                             "Authorization": 'Bearer ' + token,
@@ -47,7 +49,7 @@ const Home = () => {
 
     // fetch all users
     const fetchUsers = async () => {
-        await fetch("http://localhost:8000/api/admin/get-users", {
+        await fetch(`${apiConst}/admin/get-users`, {
             method: "GET",
         }).then(async res => {
             if (res.ok) {
@@ -59,7 +61,7 @@ const Home = () => {
 
     // fetch all doctors
     const fetchDoctors = async () => {
-        await fetch("http://localhost:8000/api/get-doctors", {
+        await fetch(`${apiConst}/get-doctors`, {
             method: "GET",
         }).then(async res => {
             if (res.ok) {
@@ -72,7 +74,7 @@ const Home = () => {
 
     // fetch all domains
     const fetchDomains = async () => {
-        await fetch("http://localhost:8000/api/get-domains", {
+        await fetch(`${apiConst}/get-domains`, {
             method: "GET",
         }).then(async res => {
             if (res.ok) {

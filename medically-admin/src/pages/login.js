@@ -4,10 +4,10 @@ import axios from 'axios';
 import * as myConstClass from '../consts/constants';
 
 const Login = () => {
+    const apiConst = myConstClass.api_const;
     let navigate = useNavigate();
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
-    const apiConst = myConstClass.api_const;
     const validateToken = () => {
         
         var token = localStorage.getItem('admin_token');
