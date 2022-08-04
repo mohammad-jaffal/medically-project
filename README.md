@@ -97,7 +97,7 @@ Note that I didn't use any styling library or theme, all from scratch.
 
 | Add Balance                                  | Update Image                                  | Review                                | Favoriting/Unfavoriting                   |
 | -------------------------------------------- | --------------------------------------------- | ------------------------------------- | ----------------------------------------- |
-| <img src="./readme/gifs/add-balance.gif" width="500"/>   | <img src="./readme/gifs/delete-image.gif" width="500"/>   | <img src="./readme/gifs/review.gif" width="500"/> | <img src="./readme/gifs/unfavorite.gif" width="500"/> |
+| <img src="./readme/gifs/add-balance.gif" width="20%"/>   | <img src="./readme/gifs/delete-image.gif" width="20%"/>   | <img src="./readme/gifs/review.gif" width="20%"/> | <img src="./readme/gifs/unfavorite.gif" width="20%"/> |
 
 
 
