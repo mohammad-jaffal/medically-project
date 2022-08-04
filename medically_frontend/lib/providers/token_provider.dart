@@ -14,10 +14,12 @@ import '../models/doctor.dart';
 import 'doctor_provider.dart';
 import 'doctors_provider.dart';
 import 'package:native_notify/native_notify.dart';
+import '../consts/constants.dart';
 
 class TokenProvider with ChangeNotifier {
   TokenPrefs tokenPrefs = TokenPrefs();
   var _token;
+  String apiConst = Constants.api_const;
 
   void setToken(var token) {
     _token = token;
@@ -32,7 +34,7 @@ class TokenProvider with ChangeNotifier {
     final doctorsProvider =
         Provider.of<DoctorsProvider>(context, listen: false);
     // check if token is legit
-    var url = Uri.parse('http://10.0.2.2:8000/api/profile');
+    var url = Uri.parse('$apiConst/profile');
     var response = await http.post(url, headers: {
       'Accept': 'application/json',
       'Authorization': 'Bearer $token'
@@ -67,7 +69,7 @@ class TokenProvider with ChangeNotifier {
         return 'user';
       } else if (savedType == 2) {
         // fetch the doctor details if the type is doctor
-        var detailsUrl = Uri.parse('http://10.0.2.2:8000/api/get-doctor');
+        var detailsUrl = Uri.parse('$apiConst/get-doctor');
         var detailsResponse = await http.post(detailsUrl, body: {
           'doctor_id': '${savedBody['id']}',
         });
