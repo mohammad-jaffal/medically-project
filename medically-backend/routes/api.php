@@ -11,6 +11,9 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\BalanceController;
 use App\Http\Controllers\UserController;
 
+Route::group(['prefix'=>'v0'], function(){
+
+
 Route::group(['middleware' => 'api'], function($router) {
     Route::post('/register', [JWTController::class, 'register']);
     Route::post('/login', [JWTController::class, 'login']);
@@ -53,3 +56,6 @@ Route::post('/get-doctor', [DoctorController::class, 'getDoctor']);
 Route::get('/get-domains', [DomainController::class, 'getDomains']);
 Route::post('/update-bio', [DoctorController::class, 'updateBio']);
 Route::post('/get-reviews', [ReviewController::class, 'getReviewsByDoctorID']);
+
+
+});
