@@ -19,10 +19,6 @@ class CallController extends Controller
             "success" => true,
         ], 200);
     }
-    // $doctor = \DB::table('users')
-    //     ->join('doctor_details', 'doctor_details.doctor_id', '=', 'users.id')
-    //     ->where('users.id', $request->doctor_id)
-    //     ->get();
 
 
     public function getCallsByUserID(Request $request){
