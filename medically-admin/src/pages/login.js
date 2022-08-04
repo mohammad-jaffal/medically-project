@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { React, useState, useEffect, useRef } from "react";
 import axios from 'axios';
+import * as myConstClass from '../consts/constants';
 
 const Login = () => {
     let navigate = useNavigate();
@@ -8,6 +9,7 @@ const Login = () => {
     const passwordRef = useRef(null);
 
     const validateToken = () => {
+        console.log(myConstClass.api_const);
         var token = localStorage.getItem('admin_token');
                     // check user type
                      fetch("http://localhost:8000/api/profile", {

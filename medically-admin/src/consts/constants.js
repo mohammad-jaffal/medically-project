@@ -1,0 +1,1 @@
+export const api_const = "http://localhost:8000/api/v0"
