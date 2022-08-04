@@ -12,6 +12,7 @@ import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:medically_frontend/screens/bottom_bar.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import '../consts/constants.dart';
 import '../models/user.dart';
 import '../providers/doctors_provider.dart';
 
@@ -25,6 +26,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool fetching = false;
   TokenProvider tokenProvider = TokenProvider();
+  String apiConst = Constants.api_const;
 
   final _loginFormKey = GlobalKey<FormState>();
   final _signupFormKey = GlobalKey<FormState>();
@@ -115,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     Future<void> _loginFunction() async {
       // logging in :)
-      var url = Uri.parse('http://10.0.2.2:8000/api/login');
+      var url = Uri.parse('$apiConst/login');
       var response = await http.post(url, body: {
         'email': _loginEmail,
         'password': _loginPassword,
@@ -162,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
           // print('unmatching passwords');
         } else {
-          var url = Uri.parse('http://10.0.2.2:8000/api/register');
+          var url = Uri.parse('$apiConst/register');
           var response = await http.post(url, body: {
             'name': _signupName,
             'email': _signupEmail,
