@@ -10,6 +10,7 @@ import 'package:medically_frontend/providers/reviews_provider.dart';
 import 'package:medically_frontend/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../consts/constants.dart';
 import '../providers/dark_theme_provider.dart';
 import 'package:http/http.dart' as http;
 
@@ -22,6 +23,7 @@ class UpdateBioScreen extends StatefulWidget {
 }
 
 class _UpdateBioScreenState extends State<UpdateBioScreen> {
+  String apiConst = Constants.api_const;
   final myController = TextEditingController();
 
   // updates bio in database and in provider
@@ -29,7 +31,7 @@ class _UpdateBioScreenState extends State<UpdateBioScreen> {
     if (myController.text == '') {
       print('do nothing');
     } else {
-      var url = Uri.parse('http://10.0.2.2:8000/api/update-bio');
+      var url = Uri.parse('$apiConst/update-bio');
       var response = await http.post(url, body: {
         'doctor_id': '$doctorID',
         'bio': myController.text,

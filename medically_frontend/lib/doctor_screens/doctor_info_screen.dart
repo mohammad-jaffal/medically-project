@@ -11,6 +11,7 @@ import 'package:medically_frontend/screens/login_screen.dart';
 import 'package:native_notify/native_notify.dart';
 import 'package:provider/provider.dart';
 
+import '../consts/constants.dart';
 import '../providers/calls_provider.dart';
 import '../providers/dark_theme_provider.dart';
 import '../providers/doctor_provider.dart';
@@ -27,6 +28,7 @@ class DoctorInfoScreen extends StatefulWidget {
 }
 
 class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
+  String apiConst = Constants.api_const;
   final myController = TextEditingController();
   Future pickImage(ImageSource source) async {
     print('camera');
@@ -241,8 +243,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                         : Icons.person_off_outlined),
                   ),
                   onChanged: (bool value) async {
-                    var url = Uri.parse(
-                        'http://10.0.2.2:8000/api/user/set-doctor-status');
+                    var url = Uri.parse('$apiConst/user/set-doctor-status');
                     var response = await http.post(url, body: {
                       'doctor_id': '${doctor.id}',
                       'status': value ? '1' : '0',

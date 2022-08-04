@@ -6,11 +6,14 @@ import 'package:medically_frontend/models/review.dart';
 
 import 'package:http/http.dart' as http;
 
+import '../consts/constants.dart';
+
 class ReviewsProvider with ChangeNotifier {
+  String apiConst = Constants.api_const;
   var _reviews;
   // fetchs all reviews for a doctor
   Future<void> fetchReviews(doctorID) async {
-    var url = Uri.parse('http://10.0.2.2:8000/api/get-reviews');
+    var url = Uri.parse('$apiConst/get-reviews');
     var response = await http.post(url, body: {
       'doctor_id': '$doctorID',
     });

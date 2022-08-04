@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:medically_frontend/models/doctor.dart';
 import 'package:http/http.dart' as http;
 
+import '../consts/constants.dart';
+
 class DoctorsProvider with ChangeNotifier {
+  String apiConst = Constants.api_const;
   var _doctors;
 
   var _domains;
@@ -13,14 +16,14 @@ class DoctorsProvider with ChangeNotifier {
 
   // fetches all doctors from database
   Future<void> fetchDoctors() async {
-    var url = Uri.parse('http://10.0.2.2:8000/api/get-doctors');
+    var url = Uri.parse('$apiConst/get-doctors');
     var response = await http.get(url);
     _doctors = json
         .decode(response.body)['doctors']
         .map((e) => Doctor.fromJson(e))
         .toList();
 
-    var domainsUrl = Uri.parse('http://10.0.2.2:8000/api/get-domains');
+    var domainsUrl = Uri.parse('$apiConst/get-domains');
     var domainsResponse = await http.get(domainsUrl);
 
     _domains = json.decode(domainsResponse.body)['domains'];
@@ -78,7 +81,7 @@ class DoctorsProvider with ChangeNotifier {
 
   // fetches all favorite doctors by user id
   Future<void> fetchFavorites(var userID) async {
-    var url = Uri.parse('http://10.0.2.2:8000/api/user/get-favorites');
+    var url = Uri.parse('$apiConst/user/get-favorites');
     var response = await http.post(url, body: {
       'user_id': '$userID',
     });
@@ -122,7 +125,7 @@ class DoctorsProvider with ChangeNotifier {
     for (var doctor in _doctors) {
       if (doctor.id == doctorID) {
         _favoriteIDs.add(doctorID);
-        var url = Uri.parse('http://10.0.2.2:8000/api/user/add-favorite');
+        var url = Uri.parse('$apiConst/user/add-favorite');
         var response = await http.post(url, body: {
           'user_id': '$userID',
           'doctor_id': '$doctorID',
@@ -137,7 +140,7 @@ class DoctorsProvider with ChangeNotifier {
     for (var doctor in _doctors) {
       if (doctor.id == doctorID) {
         _favoriteIDs.remove(doctorID);
-        var url = Uri.parse('http://10.0.2.2:8000/api/user/remove-favorite');
+        var url = Uri.parse('$apiConst/user/remove-favorite');
         var response = await http.post(url, body: {
           'user_id': '$userID',
           'doctor_id': '$doctorID',
