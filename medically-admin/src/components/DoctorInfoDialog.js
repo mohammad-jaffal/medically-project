@@ -1,7 +1,10 @@
 import { React, useState, useEffect, useRef } from "react";
+import * as myConstClass from '../consts/constants';
 
 
 const DoctorInfoDialog = (props) => {
+    const apiConst = myConstClass.api_const;
+    
     const nameRef = useRef('');
     const tokenRef = useRef('');
     const domainRef = useRef('');
@@ -14,7 +17,7 @@ async function handleAdd(){
         const params = new FormData();
         // change type to 2
         params.append('user_id', props.userId);
-        fetch("http://localhost:8000/api/admin/accept-doctor", {
+        fetch(`${apiConst}/admin/accept-doctor`, {
                 method: "POST",
                 body: params,
             }).then(async res => {
@@ -26,7 +29,7 @@ async function handleAdd(){
                 infoParams.append('channel_token', tokenRef.current.value);
                 infoParams.append('domain_id', domainRef.current.value);
 
-                fetch("http://localhost:8000/api/admin/add-doctor-details", {
+                fetch(`${apiConst}/admin/add-doctor-details`, {
                 method: "POST",
                 body: infoParams,
             }).then(async res=>{

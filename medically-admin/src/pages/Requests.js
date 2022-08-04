@@ -2,9 +2,11 @@ import { React, useState, useEffect, useRef } from "react";
 import DoctorInfoDialog from "../components/DoctorInfoDialog";
 import Navbar from "../components/NavBar";
 import { useNavigate } from "react-router-dom";
+import * as myConstClass from '../consts/constants';
 
 
 const Requests = () => {
+    const apiConst = myConstClass.api_const;
 
     var [isDialogOpen, setIsDialogOpen] = useState(false);
     var [pendingUsers, setPendingUsers] = useState([]);
@@ -17,7 +19,7 @@ const Requests = () => {
     // validate token
     const validateToken = () => {
         var token = localStorage.getItem('admin_token');
-        fetch("http://localhost:8000/api/profile", {
+        fetch(`${apiConst}/profile`, {
             method: "POST",
             headers: {
                 "Authorization": 'Bearer ' + token,
@@ -40,7 +42,7 @@ const Requests = () => {
 
     // fetch all domains
     const fetchPending = async () => {
-        await fetch("http://localhost:8000/api/admin/get-pending-users", {
+        await fetch(`${apiConst}/admin/get-pending-users`, {
             method: "GET",
         }).then(async res => {
             if (res.ok) {
@@ -57,7 +59,7 @@ const Requests = () => {
     async function rejectFuntion(id) {
         const params = new FormData();
         params.append('user_id', id);
-        await fetch("http://localhost:8000/api/admin/decline-doctor", {
+        await fetch(`${apiConst}/admin/decline-doctor`, {
             method: "POST",
             body: params,
         }).then(async res => {
@@ -71,7 +73,7 @@ const Requests = () => {
     }
 
     const fetchDomains = async () => {
-        await fetch("http://localhost:8000/api/get-domains", {
+        await fetch(`${apiConst}/get-domains`, {
             method: "GET",
         }).then(async res => {
             if (res.ok) {
@@ -106,8 +108,8 @@ const Requests = () => {
                     </thead>
                     {pendingUsers.map((user, index) => {
                         return (
-                            <tbody>
-                                <tr key={index}>
+                            <tbody key={index}>
+                                <tr>
                                     <td>{user.id}</td>
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
