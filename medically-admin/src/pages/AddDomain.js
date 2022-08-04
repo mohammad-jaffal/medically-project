@@ -1,9 +1,11 @@
 import Navbar from "../components/NavBar";
 import { React, useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import * as myConstClass from '../consts/constants';
 
 
 const AddDomain = () => {
+    const apiConst = myConstClass.api_const;
 
     var [domains, setDomains] = useState([]);
     const domainRef = useRef('');
@@ -12,7 +14,7 @@ const AddDomain = () => {
     // validate token
     const validateToken = () =>{
         var token = localStorage.getItem('admin_token');
-        fetch("http://localhost:8000/api/profile", {
+        fetch(`${apiConst}/profile`, {
                         method: "POST",
                         headers: {
                             "Authorization": 'Bearer ' + token,
@@ -35,7 +37,7 @@ const AddDomain = () => {
 
     // fetch all domains
     const fetchDomains = async () => {
-        await fetch("http://localhost:8000/api/get-domains", {
+        await fetch(`${apiConst}/get-domains`, {
             method: "GET",
         }).then(async res => {
             if (res.ok) {
@@ -53,7 +55,7 @@ const AddDomain = () => {
         } else {
             const params = new FormData();
             params.append('domain_name', domain_name);
-            await fetch("http://localhost:8000/api/admin/add-domain", {
+            await fetch(`${apiConst}/admin/add-domain`, {
                 method: "POST",
                 body: params,
             }).then(async res => {
@@ -61,6 +63,7 @@ const AddDomain = () => {
 
                     const data = await res.json();
                     fetchDomains();
+                    domainRef.current.value = "";
                 }
             });
         }
