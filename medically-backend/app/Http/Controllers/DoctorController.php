@@ -20,12 +20,11 @@ class DoctorController extends Controller
             "doctors" => $doctors
         ], 200);
     }
-    // DB::table('user')->where('email', $userEmail)->update(array('member_type' => $plan));
 
 
     public function acceptDoctor(Request $request){
 
-        \DB::table('users')->where('id', $request->user_id)->update(array('type' => 2));
+        User::where('id', $request->user_id)->update(array('type' => 2));
 
         return response()->json([
             "success" => true,
@@ -34,7 +33,7 @@ class DoctorController extends Controller
 
     public function declineDoctor(Request $request){
 
-        \DB::table('users')->where('id', $request->user_id)->update(array('type' => 1));
+        User::where('id', $request->user_id)->update(array('type' => 1));
 
         return response()->json([
             "success" => true,
@@ -62,9 +61,7 @@ class DoctorController extends Controller
 
     public function getDoctor(Request $request){
 
-        // $doctor = Doctor_detail::join('users', 'users.id', '=', 'doctor_details.doctor_id')->get(['doctor_details.*', 'users.*'])->where('users.id','=',$request->doctor_id)->get();
-        $doctor = \DB::table('users')
-        ->join('doctor_details', 'doctor_details.doctor_id', '=', 'users.id')
+        $doctor = User::join('doctor_details', 'doctor_details.doctor_id', '=', 'users.id')
         ->where('users.id', $request->doctor_id)
         ->get();
         return response()->json([
@@ -75,7 +72,7 @@ class DoctorController extends Controller
 
     public function setStatus(Request $request){
 
-        \DB::table('doctor_details')->where('doctor_id', $request->doctor_id)->update(array('online' => $request->status));
+        Doctor_Detail::where('doctor_id', $request->doctor_id)->update(array('online' => $request->status));
 
         return response()->json([
             "success" => true,
@@ -84,7 +81,7 @@ class DoctorController extends Controller
 
     public function updateBio(Request $request){
 
-        \DB::table('doctor_details')->where('doctor_id', $request->doctor_id)->update(array('bio' => $request->bio));
+        Doctor_Detail::where('doctor_id', $request->doctor_id)->update(array('bio' => $request->bio));
 
         return response()->json([
             "success" => true,
