@@ -12,27 +12,27 @@ const AddDomain = () => {
 
     let navigate = useNavigate();
     // validate token
-    const validateToken = () =>{
+    const validateToken = () => {
         var token = localStorage.getItem('admin_token');
         fetch(`${apiConst}/profile`, {
-                        method: "POST",
-                        headers: {
-                            "Authorization": 'Bearer ' + token,
-                            "Accept": 'application/json',
-                        },
+            method: "POST",
+            headers: {
+                "Authorization": 'Bearer ' + token,
+                "Accept": 'application/json',
+            },
 
-                    }).then(async res => {
-                        if (res.ok) {
-                            const data = await res.json();
-                            if (data['type'] != 0) {
-                                localStorage.setItem('admin_token', "none");
-                                navigate("/", { replace: true });
-                            }
-                        }else{
-                            localStorage.setItem('admin_token', "none");
-                                navigate("/", { replace: true });
-                        }
-                    });
+        }).then(async res => {
+            if (res.ok) {
+                const data = await res.json();
+                if (data['type'] != 0) {
+                    localStorage.setItem('admin_token', "none");
+                    navigate("/", { replace: true });
+                }
+            } else {
+                localStorage.setItem('admin_token', "none");
+                navigate("/", { replace: true });
+            }
+        });
     }
 
     // fetch all domains

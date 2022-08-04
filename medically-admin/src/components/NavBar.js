@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import mainLogo from '../assets/adminlogo.png';
 import hamIcon from '../assets/hamicon.png';
-import { React, useState, useEffect, useRef } from "react";
+import { React, useState } from "react";
 
 
 const Navbar = () => {
@@ -17,7 +17,7 @@ const Navbar = () => {
             {/* <div className="navbar-title">Admin Panel</div> */}
             <img src={mainLogo} className="navbar-logo" />
             <div className="hamburgur-menu">
-                <img src={hamIcon} className="ham-icon" onClick={()=> setMenuOpen(!menuOpen)} />
+                <img src={hamIcon} className="ham-icon" onClick={() => setMenuOpen(!menuOpen)} />
                 {menuOpen && <ul className="ham-list">
                     <li><p onClick={() => { navigate("/home", { replace: true }); setMenuOpen(false); }}>Home</p></li>
                     <li><p onClick={() => { navigate("/requests", { replace: true }); setMenuOpen(false); }}>Requests</p></li>

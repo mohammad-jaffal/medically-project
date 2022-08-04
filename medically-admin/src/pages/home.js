@@ -24,27 +24,27 @@ const Home = () => {
 
     let navigate = useNavigate();
     // validate token
-    const validateToken = () =>{
+    const validateToken = () => {
         var token = localStorage.getItem('admin_token');
         fetch(`${apiConst}/profile`, {
-                        method: "POST",
-                        headers: {
-                            "Authorization": 'Bearer ' + token,
-                            "Accept": 'application/json',
-                        },
+            method: "POST",
+            headers: {
+                "Authorization": 'Bearer ' + token,
+                "Accept": 'application/json',
+            },
 
-                    }).then(async res => {
-                        if (res.ok) {
-                            const data = await res.json();
-                            if (data['type'] != 0) {
-                                localStorage.setItem('admin_token', "none");
-                                navigate("/", { replace: true });
-                            }
-                        }else{
-                            localStorage.setItem('admin_token', "none");
-                                navigate("/", { replace: true });
-                        }
-                    });
+        }).then(async res => {
+            if (res.ok) {
+                const data = await res.json();
+                if (data['type'] != 0) {
+                    localStorage.setItem('admin_token', "none");
+                    navigate("/", { replace: true });
+                }
+            } else {
+                localStorage.setItem('admin_token', "none");
+                navigate("/", { replace: true });
+            }
+        });
     }
 
     // fetch all users
@@ -116,8 +116,8 @@ const Home = () => {
 
                 </div>
                 <div className="home-data-container">
-                    <input type="text" ref={searchRef} className="search-input" placeholder="Name / Email" onChange={()=>{setSearchKey(searchRef.current.value)}}/>
-                    {selectedType == 2 && <DoctorData doctors={filteredDoctors} domains={domains} selectedDomain={selectedDomain} searchKey={searchKey}/>}
+                    <input type="text" ref={searchRef} className="search-input" placeholder="Name / Email" onChange={() => { setSearchKey(searchRef.current.value) }} />
+                    {selectedType == 2 && <DoctorData doctors={filteredDoctors} domains={domains} selectedDomain={selectedDomain} searchKey={searchKey} />}
                     {selectedType == 1 && <UserData users={users} searchKey={searchKey} />}
 
                 </div>

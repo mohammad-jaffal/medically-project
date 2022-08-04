@@ -13,7 +13,6 @@ const Requests = () => {
 
     var [domains, setDomains] = useState([]);
     var [userId, setUserId] = useState('');
-    const domainRef = useRef('');
 
     let navigate = useNavigate();
     // validate token
@@ -40,7 +39,7 @@ const Requests = () => {
         });
     }
 
-    // fetch all domains
+    // fetch all users with type 3
     const fetchPending = async () => {
         await fetch(`${apiConst}/admin/get-pending-users`, {
             method: "GET",
@@ -51,11 +50,13 @@ const Requests = () => {
             }
         });
     }
+    // opens the dialog to input doctors details
     async function acceptFuntion(id) {
         setUserId(id);
         setIsDialogOpen(true);
 
     }
+    // sets the user type to 1 (normal user)
     async function rejectFuntion(id) {
         const params = new FormData();
         params.append('user_id', id);
@@ -68,10 +69,11 @@ const Requests = () => {
             }
         });
     }
+    // closes the dialog
     function closeFunction() {
         setIsDialogOpen(false);
     }
-
+    // fetch all domains
     const fetchDomains = async () => {
         await fetch(`${apiConst}/get-domains`, {
             method: "GET",

@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { React, useState, useEffect, useRef } from "react";
-import axios from 'axios';
+import { React, useEffect, useRef } from "react";
 import * as myConstClass from '../consts/constants';
 
 const Login = () => {
@@ -9,27 +8,27 @@ const Login = () => {
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
     const validateToken = () => {
-        
-        var token = localStorage.getItem('admin_token');
-                    // check user type
-                     fetch(`${apiConst}/profile`, {
-                        method: "POST",
-                        headers: {
-                            "Authorization": 'Bearer ' + token,
-                            "Accept": 'application/json',
-                        },
 
-                    }).then(async res => {
-                        if (res.ok) {
-                            const data2 = await res.json();
-                            if (data2['type'] == 0) {
-                                localStorage.setItem('admin_token', token);
-                                navigate("/home", { replace: true });
-                            }else{
-                                alert('You can\'t login here!');
-                            }
-                        }
-                    });
+        var token = localStorage.getItem('admin_token');
+        // validate the token and check user type
+        fetch(`${apiConst}/profile`, {
+            method: "POST",
+            headers: {
+                "Authorization": 'Bearer ' + token,
+                "Accept": 'application/json',
+            },
+
+        }).then(async res => {
+            if (res.ok) {
+                const data2 = await res.json();
+                if (data2['type'] == 0) {
+                    localStorage.setItem('admin_token', token);
+                    navigate("/home", { replace: true });
+                } else {
+                    alert('You can\'t login here!');
+                }
+            }
+        });
     }
 
     async function loginFunction() {
@@ -64,13 +63,13 @@ const Login = () => {
                             if (data2['type'] == 0) {
                                 localStorage.setItem('admin_token', token);
                                 navigate("/home", { replace: true });
-                            }else{
+                            } else {
                                 alert('You can\'t login here!');
                             }
                         }
                     });
                 }
-                else{
+                else {
                     alert("Wrong Credentials!")
                 }
             })
