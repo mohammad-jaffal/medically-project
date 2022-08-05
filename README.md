@@ -173,7 +173,7 @@ Note that I didn't use any styling library or theme, all from scratch.
 
 | Hamburger Menu                                                    |
 | ----------------------------------------------------------------- |
-| <img src="./readme/device/admin-hamburger-menu.PNG" width="60%"/> |
+| <img src="./readme/device/admin-hamburger-menu.PNG" width="400"/> |
 
 </div>
 
