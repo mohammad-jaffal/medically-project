@@ -18,7 +18,7 @@
 <br>
 
 ### User Stories
-- As a user, I want to consult an admin for urgent issue without waiting for an appointment.
+- As a user, I want to consult a doctor for urgent issue without waiting for an appointment.
 - As a user, I want to share my experience with the doctor I called.
 
 <br>
@@ -26,7 +26,7 @@
 ### Doctor Stories
 - As a doctor, I want to answer or decline incoming calls.
 - As a doctor, I want to be able to go online or offline.
-- As a doctor, I want to get a revenue from answering to patients calls.
+- As a doctor, I want to get a revenue from answering patients calls.
 
 <br>
 
@@ -99,7 +99,7 @@ Note that I didn't use any styling library or theme, all from scratch.
 | -------------------------------------- | -------------------------------------------- | ----------------------------------------- | ------------------------------------------ |
 | <img src="./readme/gifs/login.gif"/>   | <img src="./readme/gifs/home-scroll.gif"/>   | <img src="./readme/gifs/navigation.gif"/> | <img src="./readme/gifs/home-filter.gif"/> |
 
-| Add Balance                                  | Update Image                                  | Review                                | Favoriting                                |
+| Add Balance                                  | Update Image                                  | Review                                | Favorite                                  |
 | -------------------------------------------- | --------------------------------------------- | ------------------------------------- | ----------------------------------------- |
 | <img src="./readme/gifs/add-balance.gif"/>   | <img src="./readme/gifs/delete-image.gif"/>   | <img src="./readme/gifs/review.gif"/> | <img src="./readme/gifs/unfavorite.gif"/> |
 
@@ -136,7 +136,7 @@ Note that I didn't use any styling library or theme, all from scratch.
 * Call System
 
 
-| Calling                                | Video Call                                       | Ringing                                |
+| User Calling                           | Video Call                                       | Doctor Ringing                         |
 | -------------------------------------- | ------------------------------------------------ | -------------------------------------- |
 | <img src="./readme/gifs/calling.gif"/> | <img src="/readme/device/call.gif" width="220"/> | <img src="./readme/gifs/ringing.gif"/> |
 
