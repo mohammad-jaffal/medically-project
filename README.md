@@ -39,7 +39,7 @@
 
 <div align="center">
 
-**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
+**[PROJECT PHILOSOPHY](#project_philosophy) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
 
 </div>
 
@@ -72,7 +72,7 @@ Note that I didn't use any styling library or theme, all from scratch.
 
 <div align="center">
 
-**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
+**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
 
 </div>
 
@@ -95,7 +95,7 @@ Note that I didn't use any styling library or theme, all from scratch.
 
 <div align="center">
 
-**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
+**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
 
 </div>
 
@@ -193,7 +193,7 @@ Note that I didn't use any styling library or theme, all from scratch.
 
 <div align="center">
 
-**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
+**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [BACK TO TOP](#top)**
 
 </div>
 
@@ -217,19 +217,19 @@ Note that I didn't use any styling library or theme, all from scratch.
    ```sh
    git clone https://github.com/mohammad-jaffal/medically-project.git
    ```
-2. Install packages for the React project
+2. Install the packages for the React project
    ```sh
    npm install
    ```
-3. Install packages for the Flutter project
+3. Install the packages for the Flutter project
    ```sh
    flutter pub get
    ```
-4. Start backend server in cmd
+4. Start the backend server in cmd
    ```sh
    php artisan serve
    ```
-5. Create agora project on the [agora](https://console.agora.io/) console and update app id in flutter project, then generate access token for each accepted doctor
+5. Create an agora project on the [agora](https://console.agora.io/) console and update the app id in the flutter project, then generate an access token for each accepted doctor
 
 
 <br><br>
