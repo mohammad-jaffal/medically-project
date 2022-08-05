@@ -161,23 +161,29 @@ Note that I didn't use any styling library or theme, all from scratch.
 
 * Admin Panel
 
-| Doctors Data                                   | Users Data                                   |
-| ---------------------------------------------- | -------------------------------------------- |
-| <img src="./readme/device/admin-doctors.PNG"/> | <img src="./readme/device/admin-users.PNG"/> |
+| Doctors Data                                   |
+| ---------------------------------------------- |
+| <img src="./readme/device/admin-doctors.PNG" width="60%"/> |
 
+| Users Data                                   |
+| -------------------------------------------- |
+| <img src="./readme/device/admin-users.PNG" width="60%"/> |
 
-| Hamburger Menu                                                    |
-| ----------------------------------------------------------------- |
-| <img src="./readme/device/admin-hamburger-menu.PNG" width="300"/> |
+| Hamburger Menu                                        |
+| ----------------------------------------------------- |
+| <img src="./readme/device/admin-hamburger-menu.PNG" width="60%"/> |
 
 | Add Domain                                        |
 | ------------------------------------------------- |
-| <img src="./readme/device/admin-add-domain.PNG"/> |
+| <img src="./readme/device/admin-add-domain.PNG" width="60%"/> |
 
-| Requests                                        | Accept Request                                |
-| ----------------------------------------------- | --------------------------------------------- |
-| <img src="./readme/device/admin-requests.PNG"/> | <img src="./readme/device/admin-accept.PNG"/> |
+| Requests                                        |
+| ----------------------------------------------- |
+| <img src="./readme/device/admin-requests.PNG" width="60%"/> |
 
+| Accept Request                                |
+| --------------------------------------------- |
+| <img src="./readme/device/admin-accept.PNG" width="60%"/> |
 
 <br><br>
 
