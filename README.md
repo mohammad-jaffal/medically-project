@@ -85,10 +85,10 @@ Note that I didn't use any styling library or theme, all from scratch.
 <br>
 
 - This project uses the [Flutter app development framework](https://flutter.dev/). Flutter is an open source framework by Google for building beautiful, natively compiled, multi-platform applications from a single codebase.
-- For the backend, the app uses [Laravel](https://laravel.com//) framework. Laravel is a free and open-source PHP web framework, intended for the development of web applications following the model–view–controller architectural pattern and based on Symfony.
+- For the backend, the app uses [Laravel](https://laravel.com/) framework. Laravel is a free and open-source PHP web framework, intended for the development of web applications following the model–view–controller architectural pattern and based on Symfony.
 - For persistent storage (database), the app uses [MySQL](https://www.mysql.com/) database.
 - For the video call system, the app uses the [agora_uikit](https://pub.dev/packages/agora_uikit) package.
-- The app uses the font ["Roboto"](https://fonts.google.com/specimen/Roboto) as its main font, and the design of the app adheres to the material design guidelines.
+- The app uses the font [Roboto](https://fonts.google.com/specimen/Roboto) as its main font, and the design of the app adheres to the material design guidelines.
 
 
 <br><br>
@@ -206,7 +206,9 @@ Note that I didn't use any styling library or theme, all from scratch.
 
 ### Prerequisites
 
+* Flutter
 * Android Studio
+* Agora account
 * 2 Android emulators
 
 ### Installation
@@ -223,6 +225,11 @@ Note that I didn't use any styling library or theme, all from scratch.
    ```sh
    flutter pub get
    ```
+4. Start backend server in cmd
+   ```sh
+   php artisan serve
+   ```
+5. Create agora project on the [agora](https://console.agora.io/) console and update app id in flutter project, then generate access token for each accepted doctor
 
 
 <br><br>
