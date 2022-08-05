@@ -163,27 +163,27 @@ Note that I didn't use any styling library or theme, all from scratch.
 
 | Doctors Data                                   |
 | ---------------------------------------------- |
-| <img src="./readme/device/admin-doctors.PNG" width="60%"/> |
+| <div align="center"> <img src="./readme/device/admin-doctors.PNG" width="60%"/> </div> |
 
 | Users Data                                   |
 | -------------------------------------------- |
-| <img src="./readme/device/admin-users.PNG" width="60%"/> |
+| <div align="center"> <img src="./readme/device/admin-users.PNG" width="80%"/> </div> |
 
 | Hamburger Menu                                        |
 | ----------------------------------------------------- |
-| <img src="./readme/device/admin-hamburger-menu.PNG" width="60%"/> |
+| <div align="center"> <img src="./readme/device/admin-hamburger-menu.PNG" width="80%"/> </div> |
 
 | Add Domain                                        |
 | ------------------------------------------------- |
-| <img src="./readme/device/admin-add-domain.PNG" width="60%"/> |
+| <div align="center"> <img src="./readme/device/admin-add-domain.PNG" width="80%"/> </div> |
 
 | Requests                                        |
 | ----------------------------------------------- |
-| <img src="./readme/device/admin-requests.PNG" width="60%"/> |
+| <div align="center"> <img src="./readme/device/admin-requests.PNG" width="80%"/> </div> |
 
 | Accept Request                                |
 | --------------------------------------------- |
-| <img src="./readme/device/admin-accept.PNG" width="60%"/> |
+| <div align="center"> <img src="./readme/device/admin-accept.PNG" width="80%"/> </div> |
 
 <br><br>
 
