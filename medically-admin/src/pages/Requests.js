@@ -6,6 +6,8 @@ import * as myConstClass from '../consts/constants';
 
 
 const Requests = () => {
+
+    var token = localStorage.getItem('admin_token');
     const apiConst = myConstClass.api_const;
 
     var [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -15,38 +17,23 @@ const Requests = () => {
     var [userId, setUserId] = useState('');
 
     let navigate = useNavigate();
-    // validate token
-    const validateToken = () => {
-        var token = localStorage.getItem('admin_token');
-        fetch(`${apiConst}/profile`, {
-            method: "POST",
-            headers: {
-                "Authorization": 'Bearer ' + token,
-                "Accept": 'application/json',
-            },
 
-        }).then(async res => {
-            if (res.ok) {
-                const data = await res.json();
-                if (data['type'] != 0) {
-                    localStorage.setItem('admin_token', "none");
-                    navigate("/", { replace: true });
-                }
-            } else {
-                localStorage.setItem('admin_token', "none");
-                navigate("/", { replace: true });
-            }
-        });
-    }
 
     // fetch all users with type 3
     const fetchPending = async () => {
         await fetch(`${apiConst}/admin/get-pending-users`, {
             method: "GET",
+            headers: {
+                "Authorization": 'Bearer ' + token,
+                "Accept": 'application/json',
+            },
         }).then(async res => {
             if (res.ok) {
                 const data = await res.json();
                 setPendingUsers(data['users']);
+            } else {
+                localStorage.setItem('admin_token', "none");
+                navigate("/", { replace: true });
             }
         });
     }
@@ -63,9 +50,16 @@ const Requests = () => {
         await fetch(`${apiConst}/admin/decline-doctor`, {
             method: "POST",
             body: params,
+            headers: {
+                "Authorization": 'Bearer ' + token,
+                "Accept": 'application/json',
+            },
         }).then(async res => {
             if (res.ok) {
                 fetchPending();
+            } else {
+                localStorage.setItem('admin_token', "none");
+                navigate("/", { replace: true });
             }
         });
     }
@@ -86,7 +80,6 @@ const Requests = () => {
     }
 
     useEffect(() => {
-        validateToken();
         fetchPending();
         fetchDomains()
     }, [])

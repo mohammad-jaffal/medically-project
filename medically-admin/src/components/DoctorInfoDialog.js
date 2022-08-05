@@ -1,13 +1,19 @@
 import { React, useRef } from "react";
 import * as myConstClass from '../consts/constants';
+import { useNavigate } from "react-router-dom";
 
 
 const DoctorInfoDialog = (props) => {
+
+    var token = localStorage.getItem('admin_token');
     const apiConst = myConstClass.api_const;
 
     const nameRef = useRef('');
     const tokenRef = useRef('');
     const domainRef = useRef('');
+
+    let navigate = useNavigate();
+
 
     async function handleAdd() {
         if (nameRef.current.value == '' || tokenRef.current.value == '') {
@@ -19,6 +25,10 @@ const DoctorInfoDialog = (props) => {
             fetch(`${apiConst}/admin/accept-doctor`, {
                 method: "POST",
                 body: params,
+                headers: {
+                    "Authorization": 'Bearer ' + token,
+                    "Accept": 'application/json',
+                },
             }).then(async res => {
                 if (res.ok) {
                     const infoParams = new FormData();
@@ -37,6 +47,9 @@ const DoctorInfoDialog = (props) => {
                             props.closeDialog();
                         }
                     });
+                } else {
+                    localStorage.setItem('admin_token', "none");
+                    navigate("/", { replace: true });
                 }
             });
 

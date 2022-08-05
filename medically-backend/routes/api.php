@@ -22,13 +22,14 @@ Route::group(['prefix'=>'v0'], function(){
     });
 
     Route::group(['prefix'=>'admin'], function(){
-        Route::post('/add-doctor-details', [DoctorController::class, 'addDoctorDetails']);
-        Route::post('/accept-doctor', [DoctorController::class, 'acceptDoctor']);
-        Route::post('/decline-doctor', [DoctorController::class, 'declineDoctor']);
-        Route::post('/add-domain', [DomainController::class, 'addDomain']);
-        Route::get('/get-users', [UserController::class, 'getAllUsers']);
-        Route::get('/get-pending-users', [UserController::class, 'getPendingUsers']);
-
+        Route::group(['middleware' => 'isAdmin'], function($router) {
+            Route::post('/add-doctor-details', [DoctorController::class, 'addDoctorDetails']);
+            Route::post('/accept-doctor', [DoctorController::class, 'acceptDoctor']);
+            Route::post('/decline-doctor', [DoctorController::class, 'declineDoctor']);
+            Route::post('/add-domain', [DomainController::class, 'addDomain']);
+            Route::get('/get-users', [UserController::class, 'getAllUsers']);
+            Route::get('/get-pending-users', [UserController::class, 'getPendingUsers']);
+        });
     });
 
     Route::group(['prefix'=>'user'], function(){

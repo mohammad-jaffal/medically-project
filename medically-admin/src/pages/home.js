@@ -8,6 +8,8 @@ import * as myConstClass from '../consts/constants';
 
 
 const Home = () => {
+
+    var token = localStorage.getItem('admin_token');
     const apiConst = myConstClass.api_const;
     var [selectedType, setSelectedType] = useState(1);
     const typeRef = useRef(null);
@@ -23,38 +25,24 @@ const Home = () => {
 
 
     let navigate = useNavigate();
-    // validate token
-    const validateToken = () => {
-        var token = localStorage.getItem('admin_token');
-        fetch(`${apiConst}/profile`, {
-            method: "POST",
-            headers: {
-                "Authorization": 'Bearer ' + token,
-                "Accept": 'application/json',
-            },
 
-        }).then(async res => {
-            if (res.ok) {
-                const data = await res.json();
-                if (data['type'] != 0) {
-                    localStorage.setItem('admin_token', "none");
-                    navigate("/", { replace: true });
-                }
-            } else {
-                localStorage.setItem('admin_token', "none");
-                navigate("/", { replace: true });
-            }
-        });
-    }
 
     // fetch all users
     const fetchUsers = async () => {
         await fetch(`${apiConst}/admin/get-users`, {
             method: "GET",
+            headers: {
+                "Authorization": 'Bearer ' + token,
+                "Accept": 'application/json',
+            },
         }).then(async res => {
             if (res.ok) {
                 const data = await res.json();
                 setUsers(data['users']);
+            }
+            else {
+                localStorage.setItem('admin_token', "none");
+                navigate("/", { replace: true });
             }
         });
     }
@@ -86,7 +74,6 @@ const Home = () => {
 
     // use effect :)
     useEffect(() => {
-        validateToken();
         fetchUsers();
         fetchDoctors();
         fetchDomains();

@@ -5,35 +5,15 @@ import * as myConstClass from '../consts/constants';
 
 
 const AddDomain = () => {
+
+    var token = localStorage.getItem('admin_token');
     const apiConst = myConstClass.api_const;
 
     var [domains, setDomains] = useState([]);
     const domainRef = useRef('');
 
     let navigate = useNavigate();
-    // validate token
-    const validateToken = () => {
-        var token = localStorage.getItem('admin_token');
-        fetch(`${apiConst}/profile`, {
-            method: "POST",
-            headers: {
-                "Authorization": 'Bearer ' + token,
-                "Accept": 'application/json',
-            },
 
-        }).then(async res => {
-            if (res.ok) {
-                const data = await res.json();
-                if (data['type'] != 0) {
-                    localStorage.setItem('admin_token', "none");
-                    navigate("/", { replace: true });
-                }
-            } else {
-                localStorage.setItem('admin_token', "none");
-                navigate("/", { replace: true });
-            }
-        });
-    }
 
     // fetch all domains
     const fetchDomains = async () => {
@@ -58,12 +38,19 @@ const AddDomain = () => {
             await fetch(`${apiConst}/admin/add-domain`, {
                 method: "POST",
                 body: params,
+                headers: {
+                    "Authorization": 'Bearer ' + token,
+                    "Accept": 'application/json',
+                },
             }).then(async res => {
                 if (res.ok) {
 
                     const data = await res.json();
                     fetchDomains();
                     domainRef.current.value = "";
+                } else {
+                    localStorage.setItem('admin_token', "none");
+                    navigate("/", { replace: true });
                 }
             });
         }
@@ -73,7 +60,6 @@ const AddDomain = () => {
 
     // use effect :)
     useEffect(() => {
-        validateToken();
         fetchDomains();
     }, [])
 
