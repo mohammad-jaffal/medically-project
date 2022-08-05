@@ -37,11 +37,7 @@
 
 <br><br>
 
-<div align="center">
 
-**[PROJECT PHILOSOPHY](#project_philosophy) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
-
-</div>
 
 <br><br>
 
@@ -70,11 +66,7 @@ Note that I didn't use any styling library or theme, all from scratch.
 
 <br><br>
 
-<div align="center">
 
-**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
-
-</div>
 
 <br><br>
 
@@ -93,11 +85,7 @@ Note that I didn't use any styling library or theme, all from scratch.
 
 <br><br>
 
-<div align="center">
 
-**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
-
-</div>
 
 <br><br>
 
@@ -191,11 +179,7 @@ Note that I didn't use any styling library or theme, all from scratch.
 
 <br><br>
 
-<div align="center">
 
-**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [BACK TO TOP](#top)**
-
-</div>
 
 <br><br>
 
@@ -236,7 +220,7 @@ Note that I didn't use any styling library or theme, all from scratch.
 
 <div align="center">
 
-**[PROJECT PHILOSOPHY](#project_philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech_stack) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how_to_run)• [BACK TO TOP](#top)**
+**[GO TO TOP](#top)**
 
 </div>
 
