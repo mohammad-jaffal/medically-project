@@ -49,6 +49,7 @@ const AddDomain = () => {
                     fetchDomains();
                     domainRef.current.value = "";
                 } else {
+                    // redirect to login if error
                     localStorage.setItem('admin_token', "none");
                     navigate("/", { replace: true });
                 }

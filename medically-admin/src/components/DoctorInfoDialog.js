@@ -48,6 +48,7 @@ const DoctorInfoDialog = (props) => {
                         }
                     });
                 } else {
+                    // redirect to login if error
                     localStorage.setItem('admin_token', "none");
                     navigate("/", { replace: true });
                 }

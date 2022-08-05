@@ -32,6 +32,7 @@ const Requests = () => {
                 const data = await res.json();
                 setPendingUsers(data['users']);
             } else {
+                // redirect to login if error
                 localStorage.setItem('admin_token', "none");
                 navigate("/", { replace: true });
             }
@@ -58,6 +59,7 @@ const Requests = () => {
             if (res.ok) {
                 fetchPending();
             } else {
+                // redirect to login if error
                 localStorage.setItem('admin_token', "none");
                 navigate("/", { replace: true });
             }

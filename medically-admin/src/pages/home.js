@@ -41,6 +41,7 @@ const Home = () => {
                 setUsers(data['users']);
             }
             else {
+                // redirect to login if error
                 localStorage.setItem('admin_token', "none");
                 navigate("/", { replace: true });
             }
