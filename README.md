@@ -178,9 +178,9 @@ Note that I didn't use any styling library or theme, all from scratch.
 | <img src="./readme/device/admin-add-domain.PNG"/> | <img src="./readme/device/admin-requests.PNG"/> |
 
 
-| Accept Request                                |
-| --------------------------------------------- |
-| <img src="./readme/device/admin-accept.PNG"/> |
+| Accept Request                              |
+| ------------------------------------------- |
+| <img src="./readme/gifs/admin-accept.gif"/> |
 
 <br><br>
 
