@@ -169,18 +169,25 @@ Note that I didn't use any styling library or theme, all from scratch.
 | -------------------------------------------- |
 | <div align="center"> <img src="./readme/device/admin-users.PNG"/> </div> |
 
-| Hamburger Menu                                        |
-| ----------------------------------------------------- |
-| <div align="center"> <img src="./readme/device/admin-hamburger-menu.PNG" width="60%"/> </div> |
+<div align="center">
+
+| Hamburger Menu                                                    |
+| ----------------------------------------------------------------- |
+| <img src="./readme/device/admin-hamburger-menu.PNG" width="60%"/> |
+
+</div>
 
 | Add Domain                                        | Requests                                        |
 | ------------------------------------------------- | ----------------------------------------------- |
 | <img src="./readme/device/admin-add-domain.PNG"/> | <img src="./readme/device/admin-requests.PNG"/> |
 
+<div align="center">
 
 | Accept Request                              |
 | ------------------------------------------- |
 | <img src="./readme/gifs/admin-accept.gif"/> |
+
+</div> 
 
 <br><br>
 
