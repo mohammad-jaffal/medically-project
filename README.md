@@ -161,29 +161,23 @@ Note that I didn't use any styling library or theme, all from scratch.
 
 * Admin Panel
 
-| Doctors Data                                   |
-| ---------------------------------------------- |
-| <img src="./readme/device/admin-doctors.PNG"/> |
+| Doctors Data                                   | Users Data                                   |
+| ---------------------------------------------- | -------------------------------------------- |
+| <img src="./readme/device/admin-doctors.PNG"/> | <img src="./readme/device/admin-users.PNG"/> |
 
-| Users Data                                   |
-| -------------------------------------------- |
-| <img src="./readme/device/admin-users.PNG"/> |
 
-| Hamburger Menu                                        |
-| ----------------------------------------------------- |
-| <img src="./readme/device/admin-hamburger-menu.PNG"/> |
+| Hamburger Menu                                                    |
+| ----------------------------------------------------------------- |
+| <img src="./readme/device/admin-hamburger-menu.PNG" width="300"/> |
 
 | Add Domain                                        |
 | ------------------------------------------------- |
 | <img src="./readme/device/admin-add-domain.PNG"/> |
 
-| Requests                                        |
-| ----------------------------------------------- |
-| <img src="./readme/device/admin-requests.PNG"/> |
+| Requests                                        | Accept Request                                |
+| ----------------------------------------------- | --------------------------------------------- |
+| <img src="./readme/device/admin-requests.PNG"/> | <img src="./readme/device/admin-accept.PNG"/> |
 
-| Accept Request                                |
-| --------------------------------------------- |
-| <img src="./readme/device/admin-accept.PNG"/> |
 
 <br><br>
 
